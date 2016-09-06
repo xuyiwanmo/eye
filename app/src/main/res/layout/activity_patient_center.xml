@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/white"
+              android:fitsSystemWindows="true"
+              android:orientation="vertical">
+
+    <com.sg.eyedoctor.common.view.MyActionbar
+        android:id="@+id/actionbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:actionbar_title="@string/patient_center"/>
+
+    <!--顶部:医生信息-->
+    <RelativeLayout
+        android:id="@+id/rl_patient_detail"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@drawable/shape_patient_center_bg">
+
+        <com.sg.eyedoctor.common.view.RoundImageView
+            android:id="@+id/img_patient_center_head"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="26dp"
+            android:src="@drawable/ic_patient_head"/>
+
+        <TextView
+            android:id="@+id/tv_patient_center_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="36dp"
+            android:layout_toRightOf="@id/img_patient_center_head"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_18"/>
+
+        <TextView
+            android:id="@+id/tv_patient_center_sex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/tv_patient_center_name"
+            android:layout_below="@id/tv_patient_center_name"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/img_patient_center_head"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_14"/>
+
+        <TextView
+            android:id="@+id/tv_patient_center_age"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/tv_patient_center_sex"
+            android:layout_below="@id/tv_patient_center_name"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/tv_patient_center_sex"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_14"/>
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/ic_arraw_white"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="78dp"
+        android:background="@color/white">
+
+        <TextView
+            android:id="@+id/tv_patient_phone"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="14dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/phone"/>
+
+        <TextView
+            android:id="@+id/tv_patient_center_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/tv_patient_phone"
+            android:layout_marginLeft="12dp"
+            android:layout_toRightOf="@id/tv_patient_phone"
+            android:text="未填写"
+            android:textColor="@color/text_title"/>
+
+        <TextView
+            android:id="@+id/tv_patient_city"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_patient_phone"
+            android:layout_marginLeft="14dp"
+            android:layout_marginTop="4dp"
+            android:text="@string/city"/>
+
+        <TextView
+            android:id="@+id/tv_patient_center_city"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/tv_patient_city"
+            android:layout_below="@id/tv_patient_phone"
+            android:layout_marginLeft="12dp"
+            android:layout_toRightOf="@id/tv_patient_city"
+            android:text="未填写"
+            android:textColor="@color/text_title"/>
+
+        <TextView
+            android:id="@+id/tv_patient_idcard"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/tv_patient_phone"
+            android:layout_below="@id/tv_patient_city"
+            android:layout_marginTop="4dp"
+            android:layout_toRightOf="@id/tv_patient_center_phone"
+            android:text="@string/idcard"/>
+
+        <TextView
+            android:id="@+id/tv_patient_center_idcrd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/tv_patient_center_phone"
+            android:layout_alignTop="@id/tv_patient_idcard"
+            android:layout_toRightOf="@id/tv_patient_idcard"
+            android:text="未填写"
+            android:textColor="@color/text_title"/>
+    </RelativeLayout>
+
+    <View style="@style/style_line"/>
+
+    <RelativeLayout
+        android:background="@color/gray_bg"
+        android:layout_width="match_parent"
+        android:layout_height="34dp"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="34dp"
+            android:gravity="center_vertical"
+            android:paddingLeft="15dp"
+            android:text="@string/case_history_record"
+            android:textColor="@color/text_title"
+            android:textSize="15sp"/>
+
+        <TextView
+            android:id="@+id/add_case_tv"
+            android:layout_marginRight="10dp"
+            android:padding="3dp"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_blue_text_white"
+            android:layout_centerVertical="true"
+            android:text="@string/add_new_case"
+            android:textColor="@color/white"
+            android:textSize="14sp"/>
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.sg.eyedoctor.common.view.NoScrollListView
+                android:id="@+id/lv_patient_center_record"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:divider="@color/transparent"
+                />
+
+            <RelativeLayout
+                android:visibility="gone"
+                android:id="@+id/bottom_rl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:paddingBottom="10dp">
+
+                <RelativeLayout
+                    android:id="@+id/rl"
+                    android:layout_width="13dp"
+                    android:layout_height="60dp"
+                    android:layout_marginLeft="80dp">
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@color/text_body_weak"/>
+
+                    <ImageView
+                        android:layout_width="13dp"
+                        android:layout_height="13dp"
+                        android:layout_alignParentBottom="true"
+                        android:background="@drawable/dot_blue"/>
+
+                </RelativeLayout>
+            </RelativeLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

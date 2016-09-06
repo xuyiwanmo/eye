@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="48dp"
+    android:background="@color/actionbar_color"
+    tools:showIn="@layout/activity_consult_text">
+
+    <ImageView
+        android:id="@+id/back_img"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_centerVertical="true"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:src="@drawable/ic_back"/>
+
+    <TextView
+        android:id="@+id/actionbar_title_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="@string/text_consult"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_18"/>
+
+    <ImageView
+        tools:visibility="visible"
+        android:id="@+id/action_img"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp"
+        android:src="@drawable/ic_crm_email"/>
+
+    <ImageView
+        tools:visibility="visible"
+        android:visibility="gone"
+        android:layout_toLeftOf="@id/action_img"
+        android:id="@+id/second_img"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_centerVertical="true"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp"
+        android:src="@drawable/ic_crm_email"/>
+
+    <TextView
+
+        android:paddingLeft="10dp"
+        android:visibility="invisible"
+        android:paddingRight="10dp"
+        android:layout_alignParentRight="true"
+        android:textSize="@dimen/text_16"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:id="@+id/right_tv"
+        android:text="@string/accept"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"/>
+
+    <TextView
+        android:paddingLeft="10dp"
+        android:layout_alignBottom="@id/actionbar_title_tv"
+        android:layout_alignParentLeft="true"
+        android:visibility="invisible"
+        android:textSize="@dimen/text_16"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:id="@+id/left_tv"
+        android:text="@string/accept"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+</RelativeLayout>

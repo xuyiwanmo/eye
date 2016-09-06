@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".commUtils.plusManager.activity.PlusSettingActivity">
+
+    <com.sg.eyedoctor.common.view.MyActionbar
+        android:id="@+id/actionbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:actionbar_title="@string/add_set"
+        app:rightBtn_visible="false"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/actionbar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="18dp">
+
+                <LinearLayout
+                    android:id="@+id/add_set_desc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:background="@color/white"
+                    android:orientation="vertical"
+                    android:paddingTop="15dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="9dp"
+                        android:text="@string/add_set_desc_first"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_14"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="15dp"
+                        android:paddingLeft="9dp"
+                        android:paddingTop="8dp"
+                        android:text="@string/add_set_desc_second"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_14"/>
+
+                    <View
+                        style="@style/style_line"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/price_ll"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/add_set_desc"
+                    android:layout_marginBottom="13dp"
+                    android:layout_marginLeft="9dp"
+                    android:layout_marginTop="13dp"
+                    android:background="@drawable/bg_text_border_white"
+                    android:orientation="horizontal"
+                    android:paddingBottom="12dp"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp"
+                    android:paddingTop="12dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/once_price"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_16"/>
+
+                    <TextView
+                        android:id="@+id/price_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="20dp"
+                        android:paddingRight="20dp"
+                        android:text="100"
+                        android:textColor="@color/actionbar_color"
+                        android:textSize="@dimen/text_20"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/yuan"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_16"/>
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:id="@+id/title_rl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@id/price_ll"
+                    android:layout_below="@id/price_ll"
+                    android:background="@color/line">
+
+                    <TextView
+                        android:id="@+id/tv0"
+                        style="@style/table_text_title"
+                        android:layout_height="32dp"/>
+
+                    <TextView
+                        android:id="@+id/tv1"
+                        style="@style/table_text"
+                        android:layout_height="32dp"
+                        android:layout_toRightOf="@id/tv0"
+                        android:background="@color/gray_bg"
+                        android:text="@string/morning"
+                        android:textColor="@color/text_body_strong"/>
+
+                    <TextView
+                        android:id="@+id/tv2"
+                        style="@style/table_text"
+                        android:layout_height="32dp"
+                        android:layout_marginRight="0.5dp"
+                        android:layout_toRightOf="@id/tv1"
+                        android:background="@color/gray_bg"
+                        android:text="@string/afternoon"
+                        android:textColor="@color/text_body_strong"/>
+
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:id="@+id/title1_rl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@id/title_rl"
+                    android:layout_below="@id/title_rl"
+                    android:background="@color/line">
+
+                    <TextView
+                        android:id="@+id/tv3"
+                        style="@style/table_text_title"
+                        android:text="@string/monday"
+                        android:textColor="@color/text_body_strong"/>
+
+                    <TextView
+                        android:id="@+id/tv6"
+                        style="@style/table_text_title"
+                        android:layout_below="@id/tv3"
+                        android:text="@string/tuesday"
+                        android:textColor="@color/text_body_strong"/>
+
+                    <TextView
+                        android:id="@+id/tv9"
+                        style="@style/table_text_title"
+                        android:layout_below="@id/tv6"
+                        android:text="@string/wednesday"
+                        android:textColor="@color/text_body_strong"/>
+
+                    <TextView
+                        android:id="@+id/tv12"
+                        style="@style/table_text_title"
+                        android:layout_below="@id/tv9"
+                        android:text="@string/thursday"
+                        android:textColor="@color/text_body_strong"/>
+
+                    <TextView
+                        android:id="@+id/tv15"
+                        style="@style/table_text_title"
+                        android:layout_below="@id/tv12"
+                        android:text="@string/friday"
+                        android:textColor="@color/text_body_strong"/>
+
+                    <TextView
+                        android:id="@+id/tv18"
+                        style="@style/table_text_title"
+                        android:layout_below="@id/tv15"
+                        android:text="@string/saturday"
+                        android:textColor="@color/text_body_strong"/>
+
+                    <TextView
+                        android:id="@+id/tv21"
+                        style="@style/table_text_title"
+                        android:layout_below="@id/tv18"
+                        android:layout_marginBottom="0.5dp"
+                        android:text="@string/sunday"
+                        android:textColor="@color/text_body_strong"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+
+                    android:id="@+id/set_rl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/title_rl"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_toRightOf="@id/title1_rl"
+                    android:background="@color/line"
+                    android:paddingRight="0.5dp">
+
+
+                    <TextView
+                        android:id="@+id/tv4"
+                        style="@style/table_text"/>
+
+                    <TextView
+                        android:id="@+id/tv5"
+                        style="@style/table_text"
+                        android:layout_toRightOf="@id/tv4"/>
+
+
+                    <TextView
+                        android:id="@+id/tv7"
+                        style="@style/table_text"
+                        android:layout_below="@id/tv4"
+                        />
+
+                    <TextView
+                        android:id="@+id/tv8"
+                        style="@style/table_text"
+                        android:layout_below="@id/tv4"
+                        android:layout_toRightOf="@id/tv7"/>
+
+
+                    <TextView
+                        android:id="@+id/tv10"
+                        style="@style/table_text"
+                        android:layout_below="@id/tv7"
+                        />
+
+                    <TextView
+                        android:id="@+id/tv11"
+                        style="@style/table_text"
+                        android:layout_below="@id/tv7"
+                        android:layout_toRightOf="@id/tv10"/>
+
+
+                    <TextView
+                        android:id="@+id/tv13"
+                        style="@style/table_text"
+                        android:layout_below="@id/tv10"
+                        />
+
+                    <TextView
+                        android:id="@+id/tv14"
+                        style="@style/table_text"
+                        android:layout_below="@id/tv10"
+                        android:layout_toRightOf="@id/tv13"/>
+
+
+                    <TextView
+                        android:id="@+id/tv16"
+                        style="@style/table_text"
+                        android:layout_below="@id/tv13"
+                        />
+
+                    <TextView
+                        android:id="@+id/tv17"
+                        style="@style/table_text"
+                        android:layout_below="@id/tv13"
+                        android:layout_toRightOf="@id/tv16"/>
+
+
+                    <TextView
+                        android:id="@+id/tv19"
+                        style="@style/table_text"
+                        android:layout_below="@id/tv16"
+                        />
+
+                    <TextView
+                        android:id="@+id/tv20"
+                        style="@style/table_text"
+                        android:layout_below="@id/tv16"
+                        android:layout_toRightOf="@id/tv19"/>
+
+
+                    <TextView
+                        android:id="@+id/tv22"
+                        style="@style/table_text"
+                        android:layout_below="@id/tv19"
+                        android:layout_marginBottom="0.5dp"
+                        />
+
+                    <TextView
+                        android:id="@+id/tv23"
+                        style="@style/table_text"
+                        android:layout_below="@id/tv19"
+                        android:layout_marginBottom="0.5dp"
+                        android:layout_toRightOf="@id/tv22"/>
+
+                </RelativeLayout>
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

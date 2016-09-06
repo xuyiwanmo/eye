@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:fitsSystemWindows="true"
+              android:orientation="vertical">
+
+    <com.sg.eyedoctor.common.view.MyActionbar
+        android:id="@+id/actionbar"
+        app:rightBtn_visible="false"
+        app:actionbar_title="@string/free_consult"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <com.sg.eyedoctor.common.view.TopIndicator
+        android:id="@+id/top_indicator"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"/>
+
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_consult"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+    
+    <TextView
+        android:id="@+id/brush_tv"
+        android:textSize="@dimen/text_18"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:text="刷题"
+        android:background="@color/actionbar_color"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"/>
+
+</LinearLayout>

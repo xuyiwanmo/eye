@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    tools:context=".doctorAsist.DoctorAssistActivity">
+
+    <com.sg.eyedoctor.common.view.MyActionbar
+        android:id="@+id/actionbar"
+        app:rightBtn_visible="false"
+        app:actionbar_title="@string/doctor_assist"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:id="@+id/hotline_ll"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="80dp">
+
+        <TextView
+            android:text="@string/doctor_hot_line"
+            android:gravity="center_vertical"
+            android:textColor="@color/text_body_strong"
+            android:textSize="@dimen/text_16"
+            android:paddingLeft="20dp"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"/>
+
+        <TextView
+            android:text="0592-12548622"
+            android:gravity="center_vertical"
+            android:textColor="@color/actionbar_color"
+            android:textSize="@dimen/text_14"
+            android:paddingRight="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"/>
+
+
+    </LinearLayout>
+
+    <View
+        style="@style/style_line"
+      />
+
+    <TextView
+
+        android:gravity="center_vertical"
+        android:textColor="@color/actionbar_color"
+        android:textSize="@dimen/text_16"
+        android:paddingLeft="20dp"
+        android:text="@string/doctor_callback"
+        android:id="@+id/callback_tv"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"/>
+
+
+
+
+</LinearLayout>  

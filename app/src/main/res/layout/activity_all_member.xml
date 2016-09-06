@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context=".caseDiscuss.AllMemberActivity">
+
+    <com.sg.eyedoctor.common.view.MyActionbar
+        android:id="@+id/actionbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <GridView
+        android:verticalSpacing="10dp"
+        android:listSelector="@color/trans"
+        android:background="@color/white"
+        android:padding="20dp"
+        android:numColumns="4"
+        android:id="@+id/head_gv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <View
+        style="@style/style_line"
+       />
+
+</LinearLayout>

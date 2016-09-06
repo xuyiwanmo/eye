@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    >
+
+    <com.sg.eyedoctor.common.view.MyActionbar
+        android:id="@+id/actionbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:actionbar_title="@string/consult_detail"
+        app:rightBtn_visible="false"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="38dp"
+        android:background="@color/actionbar_color"
+        android:gravity="bottom"
+        android:paddingBottom="8dp"
+        >
+
+        <TextView
+            android:id="@+id/name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="王先生"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_16"/>
+
+        <TextView
+            android:id="@+id/sex_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/name_tv"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/name_tv"
+            android:text="男"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_14"/>
+
+        <TextView
+            android:id="@+id/age_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/name_tv"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/sex_tv"
+            tools:text="40岁"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_14"/>
+
+    </RelativeLayout>
+
+    <com.sg.eyedoctor.common.view.BlueTextView
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:text_content="问题详情"
+        />
+
+    <View
+        style="@style/style_line"
+        />
+
+    <TextView
+        android:id="@+id/illness_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:paddingBottom="15dp"
+        android:paddingLeft="10dp"
+        android:paddingTop="15dp"
+        android:text="未填写"
+        android:textColor="@color/text_body_strong"/>
+
+    <View
+        style="@style/style_line"
+        />
+    <com.sg.eyedoctor.common.view.BlueTextView
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:text_content="资料图片"
+        />
+
+    <View
+        style="@style/style_line"
+        />
+
+    <GridView
+        android:id="@+id/picture_gv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:cacheColorHint="@color/trans"
+        android:horizontalSpacing="10dp"
+        android:numColumns="4"
+        android:scrollbars="none"
+        android:verticalSpacing="5dp"/>
+    <TextView
+        android:id="@+id/empty_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:paddingBottom="15dp"
+        android:paddingLeft="10dp"
+        android:paddingTop="15dp"
+        android:text="未添加"
+        android:textColor="@color/text_body_strong"/>
+
+    <View
+        style="@style/style_line"
+        />
+</LinearLayout>

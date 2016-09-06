@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    android:background="@color/gray_bg"
+    tools:context=".mySetting.WantWithdrawalActivity">
+
+
+    <com.sg.eyedoctor.common.view.MyActionbar
+        app:rightBtn_visible="false"
+        app:actionbar_title="@string/want_withdrawal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+    <LinearLayout
+        android:gravity="center_vertical"
+        android:paddingRight="20dp"
+        android:paddingLeft="20dp"
+        android:background="@color/white"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="84dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:src="@drawable/ic_binggo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:layout_marginLeft="16dp"
+            android:textColor="@color/text_body_strong"
+            android:textSize="@dimen/text_16"
+            android:layout_weight="1"
+            android:text="@string/can_withdrawal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/withdrawal_tv"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/bg_blue_text_white"
+        android:gravity="center"
+        android:text="@string/withdrawal"
+        android:textColor="@color/white"
+        android:textSize="18sp" />
+</LinearLayout>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <com.sg.eyedoctor.common.view.RoundImageView
+        android:id="@+id/head_img"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/ic_patient_head"
+        app:border_outside_color="@color/gray_bg"
+        app:border_thickness="2dp"/>
+
+    <TextView
+        android:id="@+id/name_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/head_img"
+        android:layout_marginLeft="16dp"
+        android:layout_toRightOf="@id/head_img"
+        android:text="张三"
+        android:textColor="@color/text_title"/>
+
+
+    <ImageView
+        android:id="@+id/img_arraw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="12dp"
+        android:src="@drawable/ic_arraw_gray"/>
+
+    <TextView
+        android:id="@+id/tv_consult_patient_sex"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/name_tv"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_toRightOf="@id/name_tv"
+        android:text="男"
+        android:textColor="@color/text_title"
+        android:textSize="@dimen/text_12"/>
+
+    <TextView
+        android:id="@+id/tv_consult_patient_age"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/name_tv"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@id/tv_consult_patient_sex"
+        android:text="33岁"
+        android:textColor="@color/text_title"
+        android:textSize="@dimen/text_12"/>
+
+    <TextView
+        android:layout_marginLeft="10dp"
+        android:layout_alignParentRight="true"
+        android:id="@+id/state_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:layout_alignTop="@id/head_img"
+        android:layout_toLeftOf="@id/read_count_tv"
+        tools:text="新患者"
+        android:textColor="@color/text_body_weak"/>
+
+    <TextView
+        android:id="@+id/tv_consult_patient_illness"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/name_tv"
+        android:layout_alignRight="@id/tv_consult_patient_time"
+        android:layout_below="@id/name_tv"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@id/head_img"
+        android:lineSpacingExtra="7dp"
+        android:minHeight="40dp"
+        android:textColor="@color/text_body_weak"/>
+
+    <View
+        style="@style/style_line"
+        android:layout_below="@id/tv_consult_patient_illness"
+        />
+
+</RelativeLayout>

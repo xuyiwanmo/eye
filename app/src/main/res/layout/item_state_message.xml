@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:paddingTop="10dp">
+
+    <TextView
+        android:paddingLeft="12dp"
+        android:id="@+id/message_title_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="医生端注册成功"
+        android:textColor="@color/text_body_strong"
+        android:textSize="@dimen/text_16"/>
+
+    <ImageView
+        android:layout_centerVertical="true"
+        android:paddingLeft="12dp"
+        android:id="@+id/arraw_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:paddingRight="12dp"
+        android:src="@drawable/ic_arraw_gray"/>
+
+    <TextView
+        android:paddingLeft="12dp"
+        android:layout_marginTop="5dp"
+        android:id="@+id/time_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/message_title_tv"
+        android:text="16/02/20 15:20"
+        android:textColor="@color/text_body_weak"
+        android:textSize="@dimen/text_10"/>
+
+    <TextView
+        android:singleLine="true"
+        android:maxWidth="200dp"
+        android:layout_marginTop="5dp"
+        android:id="@+id/from_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/message_title_tv"
+        android:layout_marginLeft="12dp"
+        android:layout_toRightOf="@id/time_tv"
+        android:text="来自: 系统消息"
+        android:textColor="@color/text_body_weak"
+        android:textSize="@dimen/text_10"/>
+
+    <TextView
+        android:paddingLeft="12dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="5dp"
+        android:lineSpacingExtra="5dp"
+        android:layout_marginRight="12dp"
+        android:layout_toLeftOf="@id/arraw_img"
+        android:id="@+id/content_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/time_tv"
+        android:paddingBottom="10dp"
+        android:maxLines="2"
+        tools:text="尊敬的医生您好,您已经完成注册,可以使用客户端尊敬的医生您好尊敬的医生您好"
+        android:textColor="@color/text_body_strong"
+        android:textSize="@dimen/text_14"/>
+
+    <View
+        android:layout_below="@id/content_tv"
+        style="@style/style_line"
+        />
+</RelativeLayout>

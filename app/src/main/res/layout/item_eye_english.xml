@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    >
+
+    <TextView
+        android:id="@+id/catalog"
+        android:paddingLeft="5dp"
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="26dp"
+        android:background="@color/gray_bg"
+        android:textSize="@dimen/text_12"
+        android:textColor="#454545"/>
+
+    <RelativeLayout
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/catalog"
+        >
+
+        <TextView
+            android:id="@+id/english_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="12dp"
+            android:layout_toRightOf="@id/head_img"
+            android:gravity="center_vertical"
+            android:paddingBottom="10dip"
+            android:paddingTop="10dip"
+            android:text="姓名"
+            android:textSize="@dimen/text_14"
+            android:textColor="@color/text_body_strong"/>
+
+        <TextView
+            android:textSize="@dimen/text_16"
+            android:id="@+id/chinese_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/english_tv"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dip"
+            android:layout_toRightOf="@id/head_img"
+            android:gravity="center_vertical"
+            android:paddingBottom="10dip"
+            android:text="厦门中山医院"
+            android:textColor="@color/text_body_strong"/>
+
+        <View
+
+            style="@style/style_bottom_line"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".chartFile.activity.ChartFileActivity">
+
+    <com.sg.eyedoctor.common.view.MyActionbar
+        app:actionbar_title="@string/chartfile"
+        app:rightBtn_visible="false"
+        android:id="@+id/actionbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <com.sg.eyedoctor.common.view.SearchLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <!--患者分组-->
+    <RelativeLayout
+        android:id="@+id/add_group_rl"
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:paddingLeft="13dp"
+        android:paddingRight="13dp"
+        android:paddingTop="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="@string/crm_patient_group"
+            android:textColor="@color/text_title"
+            android:textSize="@dimen/text_14"/>
+
+        <TextView
+            android:visibility="invisible"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:drawableLeft="@drawable/ic_crm_add_group"
+            android:drawablePadding="10dp"
+            android:gravity="center"
+            android:text="@string/crm_add_group"
+            android:textColor="@color/actionbar_color"
+            android:textSize="@dimen/text_14"/>
+
+
+    </RelativeLayout>
+
+
+    <com.pulltorefresh.chuwe1.swipemenu.library.swipemenuview.SwipeMenuExpandableListView
+        android:id="@+id/patient_smelv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@null"
+        android:scrollbars="none"/>
+
+</LinearLayout>

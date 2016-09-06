@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+    >
+
+    <TextView
+        android:id="@+id/name_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="14dp"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/text_body_strong"
+        android:textSize="@dimen/text_16"
+        tools:text="陈小姐"/>
+
+    <TextView
+        android:id="@+id/age_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/name_tv"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@id/name_tv"
+        android:textColor="@color/text_body_strong"
+        android:textSize="@dimen/text_12"
+        tools:text="18岁"/>
+
+    <View
+        android:id="@id/line"
+        style="@style/style_line"
+        android:layout_below="@id/name_tv"/>
+
+    <TextView
+        android:id="@+id/bed_name_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/name_tv"
+        android:layout_below="@id/line"
+        android:layout_marginTop="10dp"
+        android:text="患者编号:"
+        android:textColor="@color/text_body_weak"
+        android:textSize="@dimen/text_14"/>
+
+    <TextView
+        android:id="@+id/patient_no_tv"
+        android:layout_width="108dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/bed_name_tv"
+        android:layout_toRightOf="@id/bed_name_tv"
+        android:layout_weight="1"
+        android:textSize="@dimen/text_14"
+        tools:text="1101"/>
+
+    <TextView
+        android:id="@+id/num_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/bed_name_tv"
+        android:layout_toRightOf="@id/patient_no_tv"
+        android:text="就诊编号:"
+        android:textColor="@color/text_body_weak"
+        android:textSize="@dimen/text_14"/>
+
+    <TextView
+        android:id="@+id/illness_no_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/bed_name_tv"
+        android:layout_toRightOf="@id/num_tv"
+        android:textSize="@dimen/text_14"
+        tools:text="123456"/>
+
+    <TextView
+        android:id="@+id/quality_name_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/name_tv"
+        android:layout_below="@id/bed_name_tv"
+        android:layout_marginTop="10dp"
+        android:text="床号:        "
+        android:textColor="@color/text_body_weak"
+        android:textSize="@dimen/text_14"/>
+
+    <TextView
+        android:id="@+id/bed_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/quality_name_tv"
+        android:layout_toRightOf="@id/quality_name_tv"
+        android:layout_weight="1"
+        android:textSize="@dimen/text_14"
+        tools:text="1101"/>
+
+
+    <TextView
+        android:id="@+id/owe_Name_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/num_tv"
+        android:layout_alignTop="@id/quality_name_tv"
+        android:layout_toRightOf="@id/bed_tv"
+        android:text="科室名称:"
+        android:textColor="@color/text_body_weak"
+        android:textSize="@dimen/text_14"/>
+
+    <TextView
+        android:id="@+id/office_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/quality_name_tv"
+        android:layout_toRightOf="@id/owe_Name_tv"
+        android:textSize="@dimen/text_14"
+        tools:text="123456"/>
+
+    <View
+        android:id="@+id/line2"
+        style="@style/style_line"
+        android:layout_below="@id/quality_name_tv"
+        android:layout_marginTop="5dp"/>
+
+    <View
+        android:layout_below="@+id/line2"
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:background="@color/gray_bg"/>
+
+</RelativeLayout>

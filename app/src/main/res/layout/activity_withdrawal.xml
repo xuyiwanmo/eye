@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".mySetting.WithdrawalActivity">
+
+    <LinearLayout
+        android:id="@+id/all_ll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.sg.eyedoctor.common.view.MyActionbar
+            android:id="@+id/actionbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:actionbar_title="@string/want_withdrawal"
+            app:rightBtn_visible="false"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:paddingLeft="12dp"
+            >
+
+            <TextView
+                android:layout_width="90dp"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="@string/alipay_account"
+                android:textSize="@dimen/text_16"/>
+
+            <EditText
+                android:id="@+id/name_et"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/trans"
+                android:hint="@string/enter_name"
+                android:textColor="@color/actionbar_color"
+                android:textColorHint="@color/text_body_weak"
+                android:textSize="@dimen/text_16"/>
+        </LinearLayout>
+
+        <View
+            style="@style/style_line"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:paddingLeft="12dp"
+            >
+
+            <TextView
+                android:layout_width="90dp"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="@string/withdrawal_money"
+                android:textSize="@dimen/text_16"/>
+
+            <EditText
+                android:id="@+id/money_et"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/trans"
+                android:hint="当前余额200000元"
+                android:textColor="@color/text_body_strong"
+                android:textColorHint="@color/text_body_weak"
+                android:textSize="@dimen/text_16"/>
+
+            <TextView
+                android:id="@+id/all_withdrawal_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="@string/all_withdrawal"
+                android:textColor="@color/actionbar_color"
+                android:textSize="@dimen/text_14"/>
+        </LinearLayout>
+
+        <View
+            style="@style/style_line"
+            />
+
+        <TextView
+            android:id="@+id/over_tv"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:text="@string/over_account_money"
+            android:textColor="@color/actionsheet_red"
+            android:textSize="@dimen/text_12"/>
+
+        <TextView
+            android:id="@+id/withdrawal_tv"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/bg_blue_text_white"
+            android:gravity="center"
+            android:text="@string/withdrawal"
+            android:textColor="@color/white"
+            android:textSize="18sp"/>
+
+    </LinearLayout>
+
+    <com.sg.eyedoctor.common.view.PasswordView
+        android:id="@+id/alipay_pv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:visibility="invisible"/>
+
+
+</RelativeLayout>

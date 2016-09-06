@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/gray_bg"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:fitsSystemWindows="true"
+              android:orientation="vertical">
+
+    <com.sg.eyedoctor.common.view.MyActionbar
+        android:id="@+id/actionbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:actionbar_title="@string/my_info"
+        app:rightBtn_visible="false"/>
+
+
+    <View
+        style="@style/style_line"
+        android:layout_marginTop="12dp"/>
+
+    <RelativeLayout
+        android:id="@+id/rl_my_update_head"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@color/white"
+        android:paddingLeft="10dp">
+
+        <TextView
+            style="@style/style_tv_my_update"
+            android:text="@string/head"/>
+
+
+        <ImageView
+            android:id="@+id/img_enter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="12dp"
+            android:src="@drawable/ic_arraw_gray"/>
+
+
+        <com.sg.eyedoctor.common.view.RoundImageView
+            android:id="@+id/img_my_update_head"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:layout_toLeftOf="@id/img_enter"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:src="@drawable/doctor_head"/>
+
+    </RelativeLayout>
+
+    <View
+        style="@style/style_line"
+        android:layout_marginLeft="10dp"/>
+
+    <LinearLayout
+        android:id="@+id/ll_my_update_name"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/white"
+        android:paddingLeft="10dp">
+
+        <TextView
+            style="@style/style_tv_my_update"
+            android:text="@string/real_name"/>
+
+        <TextView
+            android:id="@+id/tv_my_update_name"
+            style="@style/style_my_update_desc"
+            />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="12dp"
+            android:src="@drawable/ic_arraw_gray"/>
+
+    </LinearLayout>
+
+    <View
+        style="@style/style_line"
+        android:layout_marginLeft="10dp"/>
+
+
+    <LinearLayout
+        android:id="@+id/ll_my_update_sex"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/white"
+        android:paddingLeft="10dp">
+
+        <TextView
+            style="@style/style_tv_my_update"
+            android:text="@string/sex"/>
+
+        <TextView
+            android:id="@+id/tv_my_update_sex"
+            style="@style/style_my_update_desc"
+            />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="12dp"
+            android:src="@drawable/ic_arraw_gray"/>
+
+    </LinearLayout>
+
+    <View
+
+        style="@style/style_line"
+        android:layout_marginLeft="10dp"/>
+
+    <LinearLayout
+        android:id="@+id/ll_my_update_birth"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/white"
+        android:paddingLeft="10dp">
+
+        <TextView
+            style="@style/style_tv_my_update"
+            android:text="@string/add_patient_birth"
+            android:textSize="@dimen/text_16"/>
+
+        <TextView
+            android:id="@+id/tv_my_update_birth"
+            style="@style/style_my_update_desc"
+            />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="12dp"
+            android:src="@drawable/ic_arraw_gray"/>
+
+    </LinearLayout>
+
+    <View
+
+        style="@style/style_line"
+        android:layout_marginLeft="10dp"/>
+
+    <LinearLayout
+        android:id="@+id/ll_my_update_tel"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/white"
+        android:paddingLeft="10dp">
+
+        <TextView
+            style="@style/style_tv_my_update"
+            android:text="@string/phone_number"
+            android:textSize="@dimen/text_16"/>
+
+        <TextView
+            android:id="@+id/tv_my_update_tel"
+            style="@style/style_my_update_desc"
+            />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="12dp"
+            android:src="@drawable/ic_arraw_gray"/>
+
+    </LinearLayout>
+
+    <View
+
+        style="@style/style_line"
+        android:layout_marginLeft="10dp"/>
+
+    <LinearLayout
+        android:id="@+id/ll_my_update_idcard"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/white"
+        android:paddingLeft="10dp"
+        android:visibility="gone">
+
+        <TextView
+            style="@style/style_tv_my_update"
+            android:text="@string/idcard"
+            android:textSize="@dimen/text_16"/>
+
+        <TextView
+            android:id="@+id/tv_my_update_idcard"
+            style="@style/style_my_update_desc"
+            android:text="35030303030303"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="12dp"
+            android:src="@drawable/ic_arraw_gray"/>
+
+    </LinearLayout>
+
+    <View
+        style="@style/style_line"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="12dp"/>
+
+    <LinearLayout
+        android:id="@+id/ll_my_update_teach_title"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/white"
+        android:paddingLeft="10dp"
+        android:visibility="gone">
+
+        <TextView
+            style="@style/style_tv_my_update"
+            android:text="@string/teachTitle"
+            android:textSize="@dimen/text_16"/>
+
+        <TextView
+            android:id="@+id/tv_my_update_teach_title"
+
+            style="@style/style_my_update_desc"
+            android:text="副教授"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="12dp"
+            android:src="@drawable/ic_arraw_gray"/>
+
+    </LinearLayout>
+
+    <View
+        style="@style/style_line"
+        android:layout_marginLeft="10dp"
+        android:visibility="gone"/>
+
+    <LinearLayout
+        android:id="@+id/ll_my_update_speciality"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/white"
+        android:paddingLeft="10dp">
+
+        <TextView
+            style="@style/style_tv_my_update"
+            android:text="@string/speciality"
+            android:textSize="@dimen/text_16"/>
+
+        <TextView
+            android:singleLine="true"
+            android:id="@+id/tv_my_update_speciality"
+            style="@style/style_my_update_desc"
+            />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="12dp"
+            android:src="@drawable/ic_arraw_gray"/>
+
+    </LinearLayout>
+
+    <View
+
+        style="@style/style_line"
+        android:layout_marginLeft="10dp"/>
+
+    <RelativeLayout
+        android:id="@+id/rl_my_update_approve"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@color/white"
+        android:paddingLeft="10dp">
+
+        <TextView
+            style="@style/style_tv_my_update"
+            android:text="@string/doctor_approve"/>
+
+
+        <ImageView
+
+            android:id="@+id/img_approve"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="12dp"
+            android:src="@drawable/ic_arraw_gray"/>
+
+        <TextView
+            tools:text="已认证"
+            android:textColor="@color/actionbar_color"
+            android:id="@+id/tv_approve"
+            style="@style/style_my_update_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@id/img_approve"/>
+
+    </RelativeLayout>
+
+    <View
+
+        style="@style/style_line"
+        android:layout_marginLeft="10dp"/>
+
+    <View
+        style="@style/style_line"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="12dp"/>
+
+    <LinearLayout
+        android:id="@+id/ll_my_update_introduce"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:paddingBottom="10dp"
+        android:paddingLeft="10dp"
+        android:paddingTop="14dp">
+
+        <TextView
+            style="@style/style_tv_my_update"
+            android:text="@string/introduce"
+            android:textSize="@dimen/text_16"/>
+
+        <TextView
+            android:id="@+id/tv_my_update_introduce"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/transparent"
+            android:gravity="center_vertical"
+            android:maxLines="4"
+            android:minHeight="50dp"
+            android:paddingRight="15dp"
+            android:textColor="@color/text_title"
+            android:textSize="@dimen/text_16"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="12dp"
+            android:src="@drawable/ic_arraw_gray"/>
+
+    </LinearLayout>
+
+</LinearLayout>
+

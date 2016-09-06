@@ -1,0 +1,532 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:fitsSystemWindows="true"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical">
+
+    <com.sg.eyedoctor.common.view.MyActionbar
+        app:rightBtn_visible="false"
+        app:actionbar_title="@string/eye_calculate_common"
+        android:id="@+id/actionbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusableInTouchMode="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <!--老视度数-->
+            <RelativeLayout
+                android:id="@+id/old_rl"
+                style="@style/eye_caluculate_rl">
+
+                <TextView
+                    style="@style/eye_check_data_title"
+                    android:text="@string/old_calculate"/>
+
+                <ImageView
+                    android:id="@+id/old_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:paddingRight="10dp"
+                    android:src="@drawable/bg_crm_arrow"/>
+
+
+            </RelativeLayout>
+
+            <View
+                style="@style/style_line"></View>
+
+            <LinearLayout
+                android:id="@+id/old_ll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <LinearLayout
+
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/eye_data_tv"
+                        android:text="@string/add_patient_age"/>
+
+                    <com.bigkoo.pickerview.lib.WheelView
+                        android:focusableInTouchMode="false"
+                        app:textColorOut="@color/white"
+                        app:textColorCenter="@color/white"
+                        android:background="@color/green"
+                        android:id="@+id/age_twl"
+                        android:layout_width="match_parent"
+                        android:layout_height="140dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/eye_data_tv"
+                        android:text="@string/degree_num"/>
+
+                    <com.bigkoo.pickerview.lib.WheelView
+                        app:textColorOut="@color/white"
+                        app:textColorCenter="@color/white"
+                        android:background="@color/green"
+                        android:focusableInTouchMode="false"
+                        android:id="@+id/degree_twl"
+                        android:layout_width="match_parent"
+                        android:layout_height="140dp"/>
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <!--年龄与调节幅度-->
+            <RelativeLayout
+                android:id="@+id/adjust_rl"
+                style="@style/eye_caluculate_rl">
+
+                <TextView
+                    style="@style/eye_check_data_title"
+                    android:text="@string/age_range_adjust"/>
+
+                <ImageView
+                    android:id="@+id/adjust_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:paddingRight="10dp"
+                    android:src="@drawable/bg_crm_arrow"/>
+
+
+            </RelativeLayout>
+
+            <View
+                style="@style/style_line"></View>
+
+            <LinearLayout
+                android:id="@+id/adjust_ll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/eye_data_tv"
+                        android:text="@string/add_patient_age"/>
+
+                    <com.bigkoo.pickerview.lib.WheelView
+                        app:textColorOut="@color/white"
+                        app:textColorCenter="@color/white"
+                        android:background="@color/green"
+                        android:focusableInTouchMode="false"
+                        android:id="@+id/age_adjust_twl"
+                        android:layout_width="match_parent"
+                        android:layout_height="140dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/eye_data_tv"
+                        android:text="@string/range_num"/>
+
+                    <com.bigkoo.pickerview.lib.WheelView
+                        android:focusableInTouchMode="false"
+                        app:textColorOut="@color/white"
+                        app:textColorCenter="@color/white"
+                        android:background="@color/green"
+                        android:id="@+id/adjust_range_twl"
+                        android:layout_width="match_parent"
+                        android:layout_height="140dp"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!--角膜-->
+            <RelativeLayout
+                android:id="@+id/flatten_rl"
+                style="@style/eye_caluculate_rl">
+
+                <TextView
+                    style="@style/eye_check_data_title"
+                    android:text="@string/cornea"/>
+
+                <ImageView
+                    android:id="@+id/flatten_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:paddingRight="10dp"
+                    android:src="@drawable/bg_crm_arrow"/>
+
+
+            </RelativeLayout>
+
+            <View
+                style="@style/style_line"></View>
+
+            <LinearLayout
+                android:id="@+id/flatten_ll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="38dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@color/green"
+                        android:gravity="center"
+                        android:text="@string/flatten"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_18"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@color/green"
+                        android:gravity="center"
+                        android:text="@string/center_cornea"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_18"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <com.bigkoo.pickerview.lib.WheelView
+                            app:textColorOut="@color/white"
+                            app:textColorCenter="@color/white"
+                            android:background="@color/green"
+                            android:focusableInTouchMode="false"
+                            android:id="@+id/flatten_twl"
+                            android:layout_width="match_parent"
+                            android:layout_height="140dp"
+                            />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <com.bigkoo.pickerview.lib.WheelView
+                            android:focusableInTouchMode="false"
+                            app:textColorOut="@color/white"
+                            app:textColorCenter="@color/white"
+                            android:background="@color/green"
+                            android:id="@+id/center_flatten_twl"
+                            android:layout_width="match_parent"
+                            android:layout_height="140dp"
+                            />
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/calculate_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/bg_text_blue"
+                    android:gravity="center"
+                    android:text="@string/calucalte"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_18"
+                    />
+
+                <TextView
+                    android:id="@+id/calculate_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/bg_edit_trans"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="10dp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_18"/>
+
+            </LinearLayout>
+
+            <!--视力换算-->
+
+            <RelativeLayout
+                android:id="@+id/matrixing_rl"
+                style="@style/eye_caluculate_rl">
+
+                <TextView
+                    style="@style/eye_check_data_title"
+                    android:text="@string/eye_matrixing"/>
+
+                <ImageView
+                    android:id="@+id/matrixing_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:paddingRight="10dp"
+                    android:src="@drawable/bg_crm_arrow"/>
+
+
+            </RelativeLayout>
+
+            <View
+                style="@style/style_line"></View>
+
+            <LinearLayout
+                android:id="@+id/matrixing_ll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/eye_data_tv"
+                        android:text="@string/add_patient_age"/>
+
+                    <com.bigkoo.pickerview.lib.WheelView
+
+                        app:textColorOut="@color/white"
+                        app:textColorCenter="@color/white"
+                        android:background="@color/green"
+                        android:focusableInTouchMode="false"
+                        android:id="@+id/degree_one_twl"
+                        android:layout_width="match_parent"
+                        android:layout_height="140dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/eye_data_tv"
+                        android:text="@string/degree_num"/>
+
+                    <com.bigkoo.pickerview.lib.WheelView
+                        android:focusableInTouchMode="false"
+                        app:textColorOut="@color/white"
+                        app:textColorCenter="@color/white"
+                        android:background="@color/green"
+                        android:id="@+id/degree_two_twl"
+                        android:layout_width="match_parent"
+                        android:layout_height="140dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/eye_data_tv"
+                        android:text="@string/degree_num"/>
+
+                    <com.bigkoo.pickerview.lib.WheelView
+                        android:focusableInTouchMode="false"
+                        app:textColorOut="@color/white"
+                        app:textColorCenter="@color/white"
+                        android:background="@color/green"
+                        android:id="@+id/degree_three_twl"
+                        android:layout_width="match_parent"
+                        android:layout_height="140dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/eye_data_tv"
+                        android:text="@string/degree_num"/>
+
+                    <com.bigkoo.pickerview.lib.WheelView
+                        android:focusableInTouchMode="false"
+                        app:textColorOut="@color/white"
+                        app:textColorCenter="@color/white"
+                        android:background="@color/green"
+                        android:id="@+id/degree_four_twl"
+                        android:layout_width="match_parent"
+                        android:layout_height="140dp"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!--眼压计算-->
+            <RelativeLayout
+                android:id="@+id/pressure_rl"
+                style="@style/eye_caluculate_rl">
+
+                <TextView
+                    style="@style/eye_check_data_title"
+                    android:text="@string/age_range_adjust"/>
+
+                <ImageView
+                    android:id="@+id/presure_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:paddingRight="10dp"
+                    android:src="@drawable/bg_crm_arrow"/>
+
+
+            </RelativeLayout>
+
+            <View
+                style="@style/style_line"></View>
+
+            <LinearLayout
+
+                android:id="@+id/pressure_ll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/eye_data_tv"
+                        android:text="@string/scale"/>
+
+                    <com.bigkoo.pickerview.lib.WheelView
+                        android:focusableInTouchMode="false"
+                        app:textColorOut="@color/white"
+                        app:textColorCenter="@color/white"
+                        android:background="@color/green"
+                        android:id="@+id/scale_twl"
+                        android:layout_width="match_parent"
+                        android:layout_height="140dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/eye_data_tv"
+                        android:text="@string/ruler"/>
+
+                    <com.bigkoo.pickerview.lib.WheelView
+                        android:focusableInTouchMode="false"
+                        app:textColorOut="@color/white"
+                        app:textColorCenter="@color/white"
+                        android:background="@color/green"
+                        android:id="@+id/ruler_twl"
+                        android:layout_width="match_parent"
+                        android:layout_height="140dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/eye_data_tv"
+                        android:text="@string/mmhg"/>
+
+                    <com.bigkoo.pickerview.lib.WheelView
+                        android:focusableInTouchMode="false"
+                        app:textColorOut="@color/white"
+                        app:textColorCenter="@color/white"
+                        android:background="@color/green"
+                        android:id="@+id/mmhg_twl"
+                        android:layout_width="match_parent"
+                        android:layout_height="140dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/eye_data_tv"
+                        android:text="@string/kpa"/>
+
+                    <com.bigkoo.pickerview.lib.WheelView
+                        android:focusableInTouchMode="true"
+                        app:textColorOut="@color/white"
+                        app:textColorCenter="@color/white"
+                        android:background="@color/green"
+                        android:id="@+id/kpa_twl"
+                        android:layout_width="match_parent"
+                        android:layout_height="140dp"/>
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

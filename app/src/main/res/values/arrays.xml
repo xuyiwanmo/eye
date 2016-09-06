@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="team_array">
+        <item>病例</item>
+        <item>话题</item>
+    </string-array>
+
+    <string-array name="text_consult_array">
+        <item>新患者</item>
+        <item>已回复</item>
+        <item>已完成</item>
+    </string-array>
+
+    <string-array name="video_consult_array">
+        <item>加号</item>
+        <item>待视频</item>
+        <item>已完成</item>
+    </string-array>
+
+    <string-array name="patient_record_array">
+        <item>预约</item>
+        <item>已就诊</item>
+    </string-array>
+    <string-array name="patient_reprot_array">
+        <item>申请报到</item>
+        <item>已报到</item>
+    </string-array>
+    <string-array name="academic_array">
+        <item>科普文章</item>
+        <item>眼科资讯</item>
+        <item>学术会议</item>
+        <item>业界新闻</item>
+    </string-array>
+
+    <!--辅助工具  start-->
+    <string-array name="old_age">
+        <item>40-44</item>
+        <item>45-49</item>
+        <item>50-54</item>
+    </string-array>
+    <string-array name="old_degree">
+        <item>+0.75-+1.00</item>
+        <item>+1.00-+1.50</item>
+        <item>+1.50-+2.00</item>
+    </string-array>
+
+    <string-array name="old_range">
+        <item>10</item>
+        <item>20</item>
+        <item>30</item>
+    </string-array>
+    <string-array name="range">
+        <item>13.00</item>
+        <item>10.00</item>
+        <item>7.00</item>
+    </string-array>
+
+
+    <string-array name="eye_presure">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+    <string-array name="center_cornea">
+        <item>445</item>
+        <item>450</item>
+        <item>455</item>
+    </string-array>
+
+    <string-array name="matrixing_presure">
+        <item>20/200</item>
+        <item>20/160</item>
+        <item>20/120</item>
+    </string-array>
+    <string-array name="eye_age_one">
+        <item>6/60</item>
+        <item>6/48</item>
+        <item>6/36</item>
+    </string-array>
+    <string-array name="eye_age_two">
+        <item>0.10</item>
+        <item>0.13</item>
+        <item>0.17</item>
+    </string-array>
+    <string-array name="eye_age_three">
+        <item>1.00</item>
+        <item>0.90</item>
+        <item>0.78</item>
+    </string-array>
+
+    <string-array name="scale">
+        <item>0.0</item>
+        <item>1.0</item>
+        <item>1.5</item>
+    </string-array>
+    <string-array name="ruler">
+        <item>5.5g</item>
+        <item>7.5g</item>
+        <item>10.0g</item>
+    </string-array>
+    <string-array name="mmhg">
+        <item>34.52</item>
+        <item>49.76</item>
+        <item>69.27</item>
+    </string-array>
+    <string-array name="kpa">
+        <item>4.60</item>
+        <item>6.63</item>
+        <item>9.24</item>
+    </string-array>
+
+    <string-array name="internet_consult_array">
+        <item>最新</item>
+        <item>我参与的</item>
+        <item>我的会诊</item>
+    </string-array>
+    <string-array name="free_consult_array">
+        <item>新咨询</item>
+        <item>已回复</item>
+        <item>已完成</item>
+    </string-array>
+    <string-array name="contact">
+        <item>我的好友</item>
+        <item>我的医院</item>
+    </string-array>
+    <string-array name="phone_consult_array">
+        <item>待通话</item>
+        <item>已完成</item>
+    </string-array>
+    <string-array name="month_income">
+        <item>图文咨询</item>
+        <item>电话咨询</item>
+        <item>视频咨询</item>
+        <item>加号预约</item>
+    </string-array>
+
+    <string-array name="drug_pc">
+        <item>qd</item>
+        <item>bid</item>
+        <item>tid</item>
+        <item>qid</item>
+        <item>qod</item>
+        <item>qh</item>
+        <item>qn</item>
+        <item>hs</item>
+        <item>ac</item>
+        <item>am</item>
+        <item>pm</item>
+        <item>prn</item>
+        <item>sos</item>
+        <item>st</item>
+        <item>biw</item>
+        <item>qw</item>
+        <item>qon</item>
+        <item>q12h</item>
+        <item>q1h</item>
+        <item>q2h</item>
+    </string-array>
+
+</resources>

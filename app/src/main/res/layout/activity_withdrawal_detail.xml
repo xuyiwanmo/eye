@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:fitsSystemWindows="true"
+              android:orientation="vertical">
+
+    <com.sg.eyedoctor.common.view.MyActionbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:actionbar_title="@string/withdrawal_detail"
+        app:rightBtn_visible="false"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@color/white"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/ic_binggo"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/apply_for_withdrawal"
+            android:textColor="@color/text_body_strong"
+            android:textSize="@dimen/text_16"/>
+
+    </LinearLayout>
+
+    <View
+        style="@style/style_line"
+        />
+
+    <RelativeLayout
+        android:padding="12dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <TextView
+            android:textSize="@dimen/text_14"
+            android:id="@+id/alipay_name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/alipay_account"
+            android:textColor="@color/text_body_weak"/>
+
+        <TextView
+            android:layout_marginTop="7dp"
+            android:textSize="@dimen/text_14"
+            android:id="@+id/withdrawal_name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/alipay_name_tv"
+            android:text="@string/withdrawal_money"
+            android:textColor="@color/text_body_weak"/>
+
+        <TextView
+            android:layout_alignParentRight="true"
+            android:textSize="@dimen/text_14"
+            android:id="@+id/alipay_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="18088888"
+            android:textColor="@color/text_body_strong"/>
+
+        <TextView
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="7dp"
+            android:textSize="@dimen/text_14"
+            android:id="@+id/money_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/alipay_name_tv"
+            android:text="@string/withdrawal_money"
+            android:textColor="@color/text_body_strong"/>
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/withdrawal_tv"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/bg_blue_text_white"
+        android:gravity="center"
+        android:text="@string/withdrawal"
+        android:textColor="@color/white"
+        android:textSize="18sp"/>
+
+</LinearLayout>

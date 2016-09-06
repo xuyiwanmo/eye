@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    >
+
+    <com.sg.eyedoctor.common.view.MyActionbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:actionbar_title="@string/diagnose_advice"
+        app:rightBtn_visible="false"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="38dp"
+        android:background="@color/actionbar_color"
+        android:gravity="bottom"
+        android:paddingBottom="8dp"
+        >
+
+        <TextView
+            android:id="@+id/name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_16"
+            tools:text="王先生"/>
+
+        <TextView
+            android:id="@+id/sex_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/name_tv"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/name_tv"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_14"
+            tools:text="男"/>
+
+        <TextView
+            android:id="@+id/age_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/name_tv"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/sex_tv"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_14"
+            tools:text="40岁"/>
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="20dp">
+
+            <com.sg.eyedoctor.common.view.BlueTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:text_content="@string/illness_describe"
+                />
+
+            <View
+                style="@style/style_line"
+                />
+
+            <TextView
+
+                android:id="@+id/illness_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:paddingBottom="15dp"
+                android:paddingLeft="10dp"
+                android:paddingTop="15dp"
+                android:text="未填写"
+                android:textColor="@color/text_body_strong"
+                android:textSize="@dimen/text_16"/>
+
+            <View
+                style="@style/style_line"
+                />
+
+            <com.sg.eyedoctor.common.view.BlueTextView
+                android:id="@+id/img_tv"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                app:text_content="@string/text_img"
+                />
+
+            <View
+                style="@style/style_line"
+                />
+
+            <com.sg.eyedoctor.common.view.NoScroolGridView
+                android:id="@+id/picture_gv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:cacheColorHint="@android:color/transparent"
+                android:clipToPadding="false"
+                android:horizontalSpacing="2dp"
+                android:listSelector="@android:color/transparent"
+                android:numColumns="4"
+                android:padding="4dp"
+                android:scrollbars="none"
+                android:verticalSpacing="2dp"/>
+
+            <TextView
+                android:id="@+id/empty_img_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:paddingBottom="15dp"
+                android:paddingLeft="10dp"
+                android:paddingTop="15dp"
+                android:text="未添加"
+                android:textColor="@color/text_body_strong"
+                android:textSize="@dimen/text_16"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <com.sg.eyedoctor.common.view.BlueTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:text_content="@string/diagnose_result"
+                    />
+
+                <ImageView
+                    android:id="@+id/result_record_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/ic_add_patient_record"/>
+            </LinearLayout>
+
+            <View
+                style="@style/style_line"
+                />
+
+
+            <EditText
+                android:id="@+id/diagnose_result_et"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:hint="请输入诊断结果"
+                android:padding="10dp"
+                android:textColor="@color/text_body_strong"
+                android:textSize="@dimen/text_16"/>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <com.sg.eyedoctor.common.view.BlueTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:text_content="@string/drug_advice"
+                    />
+
+                <ImageView
+                    android:id="@+id/drug_record_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/ic_add_patient_record"/>
+            </LinearLayout>
+
+            <View
+                style="@style/style_line"
+                />
+
+            <EditText
+                android:id="@+id/drug_advice_et"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:hint="请输入建议用药"
+                android:paddingBottom="15dp"
+                android:paddingLeft="10dp"
+                android:paddingTop="15dp"
+                android:textColor="@color/text_body_strong"
+                android:textSize="@dimen/text_16"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <com.sg.eyedoctor.common.view.BlueTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:text_content="@string/check_advice"
+                    />
+
+                <ImageView
+                    android:id="@+id/check_record_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/ic_add_patient_record"/>
+            </LinearLayout>
+
+            <View
+                style="@style/style_line"
+                />
+
+            <EditText
+                android:id="@+id/check_advice_et"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:hint="请输入建议检查项目"
+                android:paddingBottom="15dp"
+                android:paddingLeft="10dp"
+                android:paddingTop="15dp"
+                android:textColor="@color/text_body_strong"
+                android:textSize="@dimen/text_16"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <com.sg.eyedoctor.common.view.BlueTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:text_content="@string/diagnose_advice"
+                    />
+
+                <ImageView
+                    android:id="@+id/advice_record_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/ic_add_patient_record"/>
+            </LinearLayout>
+
+            <View
+                style="@style/style_line"
+                />
+
+            <EditText
+                android:id="@+id/diagnose_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:hint="请输入诊断建议"
+                android:padding="10dp"
+                android:textColor="@color/text_body_strong"
+                android:textSize="@dimen/text_16"/>
+
+            <View
+                style="@style/style_line"
+                />
+
+            <TextView
+                android:id="@+id/post_tv"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/bg_blue_text_white"
+                android:gravity="center"
+                android:text="@string/post"
+                android:textColor="@color/white"
+                android:textSize="18sp"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

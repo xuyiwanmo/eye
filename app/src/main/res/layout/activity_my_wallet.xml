@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:test="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context=".mySetting.MyWalletActivity">
+
+    <com.sg.eyedoctor.common.view.MyActionbar
+        android:id="@+id/actionbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        test:actionbar_title="@string/my_wallet"
+        test:rightBtn_visible="false"/>
+
+    <RelativeLayout
+        android:id="@+id/money_rl"
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:background="@color/actionbar_color">
+
+        <TextView
+            android:id="@+id/my_money_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="26dp"
+            android:text="@string/my_money"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_16"/>
+
+        <TextView
+            android:id="@+id/remain_money_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/my_money_tv"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="18dp"
+            android:text="210.00"
+            android:textColor="@color/white"
+            android:textSize="35sp"
+            android:textStyle="bold"/>
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="26dp"
+        android:gravity="center_vertical"
+        android:paddingLeft="12dp"
+        android:text="@string/income_detail"/>
+
+    <View
+        style="@style/style_line"/>
+
+    <LinearLayout
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <com.sg.eyedoctor.common.view.WalletLayout
+            android:id="@+id/text_consult_wl"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            test:wallet_img="@drawable/dot_orange"
+            test:wallet_tv="@string/text_consult"/>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="36dp"
+            android:layout_gravity="center_vertical"
+            android:background="@color/gray_bg"/>
+
+        <com.sg.eyedoctor.common.view.WalletLayout
+            android:id="@+id/phone_consult_wl"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            test:wallet_img="@drawable/dot_blue"
+            test:wallet_tv="@string/phone_consult"/>
+
+    </LinearLayout>
+
+    <View
+        style="@style/style_line"
+        />
+
+    <LinearLayout
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <com.sg.eyedoctor.common.view.WalletLayout
+            android:id="@+id/video_consult_wl"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            test:wallet_img="@drawable/dot_green"
+            test:wallet_tv="@string/video_consult"/>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="36dp"
+            android:layout_gravity="center_vertical"
+            android:background="@color/gray_bg"/>
+
+        <com.sg.eyedoctor.common.view.WalletLayout
+            android:id="@+id/add_appointment_wl"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            test:wallet_img="@drawable/dot_pink"
+            test:wallet_tv="@string/add_appointment"/>
+
+    </LinearLayout>
+
+    <View
+        style="@style/style_line"
+        />
+
+    <TextView
+        android:visibility="gone"
+        android:id="@+id/withdrawal_tv"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/bg_blue_text_white"
+        android:gravity="center"
+        android:text="@string/withdrawal"
+        android:textColor="@color/white"
+        android:textSize="18sp"/>
+
+</LinearLayout>

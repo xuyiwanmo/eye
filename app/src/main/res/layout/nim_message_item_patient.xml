@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    android:id="@+id/message_item_file_detail_layout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="10dp">
+
+    <TextView
+        android:id="@+id/name_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="5dp"
+        android:text="王大款"
+        android:textSize="15sp"/>
+
+    <TextView
+        android:id="@+id/sex"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_toRightOf="@id/name_tv"
+        android:text="@string/sex"
+        android:textSize="15sp"/>
+
+    <TextView
+        android:id="@+id/age"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_toRightOf="@id/sex"
+        android:paddingRight="5dp"
+        android:text="@string/sex"
+        android:textSize="15sp"/>
+
+    <View
+        android:id="@+id/line"
+        style="@style/style_line"
+        android:layout_height="1dp"
+        android:layout_alignLeft="@id/name_tv"
+        android:layout_alignRight="@id/age"
+        android:layout_below="@id/name_tv"
+        android:layout_marginTop="5dp"
+        android:background="@color/gray_bg"/>
+
+    <TextView
+        android:id="@+id/ill"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/name_tv"
+        android:layout_alignRight="@id/age"
+        android:layout_below="@id/line"
+        android:layout_marginTop="5dp"
+        android:text="左眼看起来很模糊,有那么疼吗,先生,请问是怎么回事?"/>
+
+
+</RelativeLayout>

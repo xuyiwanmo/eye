@@ -1,0 +1,1073 @@
+<resources>
+
+    <!---->
+    <!-- common -->
+
+    <string name="ok">确定</string>
+
+    <string name="clear_empty">清空</string>
+    <string name="iknow">知道了</string>
+
+
+    <!-- session -->
+    <string name="input_panel_photo">图 片</string>
+    <string name="input_panel_video">视 频</string>
+    <string name="input_panel_location">位 置</string>
+    <string name="input_panel_take">拍 摄</string>
+    <string name="im_choose_pic">请选择JPG PNG BMP GIF格式的图片文件</string>
+    <string name="repeat_download_message">重新下载?</string>
+    <string name="repeat_send_has_blank">重 发</string>
+    <string name="repeat_send_message">重发消息?</string>
+    <string name="copy_has_blank">复 制</string>
+    <string name="delete_has_blank">删 除</string>
+    <string name="voice_to_text">转文字</string>
+
+    <string name="main_msg_list_delete_chatting">删除该聊天</string>
+    <string name="main_msg_list_sticky_on_top">置顶该聊天</string>
+    <string name="main_msg_list_clear_sticky_on_top">取消置顶</string>
+    <string name="save_to_device">保存到手机</string>
+    <string name="picture_save_fail">图片保存失败</string>
+    <string name="picture_save_to">图片已保存到手机</string>
+    <string name="search_join_team">搜索加入群组</string>
+    <string name="file_transfer_state_downloaded">已下载</string>
+    <string name="file_transfer_state_undownload">未下载</string>
+    <string name="trans_voice_failed">语音转化失败</string>
+    <string name="team_invalid_tip">您已退出该群</string>
+    <string name="team_send_message_not_allow">您已不在该群，不能发送消息</string>
+
+    <string name="unsupport_title">无法显示该内容</string>
+    <string name="unsupport_desc">客户端版本不支持该内容</string>
+
+    <!-- 语音 -->
+    <string name="record_audio">按住 说话</string>
+    <string name="record_audio_end">松开  结束</string>
+    <string name="sdcard_not_exist_error">请插入SD卡</string>
+    <string name="recording_error">录音失败，请重试</string>
+    <string name="recording_init_failed">初始化录音失败</string>
+    <string name="recording_cancel">手指上滑，取消发送</string>
+    <string name="timer_default">00:00</string>
+    <string name="recording_cancel_tip">松开手指，取消发送</string>
+    <string name="recording_max_time">录音达到最大时间，是否发送？</string>
+
+    <!-- 拍照视频 -->
+    <string name="gallery_invalid">你的手机没有图库程序</string>
+    <string name="sdcard_not_enough_head_error">SD卡被拔出或存储空间不足，无法保存头像</string>
+    <string name="sdcard_not_enough_error">存储空间不足，无法保存此次多媒体消息</string>
+    <string name="download_video">正在下载视频</string>
+    <string name="download_video_fail">视频下载失败,请重试</string>
+    <string name="look_video_fail">无法播放该视频</string>
+    <string name="look_video_fail_try_again">暂时无法播放视频，请重试</string>
+    <string name="video_play">视频播放</string>
+    <string name="video_record">视频录制</string>
+    <string name="video_record_symbol">REC</string>
+    <string name="video_record_begin">开始录制</string>
+    <string name="connect_vedio_device_fail">无法连接视频设备 ，请稍候再试</string>
+    <string name="capture_video_size_in_kb">视频文件大小为: %1$dKB,</string>
+    <string name="capture_video_size_in_mb">视频文件大小为: %1$.2fMB,</string>
+    <string name="is_send_video">是否发送该视频？</string>
+    <string name="start_camera_to_record_failed">启动摄像头录制视频失败</string>
+    <string name="stop_fail_maybe_stopped">停止失败，可能已经停止</string>
+    <string name="video_exception">视频文件异常</string>
+    <string name="im_choose_video_file_size_too_large">视频文件过大，系统限制为20MB</string>
+    <string name="im_choose_video">请选择3GP MP4格式的视频文件</string>
+    <string name="video_record_short">录制视频太短</string>
+    <string name="download_progress_description">%1$s（%2$s/%3$s）</string>
+
+    <!-- 联系人选择器 -->
+    <string name="contact_selector">联系人选择器</string>
+
+    <!-- team -->
+    <string name="team_need_authentication">需要身份验证</string>
+    <string name="team_allow_anyone_join">允许任何人加入</string>
+    <string name="team_not_allow_anyone_join">不允许任何人申请加入</string>
+    <string name="team_nickname">群昵称</string>
+    <string name="team_nickname_none">未填写</string>
+    <string name="team_identity">身份</string>
+    <string name="remove_member">移出本群</string>
+    <string name="team_member_info">成员信息</string>
+    <string name="team_admin">管理员</string>
+    <string name="team_creator">群主</string>
+    <string name="team_member">群成员</string>
+    <string name="update_success">保存成功</string>
+    <string name="update_failed">保存失败</string>
+    <string name="no_permission">没有权限</string>
+    <string name="set_team_admin">设为管理员</string>
+    <string name="cancel_team_admin">取消管理员</string>
+    <string name="team_member_remove_confirm">确定要将其移出群组么?</string>
+    <string name="team_annourcement">群公告</string>
+    <string name="invite_member">邀请成员</string>
+    <string name="team_name">群名称</string>
+    <string name="team_introduce">群介绍</string>
+    <string name="team_extension">扩展示例</string>
+
+    <string name="create_advanced_team">创建高级群</string>
+    <string name="reach_team_member_capacity">成员数量不能超过%1$d</string>
+    <string name="team_authentication">身份验证</string>
+    <string name="create_team">创建群</string>
+    <string name="over_team_member_capacity">邀请失败，成员人数上限为%1$d人</string>
+    <string name="over_team_capacity">创建失败，创建群数量达到限制</string>
+    <string name="create_team_failed">创建失败</string>
+    <string name="create_team_success">创建成功</string>
+    <string name="team_announce_title">标题</string>
+    <string name="team_announce_content">公告内容</string>
+    <string name="team_announce_notice">请输入群公告标题</string>
+    <string name="my_team_card">我的群名片</string>
+    <string name="team_introduce_hint">点击填写群介绍</string>
+    <string name="team_extension_hint">点击修改扩展内容</string>
+    <string name="team_announce_hint">点击填写群公告</string>
+    <string name="team_notification_config">消息提醒</string>
+    <string name="team_transfer_without_member">没有可转移的群成员</string>
+    <string name="team_invite_members_success">群成员邀请已发出</string>
+    <string name="team_invite_members_failed">群成员邀请失败</string>
+    <string name="team_transfer_success">群转移成功</string>
+    <string name="team_transfer_failed">群转移失败</string>
+    <string name="quit_team_success">您已退群</string>
+    <string name="quit_team_failed">退群失败</string>
+    <string name="quit_normal_team_success">您已经退出讨论组</string>
+    <string name="quit_normal_team_failed">退出讨论组失败</string>
+    <string name="dismiss_team_success">群已解散</string>
+    <string name="dismiss_team_failed">解散群失败</string>
+    <string name="dismiss_team">解散本群</string>
+    <string name="transfer_team">转让群</string>
+    <string name="quit_team">退出群</string>
+    <string name="quit_normal_team">退出讨论组</string>
+    <string name="team_apply_to_join">申请加入</string>
+    <string name="advanced_team">高级群</string>
+    <string name="normal_team">讨论组</string>
+    <string name="team_name_toast">群名称不能为空</string>
+    <string name="not_allow_empty">不能为空</string>
+    <string name="chat_setting">聊天信息</string>
+    <string name="team_settings_name">设置名称</string>
+    <string name="normal_team_name">讨论组名称</string>
+    <string name="remove_member_success">移除成员成功</string>
+    <string name="remove_member_failed">移除成员失败</string>
+    <string name="invite_member_success">邀请成员成功</string>
+    <string name="invite_member_failed">邀请成员失败</string>
+    <string name="team_create_notice">请添加群成员</string>
+    <string name="team_settings_set_name">取个名字吧</string>
+    <string name="team_not_exist">该群不存在</string>
+    <string name="normal_team_not_exist">该讨论组不存在</string>
+
+    <!-- 消息搜索 -->
+    <string name="message_search_no_result">无结果</string>
+
+
+    <!-- image picker -->
+    <string name="picker_image_preview">预览</string>
+    <string name="picker_image_send">发送</string>
+    <string name="picker_image_folder">相册</string>
+    <string name="picker_image_album_loading">相册加载中…</string>
+    <string name="picker_image_album_empty">相册中没有图片！</string>
+    <string name="picker_image_folder_info">共%d张</string>
+    <string name="picker_image_exceed_max_image_select">最多选择%d张图片！</string>
+    <string name="picker_image_send_select">完成（%d）</string>
+    <string name="picker_image_preview_original">发送原图</string>
+    <string name="picker_image_preview_original_select">发送原图（%s）</string>
+    <string name="picker_image_error">获取图片出错</string>
+    <string name="image_compressed_size">该原始图片大小为: %1$s,</string>
+
+    <string name="is_send_image">是否发送该原始图片？</string>
+    <string name="multi_image_compressed_size">原始图片总大小为: %1$s,</string>
+    <string name="is_send_multi_image">是否发送这些原始图片？</string>
+    <string name="waitfor_image_local">正在打开相册，请稍候\u2026</string>
+    <string name="recapture">重拍</string>
+    <string name="image_show_error">图片显示异常</string>
+    <string name="memory_out">内存不足</string>
+    <string name="choose_from_photo_album">从手机相册选择</string>
+    <string name="choose">选取</string>
+
+
+    <!-- 查看大图 -->
+    <string name="download_picture_fail">图片下载失败</string>
+    <string name="look_up_original_photo_format">查看原图（%s）</string>
+
+    <!--友盟  start-->
+    <string name="pull_to_refresh_pull_label" translatable="false">向下拉动可以刷新</string>
+    <string name="pull_to_refresh_release_label" translatable="false">松开可以刷新</string>
+    <string name="pull_to_refresh_refreshing_label" translatable="false">加载中&#8230;</string>
+    <string name="pull_to_refresh_tap_label" translatable="false">点击刷新</string>
+    <string name="umeng_socialize_network_break_alert" translatable="false">请连接网络后再尝试！</string>
+    <string name="umeng_socialize_comment" translatable="false">评论</string>
+    <string name="umeng_socialize_comment_detail" translatable="false">评论详情</string>
+    <string name="umeng_socialize_back" translatable="false">返回</string>
+    <string name="umeng_socialize_near_At" translatable="false">最近\@的好友</string>
+    <string name="umeng_socialize_friends" translatable="false">关注的好友</string>
+    <string name="umeng_socialize_send" translatable="false">发布</string>
+    <string name="umeng_socialize_tip_blacklist" translatable="false">对不起，因为违反了用户协议您已被禁言.</string>
+    <string name="umeng_socialize_tip_loginfailed" translatable="false">登录失败&#8230;</string>
+    <string name="umeng_socialize_msg_sec" translatable="false">秒前</string>
+    <string name="umeng_socialize_msg_min" translatable="false">分钟前</string>
+    <string name="umeng_socialize_msg_hor" translatable="false">小时前</string>
+    <string name="umeng_socialize_ucenter_login_title_guide" translatable="false">游客登录</string>
+    <string name="umeng_socialize_ucenter_login_title_platform" translatable="false">登录帐号</string>
+
+    <dimen name="alphabet_size">12dip</dimen>
+    <dimen name="umeng_socialize_pad_window_height">350dip</dimen>
+    <dimen name="umeng_socialize_pad_window_width">580dip</dimen>
+
+    <string name="umeng_socialize_share_content">友盟社会化组件（SDK）让移动应用快速整合社交分享功能，我们简化了社交平台的接入，为开发者提供坚实的基础服务。（一）支持各大主流社交平台，
+												（二）支持图片、文字、gif动图、音频、视频；@好友，关注官方微博等功能。
+												（三）提供详尽的后台用户社交行为分析。www.umeng.com/social</string>
+    <string name="umeng_socialize_login_qq">QQ空间</string>
+    <string name="umeng_socialize_login">登录</string>
+    <string name="umeng_socialize_text_choose_account">选择已有帐号登录</string>
+    <string name="umeng_socialize_text_authorize">授权</string>
+    <string name="umeng_socialize_text_unauthorize">未授权</string>
+    <string name="umeng_socialize_text_ucenter">个人中心</string>
+    <string name="umeng_socialize_text_login_fail">登录失败了，请重试</string>
+    <string name="umeng_socialize_text_comment_hint">说点什么吧&#8230;</string>
+    <string name="umeng_socialize_text_friend_list">好友列表</string>
+    <string name="umeng_socialize_text_visitor">游客</string>
+    <string name="umeng_socialize_text_tencent_no_connection">无法连接到腾讯微博客户端</string>
+    <string name="umeng_socialize_text_tencent_oauth_login_fail">授权登录失败</string>
+    <string name="umeng_socialize_text_tencent_version_no_match">版本不匹配，SSO只对微博客户端V3.8.1及以上的版本提供支持</string>
+    <string name="umeng_socialize_text_tencent_no_install">未安装腾讯微博客户端</string>
+    <string name="umeng_socialize_text_waitting">请稍候...</string>
+    <string name="umeng_socialize_text_waitting_weixin">跳转微信中，请稍候...</string>
+    <string name="umeng_socialize_text_waitting_weixin_circle">跳转朋友圈中，请稍候...</string>
+    <string name="umeng_socialize_text_waitting_yixin">跳转易信中，请稍候...</string>
+    <string name="umeng_socialize_text_waitting_yixin_circle">跳转易信朋友圈中，请稍候...</string>
+    <string name="umeng_socialize_text_waitting_qq">跳转QQ中，请稍候...</string>
+    <string name="umeng_socialize_text_waitting_qzone">跳转QZone中，请稍候...</string>
+    <string name="umeng_socialize_text_waitting_redirect">跳转</string>
+    <string name="umeng_socialize_text_waitting_message">,请稍候...</string>
+    <string name="umeng_socialize_text_loading_message">载入中,请稍候...</string>
+    <!-- 平台名称 -->
+    <string name="umeng_socialize_text_tencent_key">腾讯微博</string>
+    <string name="umeng_socialize_text_wenxin_fav">微信收藏</string>
+    <string name="umeng_socialize_text_sina_key">微博</string>
+    <string name="umeng_socialize_text_qq_key">QQ</string>
+    <string name="umeng_socialize_text_qq_zone_key">QQ空间</string>
+    <string name="umeng_socialize_text_renren_key">人人网</string>
+    <string name="umeng_socialize_text_douban_key">豆瓣网</string>
+    <string name="umeng_socialize_text_weixin_key">微信</string>
+    <string name="umeng_socialize_text_weixin_circle_key">微信朋友圈</string>
+    <string name="umeng_socialize_text_weixin_fav_key">微信收藏</string>
+    <string name="umeng_socialize_text_add_custom_platform">请配置用户平台</string>
+    <string name="umeng_example_home_btn_plus">社交分享</string>
+    <string name="umeng_socialize_text_waitting_share">分享中&#8230;</string>
+    <string name="umeng_socialize_content_hint">说点啥&#8230;</string>
+    <string name="umeng_socialize_cancel_btn_str">取消</string>
+    <string name="umeng_socialize_send_btn_str">发送</string>
+    <string name="umeng_socialize_img_des"></string>
+    <string name="umeng_socialize_share">分享</string>
+
+    <string name="umeng_socialize_mail">邮件</string>
+    <string name="umeng_socialize_sms">短信</string>
+    <string name="umeng_socialize_sina">新浪</string>
+    <string name="umeng_socialize_text_yixin_key">易信</string>
+    <string name="umeng_socialize_text_yixincircle_key">易信朋友圈</string>
+
+    <string name="umeng_socialize_text_laiwangdynamic_key">来往动态</string>
+    <string name="umeng_socialize_text_evernote_key">印象笔记</string>
+    <string name="umeng_socialize_text_ydnote_key">有道云笔记</string>
+    <string name="umeng_socialize_text_facebook_key">facebook</string>
+    <string name="umeng_socialize_text_twitter_key">twitter</string>
+    <string name="umeng_socialize_text_instagram_key">instagram</string>
+    <string name="umeng_socialize_text_pinterest_key">pinterest</string>
+    <string name="umeng_socialize_text_pocket_key">pocket</string>
+    <string name="umeng_socialize_text_linkedin_key">Linkedin</string>
+    <string name="umeng_socialize_text_foursquare_key">Foursquare</string>
+    <string name="umeng_socialize_text_whatsapp_key">WhatsApp</string>
+    <string name="umeng_socialize_text_line_key">LINE</string>
+    <string name="umeng_socialize_text_flickr_key">Flickr</string>
+    <string name="umeng_socialize_text_tumblr_key">Tumblr</string>
+    <string name="umeng_socialize_text_alipay_key">支付宝</string>
+    <string name="umeng_socialize_text_kakao_key">Kakao Talk</string>
+    <string name="umeng_socialize_text_googleplus_key">GooglePlus</string>
+    <!--友盟  end-->
+    <!--yunxin-->
+    <string name="title_activity_main">MainActivity</string>
+    <string name="hello_world">Hello world!</string>
+    <!--<string name="empty"></string>-->
+    <string name="main_tab_session">会话</string>
+    <string name="main_tab_contact">通讯录</string>
+    <string name="user_profile">个人名片</string>
+    <!--<string name="login">登录</string>-->
+    <string name="logining">登录中\u2026</string>
+    <!--<string name="register">注册</string>-->
+    <string name="registering">注册中\u2026</string>
+    <!--<string name="agree">同意</string>-->
+    <string name="reject">拒绝</string>
+    <string name="network_is_not_available">网络连接失败，请检查你的网络设置</string>
+    <string name="login_hint_account">请输入帐号</string>
+    <string name="login_hint_password">请输入密码</string>
+    <string name="input_account">请输入帐号，限20位字母或者数字</string>
+    <string name="register_account_tip">帐号限20位字母或者数字</string>
+    <string name="input_nickname">请输入昵称，限10位汉字、字母或者数字</string>
+    <string name="register_nick_name_tip">昵称限10位汉字、字母或者数字</string>
+    <string name="input_password">请输入密码，6~20位字母或者数字</string>
+    <string name="register_password_tip">密码必须为6~20位字母或者数字</string>
+    <!--<string name="register_success">注册成功</string>-->
+    <string name="register_failed">注册失败,错误码%1$s:%2$s</string>
+    <string name="login_has_account">已有帐号？直接登录</string>
+    <string name="done">完成</string>
+    <string name="latest_message_draft_prefix">[草稿] </string>
+    <string name="main_msg_unread_msg_count">[%d条]</string>
+    <string name="out_time">超时</string>
+    <string name="prepare_data">正在准备数据...</string>
+
+    <string name="readed">已读</string>
+    <string name="about">关于</string>
+    <string name="logout">退出</string>
+    <string name="version">版本号:</string>
+    <string name="account">帐号:</string>
+    <string name="chat">聊天</string>
+    <string name="add">添加</string>
+    <string name="remove">移除</string>
+    <string name="network_forbidden_login">你被服务器禁止登录，详询客服</string>
+    <string name="menu">菜单</string>
+    <string name="verify_reminder">验证提醒</string>
+    <string name="without_content">暂无</string>
+    <string name="create">新建</string>
+    <string name="delete_tip">删除提示</string>
+    <string name="delete_system_message">删除该条系统消息？</string>
+    <string name="delete_success">删除成功</string>
+    <string name="clear_all_success">清空成功</string>
+    <string name="login_failed">帐号或密码错误</string>
+    <string name="kick_out">帐号在其它设备登录</string>
+    <string name="edittext_length_tips">你输入的字数已经超过了限制！</string>
+    <string name="file_transfer">文件云存储</string>
+    <string name="file_browser">文件浏览器</string>
+    <string name="upload_text">上传</string>
+    <string name="download_text">下载</string>
+    <string name="now_allow_space">不能含有空格</string>
+    <string name="how_to_get_account">如何获取帐号</string>
+    <string name="multi_client_management">多端登录管理</string>
+    <string name="kick_other_client_prompt">踢掉 %1$s</string>
+    <string name="open">开启</string>
+    <string name="close">关闭</string>
+    <string name="search_advanced_team">搜索高级群</string>
+    <string name="net_broken">当前网络不可用</string>
+    <string name="nim_status_unlogin">未登录</string>
+    <string name="copyright">Copyright ©1997-2016 网易公司版权所有</string>
+    <string name="edit_nick">修改昵称</string>
+    <string name="user_not_exsit">该用户不存在</string>
+    <string name="user_tips">请检查你输入的帐号是否正确</string>
+    <!--<string name="edit">编辑</string>-->
+
+    <!-- session -->
+    <string name="input_panel_guess">猜 拳</string>
+    <string name="input_panel_audio_call">语音通话</string>
+    <string name="input_panel_video_call">视频通话</string>
+    <string name="input_panel_file">发送文件</string>
+    <string name="input_panel_RTS">白 板</string>
+    <string name="input_panel_snapchat">阅后即焚</string>
+    <string name="input_panel_tip">Tip</string>
+    <string name="message_history_query">云消息记录</string>
+    <string name="message_search_title">搜索本地消息记录</string>
+    <string name="message_clear">清空本地消息记录</string>
+    <string name="message_info">聊天信息</string>
+
+    <!-- 通讯录 -->
+    <!--<string name="add_friend">加为好友</string>-->
+    <string name="remove_friend">删除好友</string>
+    <string name="begin_chat">聊天</string>
+    <string name="remove_friend_tip">删除好友后，将同时解除双方的好友关系</string>
+    <string name="remove_friend_success">删除好友成功</string>
+    <string name="add_friend_self_tip">不能添加自己为好友</string>
+    <string name="add_friend_verify_tip">好友验证请求</string>
+    <string name="black_list_tip">你不会接收到列表中联系人的任何消息</string>
+
+    <!-- 群 -->
+    <string name="create_team_activity">创建群聊</string>
+    <string name="add_buddy">添加好友</string>
+    <string name="create_normal_team">创建讨论组</string>
+    <string name="team_apply_sending">发送中…</string>
+    <string name="no_team">您还没有群</string>
+    <string name="no_normal_team">您还没有讨论组</string>
+    <string name="team_search_hint">请输入群号进行搜索</string>
+    <string name="team_number_not_exist">群号不存在</string>
+    <string name="team_join">加入群组</string>
+    <string name="team_join_success">成功加入群: %1$s</string>
+    <string name="team_apply_to_join_send_success">申请已发出</string>
+    <string name="has_exist_in_team">已经在群里</string>
+
+    <!-- 消息提醒 -->
+    <string name="toolbar_mutli_new_msg_tips">个联系人发来新消息</string>
+    <string name="toolbar_new_msg_coming_ticker_text"> 有新消息</string>
+    <string name="toolbar_new_msg_general_tips">你收到一条新消息</string>
+    <string name="toolbar_add_buddy_request_tips">请求添加你为好友</string>
+    <string name="toolbar_add_buddy_verify_tips">通过了你的好友请求</string>
+    <string name="toolbar_new_notification_general_tips">你收到一条新通知</string>
+
+    <!-- 自定义通知 -->
+    <string name="custom_notification">自定义通知</string>
+    <string name="select_custom_notification_target">选择发送对象</string>
+    <string name="send_custom_notification_tip">请输入要发送的内容</string>
+    <string name="send_custom_notification_success">自定义通知发送成功</string>
+    <string name="send_custom_notification_failed">自定义通知发送失败</string>
+    <string name="send_custom_notification_to_buddy">发送给好友</string>
+    <string name="send_custom_notification_to_team">发送给群组</string>
+
+    <!-- 消息类型 -->
+    <string name="msg_type_image">图片</string>
+    <string name="msg_type_audio">语音</string>
+    <string name="title_activity_add_buddy">添加好友</string>
+
+    <!-- location -->
+    <string name="location_init_map_error">初始化地图服务失败</string>
+    <string name="location_navigate">导航</string>
+    <string name="self_location">我在这个位置</string>
+    <string name="location_unable_to_get_you">暂时无法获取您的位置</string>
+    <string name="location_loading">正在定位</string>
+    <string name="location_map">地图定位</string>
+    <string name="my_location">我的位置</string>
+    <string name="location_address_unkown">该位置信息暂无</string>
+    <string name="format_mylocation">我的位置：%s</string>
+    <string name="location_address_fail">获取位置信息失败</string>
+    <string name="tools_selected">选择工具</string>
+    <string name="friends_map_navigation_web">在网页中打开</string>
+    <string name="location_open_map_error">打开地图出错</string>
+
+    <!-- about -->
+    <string name="about_custom_button1">自定义1</string>
+    <string name="about_clear_msg_history">清空所有聊天记录</string>
+    <string name="clear_msg_history_success">聊天记录已清空</string>
+
+    <!-- 云信SDK所需文案 -->
+    <string name="nim_status_bar_multi_messages_incoming">%1$d位联系人有新消息</string>
+    <string name="nim_status_bar_ticker_text">%1$s有新消息</string>
+    <string name="nim_status_bar_image_message">%1$s发来一条图片消息</string>
+    <string name="nim_status_bar_audio_message">%1$s发来一条语音消息</string>
+    <string name="nim_status_bar_video_message">%1$s发来一条视频消息</string>
+    <string name="nim_status_bar_file_message">%1$s发来一条文件消息</string>
+    <string name="nim_status_bar_location_message">%1$s分享了一个地理位置</string>
+    <string name="nim_status_bar_notification_message">%1$s: 通知消息</string>
+    <string name="nim_status_bar_custom_message">%1$s: 自定义消息</string>
+    <string name="nim_status_bar_unsupported_message">%1$s: 无法显示该内容</string>
+    <string name="nim_status_bar_hidden_msg_content">你收到一条新消息</string>
+
+    <!--RTS白板-->
+    <string name="doodle">白板</string>
+    <string name="start_session">正在邀请对方，请稍后</string>
+    <string name="callee_reject">对方拒绝了本次请求</string>
+    <string name="callee_ack_timeout">对方未接受请求</string>
+    <string name="receive_session">对方发起白板演示</string>
+    <string name="start_session_record">我发起了白板演示</string>
+    <string name="session_end_record">白板演示已结束</string>
+    <string name="end_session_tip_head">退出白板演示</string>
+    <string name="end_session_tip_content">退出后，你将不再接收白板演示的消息内容</string>
+    <string name="target_has_leave_session">对方已离开</string>
+    <string name="target_has_end_session">对方结束白板演示</string>
+    <string name="accept_session">接受</string>
+    <string name="reject_session">拒绝</string>
+    <string name="doodle_back">上一步</string>
+    <string name="doodle_clear">清屏</string>
+
+    <!-- setting -->
+    <string name="settings">设置</string>
+    <string name="no_disturb">免打扰</string>
+    <string name="msg_notice">消息提醒</string>
+    <string name="setting_about">关于</string>
+    <string name="setting_close">已关闭</string>
+    <string name="no_disturb_tips">在设定的时间段内云信消息将不再提醒</string>
+    <string name="time_from">从</string>
+    <string name="time_to">至</string>
+    <string name="time_from_default">22:00</string>
+    <string name="time_to_default">08:00</string>
+    <string name="black_list">黑名单</string>
+    <string name="msg_speaker">听筒模式</string>
+
+    <!-- 多端登录 -->
+    <string name="multiport_manager">多端登录管理</string>
+    <string name="multiport_logout">下线</string>
+    <string name="computer_version">云信电脑版</string>
+    <string name="web_version">云信网页版</string>
+    <string name="mobile_version">云信移动版</string>
+    <string name="multiport_logging">正在使用</string>
+    <string name="kickout_notify">下线通知</string>
+    <string name="kickout_content">你的帐号被%1$s踢出下线，请确定帐号信息安全</string>
+
+    <!-- 阅后即焚 -->
+    <string name="snapchat_longclick_to_view">按住查看</string>
+    <string name="snapchat_title">阅后即焚</string>
+
+    <!-- 个人名片 -->
+    <string name="birthday">生 日</string>
+    <!--<string name="phone">手 机</string>-->
+    <string name="email">邮 箱</string>
+    <string name="signature">签 名</string>
+    <!--<string name="head">头 像</string>-->
+    <string name="user_information">个人信息</string>
+    <string name="nickname">昵 称</string>
+    <string name="alias">备注名</string>
+    <string name="gender">性 别</string>
+    <!--<string name="male">男</string>-->
+    <!--<string name="female">女</string>-->
+    <!--<string name="other">其他</string>-->
+    <string name="phone_number">手机号码</string>
+    <string name="set_head_image">设置头像</string>
+    <string name="user_info_update_success">设置成功</string>
+    <string name="user_info_update_cancel">取消更新</string>
+    <string name="user_info_update_failed">设置失败，请重试</string>
+    <string name="head_update_success">头像设置成功</string>
+    <string name="head_update_failed">头像设置失败，请重试</string>
+    <string name="nickname_empty">昵称不能为空</string>
+
+    <!--end  yunxin-->
+
+    <string name="app_name">眼科通医生版</string>
+    <string name="home_patient_count">问诊总量:</string>
+    <string name="home_today_patient_count">今日问诊:</string>
+    <string name="home_common_utils">常用工具</string>
+    <string name="home_help_utils">辅助工具</string>
+    <string name="crm_search">输入患者相关信息</string>
+    <string name="crm_discuss_case">讨论中的病历</string>
+    <string name="crm_attention_case">重点关注的病历</string>
+    <string name="crm_patient_group">患者分组</string>
+    <string name="crm_add_group">添加分组</string>
+    <string name="my_account">个人中心</string>
+    <string name="my_earn">预估收益</string>
+    <string name="my_station_notice">站内消息</string>
+    <string name="my_service_manager">在线服务管理</string>
+    <string name="my_account_manager">账户管理</string>
+    <string name="my_wallet">我的钱包</string>
+    <string name="my_setting">设置</string>
+    <string name="register_phone">手机号</string>
+    <string name="register_password">密码</string>
+    <string name="register_authcode">验证码</string>
+    <string name="register_get_authcode">获取验证码</string>
+    <string name="register">注册</string>
+    <string name="login_account">账号</string>
+    <string name="login_password">密码</string>
+    <string name="login">登录</string>
+    <string name="register_now">立即注册</string>
+    <string name="forget_passwrod">忘记密码</string>
+    <string name="add_patient_name">姓名</string>
+    <string name="real_name">真实姓名</string>
+    <string name="sex">性别</string>
+    <string name="female">女</string>
+    <string name="male">男</string>
+    <string name="add_patient_birth">出生日期</string>
+    <string name="add_patient_age">年龄</string>
+    <string name="phone">联系电话</string>
+    <string name="patient_phone">联系电话</string>
+    <string name="city">常驻城市</string>
+    <string name="idcard">身份证号</string>
+
+    <string name="patient_case">患者病历</string>
+    <string name="add_patient_num">门诊病历号</string>
+    <string name="add_patient_card_num">就诊卡号</string>
+    <string name="enter_patient_card_num">输入就诊卡号</string>
+    <string name="add_patient_diagnose">疾病诊断</string>
+    <string name="add_patient_remark">病历备注</string>
+    <string name="medcine_record">用药记录</string>
+    <string name="check_project">检查项目</string>
+    <string name="item_idcard">身份证</string>
+    <string name="appointment_time">预约时间</string>
+    <string name="out_patient_time">就诊时间</string>
+    <string name="case_detail">病历详情</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="register_success">注册成功</string>
+    <string name="approve">已认证</string>
+    <string name="text_consult">图文咨询</string>
+    <string name="phone_consult">电话咨询</string>
+    <string name="video_consult">视频咨询</string>
+    <string name="home">首页</string>
+    <string name="my">我</string>
+    <string name="team">眼科圈</string>
+    <string name="chartfile">病历夹</string>
+    <string name="login_success">登陆成功</string>
+    <string name="share_topic">分享话题吧</string>
+    <string name="user_login">用户登录</string>
+    <string name="user_register">用户注册</string>
+    <string name="doctor_team_work">医生圈</string>
+    <string name="case_record">病例记录</string>
+    <string name="case_history_record">病历记录</string>
+
+    <string name="patient_center">患者中心</string>
+    <string name="medicine_record">用药记录</string>
+    <string name="medicine_store">药房</string>
+    <string name="medicine_shop">药店</string>
+    <string name="choose_date">查看\n日历</string>
+    <string name="patient_save">保存</string>
+    <string name="add_new_patient">新增患者</string>
+
+    <string name="head">头像</string>
+    <string name="title">职称</string>
+    <string name="teachTitle">教学职称</string>
+    <string name="speciality">擅长</string>
+    <string name="introduce">介绍</string>
+    <string name="doctor_approve">医师认证</string>
+    <string name="complete">完成</string>
+    <string name="out_patient_record">门诊记录</string>
+    <string name="my_info">个人信息</string>
+    <string name="add_patient_idcard">身份证号</string>
+    <string name="card_num">证件号</string>
+    <string name="empty">无记录</string>
+    <string name="approve_description">认证通过需要填写上传以下所有信息</string>
+    <string name="operation_num">执业证号</string>
+    <string name="hospital">医院</string>
+    <string name="administrative_office">科室</string>
+    <string name="rank">级别</string>
+    <string name="operation_certificate">执业医师证或胸牌</string>
+    <string name="post_approve">提交认证</string>
+    <string name="edit_patient">编辑患者资料</string>
+    <string name="edit">编辑</string>
+    <string name="edit_empty">未填写</string>
+    <string name="patient_detail">患者详情</string>
+    <string name="save_patient_ok">保存患者成功...</string>
+    <string name="save_patient_fail">保存患者失败,请稍后重试...</string>
+    <string name="query_empty">未查询到记录</string>
+    <string name="net_fail">网络请求失败,请稍后重试</string>
+    <string name="post_ok">上传成功</string>
+    <string name="post_fail">上传失败,请稍后重试</string>
+    <string name="login_ok">登陆成功</string>
+    <string name="approve_not">未认证</string>
+    <string name="approveing">认证中</string>
+    <string name="approve_complete">认证完成</string>
+    <string name="send_auth_fail">发送验证码失败,请重新获取验证</string>
+    <string name="update_fail">更新失败,请稍后重试</string>
+    <string name="update_ok">更新成功</string>
+    <string name="auth_end_again">验证码错误,请重新输入</string>
+    <string name="enter_name">请输入用户名</string>
+    <string name="appointment">预约</string>
+    <string name="visit_doctor_already">已就诊</string>
+    <string name="exit_app">退出应用</string>
+    <string name="whether_exit_app">是否退出应用?</string>
+    <string name="confirm">确认</string>
+    <string name="cancel">取消</string>
+    <string name="no_sdcard">没有sdcard</string>
+    <string name="new_patient">新患者</string>
+    <string name="answer_ok">已回复</string>
+    <string name="query_complete">完成咨询</string>
+    <string name="after_seconds_resend">秒后可以重发</string>
+    <string name="approve_ok">上传成功</string>
+    <string name="approve_not_check">认证待审核</string>
+    <string name="edit_error">填写错误,请重新填写</string>
+    <string name="publish_case">发布病例</string>
+    <string name="publish_title">标题</string>
+    <string name="enter_case_title">请输入病历标题</string>
+    <string name="enter_case_topic">请输入话题标题</string>
+    <string name="say_for_case">你有什么想说的吗?</string>
+    <string name="import_case">导入病历</string>
+    <string name="import_case_already">已导入张三丰的病例</string>
+    <string name="can_see">李医生等4人可看</string>
+    <string name="publish">发表</string>
+    <string name="publish_topic">发布话题</string>
+    <string name="good_at">擅长</string>
+    <string name="add_friend">新增好友</string>
+    <string name="refuse">拒绝</string>
+    <string name="agree">同意</string>
+    <string name="search_doctor">输入医生姓名</string>
+    <string name="refuse_already">已拒绝</string>
+    <string name="delete">删除</string>
+    <string name="share_case">发布病例</string>
+    <string name="notice_see">提醒谁看</string>
+
+    <string-array name="takephoto">
+        <item>拍照</item>
+        <item>本地照片</item>
+    </string-array>
+
+    <string name="image_app_name">多图选择器</string>
+    <string name="image_folder_all">所有照片</string>
+    <string name="image_preview">预览</string>
+    <string name="image_msg_no_camera">没有系统相机</string>
+    <string name="image_msg_amount_limit">已经达到最高选择数量</string>
+    <string name="image_action_done">完成</string>
+    <string name="image_photo_unit">张</string>
+    <string name="image_tip_take_photo">拍摄照片</string>
+    <string name="verticode_time_out">登录会话超时,请退出后重新登录</string>
+    <string name="contact_friend">手机联系人</string>
+    <string name="publish_ok">发布成功</string>
+    <string name="add_phone_contact">添加手机联系人</string>
+    <string name="recommend_doctor">医生推荐</string>
+    <string name="comment_ok">发表评论成功</string>
+    <string name="friend_list">好友列表</string>
+    <string name="add_new_friend">新增好友</string>
+    <string name="enter_doctor_name_phone">请输入医生姓名或电话</string>
+    <string name="send_add_request_ok">发送好友请求成功</string>
+    <string name="search">搜索</string>
+    <string name="support_already">您已点赞过,请勿重复操作</string>
+    <string name="edit_idcard_error">身份证填写错误</string>
+    <string name="edit_phone_error">手机号码填写错误</string>
+    <string name="enter_right_phone">手机号输入错误</string>
+    <string name="empty_password">密码不能为空</string>
+    <string name="enter_group_name">请输入分组名</string>
+    <string name="illness">症状描述</string>
+    <string name="appointment_alredy">已就诊</string>
+    <string name="delay_appointment">延期就诊</string>
+    <string name="monday">星期一</string>
+    <string name="tuesday">星期二</string>
+    <string name="wednesday">星期三</string>
+    <string name="thursday">星期四</string>
+    <string name="friday">星期五</string>
+    <string name="saturday">星期六</string>
+    <string name="sunday">星期日</string>
+
+    <string name="morning">上午</string>
+    <string name="afternoon">下午</string>
+    <string name="click_set">点击设置</string>
+    <string name="enter_add_info">请填写加号信息</string>
+    <string name="save">保存</string>
+    <string name="choose_out_patient_type">请选择门诊类型</string>
+    <string name="normal">普通</string>
+    <string name="professor">专家</string>
+    <string name="special_procurement">特需</string>
+    <string name="college">专科</string>
+    <string name="internation">国际</string>
+    <string name="out_patient_hospital">出诊医院</string>
+    <string name="must_enter">必填</string>
+    <string name="count_number">加号数量</string>
+    <string name="out_patient_time_distance">停诊时段</string>
+    <string name="please_choose">请选择</string>
+    <string name="mark">备注:</string>
+    <string name="ensure">确定</string>
+    <string name="error_choose_time">开始时间大于结束时间,请重新选择</string>
+    <string name="patient_report">患者报到</string>
+    <string name="recent_out_patient">最近就诊:</string>
+    <string name="accept">接受</string>
+    <string name="add_manager">加号管理</string>
+    <string name="out_patient_time_empty">就诊时间未填写</string>
+    <string name="out_patient_hospital_empty">未填写就诊医院</string>
+    <string name="out_patient_count_empty">加号数量未填写</string>
+    <string name="update">修改</string>
+    <!--<string name="close">关闭</string>-->
+    <string name="close_or_update">请选择修改或关闭该服务</string>
+    <string name="close_ok">关闭成功</string>
+    <string name="operation_ok">操作成功</string>
+    <string name="add_set">加号设置</string>
+    <string name="add_set_desc_first">1.医生可以根据自身情况设置出诊时间与患者人数上限。</string>
+    <string name="add_set_desc_second">2.出诊当天，患者须出示预约成功截图或短信作为凭证。</string>
+    <string name="once_price">单次价格</string>
+    <string name="yuan">元</string>
+    <string name="out_patient_count_not_number">加号数量填写错误，必须为数字</string>
+    <string name="tool_box">工具箱</string>
+    <string name="eye_check">眼科检查</string>
+    <string name="eye_data">眼科常用正常值</string>
+    <string name="eye_medicine">眼科常用药品</string>
+    <string name="eye_calculate">眼科常用计算</string>
+    <string name="eye_english">眼科常用英文</string>
+    <string name="eye_crystal">人工晶体</string>
+    <string name="eye_calculate_common">眼科常用计算</string>
+    <string name="old_calculate">老视度数估算</string>
+    <string name="degree_num">老视度数</string>
+    <string name="age_range_adjust">年龄与调节幅度</string>
+    <string name="scale">刻度</string>
+    <string name="ruler">标尺</string>
+    <string name="mmhg">mmHg</string>
+    <string name="kpa">Kpa</string>
+    <string name="eye_matrixing">视力换算</string>
+    <string name="cornea">角膜厚度-眼压校正</string>
+    <string name="range_num">调节幅度(D)</string>
+    <string name="center_cornea">中央角膜厚度</string>
+    <string name="flatten">压平眼压</string>
+    <string name="search_keyword">请输入关键字</string>
+    <string name="calucalte">计算</string>
+    <string name="academic">学术前沿</string>
+    <string name="case_discussing">讨论中的病历</string>
+    <string name="search_patient">请输入患者相关信息</string>
+    <string name="add_patient_case">添加患者病历</string>
+    <string name="age">年龄</string>
+    <string name="doctor_enter_case_discuss">邀请医生加入病历讨论</string>
+    <string name="begin_discuss">开始讨论</string>
+    <string name="name_empty">姓名不能为空</string>
+    <string name="exit_case_discuss">退出讨论组</string>
+    <string name="patient_empty">没有患者</string>
+    <string name="news_detail">详情</string>
+    <string name="end_yet">已经是最后一条</string>
+    <string name="case_discuss">病例讨论</string>
+    <string name="add_new_doctor">添加新成员</string>
+    <string name="name">姓名</string>
+    <string name="illness_check">疾病诊断</string>
+    <string name="look_patient_case">查看患者病历</string>
+    <string name="delete_error">删除失败,请稍后重试</string>
+    <string name="add_ok">添加成员成功</string>
+    <string name="all_choose">全选</string>
+    <string name="all_choose_false">反选</string>
+    <string name="intent_consult">互联网会诊</string>
+    <string name="publishing">发布</string>
+    <string name="edit_title">标题</string>
+    <string name="remark">备注</string>
+    <string name="age_empty">年龄不能为空</string>
+    <string name="can_not_empty">不能为空</string>
+    <string name="can_not_num">只能为数字</string>
+    <string name="edit_comment">写评论</string>
+    <string name="send">发送</string>
+    <string name="stop_date">停诊日期</string>
+    <string name="stop_type">停诊类型</string>
+    <string name="multi_select">(可多选)</string>
+    <string name="single_select">(单选)</string>
+    <string name="online_out_patient">在线问诊</string>
+    <string name="phone_out_patient">电话问诊</string>
+    <string name="video_out_patient">视频问诊</string>
+    <string name="add_out_patient">加号问诊</string>
+    <string name="work_plan">工作安排</string>
+    <string name="something_temptory">临时有事</string>
+    <string name="other">其他</string>
+    <string name="stop_reason">停诊原因</string>
+    <string name="stop_diagnose_notice">停诊通知</string>
+    <string name="login_fail">登录失败</string>
+    <string name="theme">主题</string>
+    <string name="send_to">发送给</string>
+    <string name="my_patient">我的患者</string>
+    <string name="my_doctor_friend">我的医生好友</string>
+    <string name="mass_notice">群发通知</string>
+    <string name="choose_contact">选择联系人</string>
+    <string name="leave_word">留言</string>
+    <string name="contact_assist">联系医助</string>
+    <string name="doctor_assist">医生助理</string>
+    <string name="all_contact">所有联系人</string>
+    <string name="doctor_hot_line">医助热线</string>
+    <string name="doctor_callback">请求医助回电</string>
+    <string name="hot_line_number">0592-6527877</string>
+    <string name="exit">退出</string>
+    <string name="setting">设置</string>
+    <string name="update_password">修改密码</string>
+    <string name="update_version">版本更新</string>
+    <string name="about_us">关于我们</string>
+    <string name="my_bank_card">我的银行卡</string>
+    <string name="my_alipay">我的支付宝</string>
+    <string name="withdrawal_password">提现密码</string>
+    <string name="withdrawal">提现</string>
+    <string name="alipay_bind">支付宝绑定</string>
+    <string name="please_bind_alipay">您还未进行支付宝绑定,请进行绑定</string>
+    <string name="bind">绑定</string>
+    <string name="alipay_account">支付宝账户</string>
+    <string name="enter_alipay_account">请输入支付宝账户</string>
+    <string name="want_withdrawal">我要提现</string>
+    <string name="can_withdrawal">恭喜您,您已完成支付宝账号的绑定,点击可进行提现!</string>
+    <string name="withdrawal_money">提现金额</string>
+    <string name="all_withdrawal">全部提现</string>
+    <string name="over_account_money">输入金额超过账户总额</string>
+    <string name="please_bind_personal_alipay">请绑定本人支付宝账号</string>
+    <string name="unbind">解除绑定</string>
+    <string name="bind_alipay">绑定支付宝</string>
+    <string name="notice">提示</string>
+    <string name="unbind_alipay_confirm">继续解除绑定该支付宝账户?</string>
+    <string name="error_account">对不起,您输入的账号有误!\n请重新输入!</string>
+    <string name="over_money">超出本次提现金额</string>
+    <string name="state_message">站内消息</string>
+    <string name="this_month">本月</string>
+    <string name="income_detail">收入明细</string>
+    <string name="my_money">我的余额(元)</string>
+    <string name="withdrawal_detail">提现详情</string>
+    <string name="apply_for_withdrawal">提现申请已提交</string>
+    <string name="diagnose_advice">诊断建议</string>
+    <string name="illness_describe">症状描述</string>
+    <string name="drug_advice">建议用药</string>
+    <string name="check_advice">建议检查项目</string>
+    <string name="swip_delete">(可长按删除)</string>
+    <string name="post">提交</string>
+    <string name="consult_detail">咨询详情</string>
+    <string name="post_end">发起结束</string>
+    <string name="end_consult">您好,您确定现在发起结束\n对 的图文咨询吗?</string>
+    <string name="click_add"><font color='#ffffff'>点击患者头像可查看本次咨询详情,点击</font><font color='#3bafd9'>加号</font><font color='#ffffff'>可查看更多</font></string>
+    <string name="end_request_post_ok">结束请求发送成功</string>
+    <string name="advice_check_projcet">建议检查项目</string>
+    <string name="delete_when_decrease_to_zero">数量减到\"0\"时,删除!</string>
+    <string name="text_img">资料图片</string>
+    <string name="patient_agree">患者已同意您的结束请求,感谢您对患者的问诊.</string>
+    <string name="patient_deagree">患者拒绝你的结束请求,请您进一步完成对患者的问诊.</string>
+    <string name="patient_end">患者已经结束对您的图文咨询,感谢您对患者的问诊.</string>
+    <string name="delete_confirm">确定删除?</string>
+
+    <string name="pickerview_cancel">取消</string>
+    <string name="pickerview_submit">确定</string>
+    <string name="pickerview_year">年</string>
+    <string name="pickerview_month">月</string>
+    <string name="pickerview_day">日</string>
+    <string name="pickerview_hours">时</string>
+    <string name="pickerview_minutes">分</string>
+    <string name="pickerview_seconds">秒</string>
+    <string name="error_contact_account">病人账号异常</string>
+    <string name="diagnose_result">初步预诊</string>
+    <string name="add_time">添加时间段</string>
+    <string name="phone_consult_description">温馨提示:\n
+1.每个患者的就诊时间间隔30分钟，设置开始就诊时间、就诊数量后系统会进一步自动计算。\n
+2.患者购买成功后会有相应短信提示您，到达预约时间前30分钟，系统会再次发送短信提示，请注意接听。\n</string>
+    <string name="start_time">开始就诊时间</string>
+    <string name="diagnose_count">就诊数量</string>
+    <string name="error_set_time">您设置的时间前后冲突</string>
+    <string name="error_set_time_count_zero">设置的就诊数量不能为0</string>
+    <string name="already_post_system">已向系统发送拨打电话请求</string>
+    <string name="dail_now">现在拨通</string>
+    <string name="can_not_dail_togerther">不允许同时拨打电话,请等待系统操作完成</string>
+    <string name="add_appointment">加号预约</string>
+    <string name="enter_doctor_name">请输入医生姓名</string>
+    <string name="complete_time">完成时间</string>
+    <string name="enter_count">请输入数字</string>
+    <string name="hospital_patient_list">住院病人列表</string>
+    <string name="new_add">新增</string>
+    <string name="error_load">服务器异常,请稍后加载</string>
+    <string name="reset_password">重置密码</string>
+    <string name="new_password">新密码</string>
+    <string name="please_enter_new_password">请输入新密码</string>
+    <string name="password_comfirm">密码确认</string>
+    <string name="please_enter_password_again">请再次输入新密码</string>
+    <string name="next">下一步</string>
+    <string name="phone_valite">手机验证</string>
+    <string name="phone_register">注册手机号</string>
+    <string name="enter_register_phone">请输入注册手机号</string>
+    <string name="enter_register_authcode">请输入6位数验证码</string>
+    <string name="update_password_ok">恭喜您修改密码成功</string>
+    <string name="new_version_found">发现新版本.眼科通医生版1.1.1</string>
+    <string name="current_version">当前版本</string>
+    <string name="update_now">立即更新</string>
+    <string name="my_store">我的收藏</string>
+    <string name="online_manager">在线服务管理</string>
+    <string name="enter_count_num">请选择次数</string>
+    <string name="once">次</string>
+    <string name="not_open_consult">对不起，您尚未开通 ，请到在线服务管理进行开通！</string>
+    <string name="open_now">现在开通</string>
+    <string name="open_video_now">是否确定现在开启视频咨询?</string>
+    <string name="agree_already">已同意</string>
+    <string name="add_consult">加号咨询</string>
+    <string name="place_order">下单时间</string>
+    <string name="start_video">发起视频</string>
+    <string name="enter_once_price">请输入单次价格</string>
+    <string name="more">更多</string>
+    <string name="enter_right_price">价格为空，请重新设置</string>
+    <string name="store_ok">收藏成功</string>
+    <string name="colse_ok">关闭服务成功</string>
+    <string name="save_advice_to_local">保存到本地</string>
+    <string name="save_advice_to_server">提交到服务器</string>
+    <string name="error_type">您选择的门诊类型和长期医嘱不符合,请重新选择长期医嘱!</string>
+    <string name="free_clinic_publish">义诊发布</string>
+    <string name="free_clinic_pulish">义诊发布</string>
+    <string name="video_notice">温馨提示:视频义诊请直接在开启视频问诊时设置</string>
+    <string name="error_range_time">抱歉！暂时无法设置两周后的义诊信息.</string>
+    <string name="error_time_twice">您已设置过改时间,请重新选择次数</string>
+    <string name="old_password">原密码</string>
+    <string name="please_enter_old_password">请输入原密码</string>
+    <string name="password_update_ok">验证通过,恭喜您密码修改成功</string>
+    <string name="password_update_fail">验证未通过,请您重新输入</string>
+    <string name="version_unknown">1.0</string>
+    <string name="error_enter_time">您设置的就诊时间前后冲突，请重新设置！</string>
+    <string name="close_video">关诊</string>
+    <string name="message_history">聊天记录</string>
+    <string name="unknow_size">未知</string>
+
+
+    <string name="pull_to_refresh_pull">下拉刷新</string>
+    <string name="pull_to_refresh_up">上拉刷新</string>
+    <string name="pull_to_refresh_release">松开刷新</string>
+    <string name="pull_to_refresh_refreshing">加载中&#8230;</string>
+
+    <string name="pull_to_refresh_from_bottom_pull_label">@string/pull_to_refresh_up</string>
+    <string name="pull_to_refresh_from_bottom_release_label">@string/pull_to_refresh_release</string>
+    <string name="pull_to_refresh_from_bottom_refreshing_label">@string/pull_to_refresh_refreshing</string>
+    <string name="today_can_not_delete">当天义诊不能删除!</string>
+    <string name="today_can_not_edit">当天义诊不能编辑!</string>
+    <string name="eye_circle">眼科圈</string>
+    <string name="close_confirm">若您存在未完成问诊,关诊后将全部关闭,是否确定现在关诊?</string>
+    <string name="remove_store_ok">取消收藏成功</string>
+    <string name="topic_detail">话题详情</string>
+    <string name="add_consult_desc">1.医生通过文字/图片/语音3种形式解答患者在线咨询问题。\n2.该价格为预约加号的费用，不包括就诊费用。</string>
+    <string name="phone_consult_desc">1.医生通过电话形式解答患者电话咨询的问题。\n2.患者购买服务后，客服介入负责联系双方空闲时段。到达约定时段系统自动拨通双方电话进行电话咨询。\n3.每次通话时长为15分钟，到时系统将自动终止本次通话。</string>
+    <string name="video_consult_desc">1.医生通过视频形式面对面解答患者咨询问题。\n2.每次服务，患者最多可以视频咨询15分钟。</string>
+    <string name="text_consult_desc">1.医生通过文字/图片/语音3种形式解答患者在线咨询问题。\n2.本服务不计时，若在双方最后一条回复的48小时后无人再应答，自动结束对话，双方无法再次对话。</string>
+
+
+    <!-- 云信  video start -->
+    <string name="avchat_hangup">结束通话</string>
+    <string name="avchat_switch_to_video">切换视频</string>
+    <string name="avchat_switch_to_audio">切换语音</string>
+    <string name="avchat_video_call_request">请求视频聊天…</string>
+    <string name="avchat_audio_call_wifi_unavailable_tip">当前非WiFi环境，每分钟将产生约0.5M的流量</string>
+    <string name="avchat_network_grade_0">网络通畅：</string>
+    <string name="avchat_network_grade_1">网络正常：</string>
+    <string name="avchat_network_grade_2">网络一般：</string>
+    <string name="avchat_network_grade_3">网络较差：</string>
+    <string name="avchat_refuse">拒绝</string>
+    <string name="avchat_receive">开启</string>
+    <string name="avchat_pickup">接听</string>
+    <string name="avchat_net_error_then_quit">网络异常，通话结束</string>
+    <string name="avchat_call_finish">通话结束</string>
+    <string name="avchat_peer_reject">对方拒绝了本次通话</string>
+    <string name="avchat_peer_protocol_low_version">对方版本过低，请提示对方升级</string>
+    <string name="avchat_local_protocol_low_version">版本过低，请升级后使用</string>
+    <string name="avchat_invalid_channel_id">对方已挂断</string>
+    <string name="avchat_local_call_busy">本地通话中，无法使用易信进行通话。</string>
+    <string name="avchat_peer_busy">对方正在通话中，请稍后再拨。</string>
+    <string name="avchat_wait_recieve">等待对方接听…</string>
+    <string name="avchat_audio_call_request">请求通话</string>
+    <string name="avchat_connecting">连接中…</string>
+    <string name="avchat_audio_to_video_invitation">对方邀请你开启视频聊天…</string>
+    <string name="avchat_cannot_establish_connection">无法和对方建立连接</string>
+    <string name="avchat_network_unstable_notificaton">当前网络不稳定</string>
+    <string name="avchat_peer_close_camera">对方关闭了摄像头</string>
+    <string name="avchat_local_close_camera">你关闭了摄像头</string>
+    <string name="avchat_audio_to_video_wait">正在等待对方开启摄像头…</string>
+    <string name="avchat_no_pick_up">未接听</string>
+    <string name="avchat_no_response">无人接听</string>
+    <string name="avchat_buddy_reject">对方正忙</string>
+    <string name="avchat_cancel">已取消</string>
+    <string name="avchat_switch_video_reject">对方不同意音频切换为视频！</string>
+    <string name="avchat_notification">正在与%1$s通话中，点击继续</string>
+    <string name="avchat_hangup_notificaion">%1$s:【网络通话】</string>
+    <string name="avchat_call">网络通话</string>
+    <string name="avchat_no_pickup_call">未接听</string>
+    <string name="avchat_call_failed">发起通话失败</string>
+    <string name="avchat_no_permission">暂无权限，请开通音视频服务</string>
+    <string name="avchat_in_switch">请耐心等待！</string>
+    <string name="avchat_device_no_ready">音视频设备未准备好</string>
+    <string name="avchat_audio_record_toast">仅录制你说话的内容</string>
+    <string name="attention_patient">重点关注病历</string>
+    <string name="report_note">患者报到单</string>
+    <string name="free_consult">免费咨询</string>
+    <string name="not_see_hos">对不起，您尚未完成验证，暂时无法查看您所在医院的通讯录。</string>
+    <string name="add_new_case">新增病历</string>
+    <string name="already_send">已发送</string>
+    <string name="certification_now">您尚未完成认证,请认证后再使用该功能</string>
+    <string name="electric_record">电子病历</string>
+    <string name="doctor_ask">医嘱</string>
+    <string name="internet_consult">互联网会诊</string>
+    <string name="left_money">余额</string>
+    <string name="month_money">本月收益</string>
+    <string name="contact_add_friend">添加朋友</string>
+
+    <!-- 云信  video end -->
+
+    <!--通用  start-->
+    <string name="get_data_error">获取数据异常</string>
+    <string name="operation_error">服务器异常!请稍后重试!</string>
+    <string name="update_version_now">发现新版本，是否立即更新</string>
+    <string name="password_confirm">密码确认</string>
+    <string name="can_not_change_phone">不能更换获取验证码的手机号</string>
+    <string name="twice_password_not_same">输入的两次密码不一致,请重新输入!</string>
+    <string name="query_detail_empty">查无记录</string>
+    <string name="already_stop_diagnose">已停诊</string>
+    <string name="bind_alipay_ok">支付宝绑定成功!</string>
+    <string name="alipay_empty">支付宝账号不能为空</string>
+    <string name="unbind_alipay_ok">解除绑定支付宝成功!</string>
+    <string name="not_bind_alipay">您尚未绑定支付宝!</string>
+    <string name="bind_alipay_repeat">不能重复绑定支付宝</string>
+    <string name="alredy_close">已关闭</string>
+    <string name="phone_consult_open_ok">电话咨询开通成功!</string>
+    <string name="tel_error">手机号码填写错误!</string>
+    <string name="delete_group_ok">删除分组成功!</string>
+    <string name="rename_group_ok">重命名分组成功!</string>
+    <string name="transform_ok">转诊成功</string>
+    <string name="personal_info">个人信息</string>
+    <string name="transform_dept">转诊</string>
+    <string name="patient_report_note">患者报到单</string>
+    <string name="umeng_download">download</string>
+    <string name="empty_add">未添加</string>
+    <string name="chart_case_detail">病例详情</string>
+    <string name="reply_comment">回复评论</string>
+    <string name="empty_comment">评论不能为空</string>
+    <string name="cancel_support_ok">取消点赞成功</string>
+    <string name="get_hospital_ok">获取医院成功</string>
+    <string name="empty_set_time">未设置时间</string>
+    <string name="enter_case_example_title">请输入病例标题</string>
+    <string name="kill_out_by_other">您已被踢下线,请重新登录</string>
+    <string name="login_again">重新登录</string>
+    <string name="logout_notice">下线通知</string>
+    <string name="search_result_zero">未搜索到结果</string>
+    <string name="experience_now">立即体验</string>
+    <string name="add_patient_clinic_num">门诊号码</string>
+    <string name="load_complete">加载完成,已经是最后一条</string>
+    <string name="load_more">加载更多</string>
+    <string name="approving_ok">提交成功，请等待认证</string>
+    <string name="picure_not_empty">执业医生证或胸牌图片未上传!</string>
+    <string name="operation_not_open">该功能正在维护，请稍后再试</string>
+    <string name="date_error">日期有误，请重新输入</string>
+    <string name="consult_with_text">患者希望以图文的方式咨询</string>
+    <string name="consult_with_video">患者希望以视频的方式咨询</string>
+    <!--通用  end-->
+</resources>

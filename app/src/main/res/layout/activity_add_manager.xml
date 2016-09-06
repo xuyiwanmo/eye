@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".commUtils.plusManager.activity.PlusManagerActivity">
+
+    <com.sg.eyedoctor.common.view.MyActionbar
+        app:rightBtn_visible="false"
+        app:actionbar_title="@string/add_manager"
+        android:id="@+id/actionbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+    <com.pulltorefresh.handmark.pulltorefresh.library.PullToRefreshListView
+        android:divider="@color/trans"
+        android:id="@+id/add_manager_lv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</LinearLayout>

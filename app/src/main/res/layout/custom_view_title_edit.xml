@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:background="@color/white"
+    android:orientation="horizontal"
+    android:paddingLeft="12dp"
+    >
+    <View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"/>
+
+    <TextView
+        android:id="@+id/name_tv"
+        android:layout_width="90dp"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:text="@string/name"
+        android:textSize="@dimen/text_16"/>
+
+    <EditText
+        android:id="@+id/name_et"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@color/trans"
+        android:hint="@string/enter_name"
+        android:textColor="@color/text_body_strong"
+        android:textColorHint="@color/text_body_weak"
+        android:textSize="@dimen/text_16"/>
+    <View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"/>
+</LinearLayout>

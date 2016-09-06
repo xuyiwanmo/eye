@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="com.sg.eyedoctor.helpUtils.freeClinic.activity.FreeVideoActivity">
+
+    <com.sg.eyedoctor.common.view.MyActionbar
+        android:id="@+id/actionbar"
+        app:rightBtn_visible="false"
+        app:actionbar_title="设置"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <com.sg.eyedoctor.common.view.DescribeView
+        android:id="@+id/open_dv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:describe="1.每个患者的就诊时间未15分钟,15分钟后系统会自动中断 \n2.开启视频咨询服务后,相关患者会收到开诊提醒"
+        app:show_open="true"
+        app:title_name="是否开启义诊"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginBottom="18dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="18dp"
+        android:background="@drawable/bg_edit_trans"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:text="就诊数量"
+            android:textSize="@dimen/text_18"/>
+
+        <TextView
+            android:id="@+id/price_et"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/trans"
+            android:padding="10dp"
+            android:text="请输入次数"
+            android:textColor="@color/text_body_weak"
+            android:textSize="@dimen/text_18"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:text="@string/once"
+            android:textSize="@dimen/text_18"/>
+
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".contact.activity.DoctorDetailActivity">
+
+    <com.sg.eyedoctor.common.view.MyActionbar
+        app:rightBtn_visible="false"
+        app:actionbar_title="@string/my_info"
+        android:id="@+id/actionbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="2dp"
+        android:orientation="horizontal">
+
+        <com.sg.eyedoctor.common.view.RoundImageView
+            android:id="@+id/head_img"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/doctor_head"/>
+
+        <TextView
+            android:id="@+id/name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="28dp"
+            android:text="张三丰"
+            android:textColor="@color/text_body_strong"
+            android:textSize="@dimen/text_16"/>
+
+    </LinearLayout>
+
+    <View
+        style="@style/style_line"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/doctor_detail_text"
+            android:text="@string/hospital"/>
+
+        <TextView
+            android:id="@+id/hospital_tv"
+            style="@style/doctor_detail_describe"
+            android:text="眼科"/>
+    </LinearLayout>
+
+    <View
+        style="@style/style_line"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/doctor_detail_text"
+            android:text="@string/administrative_office"/>
+
+        <TextView
+            android:id="@+id/illness_tv"
+            style="@style/doctor_detail_describe"
+            android:text="眼科"/>
+    </LinearLayout>
+
+    <View
+        style="@style/style_line"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/doctor_detail_text"
+            android:text="@string/title"/>
+
+        <TextView
+            android:id="@+id/title_tv"
+            style="@style/doctor_detail_describe"
+            android:text="眼科"/>
+    </LinearLayout>
+
+    <View
+        style="@style/style_line"/>
+
+    <LinearLayout
+        android:paddingTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="25dp">
+
+        <TextView
+            android:layout_marginLeft="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/good_at"
+            android:textColor="@color/text_body_strong"
+            android:textSize="@dimen/text_16"/>
+
+        <TextView
+            android:id="@+id/good_at_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="35dp"
+            android:text="眼科"
+            android:textColor="@color/actionbar_color"
+            android:textSize="@dimen/text_16"
+            />
+    </LinearLayout>
+
+    <View
+        style="@style/style_line"
+        android:layout_marginBottom="25dp"/>
+
+    <Button
+        android:id="@+id/add_send_btn"
+        android:textSize="@dimen/text_16"
+        android:textColor="@color/white"
+        android:layout_marginRight="8dp"
+        android:layout_marginLeft="8dp"
+        android:text="@string/add_friend"
+        android:background="@drawable/bg_text_green"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        />
+    <Button
+        android:visibility="gone"
+        android:id="@+id/send_msg_btn"
+        android:textSize="@dimen/text_16"
+        android:textColor="@color/white"
+        android:layout_marginRight="8dp"
+        android:layout_marginLeft="8dp"
+        android:text="发送消息"
+        android:background="@drawable/bg_text_blue"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        />
+
+    <LinearLayout
+        android:visibility="gone"
+        android:layout_marginRight="8dp"
+        android:layout_marginLeft="8dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/agree_btn"
+            android:textSize="@dimen/text_16"
+            android:textColor="@color/white"
+            android:text="@string/agree"
+            android:background="@drawable/bg_text_green"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="45dp"
+            />
+
+        <Button
+            android:id="@+id/refuse_btn"
+            android:textSize="@dimen/text_16"
+            android:textColor="@color/white"
+            android:layout_marginLeft="29dp"
+            android:text="@string/refuse"
+            android:background="@drawable/bg_text_red"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="45dp"
+            />
+
+    </LinearLayout>
+
+</LinearLayout>

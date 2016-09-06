@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:fitsSystemWindows="true"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray_bg"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context=".commUtils.plusManager.activity.EditPlusInfoActivity">
+
+    <com.sg.eyedoctor.common.view.MyActionbar
+        app:rightBtn_visible="false"
+        app:actionbar_title="@string/enter_add_info"
+        android:id="@+id/actionbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:paddingBottom="14dp"
+                android:paddingLeft="10dp"
+                android:paddingTop="16dp"
+                android:text="@string/choose_out_patient_type"
+                android:textColor="@color/black"/>
+
+            <RelativeLayout
+                android:id="@+id/type_rl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:paddingBottom="16dp"
+                >
+
+                <TextView
+                    android:id="@+id/type1_tv"
+                    style="@style/edit_add_info_text"
+                    android:text="@string/normal"/>
+
+                <TextView
+                    android:id="@+id/type2_tv"
+                    style="@style/edit_add_info_text"
+                    android:layout_toRightOf="@id/type1_tv"
+                    android:text="@string/professor"
+                    />
+
+                <TextView
+                    android:id="@+id/type3_tv"
+                    style="@style/edit_add_info_text"
+                    android:layout_toRightOf="@id/type2_tv"
+                    android:text="@string/special_procurement"
+                    />
+
+                <TextView
+                    android:id="@+id/type4_tv"
+                    style="@style/edit_add_info_text"
+                    android:layout_below="@id/type1_tv"
+                    android:layout_marginTop="13dp"
+                    android:text="@string/college"
+
+                    />
+
+                <TextView
+                    android:id="@+id/type5_tv"
+                    style="@style/edit_add_info_text"
+                    android:layout_below="@id/type1_tv"
+                    android:layout_marginTop="13dp"
+                    android:layout_toRightOf="@id/type4_tv"
+                    android:text="@string/internation"
+                    />
+            </RelativeLayout>
+
+            <View
+                style="@style/style_line"
+                ></View>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginTop="14dp"
+                android:background="@color/white">
+
+                <TextView
+                    android:layout_width="95dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="10dp"
+                    android:text="@string/out_patient_hospital"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_14"/>
+
+                <TextView
+                    android:gravity="center_vertical"
+                    android:id="@+id/out_patient_hos_et"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/trans"
+                    android:textColor="@color/text_body_strong"
+                    android:textSize="@dimen/text_14"
+                    tools:text="厦门眼科中心"/>
+            </LinearLayout>
+
+            <View
+                style="@style/style_line"
+                ></View>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="@color/white"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="95dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="10dp"
+                    android:text="就诊时段"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_14"/>
+
+                <TextView
+                    android:id="@+id/from_time_tv"
+                    style="@style/edit_add_info_text"
+                    android:layout_width="75dp"
+                    android:layout_height="31dp"
+                    android:layout_marginLeft="2dp"
+                    android:text="@string/please_choose"
+                    android:textColor="@color/actionbar_color"
+                    android:textSize="@dimen/text_14"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="14dp"
+                    android:layout_marginRight="14dp"
+                    android:gravity="center"
+                    android:text="-"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_14"/>
+
+                <TextView
+                    android:id="@+id/to_time_tv"
+                    style="@style/edit_add_info_text"
+                    android:layout_width="75dp"
+                    android:layout_height="31dp"
+                    android:layout_marginLeft="2dp"
+                    android:text="@string/please_choose"
+                    android:textColor="@color/actionbar_color"
+                    android:textSize="@dimen/text_14"/>
+            </LinearLayout>
+
+            <View
+                style="@style/style_line"
+                ></View>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="@color/white">
+
+                <TextView
+                    android:layout_width="95dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="10dp"
+                    android:text="@string/count_number"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_14"/>
+
+                <EditText
+                    android:id="@+id/add_count_et"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/trans"
+                    android:hint="@string/must_enter"
+                    android:textColor="@color/text_body_strong"
+                    android:textSize="@dimen/text_14"/>
+            </LinearLayout>
+
+            <View
+                style="@style/style_line"
+                ></View>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:layout_marginTop="14dp"
+                android:background="@color/white"
+                android:orientation="horizontal"
+                android:paddingTop="13dp">
+
+                <TextView
+                    android:textColor="@color/black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="top"
+                    android:paddingLeft="8dp"
+                    android:text="@string/mark"
+                    android:textSize="@dimen/text_14"/>
+
+                <EditText
+                    android:textColor="@color/text_body_strong"
+                    tools:text="哈哈"
+                    android:textSize="@dimen/text_14"
+                    android:paddingLeft="4dp"
+                    android:gravity="top"
+                    android:id="@+id/mark_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/trans"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/ensure_tv"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="14dp"
+                android:background="@drawable/bg_blue_text_white"
+                android:gravity="center"
+                android:text="@string/ensure"
+                android:textColor="@color/white"
+                android:textSize="18sp"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</LinearLayout>

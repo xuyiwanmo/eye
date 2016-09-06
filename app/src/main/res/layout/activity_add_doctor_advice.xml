@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context=".doctorAdvice.AddDoctorAdviceActivity">
+
+
+    <com.sg.eyedoctor.common.view.MyActionbar
+        android:id="@+id/actionbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:actionbar_title="新增医嘱"
+        />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:paddingTop="10dp">
+
+
+                <TextView
+                    android:id="@+id/stop_type_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="10dp"
+                    android:paddingLeft="10dp"
+                    android:text="请选择门诊类型"
+                    android:textColor="@color/text_body_strong"/>
+
+
+                <RelativeLayout
+                    android:id="@+id/stop_reason_rl"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:paddingBottom="16dp"
+                    >
+
+                    <TextView
+                        android:id="@+id/reson1_tv"
+                        style="@style/edit_add_advice_text2"
+                        android:text="长期医嘱\n(药品)"/>
+
+                    <TextView
+                        android:id="@+id/reson2_tv"
+                        style="@style/edit_add_advice_text2"
+                        android:layout_toRightOf="@id/reson1_tv"
+                        android:text="临时医嘱\n(药品)"
+                        />
+
+                    <TextView
+                        android:id="@+id/reson3_tv"
+                        style="@style/edit_add_advice_text2"
+                        android:layout_toRightOf="@id/reson2_tv"
+                        android:text="临时医嘱\n(诊疗)"
+                        />
+
+                    <TextView
+                        android:id="@+id/reson4_tv"
+                        style="@style/edit_add_advice_text2"
+                        android:layout_below="@id/reson1_tv"
+                        android:layout_marginTop="13dp"
+                        android:text="长期医嘱\n(诊疗)"
+                        />
+
+                    <TextView
+                        android:id="@+id/reson5_tv"
+                        style="@style/edit_add_advice_text2"
+                        android:layout_below="@id/reson1_tv"
+                        android:layout_marginTop="13dp"
+                        android:layout_toRightOf="@id/reson1_tv"
+                        android:text="出院医嘱\n(药品)"
+                        />
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/with_m_height_40"
+                android:background="@drawable/bg_white_border_1">
+
+                <TextView
+                    android:id="@+id/time_name_tv"
+                    style="@style/doctor_advice_tv"
+                    android:text="开始时间"/>
+
+                <TextView
+                    android:id="@+id/time_tv"
+                    style="@style/edit_tv"
+                    />
+
+                <ImageView
+                    style="@style/style_ic_arraw"/>
+            </LinearLayout>
+
+
+            <LinearLayout
+                style="@style/with_m_height_40"
+                >
+
+
+                <TextView
+                    android:id="@+id/long_name_tv"
+                    style="@style/doctor_advice_tv"
+                    android:text="长期医嘱"/>
+
+                <TextView
+                    android:id="@+id/long_advice_tv"
+                    style="@style/edit_tv"
+                    />
+
+                <ImageView
+                    style="@style/style_ic_arraw"/>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/eye_rl"
+                style="@style/with_m_height_40"
+                >
+
+
+                <TextView
+                    android:id="@+id/eye_type_tv"
+                    style="@style/doctor_advice_tv"
+                    android:text="眼别"/>
+
+                <TextView
+                    android:id="@+id/eye_tv"
+                    style="@style/edit_tv"
+                    />
+
+                <ImageView
+                    style="@style/style_ic_arraw"/>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/unit_name_rl"
+                style="@style/with_m_height_40"
+                >
+
+                <TextView
+                    android:id="@+id/unit_name_tv"
+                    style="@style/doctor_advice_tv"
+                    android:text="药品规格"/>
+
+                <TextView
+                    android:id="@+id/unit_tv"
+                    style="@style/edit_tv"
+                    />
+
+                <ImageView
+                    style="@style/style_ic_arraw"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/once_name_rl"
+                style="@style/with_m_height_40"
+                >
+
+
+                <TextView
+                    android:id="@+id/once_name_tv"
+                    style="@style/doctor_advice_tv"
+                    android:text="单量"/>
+
+                <TextView
+                    android:id="@+id/once_tv"
+                    style="@style/edit_tv"
+                    android:text="请填写数量"
+                    />
+
+                <TextView
+                    android:id="@+id/pharmacyUnit_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:text="瓶"
+                    android:textColor="@color/text_body_strong"/>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/frequency_name_rl"
+                style="@style/with_m_height_40"
+                >
+
+                <TextView
+                    android:id="@+id/frequency_name_tv"
+                    style="@style/doctor_advice_tv"
+                    android:text="频次"/>
+
+                <TextView
+                    android:id="@+id/frequency_tv"
+                    style="@style/edit_tv"
+                    />
+
+                <ImageView
+                    style="@style/style_ic_arraw"/>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/first_day_name_rl"
+                style="@style/with_m_height_40"
+                >
+
+
+                <TextView
+                    android:id="@+id/first_day_name_tv"
+                    style="@style/doctor_advice_tv"
+                    android:text="首日次数"/>
+
+                <TextView
+
+                    android:id="@+id/first_day_tv"
+                    style="@style/edit_tv"
+                    android:paddingRight="10dp"
+                    android:text="请填写次数"/>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/usage_name_rl"
+                style="@style/with_m_height_40"
+                >
+
+
+                <TextView
+                    android:id="@+id/usage_name_tv"
+                    style="@style/doctor_advice_tv"
+                    android:text="用法"/>
+
+                <TextView
+                    android:id="@+id/usage_tv"
+                    style="@style/edit_tv"
+                    />
+
+                <ImageView
+                    style="@style/style_ic_arraw"/>
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/with_m_height_40"
+                >
+
+                <TextView
+                    android:id="@+id/count_name_tv"
+                    style="@style/doctor_advice_tv"
+                    android:text="总量"/>
+
+                <TextView
+                    android:id="@+id/count_tv"
+                    style="@style/edit_tv"
+                    android:paddingRight="10dp"
+                    android:text="请填写次数"
+                    />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/price_name_rl"
+                style="@style/with_m_height_40"
+                >
+
+                <TextView
+                    android:id="@+id/price_name_tv"
+                    style="@style/doctor_advice_tv"
+                    android:text="单价"/>
+
+                <TextView
+                    android:id="@+id/price_tv"
+                    style="@style/edit_tv"
+                    android:paddingRight="10dp"
+                    tools:text="18元"/>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/property_name_rl"
+                style="@style/with_m_height_40"
+                >
+
+                <TextView
+                    android:id="@+id/property_name_tv"
+                    style="@style/doctor_advice_tv"
+                    android:text="发药属性"/>
+
+                <TextView
+                    android:id="@+id/property_tv"
+                    style="@style/edit_tv"
+                    android:paddingRight="10dp"
+                    android:text="不发"/>
+            </LinearLayout>
+
+
+            <LinearLayout
+
+                style="@style/with_m_height_40"
+                >
+
+
+                <TextView
+                    android:id="@+id/doctor_name_tv"
+                    style="@style/doctor_advice_tv"
+                    android:text="开嘱医生"/>
+
+                <TextView
+                    android:id="@+id/doctor_tv"
+                    style="@style/edit_tv"
+                    android:paddingRight="10dp"
+                    tools:text="长期"/>
+            </LinearLayout>
+
+
+            <LinearLayout
+                style="@style/with_m_height_40"
+                android:layout_marginBottom="20dp"
+                >
+
+                <TextView
+                    android:id="@+id/state_name_tv"
+                    style="@style/doctor_advice_tv"
+                    android:text="状态"/>
+
+                <TextView
+                    android:id="@+id/state_tv"
+                    style="@style/edit_tv"
+                    android:paddingRight="10dp"
+                    android:text="新增"/>
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

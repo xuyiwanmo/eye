@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context="com.sg.eyedoctor.consult.textConsult.activity.SearchTextActivity">
+
+    <com.sg.eyedoctor.common.view.MyActionbar
+        android:id="@+id/actionbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:actionbar_title="@string/text_consult"
+        app:rightBtn_visible="false"/>
+
+    <com.sg.eyedoctor.common.view.SearchLayout
+        android:id="@+id/search_sl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        app:confirm_visible="true"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.sg.eyedoctor.common.view.NoScrollListView
+                android:id="@+id/search_add_lv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <com.sg.eyedoctor.common.view.NoScrollListView
+                android:id="@+id/search_lv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/empty_tv"
+                android:visibility="gone"
+                android:layout_gravity="center"
+                android:textSize="@dimen/text_18"
+                android:textColor="@color/text_body_weak"
+                android:text="无记录"
+                android:layout_marginTop="200dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+    <com.sg.eyedoctor.common.view.RoundImageView
+        android:id="@+id/head_img"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginLeft="18dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/ic_patient_head"
+        app:border_outside_color="@color/gray_bg"
+        app:border_thickness="1dp"/>
+
+    <TextView
+        android:id="@+id/name_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/head_img"
+        android:layout_marginLeft="16dp"
+        android:layout_toRightOf="@id/head_img"
+        android:text="患者1"
+        android:textColor="@color/text_title"
+        android:textSize="@dimen/text_14"/>
+
+    <TextView
+        android:id="@+id/tv_sex"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/name_tv"
+        android:layout_below="@id/name_tv"
+        android:layout_marginBottom="15dp"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/text_body_weak"
+        android:textSize="@dimen/text_14"
+        tools:text="男"/>
+
+    <View
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:id="@+id/line"
+        android:layout_width="1dp"
+        android:layout_height="16dp"
+        android:layout_alignTop="@id/tv_sex"
+        android:layout_toRightOf="@id/tv_sex"
+        android:background="@color/text_body_weak"/>
+
+    <TextView
+        android:id="@+id/tv_age"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/tv_sex"
+        android:layout_toRightOf="@id/line"
+        android:textColor="@color/text_body_weak"
+        tools:text="30岁"
+        />
+
+    <View
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/head_img"
+        style="@style/style_line"
+        android:layout_alignLeft="@id/name_tv"/>
+
+
+</RelativeLayout>

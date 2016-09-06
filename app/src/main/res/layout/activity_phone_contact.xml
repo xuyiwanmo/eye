@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/actionbar_color">
+
+        <ImageView
+            android:id="@+id/imgBack"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:src="@drawable/ic_back"/>
+
+        <TextView
+            android:id="@+id/tv_headline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/contact_friend"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_18"/>
+
+    </RelativeLayout>
+
+
+    <com.sg.eyedoctor.common.view.ClearEditText
+        android:id="@+id/filter_et"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dip"
+        android:drawableLeft="@android:drawable/ic_menu_search"
+        android:hint="请输入关键字"
+        android:singleLine="true"
+        android:textSize="15.0dip"/>
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <ListView
+            android:id="@+id/country_lv"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_gravity="center"
+            android:divider="@null"/>
+
+        <TextView
+            android:id="@+id/no_friends_tv"
+            android:layout_width="fill_parent"
+            android:layout_height="30dp"
+            android:layout_gravity="right|top"
+            android:background="@color/gray_bg"
+            android:gravity="center_vertical"
+            android:text="没有匹配的联系人"
+            android:textColor="#454545"
+            android:visibility="gone"/>
+
+        <LinearLayout
+            android:id="@+id/title_lv"
+            android:layout_width="match_parent"
+            android:layout_height="26dp"
+            android:layout_gravity="right|top"
+            android:background="#ff303030"
+            android:orientation="vertical">
+
+            <TextView
+                android:textSize="@dimen/text_12"
+                android:id="@+id/catalog_tv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/gray_bg"
+                android:gravity="center_vertical"
+                android:paddingLeft="5dp"
+                android:textColor="#454545"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/notice_tv"
+            android:layout_width="80.0dip"
+            android:layout_height="80.0dip"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textColor="#ffffffff"
+            android:textSize="30.0dip"
+            android:visibility="invisible"/>
+
+        <com.sg.eyedoctor.common.view.SideBar
+            android:id="@+id/sort_sb"
+            android:layout_width="30.0dip"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center"/>
+    </FrameLayout>
+
+</LinearLayout>

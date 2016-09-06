@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context=".caseDiscuss.ChooseContactActivity">
+
+    <com.sg.eyedoctor.common.view.MyActionbar
+        android:id="@+id/actionbar"
+        app:actionbar_title="@string/my_doctor_friend"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <com.sg.eyedoctor.common.view.SearchLayout
+        app:search_title="@string/enter_doctor_name"
+        android:id="@+id/search_sl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:paddingLeft="13dp"
+        android:paddingRight="13dp"
+        android:layout_marginTop="7dp"
+        android:background="@color/white"
+        android:id="@+id/head_rv"
+        android:layout_height="50dp"
+        android:layout_width="wrap_content"/>
+    <View
+        android:layout_height="0.5dp"
+        style="@style/style_line"
+        />
+
+    <LinearLayout
+        android:id="@+id/choose_all_ll"
+        android:layout_marginTop="7dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_marginRight="12dp"
+            android:layout_marginLeft="12dp"
+            android:id="@+id/all_check_img"
+            android:src="@drawable/selector_sex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:textSize="@dimen/text_14"
+            android:textColor="@color/black"
+            android:text="@string/all_choose"
+            android:id="@+id/all_choose_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <View
+        android:layout_height="0.5dp"
+        style="@style/style_line"
+      />
+
+    <FrameLayout
+        android:layout_marginTop="13dp"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <ListView
+            android:id="@+id/country_lv"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_gravity="center"
+            android:divider="@null"/>
+
+        <TextView
+            android:id="@+id/empty_tv"
+            android:layout_width="fill_parent"
+            android:layout_height="30dp"
+            android:layout_gravity="right|top"
+            android:background="@color/gray_bg"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:text="没有匹配的联系人"
+            android:textColor="@color/green"
+            android:textSize="@dimen/text_16"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/notice_tv"
+            android:layout_width="80.0dip"
+            android:layout_height="80.0dip"
+            android:layout_gravity="center"
+            android:background="@color/green"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="30.0dip"
+            android:visibility="invisible"/>
+
+        <com.sg.eyedoctor.common.view.SideBar
+            android:id="@+id/sort_sb"
+            android:layout_width="30.0dip"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center"
+            android:layout_marginBottom="50dp"
+            android:layout_marginTop="30dp"/>
+    </FrameLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:gravity="center_vertical"
+    >
+
+    <TextView
+        android:text="@string/accept"
+        android:paddingLeft="13dp"
+        android:gravity="center_vertical"
+        android:textSize="@dimen/text_18"
+        android:id="@+id/eye_data_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"/>
+
+    <ImageView
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_arraw_gray"/>
+
+    <View
+        style="@style/style_bottom_line"
+        />
+</RelativeLayout>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context=".mySetting.AboutUsActivity">
+
+    <com.sg.eyedoctor.common.view.MyActionbar
+        android:id="@+id/actionbar"
+        app:rightBtn_visible="false"
+        app:actionbar_title="@string/about_us"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <com.sg.eyedoctor.common.view.DescribeView
+        app:title_name="眼科通是做什么的"
+        app:describe="眼科通是连接医患的app\n跟踪,交流和自己熟悉的患者"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <com.sg.eyedoctor.common.view.DescribeView
+        app:title_name="眼科通是做什么的"
+        app:describe="眼科通是连接医患的app\n跟踪,交流和自己熟悉的患者"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <com.sg.eyedoctor.common.view.DescribeView
+        app:title_name="眼科通是做什么的"
+        app:describe="眼科通是连接医患的app\n跟踪,交流和自己熟悉的患者"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>

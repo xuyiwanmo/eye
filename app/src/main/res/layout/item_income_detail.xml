@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+    >
+
+    <TextView
+        android:id="@+id/time_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:text="2016-03-14"
+        android:textColor="@color/text_body_weak"/>
+
+    <TextView
+        android:id="@+id/content_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/time_tv"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:text="王大发-电话咨询"
+        android:paddingBottom="10dp"
+        android:textColor="@color/text_body_strong"/>
+
+    <TextView
+        android:id="@+id/money_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:paddingRight="20dp"
+        android:text="+60.00"
+        android:textColor="@color/actionsheet_red"
+        android:textSize="26sp"/>
+
+    <View
+        android:layout_height="1dp"
+        style="@style/style_bottom_line"/>
+
+</RelativeLayout>

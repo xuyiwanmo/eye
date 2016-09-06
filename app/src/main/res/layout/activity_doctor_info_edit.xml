@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/gray_bg"
+              android:fitsSystemWindows="true"
+              android:orientation="vertical">
+
+    <com.sg.eyedoctor.common.view.MyActionbar
+        android:id="@+id/actionbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:actionbar_title="@string/add_new_patient"
+        app:rightBtn_visible="false"/>
+
+    <LinearLayout
+        android:id="@+id/ll_my_update_male"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/white"
+        android:paddingLeft="10dp"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="@string/male"
+            android:textSize="@dimen/text_16"/>
+
+        <ImageView
+            android:id="@+id/img_my_update_male_check"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="12dp"
+            android:src="@drawable/ic_agree"/>
+
+    </LinearLayout>
+
+    <View style="@style/style_line"/>
+
+    <LinearLayout
+        android:id="@+id/ll_my_update_female"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/white"
+        android:paddingLeft="10dp"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="@string/female"
+            android:textSize="@dimen/text_16"/>
+
+        <ImageView
+            android:id="@+id/img_my_update_female_check"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="12dp"
+            android:src="@drawable/ic_agree"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/ll_my_update_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:paddingLeft="10dp"
+        android:visibility="gone"
+        >
+
+        <EditText
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:id="@+id/et_my_update_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/transparent"
+            android:gravity="center_vertical"
+            android:text="职称"
+            android:textSize="@dimen/text_16"/>
+
+        <ImageView
+            android:id="@+id/img_my_update_title_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:paddingRight="20dp"
+            android:src="@drawable/ic_empty"/>
+
+    </LinearLayout>
+
+    <!--介绍-->
+    <LinearLayout
+        android:id="@+id/ll_my_update_introduce"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:paddingLeft="10dp"
+        android:visibility="gone">
+
+        <EditText
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:id="@+id/et_my_update_introduce"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="您好.............您好.............您好.............您好.............您好.............您好.............您好.............您好.............您好.............您好.............您好.............您好.............您好.............您好.............您好.............您好.............您好.............您好.............您好............."
+            android:background="@color/transparent"
+            android:gravity="center_vertical"
+            android:textSize="@dimen/text_16"/>
+
+        <ImageView
+            android:id="@+id/img_my_update_introduce_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="12dp"
+            android:padding="6dp"
+            android:src="@drawable/ic_empty"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>

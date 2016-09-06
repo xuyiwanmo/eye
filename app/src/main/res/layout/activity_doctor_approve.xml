@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/gray_bg"
+              android:fitsSystemWindows="true"
+              android:orientation="vertical"
+              tools:context=".settings.personalInfo.activity.DoctorApproveActivity">
+
+
+    <com.sg.eyedoctor.common.view.MyActionbar
+        android:id="@+id/actionbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:actionbar_title="@string/doctor_approve"
+        app:rightBtn_visible="false"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/trans"
+        android:paddingBottom="19dp"
+        android:paddingLeft="16dp"
+        android:paddingTop="19dp"
+        android:text="@string/approve_description"
+        android:textColor="@color/text_body_strong"/>
+
+    <View style="@style/style_line"/>
+
+
+    <RelativeLayout
+        android:id="@+id/rl_my_update_approve"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@color/white"
+        android:paddingLeft="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="@string/operation_certificate"
+            android:textSize="@dimen/text_16"/>
+
+
+        <ImageView
+            android:id="@+id/img_enter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="12dp"
+            android:src="@drawable/ic_arraw_gray"/>
+
+
+        <ImageView
+            android:id="@+id/img_my_update_head"
+            android:layout_width="80dp"
+            android:layout_height="52dp"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:layout_toLeftOf="@id/img_enter"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            />
+
+
+    </RelativeLayout>
+
+    <View
+
+        style="@style/style_line"
+        android:layout_marginLeft="10dp"/>
+
+    <LinearLayout
+        android:id="@+id/ll_my_update_operation_num"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/white"
+        android:paddingLeft="10dp">
+
+        <TextView
+            style="@style/style_tv_my_update"
+            android:text="@string/operation_num"
+            android:textSize="@dimen/text_16"/>
+
+        <TextView
+            android:id="@+id/tv_my_update_operation"
+            style="@style/style_my_update_desc"
+            />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="12dp"
+            android:src="@drawable/ic_arraw_gray"/>
+
+    </LinearLayout>
+
+    <View
+
+        style="@style/style_line"
+        android:layout_marginLeft="10dp"/>
+
+    <LinearLayout
+        android:id="@+id/ll_my_update_idcard"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/white"
+        android:paddingLeft="10dp">
+
+        <TextView
+            style="@style/style_tv_my_update"
+            android:text="@string/idcard"
+            android:textSize="@dimen/text_16"/>
+
+        <TextView
+            android:id="@+id/tv_my_update_idcard"
+            style="@style/style_my_update_desc"
+            />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="12dp"
+            android:src="@drawable/ic_arraw_gray"/>
+
+    </LinearLayout>
+
+    <View
+        style="@style/style_line"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="12dp"/>
+
+    <LinearLayout
+        android:id="@+id/ll_my_update_hospital"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/white"
+        android:paddingLeft="10dp">
+
+        <TextView
+            style="@style/style_tv_my_update"
+            android:text="@string/hospital"
+            android:textSize="@dimen/text_16"/>
+
+        <TextView
+            android:id="@+id/tv_my_update_hospital"
+            style="@style/style_my_update_desc"
+            />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="12dp"
+            android:src="@drawable/ic_arraw_gray"/>
+
+    </LinearLayout>
+
+    <View
+
+        style="@style/style_line"
+        android:layout_marginLeft="10dp"/>
+
+    <LinearLayout
+        android:id="@+id/ll_my_update_administrative_office"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/white"
+        android:paddingLeft="10dp"
+        android:visibility="gone">
+
+        <TextView
+            style="@style/style_tv_my_update"
+            android:text="@string/administrative_office"
+            android:textSize="@dimen/text_16"/>
+
+        <TextView
+            android:id="@+id/tv_my_update_administrative_office"
+            style="@style/style_my_update_desc"
+            />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="12dp"
+            android:src="@drawable/ic_arraw_gray"/>
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/line"
+        style="@style/style_line"
+        android:layout_marginLeft="10dp"
+        android:visibility="gone"/>
+
+    <LinearLayout
+        android:id="@+id/ll_my_update_title"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/white"
+        android:paddingLeft="10dp">
+
+        <TextView
+            style="@style/style_tv_my_update"
+            android:text="@string/title"
+            android:textSize="@dimen/text_16"/>
+
+        <TextView
+            android:id="@+id/tv_my_update_title"
+            style="@style/style_my_update_desc"
+            />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="12dp"
+            android:src="@drawable/ic_arraw_gray"/>
+
+    </LinearLayout>
+
+    <View
+
+        style="@style/style_line"
+        android:layout_marginLeft="10dp"/>
+
+    <LinearLayout
+        android:id="@+id/ll_my_update_rank"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/white"
+        android:paddingLeft="10dp">
+
+        <TextView
+            style="@style/style_tv_my_update"
+            android:text="@string/rank"
+            android:textSize="@dimen/text_16"/>
+
+        <TextView
+            android:id="@+id/tv_my_update_rank"
+            style="@style/style_my_update_desc"
+            />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="12dp"
+            android:src="@drawable/ic_arraw_gray"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_post_approve"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/bg_blue_text_white"
+        android:gravity="center"
+        android:text="@string/post_approve"
+        android:textColor="@color/white"
+        android:textSize="18sp"/>
+
+
+</LinearLayout>

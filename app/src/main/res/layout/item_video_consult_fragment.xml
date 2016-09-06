@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+    <com.sg.eyedoctor.common.view.RoundImageView
+        android:id="@+id/head_img"
+        android:layout_width="57dp"
+        android:layout_height="57dp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="13dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="15dp"
+        android:src="@drawable/ic_patient_head"/>
+
+
+    <TextView
+        android:id="@+id/name_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp"
+        android:layout_marginLeft="16dp"
+        android:layout_toRightOf="@id/head_img"
+        android:textColor="@color/text_body_strong"
+        android:textSize="@dimen/text_16"
+        tools:text="王小新"/>
+
+    <TextView
+        android:id="@+id/sex_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/name_tv"
+        android:layout_marginLeft="8dp"
+        android:layout_toRightOf="@id/name_tv"
+        android:textColor="@color/text_body_weak"
+        android:textSize="@dimen/text_14"
+        tools:text="男"/>
+
+    <TextView
+        android:id="@+id/age_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/name_tv"
+        android:layout_marginLeft="8dp"
+        android:layout_toRightOf="@id/sex_tv"
+        android:textColor="@color/text_body_weak"
+        android:textSize="@dimen/text_14"
+        tools:text="40岁"/>
+
+    <TextView
+        android:id="@+id/diagnose_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/bg_blue_text_white"
+        android:padding="3dp"
+        android:text="诊断建议"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_14"/>
+
+    <TextView
+        android:id="@+id/dail_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/bg_blue_text_white"
+        android:padding="3dp"
+        android:text="@string/start_video"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_14"/>
+
+    <TextView
+
+        android:layout_alignLeft="@id/name_tv"
+        android:id="@+id/appoint_time_name_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/name_tv"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="25dp"
+        android:layout_toRightOf="@id/head_img"
+        android:text="预约时间"
+        android:textColor="@color/text_body_weak"
+        android:textSize="@dimen/text_14"/>
+
+    <TextView
+        android:id="@+id/time_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/name_tv"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="8dp"
+        android:layout_toRightOf="@id/appoint_time_name_tv"
+        android:textColor="@color/text_body_weak"
+        android:textSize="@dimen/text_14"
+        tools:text="2016/03/04 12:29"/>
+
+    <TextView
+        android:text="未拨通"
+        android:layout_alignBottom="@id/diagnose_tv"
+        android:visibility="gone"
+        android:layout_alignParentRight="true"
+        android:id="@+id/dail_no_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="4dp"
+        android:layout_marginRight="20dp"
+        android:textColor="@color/actionsheet_red"
+        android:textSize="@dimen/text_14"
+        />
+
+
+    <View
+        style="@style/style_line"
+        android:layout_below="@id/appoint_time_name_tv"/>
+
+</RelativeLayout>

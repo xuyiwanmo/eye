@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/gray_bg"
+              android:fitsSystemWindows="true"
+              android:orientation="vertical"
+              tools:context=".settings.personalInfo.activity.DoctorApproveActivity">
+
+    <com.sg.eyedoctor.common.view.MyActionbar
+        android:id="@+id/actionbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:actionbar_title="@string/video_consult"
+        app:rightBtn_visible="false"/>
+
+    <LinearLayout
+        android:id="@+id/ll_my_update_title"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/white"
+        android:paddingLeft="10dp"
+        android:visibility="gone">
+
+        <EditText
+
+            android:id="@+id/et_my_update_title"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/transparent"
+            android:gravity="center_vertical"
+            android:textSize="@dimen/text_16"/>
+
+        <ImageView
+            android:id="@+id/img_my_update_title_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="12dp"
+            android:src="@drawable/ic_empty"/>
+
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/lv_approve"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@color/trans"
+        android:visibility="gone"/>
+</LinearLayout>

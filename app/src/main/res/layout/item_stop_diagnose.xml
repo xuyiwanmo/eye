@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:paddingTop="8dp"
+                android:paddingLeft="10dp"
+                android:paddingBottom="10dp"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/time_tv"
+        tools:text="16/06/15  15:20"
+        android:textColor="@color/text_body_weak"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/text_14"/>
+
+    <TextView
+        android:layout_marginTop="6dp"
+        android:layout_below="@id/time_tv"
+        android:id="@+id/stop_date_name_tv"
+        android:text="停诊日期"
+        android:textColor="@color/text_body_weak"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/text_14"/>
+
+    <TextView
+        android:layout_marginLeft="50dp"
+        android:layout_alignBottom="@id/stop_date_name_tv"
+        android:layout_toRightOf="@id/stop_date_name_tv"
+        android:id="@+id/stop_date_tv"
+        tools:text="2016/06/21"
+        android:textColor="@color/text_body_strong"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/text_14"/>
+
+    <TextView
+        android:layout_marginTop="6dp"
+
+        android:layout_below="@id/stop_date_name_tv"
+        android:id="@+id/stop_span_name_tv"
+        android:text="停诊时段"
+        android:textColor="@color/text_body_weak"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/text_14"/>
+
+    <TextView
+        android:layout_marginLeft="50dp"
+
+        android:layout_alignBottom="@id/stop_span_name_tv"
+        android:layout_toRightOf="@id/stop_span_name_tv"
+        android:id="@+id/stop_span_tv"
+        tools:text="12:00-16:00"
+        android:textColor="@color/text_body_strong"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/text_14"/>
+    <TextView
+        android:layout_marginTop="6dp"
+        android:layout_below="@id/stop_span_tv"
+        android:id="@+id/type_name_tv"
+        android:text="停诊类型"
+        android:textColor="@color/text_body_weak"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/text_14"/>
+
+    <TextView
+        android:layout_marginLeft="50dp"
+
+        android:layout_alignBottom="@id/type_name_tv"
+        android:layout_toRightOf="@id/type_name_tv"
+        android:id="@+id/type_tv"
+        tools:text="在线问诊"
+        android:textColor="@color/text_body_strong"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/text_14"/>
+    <TextView
+        android:layout_marginTop="6dp"
+        android:layout_below="@id/type_tv"
+        android:id="@+id/reason_name_tv"
+        android:text="停诊原因"
+        android:textColor="@color/text_body_weak"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/text_14"/>
+
+    <TextView
+        android:layout_marginLeft="50dp"
+        android:layout_alignBottom="@id/reason_name_tv"
+        android:layout_toRightOf="@id/reason_name_tv"
+        android:id="@+id/reason_tv"
+        tools:text="工作安排"
+        android:textColor="@color/text_body_strong"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/text_14"/>
+
+
+</RelativeLayout>

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <com.sg.eyedoctor.common.view.RoundImageView
+        android:id="@+id/head_img"
+        android:layout_width="57dp"
+        android:layout_height="57dp"
+        android:layout_marginLeft="13dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="15dp"
+        android:src="@drawable/ic_patient_head"
+        android:layout_centerVertical="true"
+        />
+
+    <TextView
+        android:textSize="@dimen/text_16"
+        android:id="@+id/name_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp"
+        android:layout_marginLeft="16dp"
+        android:layout_toRightOf="@id/head_img"
+        android:textColor="@color/text_title"
+        tools:text="张三"/>
+
+    <TextView
+        android:id="@+id/tv_consult_patient_sex"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/name_tv"
+        android:layout_marginLeft="8dp"
+        android:layout_toRightOf="@id/name_tv"
+        android:textColor="@color/text_title"
+        android:textSize="@dimen/text_14"
+        tools:text="男"/>
+
+    <TextView
+        android:id="@+id/tv_consult_patient_age"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/name_tv"
+        android:layout_marginLeft="8dp"
+        android:layout_toRightOf="@id/tv_consult_patient_sex"
+        android:textColor="@color/text_title"
+        android:textSize="@dimen/text_14"
+        tools:text="33岁"/>
+
+    <TextView
+        android:textSize="@dimen/text_14"
+        android:id="@+id/tv_consult_patient_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/name_tv"
+        android:layout_below="@id/name_tv"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="25dp"
+        android:layout_toRightOf="@id/head_img"
+        android:textColor="@color/text_body_weak"
+        tools:text="申请时间  09:22"/>
+
+    <TextView
+        android:id="@+id/tv_consult_patient_illness"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/name_tv"
+        android:layout_alignRight="@id/tv_consult_patient_time"
+        android:layout_below="@id/name_tv"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@id/head_img"
+        android:lineSpacingExtra="7dp"
+        android:textColor="@color/text_body_weak"/>
+
+    <TextView
+        android:id="@+id/result_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/name_tv"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:text="@string/agree_already"
+        android:textColor="@color/actionbar_color"
+        android:textSize="@dimen/text_14"
+        android:visibility="invisible"/>
+
+    <TextView
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp"
+        android:paddingLeft="4dp"
+        android:paddingRight="4dp"
+        android:background="@drawable/bg_blue_text_white"
+        android:id="@+id/agree_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/name_tv"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:text="@string/agree"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_14"/>
+
+    <TextView
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp"
+        android:paddingLeft="4dp"
+        android:paddingRight="4dp"
+        android:background="@drawable/bg_text_red"
+        android:id="@+id/refuse_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/name_tv"
+        android:layout_marginRight="14dp"
+        android:layout_toLeftOf="@id/agree_tv"
+        android:text="@string/refuse"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_14"/>
+    <View
+        style="@style/style_line"
+        android:layout_below="@id/tv_consult_patient_time"/>
+
+</RelativeLayout>

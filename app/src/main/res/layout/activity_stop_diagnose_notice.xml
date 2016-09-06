@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context=".helpUtils.stopDiagnoseNotice.activity.StopDiagnoseNoticeActivity">
+
+    <com.sg.eyedoctor.common.view.MyActionbar
+        app:rightBtn_visible="false"
+        android:id="@+id/actionbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@color/white"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="95dp"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:text="@string/stop_date"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_14"/>
+
+        <TextView
+
+            android:id="@+id/from_date_tv"
+            style="@style/edit_add_info_text"
+            android:layout_width="75dp"
+            android:layout_height="31dp"
+            android:layout_marginLeft="10dp"
+            android:hint="@string/please_choose"
+            android:textColor="@color/actionbar_color"
+            android:textSize="@dimen/text_14"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="14dp"
+            android:layout_marginRight="14dp"
+            android:gravity="center"
+            android:text="-"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_14"/>
+
+        <TextView
+            android:id="@+id/to_date_tv"
+            style="@style/edit_add_info_text"
+            android:layout_width="75dp"
+            android:layout_height="31dp"
+            android:layout_marginLeft="2dp"
+            android:hint="@string/please_choose"
+            android:textColor="@color/actionbar_color"
+            android:textSize="@dimen/text_14"/>
+    </LinearLayout>
+
+    <View
+        style="@style/style_line"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@color/white"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="95dp"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:text="@string/out_patient_time_distance"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_14"/>
+
+        <TextView
+            android:id="@+id/from_time_tv"
+            style="@style/edit_add_info_text"
+            android:layout_width="75dp"
+            android:layout_height="31dp"
+            android:layout_marginLeft="10dp"
+            android:hint="@string/please_choose"
+            android:textColor="@color/actionbar_color"
+            android:textSize="@dimen/text_14"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="14dp"
+            android:layout_marginRight="14dp"
+            android:gravity="center"
+            android:text="-"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_14"/>
+
+        <TextView
+            android:id="@+id/to_time_tv"
+            style="@style/edit_add_info_text"
+            android:layout_width="75dp"
+            android:layout_height="31dp"
+            android:layout_marginLeft="2dp"
+            android:hint="@string/please_choose"
+            android:textColor="@color/actionbar_color"
+            android:textSize="@dimen/text_14"/>
+    </LinearLayout>
+
+    <View
+        style="@style/style_line"
+        />
+
+    <LinearLayout
+        android:background="@color/white"
+        android:paddingTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+
+            android:layout_width="96dp"
+            android:layout_height="match_parent"
+            >
+            <TextView
+                android:paddingLeft="10dp"
+                android:textColor="@color/black"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/stop_reason_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/stop_type"/>
+
+            <TextView
+                android:paddingLeft="10dp"
+                android:textColor="@color/text_body_weak"
+                android:layout_below="@id/stop_reason_tv"
+                android:text="@string/multi_select"
+                android:layout_alignLeft="@id/stop_reason_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/stop_type_rl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:paddingBottom="16dp"
+            >
+
+            <TextView
+                android:id="@+id/type1_tv"
+                style="@style/edit_add_info_text"
+                android:text="@string/online_out_patient"/>
+
+            <TextView
+                android:id="@+id/type2_tv"
+                style="@style/edit_add_info_text"
+                android:layout_toRightOf="@id/type1_tv"
+                android:text="@string/phone_out_patient"
+                />
+
+            <TextView
+                android:id="@+id/type4_tv"
+                style="@style/edit_add_info_text"
+                android:layout_below="@id/type1_tv"
+                android:layout_marginTop="13dp"
+                android:text="@string/video_out_patient"
+                />
+
+            <TextView
+                android:id="@+id/type5_tv"
+                style="@style/edit_add_info_text"
+                android:layout_below="@id/type1_tv"
+                android:layout_marginTop="13dp"
+                android:layout_toRightOf="@id/type4_tv"
+                android:text="@string/add_out_patient"
+                />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <View
+        style="@style/style_line"
+        />
+
+    <LinearLayout
+        android:background="@color/white"
+        android:paddingTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+
+            android:layout_width="96dp"
+            android:layout_height="match_parent"
+            >
+            <TextView
+                android:paddingLeft="10dp"
+                android:textColor="@color/black"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/stop_type_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/stop_reason"/>
+
+            <TextView
+                android:paddingLeft="10dp"
+                android:textColor="@color/text_body_weak"
+                android:layout_below="@id/stop_type_tv"
+                android:text="@string/single_select"
+                android:layout_alignLeft="@id/stop_type_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/stop_reason_rl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:paddingBottom="16dp"
+            >
+
+            <TextView
+                android:id="@+id/reson1_tv"
+                style="@style/edit_add_info_text"
+                android:text="@string/work_plan"/>
+
+            <TextView
+                android:id="@+id/reson2_tv"
+                style="@style/edit_add_info_text"
+                android:layout_toRightOf="@id/reson1_tv"
+                android:text="@string/something_temptory"
+                />
+
+            <TextView
+                android:id="@+id/reson4_tv"
+                style="@style/edit_add_info_text"
+                android:layout_below="@id/reson1_tv"
+                android:layout_marginTop="13dp"
+                android:text="@string/other"
+                />
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/publish_tv"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/bg_blue_text_white"
+        android:gravity="center"
+        android:text="@string/publishing"
+        android:textColor="@color/white"
+        android:textSize="18sp" />
+
+
+
+</LinearLayout>

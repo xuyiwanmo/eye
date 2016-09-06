@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:background="@color/white"
+    android:id="@+id/rootRl"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fitsSystemWindows="true"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.sg.eyedoctor.common.view.MyActionbar
+        android:id="@+id/actionbar"
+        app:actionbar_title="@string/intent_consult"
+        app:rightBtn_visible="false"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+    <include
+        android:id="@+id/bottom_edit"
+        layout="@layout/bottom_edit"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:visibility="invisible"
+        />
+
+    <LinearLayout
+        android:background="@color/light_white"
+        android:id="@+id/suport_all_ll"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/ll_team_topic_store"
+            style="@style/style_ll_team_topic">
+
+            <ImageView
+                android:id="@+id/store_img"
+                style="@style/style_img_team_topic"
+                android:src="@drawable/selector_store"/>
+
+            <TextView
+                android:id="@+id/tv_team_topic_store"
+                style="@style/style_tv_team_topic"
+                android:text="0"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/bottom_comment_ll"
+            style="@style/style_ll_team_topic">
+
+            <ImageView
+                style="@style/style_img_team_topic"
+                android:src="@drawable/ic_team_message"/>
+
+            <TextView
+                android:id="@+id/bottom_comment_count_tv"
+                style="@style/style_tv_team_topic"
+                android:text="0"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/support_ll"
+            style="@style/style_ll_team_topic">
+
+            <ImageView
+                android:id="@+id/support_img"
+                style="@style/style_img_team_topic"
+                android:src="@drawable/bg_support"/>
+
+            <TextView
+                android:id="@+id/bottom_support_tv"
+                style="@style/style_tv_team_topic"
+                android:text="0"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        style="@style/style_line"
+        android:layout_above="@id/suport_all_ll"
+        />
+
+    <com.pulltorefresh.handmark.pulltorefresh.library.PullToRefreshScrollView
+        android:id="@+id/refresh_ptrsv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/suport_all_ll"
+        android:layout_below="@id/actionbar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white">
+
+                <com.sg.eyedoctor.common.view.RoundImageView
+                    android:id="@+id/head_img"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginTop="10dp"
+                    android:src="@drawable/doctor_head"/>
+
+                <TextView
+                    android:id="@+id/name_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/head_img"
+                    android:layout_marginLeft="16dp"
+                    android:layout_toRightOf="@id/head_img"
+                    android:text="@string/add_patient_name"
+                    android:textColor="@color/text_body_strong"
+                    android:textSize="@dimen/text_16"/>
+
+                <TextView
+                    android:id="@+id/job_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/name_tv"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@id/name_tv"
+                    android:background="@drawable/bg_text_green_light"
+                    android:paddingBottom="1dp"
+                    android:paddingLeft="4dp"
+                    android:paddingRight="4dp"
+                    android:paddingTop="1dp"
+                    android:text="@string/title"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_10"/>
+
+                <TextView
+                    android:id="@+id/hospital_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@id/name_tv"
+                    android:layout_below="@+id/name_tv"
+                    android:layout_marginTop="12dp"
+                    android:layout_toRightOf="@id/head_img"
+                    android:text="@string/hospital"
+                    android:textColor="@color/text_body_weak"
+                    android:textSize="@dimen/text_16"/>
+
+                <TextView
+                    android:id="@+id/internet_title_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@id/head_img"
+                    android:layout_below="@id/head_img"
+                    android:layout_marginTop="12dp"
+                    tools:text="@string/title"
+                    android:textColor="@color/actionbar_color"/>
+
+                <TextView
+                    android:id="@+id/content_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@id/head_img"
+                    android:layout_below="@id/internet_title_tv"
+                    android:layout_marginRight="6dp"
+                    android:text="患者男性35岁..................."
+                    android:textSize="@dimen/text_16"/>
+
+                <com.sg.eyedoctor.common.view.NoScroolGridView
+                    android:id="@+id/photo_gv"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:layout_alignLeft="@id/head_img"
+                    android:layout_below="@id/content_tv"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/trans"
+                    android:cacheColorHint="@android:color/transparent"
+                    android:clipToPadding="false"
+                    android:horizontalSpacing="2dp"
+                    android:listSelector="@android:color/transparent"
+                    android:numColumns="4"
+                    android:padding="2dp"
+                    android:scrollbars="none"
+                    android:verticalSpacing="2dp"/>
+
+                <TextView
+                    android:layout_marginRight="10dp"
+                    android:id="@+id/time_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/name_tv"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="12dp"
+                    android:text="15/12/19 18:00"/>
+
+                <TextView
+                    android:id="@+id/delete_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/time_tv"
+                    android:layout_toRightOf="@id/time_tv"
+                    android:paddingLeft="13dp"
+                    android:paddingRight="10dp"
+                    android:text="@string/delete"
+                    android:textColor="@color/actionbar_color"/>
+
+                <View
+                    android:id="@+id/line"
+                    style="@style/style_line"
+                    android:layout_below="@id/photo_gv"
+                    android:layout_marginTop="10dp"/>
+
+                <View
+                    android:id="@+id/line2"
+                    android:layout_width="match_parent"
+                    android:layout_height="8dp"
+                    android:layout_below="@id/line"
+                    android:background="@color/gray_bg"/>
+
+                <RelativeLayout
+                    android:id="@+id/comment_rl"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_below="@id/line2"
+                    android:background="@color/white"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    >
+
+                    <TextView
+                        android:id="@+id/center_comment_count_tv"
+                        android:layout_width="68dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="评论:0"/>
+
+                    <View
+                        android:id="@+id/comment_count_v"
+                        android:layout_width="68dp"
+                        android:layout_height="2dp"
+                        android:layout_alignLeft="@id/center_comment_count_tv"
+                        android:layout_alignParentBottom="true"
+                        android:background="@color/actionbar_color"/>
+
+                    <TextView
+                        android:id="@+id/center_support_count_tv"
+                        android:layout_width="68dp"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:gravity="center"
+                        android:text="赞:0"/>
+
+                    <View
+                        android:id="@+id/support_count_v"
+                        android:layout_width="68dp"
+                        android:layout_height="2dp"
+                        android:layout_alignLeft="@id/center_support_count_tv"
+                        android:layout_alignParentBottom="true"
+                        android:background="@color/actionbar_color"
+                        android:visibility="invisible"/>
+
+                </RelativeLayout>
+
+                <View
+                    android:id="@+id/line3"
+                    style="@style/style_line"
+                    android:layout_below="@id/comment_rl"/>
+
+                <com.sg.eyedoctor.common.view.NoScrollListView
+                    android:divider="@color/trans"
+                    android:id="@+id/comment_lv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/line3"
+                    android:layout_marginBottom="10dp"
+
+                    />
+
+                <com.sg.eyedoctor.common.view.NoScrollListView
+                    android:divider="@color/trans"
+                    android:id="@+id/support_lv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/line3"
+                    android:layout_marginBottom="10dp"
+                    android:visibility="gone"
+                    />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+    </com.pulltorefresh.handmark.pulltorefresh.library.PullToRefreshScrollView>
+
+
+</RelativeLayout>

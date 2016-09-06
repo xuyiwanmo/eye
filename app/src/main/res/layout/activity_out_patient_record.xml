@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:background="@color/gray_bg"
+              android:fitsSystemWindows="true"
+              android:orientation="vertical">
+
+    <com.sg.eyedoctor.common.view.MyActionbar
+        app:actionbar_title="@string/out_patient_record"
+        app:rightBtn_visible="false"
+        android:id="@+id/actionbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/bg_gray"
+        android:orientation="horizontal">
+
+        <GridView
+            android:id="@+id/gv_my_patient_date"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:listSelector="@color/trans"
+            android:numColumns="6" />
+
+        <TextView
+            android:id="@+id/tv_my_patient_choose"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:lines="2"
+            android:text="@string/choose_date"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_12" />
+
+    </LinearLayout>
+
+
+    <com.sg.eyedoctor.common.view.TopIndicator
+        android:id="@+id/top_indicator"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"/>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="fill_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1.0" />
+
+
+</LinearLayout>

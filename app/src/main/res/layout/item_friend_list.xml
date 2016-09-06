@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <TextView
+        android:id="@+id/catalog"
+        android:paddingLeft="5dp"
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="26dp"
+        android:background="@color/gray_bg"
+        android:textSize="@dimen/text_12"
+        android:textColor="#454545"/>
+
+    <RelativeLayout
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/catalog"
+        >
+
+        <com.sg.eyedoctor.common.view.RoundImageView
+            android:src="@drawable/doctor_head"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_18"
+            android:gravity="center"
+            android:id="@+id/head_img"
+            android:layout_width="50dp"
+            android:layout_height="50dp"/>
+
+        <TextView
+
+            android:id="@+id/name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dip"
+            android:layout_toRightOf="@id/head_img"
+            android:gravity="center_vertical"
+            android:paddingBottom="10dip"
+            android:paddingTop="10dip"
+            android:text="姓名"
+            android:textColor="@color/text_body_strong"/>
+        <TextView
+
+            android:id="@+id/doctor_title_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dip"
+            android:layout_toRightOf="@id/name_tv"
+            android:gravity="center_vertical"
+            android:paddingBottom="10dip"
+            android:paddingTop="10dip"
+            tools:text="职称"
+            android:textColor="@color/text_body_strong"/>
+
+
+
+        <TextView
+            android:id="@+id/dept_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/name_tv"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dip"
+            android:layout_toRightOf="@id/head_img"
+            android:gravity="center_vertical"
+            android:paddingBottom="10dip"
+            tools:text="部门"
+            android:textColor="@color/text_body_strong"/>
+
+        <TextView
+            android:id="@+id/hospital_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/dept_tv"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dip"
+            android:layout_toRightOf="@id/head_img"
+            android:gravity="center_vertical"
+            android:paddingBottom="10dip"
+            android:text="厦门中山医院"
+            android:textColor="@color/text_body_strong"/>
+
+
+        <View
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="68dp"
+            style="@style/style_line"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    android:paddingBottom="20dp"
+    tools:context=".caseDiscuss.ChooseContactActivity">
+
+    <com.sg.eyedoctor.common.view.MyActionbar
+        android:id="@+id/actionbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.sg.eyedoctor.common.view.SearchLayout
+                android:id="@+id/search_sl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/head_rv"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginTop="7dp"
+                android:background="@color/white"
+                android:paddingLeft="13dp"
+                android:paddingRight="13dp"/>
+
+            <View
+                style="@style/style_line"
+                android:layout_height="0.5dp"
+                />
+
+            <LinearLayout
+                android:id="@+id/choose_all_ll"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="7dp"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/all_check_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+                    android:src="@drawable/selector_sex"/>
+
+                <TextView
+                    android:id="@+id/all_choose_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/all_choose"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_14"/>
+            </LinearLayout>
+
+            <View
+                style="@style/style_line"
+                android:layout_height="0.5dp"
+                />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="5dp"
+                android:paddingLeft="10dp"
+                android:paddingTop="8dp"
+                android:text="@string/my_patient"/>
+
+            <com.sg.eyedoctor.common.view.NoScrollListView
+                android:id="@+id/patient_lv"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="13dp"
+                android:divider="@null"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="5dp"
+                android:paddingLeft="10dp"
+                android:paddingTop="8dp"
+                android:text="@string/my_doctor_friend"/>
+
+            <com.sg.eyedoctor.common.view.NoScrollListView
+                android:id="@+id/doctor_lv"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_gravity="center"
+                android:layout_marginTop="13dp"
+                android:divider="@null"/>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

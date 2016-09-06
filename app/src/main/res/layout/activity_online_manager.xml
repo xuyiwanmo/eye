@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    tools:context=".settings.myOnlineManager.activity.OnlineManagerActivity">
+
+    <com.sg.eyedoctor.common.view.MyActionbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:actionbar_title="@string/online_manager"
+        app:rightBtn_visible="false"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="38dp"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:paddingLeft="10dp"
+        android:text="在眼科通医生版平台上,医生可以设置四类在线服务"
+        android:textColor="@color/text_body_strong"/>
+
+    <View
+        style="@style/style_line"
+        android:layout_marginBottom="15dp"
+        />
+
+    <com.sg.eyedoctor.common.view.OnlineManagerLayout
+        android:id="@+id/text_oml"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:left_img="@drawable/ic_online_text"
+        app:price="10元一次"
+        app:service="为患者提供图文在线远程医疗服务"
+        app:online_name="@string/text_consult"/>
+
+    <com.sg.eyedoctor.common.view.OnlineManagerLayout
+        android:id="@+id/phone_oml"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:left_img="@drawable/ic_online_phone"
+        app:price="10元一次"
+        app:service="为患者提供电话咨询服务"
+        app:online_name="@string/phone_consult"/>
+
+    <com.sg.eyedoctor.common.view.OnlineManagerLayout
+        android:id="@+id/video_oml"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:left_img="@drawable/ic_online_video"
+        app:price="10元一次"
+        app:service="为患者提供视频远程医疗服务"
+        app:online_name="@string/video_consult"/>
+
+    <com.sg.eyedoctor.common.view.OnlineManagerLayout
+        android:id="@+id/add_oml"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:left_img="@drawable/ic_online_add"
+        app:price="10元一次"
+        app:service="为患者提供加号预约申请"
+        app:online_name="@string/add_manager"/>
+
+
+</LinearLayout>

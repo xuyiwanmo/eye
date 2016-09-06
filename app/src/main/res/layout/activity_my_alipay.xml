@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical"
+  >
+
+    <com.sg.eyedoctor.common.view.MyActionbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:actionbar_title="@string/my_alipay"
+        app:rightBtn_visible="false"/>
+
+    <TextView
+        android:id="@+id/bind_text_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="8dp"
+        android:paddingLeft="10dp"
+        android:paddingTop="15dp"
+        android:text="@string/please_bind_personal_alipay"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:paddingLeft="12dp"
+        >
+
+        <TextView
+            android:layout_width="90dp"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="@string/name"
+            android:textSize="@dimen/text_16"/>
+
+        <EditText
+            android:id="@+id/name_et"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/trans"
+            android:gravity="center_vertical"
+            android:textColor="@color/text_body_strong"
+            android:textSize="@dimen/text_16"
+            tools:text="王大发"/>
+    </LinearLayout>
+
+    <View
+        style="@style/style_line"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:paddingLeft="12dp"
+        >
+
+        <TextView
+            android:layout_width="90dp"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="@string/alipay_account"
+            android:textSize="@dimen/text_16"/>
+
+        <EditText
+            android:id="@+id/alipay_account_et"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/trans"
+            android:hint="@string/enter_alipay_account"
+            android:textColor="@color/text_body_strong"
+            android:textColorHint="@color/text_body_weak"
+            android:textSize="@dimen/text_16"/>
+    </LinearLayout>
+
+    <View
+        style="@style/style_line"
+        />
+
+    <TextView
+        android:id="@+id/unbind_tv"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/bg_text_gray_blue"
+        android:gravity="center"
+        android:text="@string/unbind"
+        android:textColor="@drawable/bg_text_color"
+        android:textSize="18sp"/>
+
+    <TextView
+        android:id="@+id/bind_tv"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/bg_text_gray_blue"
+        android:gravity="center"
+        android:text="@string/bind_alipay"
+        android:textColor="@drawable/bg_text_color"
+        android:textSize="18sp"/>
+</LinearLayout>

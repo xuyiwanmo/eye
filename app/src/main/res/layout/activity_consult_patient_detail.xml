@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/white"
+              android:fitsSystemWindows="true"
+              android:orientation="vertical">
+
+    <com.sg.eyedoctor.common.view.MyActionbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:actionbar_title="@string/patient_detail"
+        app:rightBtn_visible="false"/>
+
+    <!--顶部:医生信息-->
+    <RelativeLayout
+        android:id="@+id/rl_patient_detail"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@drawable/shape_patient_center_bg">
+
+        <com.sg.eyedoctor.common.view.RoundImageView
+            android:id="@+id/img_patient_center_head"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="26dp"
+            android:src="@drawable/ic_patient_head"/>
+
+        <TextView
+            android:id="@+id/tv_patient_center_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="36dp"
+            android:layout_toRightOf="@id/img_patient_center_head"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_18"
+            tools:text="名字"/>
+
+        <TextView
+            android:id="@+id/tv_patient_center_sex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/tv_patient_center_name"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/tv_patient_center_name"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_14"
+            tools:text="性别"/>
+
+        <TextView
+            android:id="@+id/tv_patient_center_age"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/tv_patient_center_sex"
+            android:layout_below="@id/tv_patient_center_name"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/tv_patient_center_sex"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_14"
+            tools:text="年龄"/>
+
+        <TextView
+            android:id="@+id/tv_patient_idcard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/tv_patient_center_name"
+            android:layout_below="@id/tv_patient_center_name"
+            android:layout_marginTop="18dp"
+            android:textColor="@color/white"
+            android:text="@string/idcard"/>
+
+    </RelativeLayout>
+
+    <View style="@style/style_line"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="34dp"
+        android:background="@color/gray_bg"
+        android:gravity="center_vertical"
+        android:paddingLeft="15dp"
+        android:text="@string/case_history_record"
+        android:textColor="@color/text_title"
+        android:textSize="15sp"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.sg.eyedoctor.common.view.NoScrollListView
+                android:id="@+id/lv_patient_center_record"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:divider="@color/transparent"
+                />
+
+            <RelativeLayout
+                android:layout_marginTop="-5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:paddingBottom="10dp">
+
+                <RelativeLayout
+                    android:id="@+id/rl"
+                    android:layout_width="13dp"
+                    android:layout_height="60dp"
+                    android:layout_marginLeft="80dp">
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@color/text_body_weak"/>
+
+                    <ImageView
+                        android:layout_width="13dp"
+                        android:layout_height="13dp"
+                        android:layout_alignParentBottom="true"
+                        android:background="@drawable/dot_blue"/>
+
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/tv_patient_center_empty"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_toRightOf="@+id/rl"
+                    android:text="无病例记录"
+                    android:textColor="@color/text_body_weak"
+                    android:visibility="invisible"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

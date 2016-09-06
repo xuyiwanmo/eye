@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:fitsSystemWindows="true"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical">
+
+    <com.sg.eyedoctor.common.view.MyActionbar
+        app:rightBtn_visible="false"
+        app:actionbar_title="@string/eye_medicine"
+        android:id="@+id/actionbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <com.sg.eyedoctor.common.view.SearchLayout
+        android:id="@+id/search_sl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:id="@+id/search_et_ll"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <EditText
+            android:id="@+id/search_et"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/bg_crm_search"
+            android:drawableLeft="@drawable/ic_search"
+            android:drawablePadding="9dp"
+            android:gravity="center|left"
+            android:paddingLeft="5dp"
+            android:textColor="@color/text_body_weak"
+            android:textSize="@dimen/text_14"/>
+
+        <TextView
+            android:id="@+id/cancle_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/bg_auth_grey"
+            android:padding="5dp"
+            android:text="@string/cancel"
+            android:textColor="@color/white"/>
+
+    </LinearLayout>
+
+    <ListView
+        android:divider="@color/trans"
+        android:layout_marginTop="10dp"
+        android:id="@+id/type_lv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+
+        android:textColor="@color/green"
+        android:textSize="@dimen/text_18"
+        android:visibility="gone"
+        android:id="@+id/empty_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/empty"/>
+
+
+</LinearLayout>

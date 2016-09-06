@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray_bg"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context="com.sg.eyedoctor.chartFile.activity.AddNewCaseActivity">
+
+    <com.sg.eyedoctor.common.view.MyActionbar
+        android:id="@+id/actionbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:actionbar_title="@string/add_new_case"
+        app:rightBtn_visible="false"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:background="@color/white"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="9dp"
+                    android:text="患者"
+                    android:textColor="@color/text_body_strong"
+                    android:textSize="@dimen/text_16"/>
+
+                <TextView
+                    android:id="@+id/name_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="9dp"
+                    android:text="@string/publish_title"
+                    android:textColor="@color/text_body_strong"
+                    android:textSize="@dimen/text_16"/>
+
+                <TextView
+                    android:id="@+id/age_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="@color/trans"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="9dp"
+                    android:paddingRight="10dp"
+                    android:textSize="@dimen/text_14"
+                    tools:text="30岁"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:background="@color/white"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="9dp"
+                    android:text="疾病诊断"
+                    android:textColor="@color/text_body_strong"
+                    android:textSize="@dimen/text_16"/>
+
+                <EditText
+                    android:id="@+id/illness_et"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="55dp"
+                    android:layout_weight="1"
+                    android:background="@color/trans"
+                    android:hint="请输入"
+                    android:paddingLeft="9dp"
+                    android:textSize="@dimen/text_16"/>
+            </LinearLayout>
+
+            <View
+                style="@style/style_line"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dp"
+                android:text="症状描述:"
+                android:textColor="@color/text_body_strong"
+                android:textSize="@dimen/text_16"/>
+
+            <EditText
+                android:id="@+id/content_et"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:gravity="top"
+                android:hint="请详细描述病情、症状、治疗经过等。"
+                android:minHeight="89dp"
+                android:paddingLeft="8dp"
+                android:textSize="@dimen/text_16"
+                />
+
+            <GridView
+                android:id="@+id/image_gv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:clipToPadding="false"
+                android:horizontalSpacing="2dp"
+                android:numColumns="4"
+                android:padding="2dp"
+                android:verticalSpacing="2dp"/>
+
+            <View
+                android:id="@+id/line"
+                style="@style/style_line"
+                />
+
+            <com.sg.eyedoctor.common.view.BlueTextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                app:text_content="检查项目"
+                />
+
+
+            <View
+                style="@style/style_line"
+                />
+
+            <EditText
+                android:id="@+id/check_et"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:paddingBottom="15dp"
+                android:paddingLeft="10dp"
+                android:paddingTop="15dp"
+                android:hint="请输入检查项目"
+                android:textColor="@color/text_body_strong"
+                android:textSize="@dimen/text_16"/>
+
+            <View
+                style="@style/style_line"
+                />
+
+            <com.sg.eyedoctor.common.view.BlueTextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:textColor="@color/text_body_strong"
+                app:text_content="用药记录"/>
+
+
+            <View
+                style="@style/style_line"
+                />
+
+            <EditText
+                android:id="@+id/drug_et"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:paddingBottom="15dp"
+                android:paddingLeft="10dp"
+                android:paddingTop="15dp"
+                android:hint="请输入患者用药"
+                android:textColor="@color/text_body_strong"
+                android:textSize="@dimen/text_16"/>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray_bg"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    >
+
+    <com.sg.eyedoctor.common.view.MyActionbar
+        android:id="@+id/actionbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="13dp"
+            android:layout_marginRight="50dp"
+            android:text="@string/name"
+            android:textColor="@color/gray"
+            android:textSize="@dimen/text_14"/>
+
+        <TextView
+            android:id="@+id/name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_margin="13dp"
+            android:text="@string/name"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_14"/>
+
+
+    </RelativeLayout>
+
+    <View
+        style="@style/style_line"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="13dp"
+            android:layout_marginRight="50dp"
+            android:text="@string/sex"
+            android:textColor="@color/gray"
+            android:textSize="@dimen/text_14"/>
+
+        <TextView
+            android:id="@+id/sex_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_margin="13dp"
+            android:text="@string/sex"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_14"/>
+
+    </RelativeLayout>
+
+    <View
+        style="@style/style_line"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="13dp"
+            android:layout_marginRight="50dp"
+            android:text="@string/age"
+            android:textColor="@color/gray"
+            android:textSize="@dimen/text_14"/>
+
+        <TextView
+            android:id="@+id/age_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_margin="13dp"
+            android:text="@string/age"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_14"/>
+
+    </RelativeLayout>
+
+    <View
+        style="@style/style_line"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="13dp"
+            android:layout_marginRight="50dp"
+            android:text="@string/illness_check"
+            android:textColor="@color/gray"
+            android:textSize="@dimen/text_14"/>
+
+        <TextView
+            android:layout_weight="1"
+            android:id="@+id/ill_check_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="13dp"
+            android:gravity="right"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_14"
+            tools:text="@string/illness_check"/>
+    </LinearLayout>
+
+    <View
+        style="@style/style_line"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/ill_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="13dp"
+            android:layout_marginRight="50dp"
+            android:text="@string/illness"
+            android:textColor="@color/gray"
+            android:textSize="@dimen/text_14"/>
+
+        <TextView
+            android:layout_weight="1"
+            android:id="@+id/illness_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="13dp"
+            android:gravity="right"
+            android:maxWidth="600dp"
+            android:text=".眼睛干涉,有血丝......."
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_14"/>
+
+    </LinearLayout>
+
+    <View
+        style="@style/style_line"
+        android:layout_below="@id/illness_tv"
+        />
+
+    <GridView
+        android:id="@+id/img_gv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:horizontalSpacing="12dp"
+        android:numColumns="4"
+        android:padding="14dp"
+        android:scrollbars="none"
+        android:verticalSpacing="10dp"/>
+
+
+</LinearLayout>

@@ -1,0 +1,55 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context=".settings.myWallet.fragment.MonthIncomeDetailFragment">
+
+
+
+    <RelativeLayout
+        android:background="@color/white"
+        android:id="@+id/bottom_rl"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:gravity="center_vertical"
+            android:text="合计:"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingLeft="10dp"
+            android:textColor="@color/text_body_strong"
+            android:textSize="@dimen/text_16"/>
+
+        <TextView
+            android:paddingRight="10dp"
+            android:gravity="center_vertical"
+            android:id="@+id/once_tv"
+            android:layout_alignParentRight="true"
+            android:textColor="@color/text_body_strong"
+            android:text="元"
+            android:textSize="@dimen/text_16"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"/>
+
+        <TextView
+            android:gravity="center_vertical"
+            android:layout_toLeftOf="@id/once_tv"
+            android:id="@+id/price_tv"
+            android:textColor="@color/actionsheet_red"
+            android:text="300"
+            android:textSize="@dimen/text_18"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"/>
+    </RelativeLayout>
+
+    <ListView
+        android:layout_above="@id/bottom_rl"
+        android:id="@+id/lv_couslt"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@color/trans"/>
+
+</RelativeLayout>

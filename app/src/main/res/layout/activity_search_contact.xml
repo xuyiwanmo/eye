@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context=".contact.SearchContactActivity">
+
+    <com.sg.eyedoctor.common.view.MyActionbar
+        android:id="@+id/actionbar"
+        app:rightBtn_visible="false"
+        app:actionbar_title="添加朋友"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/actionbar_color"
+        android:orientation="horizontal">
+
+        <EditText
+            android:textColor="@color/text_body_strong"
+            android:textColorHint="@color/text_body_weak"
+            android:paddingLeft="8dp"
+            android:drawableLeft="@drawable/ic_search"
+            android:drawablePadding="10dp"
+            android:id="@+id/search_et"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="6dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_edit_trans"
+            android:hint="@string/enter_doctor_name_phone"/>
+
+        <TextView
+            android:paddingRight="8dp"
+            android:paddingLeft="8dp"
+            android:gravity="center"
+            android:textSize="@dimen/text_18"
+            android:textColor="@color/white"
+            android:id="@+id/search_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/search"/>
+    </LinearLayout>
+
+    <TextView
+        android:text="搜索结果"
+        android:paddingLeft="10dp"
+        android:gravity="center_vertical"
+        android:textSize="@dimen/text_16"
+        android:textColor="@color/text_body_strong"
+        android:background="@color/gray_bg"
+        android:id="@+id/result_tv"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"/>
+
+    <ListView
+        android:id="@+id/search_lv"
+        android:layout_height="wrap_content"
+        style="@style/style_listview"></ListView>
+
+</LinearLayout>

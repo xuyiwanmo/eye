@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/trans"
+    android:padding="10dp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/ll_my_patient_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_my_patient_date"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:layout_marginTop="6dp"
+            android:textSize="@dimen/text_14"
+            android:id="@+id/tv_my_patient_day"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="五"
+            android:textColor="@color/text_body_weak" />
+
+        <TextView
+            android:textSize="@dimen/text_10"
+            android:id="@+id/tv_my_patient_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center_horizontal"
+            android:text="11-8"
+            android:layout_marginBottom="6dp"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+</LinearLayout>

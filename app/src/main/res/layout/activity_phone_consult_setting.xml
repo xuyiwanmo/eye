@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray_bg"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context=".phoneConsult.PhoneConsultSettingActivity">
+
+    <com.sg.eyedoctor.common.view.MyActionbar
+        android:id="@+id/actionbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:actionbar_title="@string/phone_consult"
+        app:rightBtn_visible="false"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="18dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginBottom="18dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="18dp"
+                android:background="@drawable/bg_edit_trans"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1"
+                    android:text="@string/once_price"
+                    android:textSize="@dimen/text_18"/>
+
+                <TextView
+                    android:id="@+id/price_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/trans"
+                    android:padding="10dp"
+                    android:text="100"
+                    android:textColor="@color/actionbar_color"
+                    android:textSize="@dimen/text_18"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="10dp"
+                    android:text="@string/yuan"
+                    android:textSize="@dimen/text_18"/>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/bg_gray_border_gray"
+                android:gravity="center"
+                android:text="@string/monday"/>
+
+            <com.sg.eyedoctor.common.view.NoScroolGridView
+                android:listSelector="@color/trans"
+                android:numColumns="4"
+                android:id="@+id/monday_gv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@color/gray_bg"
+                android:horizontalSpacing="1dp"
+                android:verticalSpacing="1dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/bg_gray_border_gray"
+                android:gravity="center"
+                android:text="@string/tuesday"/>
+
+            <com.sg.eyedoctor.common.view.NoScroolGridView
+                android:numColumns="4"
+                android:listSelector="@color/trans"
+                android:id="@+id/tuesday_gv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@color/gray_bg"
+                android:horizontalSpacing="1dp"
+                android:verticalSpacing="1dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/bg_gray_border_gray"
+                android:gravity="center"
+                android:text="@string/wednesday"/>
+
+            <com.sg.eyedoctor.common.view.NoScroolGridView
+                android:numColumns="4"
+                android:listSelector="@color/trans"
+                android:id="@+id/wednesday_gv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@color/gray_bg"
+                android:horizontalSpacing="1dp"
+                android:verticalSpacing="1dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/bg_gray_border_gray"
+                android:gravity="center"
+                android:text="@string/thursday"/>
+
+            <com.sg.eyedoctor.common.view.NoScroolGridView
+                android:numColumns="4"
+                android:listSelector="@color/trans"
+                android:id="@+id/thursday_gv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@color/gray_bg"
+                android:horizontalSpacing="1dp"
+                android:verticalSpacing="1dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/bg_gray_border_gray"
+                android:gravity="center"
+                android:text="@string/friday"/>
+
+            <com.sg.eyedoctor.common.view.NoScroolGridView
+                android:listSelector="@color/trans"
+                android:numColumns="4"
+                android:id="@+id/friday_gv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@color/gray_bg"
+                android:horizontalSpacing="1dp"
+                android:verticalSpacing="1dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/bg_gray_border_gray"
+                android:gravity="center"
+                android:text="@string/saturday"/>
+
+            <com.sg.eyedoctor.common.view.NoScroolGridView
+                android:listSelector="@color/trans"
+                android:numColumns="4"
+                android:id="@+id/saturday_gv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@color/gray_bg"
+                android:horizontalSpacing="1dp"
+                android:verticalSpacing="1dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/bg_gray_border_gray"
+                android:gravity="center"
+                android:text="@string/sunday"/>
+
+            <com.sg.eyedoctor.common.view.NoScroolGridView
+                android:listSelector="@color/trans"
+                android:numColumns="4"
+                android:id="@+id/sunday_gv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@color/gray_bg"
+                android:horizontalSpacing="1dp"
+                android:verticalSpacing="1dp"/>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

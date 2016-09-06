@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray_bg"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context=".eyeCircle.activity.PublishCaseOrTopicActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/actionbar_color">
+
+        <TextView
+            android:id="@+id/cancel_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="@string/cancel"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_18"
+            />
+
+        <TextView
+            android:id="@+id/headline_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/publish_case"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_18"/>
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:background="@color/white"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="9dp"
+                    android:text="@string/publish_title"
+                    android:textColor="@color/text_body_strong"
+                    android:textSize="@dimen/text_16"/>
+
+                <EditText
+                    android:id="@+id/title_et"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="55dp"
+                    android:layout_weight="1"
+                    android:background="@color/trans"
+                    android:hint="@string/enter_case_example_title"
+                    android:paddingLeft="9dp"
+                    android:textSize="@dimen/text_16"/>
+            </LinearLayout>
+
+            <View
+                style="@style/style_line"
+                />
+
+            <EditText
+                android:id="@+id/content_et"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:gravity="top"
+                android:hint="@string/say_for_case"
+                android:minHeight="89dp"
+                android:paddingLeft="8dp"
+                android:paddingTop="12dp"/>
+
+            <GridView
+                android:id="@+id/image_gv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:clipToPadding="false"
+                android:horizontalSpacing="2dp"
+                android:numColumns="4"
+                android:padding="2dp"
+                android:verticalSpacing="2dp"/>
+
+            <View
+                android:id="@+id/line"
+                style="@style/style_line"
+                />
+
+            <RelativeLayout
+                android:visibility="gone"
+                android:id="@+id/import_rl"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:background="@color/white"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="9dp"
+                    android:text="@string/import_case"
+                    android:textColor="@color/text_body_strong"/>
+
+                <ImageView
+                    android:id="@+id/arraw"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:paddingLeft="9dp"
+                    android:paddingRight="9dp"
+                    android:src="@drawable/ic_arraw_gray"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_toLeftOf="@id/arraw"
+                    android:gravity="center_vertical"
+                    android:text="@string/import_case_already"
+                    android:textColor="@color/text_body_weak"/>
+            </RelativeLayout>
+
+            <View
+                style="@style/style_line"
+                />
+
+
+            <RelativeLayout
+                android:visibility="gone"
+                android:id="@+id/notice_rl"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_marginTop="12dp"
+                android:background="@color/white"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="9dp"
+                    android:text="@string/notice_see"
+                    android:textColor="@color/text_body_strong"/>
+
+                <ImageView
+                    android:id="@+id/see_arraw"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:paddingLeft="9dp"
+                    android:paddingRight="9dp"
+                    android:src="@drawable/ic_arraw_gray"
+                    />
+
+                <TextView
+
+                    android:id="@+id/see_doctor_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_toLeftOf="@id/see_arraw"
+                    android:gravity="center_vertical"
+                    android:text="@string/can_see"
+                    android:textColor="@color/text_body_weak"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@id/see_doctor_tv"
+                    android:paddingLeft="9dp"
+                    android:paddingRight="9dp"
+                    android:src="@drawable/ic_arraw_gray"
+                    />
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/publish_btn"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginLeft="9dp"
+                android:layout_marginRight="9dp"
+                android:layout_marginTop="28dp"
+                android:background="@color/actionbar_color"
+                android:text="@string/publish"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_18"
+                />
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

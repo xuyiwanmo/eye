@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context=".settings.myOnlineManager.activity.SetTextConsultActivity">
+
+    <com.sg.eyedoctor.common.view.MyActionbar
+        android:id="@+id/actionbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:actionbar_title="@string/video_consult"
+        app:rightBtn_visible="false"/>
+
+    <com.sg.eyedoctor.common.view.DescribeView
+        android:id="@+id/open_dv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:describe="@string/video_consult_desc"
+        app:show_open="true"
+        app:title_name="是否开通视频咨询"/>
+
+    <ScrollView
+        android:paddingBottom="20dp"
+        android:id="@+id/price_all_sv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:id="@+id/price_ll"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginBottom="18dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="18dp"
+                android:background="@drawable/bg_white_border_gray"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1"
+                    android:text="@string/once_price"
+                    android:textColor="@color/text_body_strong"
+                    android:textSize="@dimen/text_18"/>
+
+                <EditText
+                    android:gravity="right"
+                    android:id="@+id/price_et"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@color/trans"
+                    android:padding="10dp"
+                    android:text="0.01"
+                    android:textColor="@color/actionbar_color"
+                    android:textSize="@dimen/text_18"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="10dp"
+                    android:text="@string/yuan"
+                    android:textSize="@dimen/text_18"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/monday_tv"
+                style="@style/style_tv_set_video"
+                android:text="@string/monday"/>
+
+            <com.sg.eyedoctor.common.view.NoScrollListView
+                android:id="@+id/monday_lv"
+                style="@style/style_lv_set_video"/>
+
+            <TextView
+                android:id="@+id/tuesday_tv"
+                style="@style/style_tv_set_video"
+                android:text="@string/tuesday"/>
+
+            <com.sg.eyedoctor.common.view.NoScrollListView
+                android:id="@+id/tuesday_lv"
+                style="@style/style_lv_set_video"/>
+
+            <TextView
+                android:id="@+id/wednesday_tv"
+                style="@style/style_tv_set_video"
+                android:text="@string/wednesday"/>
+
+            <com.sg.eyedoctor.common.view.NoScrollListView
+                android:id="@+id/wednesday_lv"
+                style="@style/style_lv_set_video"/>
+
+            <TextView
+                android:id="@+id/thursday_tv"
+                style="@style/style_tv_set_video"
+                android:text="@string/thursday"/>
+
+            <com.sg.eyedoctor.common.view.NoScrollListView
+                android:id="@+id/thursday_lv"
+                style="@style/style_lv_set_video"/>
+
+            <TextView
+                android:id="@+id/friday_tv"
+                style="@style/style_tv_set_video"
+                android:text="@string/friday"/>
+
+            <com.sg.eyedoctor.common.view.NoScrollListView
+                android:id="@+id/friday_lv"
+                style="@style/style_lv_set_video"/>
+
+            <TextView
+                android:id="@+id/saturday_tv"
+                style="@style/style_tv_set_video"
+                android:text="@string/saturday"/>
+
+            <com.sg.eyedoctor.common.view.NoScrollListView
+                android:id="@+id/saturday_lv"
+                style="@style/style_lv_set_video"/>
+
+            <TextView
+                android:id="@+id/sunday_tv"
+                style="@style/style_tv_set_video"
+                android:text="@string/sunday"/>
+
+            <com.sg.eyedoctor.common.view.NoScrollListView
+                android:id="@+id/sunday_lv"
+                style="@style/style_lv_set_video"/>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

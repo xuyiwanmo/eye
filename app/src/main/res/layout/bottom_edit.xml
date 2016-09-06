@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="60dp"
+              android:background="@color/gray_bg"
+              android:gravity="center_vertical"
+              android:orientation="horizontal"
+             >
+
+    <EditText
+        android:id="@+id/comment_et"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:paddingLeft="10dp"
+        android:layout_centerVertical="true"
+        android:textColorHint="@color/text_body_weak"
+        android:hint="回复"
+        android:background="@drawable/bg_edit_trans"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="35dp"/>
+
+    <ImageView
+        android:id="@+id/add_img"
+        android:layout_marginRight="10dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_chat"/>
+
+</LinearLayout>

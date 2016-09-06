@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+   >
+
+    <TextView
+        android:id="@+id/tv_patient_center_hour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="20dp"
+        android:text="AM 11.06"
+        android:textColor="@color/text_title" />
+
+    <TextView
+        android:id="@+id/tv_patient_center_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/tv_patient_center_hour"
+        android:layout_below="@id/tv_patient_center_hour"
+        android:layout_marginTop="4dp"
+        android:text="15/02/12"
+        android:textColor="@color/text_title" />
+
+    <RelativeLayout
+        android:id="@+id/fl"
+        android:layout_width="13dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="80dp">
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:background="@drawable/bg_view_line" />
+
+
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="13dp"
+        android:layout_height="13dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="27dp"
+        android:background="@drawable/dot_green" />
+
+    <TextView
+        android:maxLines="3"
+        android:id="@+id/tv_patient_center_case_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="28dp"
+        android:layout_marginTop="26dp"
+        android:layout_toRightOf="@id/fl"
+        android:text="首诊"
+        android:textSize="@dimen/text_16"
+        android:textColor="@color/text_body_weak" />
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="12dp"
+        android:src="@drawable/ic_arraw_gray" />
+
+</RelativeLayout>

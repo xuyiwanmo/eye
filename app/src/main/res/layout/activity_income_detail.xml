@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    tools:context=".mySetting.IncomeDetailActivity">
+
+
+    <com.sg.eyedoctor.common.view.MyActionbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:actionbar_title="@string/income_detail"
+        app:rightBtn_visible="false"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:background="@color/gray_bg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:padding="10dp"
+                android:id="@+id/third_ll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:textColor="@color/text_body_strong"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/this_month"/>
+
+                <TextView
+                    android:textColor="@color/text_body_strong"
+                    android:id="@+id/third_money_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="合计: 300元"/>
+            </LinearLayout>
+
+            <com.sg.eyedoctor.common.view.NoScrollListView
+                android:id="@+id/third_lv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:divider="@color/trans"/>
+
+            <LinearLayout
+                android:padding="10dp"
+                android:id="@+id/second_ll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:textColor="@color/text_body_strong"
+                    android:id="@+id/second_month_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/this_month"/>
+
+                <TextView
+                    android:textColor="@color/text_body_strong"
+                    android:id="@+id/second_money_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="合计: 300元"/>
+            </LinearLayout>
+
+            <com.sg.eyedoctor.common.view.NoScrollListView
+                android:id="@+id/second_lv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:divider="@color/trans"/>
+
+            <LinearLayout
+                android:padding="10dp"
+                android:id="@+id/first_ll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:textColor="@color/text_body_strong"
+                    android:id="@+id/first_month_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/this_month"/>
+
+                <TextView
+                    android:textColor="@color/text_body_strong"
+                    android:id="@+id/first_money_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="合计: 300元"/>
+            </LinearLayout>
+
+            <com.sg.eyedoctor.common.view.NoScrollListView
+                android:id="@+id/first_lv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:divider="@color/trans"/>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

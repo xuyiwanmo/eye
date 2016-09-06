@@ -1,0 +1,72 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 22
+    buildToolsVersion '23.0.3'
+
+    defaultConfig {
+        applicationId "com.sg.eyedoctor"
+        minSdkVersion 16
+        targetSdkVersion 22
+        versionCode 11123
+        versionName "1.11.23"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    productFlavors {
+        Localtion {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "Localtion"]
+        }
+    }
+
+
+    lintOptions {
+        //build release 版本 时 开启lint 检测
+        checkReleaseBuilds true
+        //lint 遇到 error 时继续 构建
+        abortOnError false
+    }
+}
+
+dependencies {
+    compile fileTree(include: '*.jar', dir: 'libs')
+    compile fileTree(include: ['*.jar'], dir: 'libs-sdk')
+    compile files('src/main/libs/Msc.jar')
+    compile files('src/main/libs/android-support-v7-recyclerview.jar')
+    compile files('src/main/libs/cosinesdk.jar')
+    compile files('src/main/libs/nrtc-sdk.jar')
+    compile project(':xutils')
+    compile files('src/main/libs/open_sdk_r5509.jar')
+    compile files('src/main/libs/SocialSDK_QQZone_3.jar')
+    compile files('src/main/libs/SocialSDK_WeiXin_1.jar')
+    compile files('src/main/libs/SocialSDK_WeiXin_2.jar')
+    compile files('src/main/libs/umeng_social_sdk.jar')
+    compile files('src/main/libs/mta-sdk-1.6.2.jar')
+    compile files('src/main/libs/fastjson-1.1.34.android.jar')
+    compile 'com.google.code.gson:gson:2.5'
+    compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
+    compile 'com.umeng.analytics:analytics:latest.integration'
+    compile 'com.android.support:support-v4:22.0.0'
+    compile 'com.android.support:appcompat-v7:22.0.0'
+    compile files('src/main/libs/nim-sdk-2.1.2.jar')
+}
+
+//获取时间戳
+def getDate() {
+    def date = new Date()
+    def formattedDate = date.format('MMdd')
+    return formattedDate
+}
+
+//从androidManifest.xml中获取版本号
+def getVersionNameFromManifest() {
+    def Properties versionProps = new Properties()
+    versionProps.load(new FileInputStream(versionPropsFile))
+    code = versionProps['VERSION_CODE'].toInteger()
+    // def manifestParser = new com.android.builder.core.DefaultManifestParser()
+    return code
+}
