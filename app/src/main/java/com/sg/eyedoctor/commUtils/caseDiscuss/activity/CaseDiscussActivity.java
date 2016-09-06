@@ -19,7 +19,6 @@ import com.pulltorefresh.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.sg.eyedoctor.R;
 import com.sg.eyedoctor.commUtils.caseDiscuss.adapter.CaseDiscussAdapter;
 import com.sg.eyedoctor.commUtils.caseDiscuss.bean.CaseDiscuss;
-import com.sg.eyedoctor.commUtils.patientReport.bean.PDValidate;
 import com.sg.eyedoctor.common.activity.BaseActivity;
 import com.sg.eyedoctor.common.impl.DlgClick;
 import com.sg.eyedoctor.common.manager.BaseManager;
@@ -323,10 +322,10 @@ public class CaseDiscussActivity extends BaseActivity {
             Date date1 = null;
             Date date2 = null;
             if(((CaseDiscuss) time1).latestDate==null){
-                return 0;
+                return 1;
             }
             if(((CaseDiscuss) time2).latestDate==null){
-                return 0;
+                return 1;
             }
             try {
                 date1=format.parse(((CaseDiscuss) time1).latestDate.replace("-","/"));
@@ -338,7 +337,7 @@ public class CaseDiscussActivity extends BaseActivity {
             if (flag > 0) {
                 return -1;
             } else {
-                return 0;
+                return 1;
             }
         }
     }

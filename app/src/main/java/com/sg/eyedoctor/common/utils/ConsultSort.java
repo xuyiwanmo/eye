@@ -15,7 +15,7 @@ public class ConsultSort implements Comparator {
         if (flag > 0) {
             return -1;
         } else {
-            return 0;
+            return 1;
         }
     }
 }

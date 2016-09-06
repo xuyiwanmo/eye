@@ -8,8 +8,8 @@ android {
         applicationId "com.sg.eyedoctor"
         minSdkVersion 16
         targetSdkVersion 22
-        versionCode 11123
-        versionName "1.11.23"
+        versionCode 11124
+        versionName "1.11.24"
     }
     buildTypes {
         release {

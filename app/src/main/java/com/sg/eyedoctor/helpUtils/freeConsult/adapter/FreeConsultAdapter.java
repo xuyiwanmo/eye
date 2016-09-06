@@ -8,6 +8,7 @@ import android.widget.TextView;
 import com.sg.eyedoctor.R;
 import com.sg.eyedoctor.common.adapter.CommAdapter;
 import com.sg.eyedoctor.common.utils.CommonUtils;
+import com.sg.eyedoctor.common.utils.LogUtils;
 import com.sg.eyedoctor.helpUtils.freeConsult.bean.FreePatient;
 
 import org.xutils.view.annotation.ViewInject;
@@ -24,9 +25,11 @@ import java.util.Date;
  */
 public class FreeConsultAdapter extends CommAdapter<FreePatient> {
 
+    private int type;
 
-    public FreeConsultAdapter(Context context, ArrayList<FreePatient> list, int layoutId) {
+    public FreeConsultAdapter(Context context, ArrayList<FreePatient> list, int layoutId,int type) {
         super(context, list, layoutId);
+        this.type=type;
     }
 
     @Override
@@ -50,7 +53,7 @@ public class FreeConsultAdapter extends CommAdapter<FreePatient> {
         holder.mNameTv.setText(patient.name);
 
         holder.mAgeTv.setText(patient.age + "岁");
-        if(patient.state.equals("3")){
+        if(type==3){
             holder.mTimeTv.setText(add48Hours(patient.modifyDate));
         }else{
             holder.mTimeTv.setText(patient.modifyDate);
@@ -59,6 +62,8 @@ public class FreeConsultAdapter extends CommAdapter<FreePatient> {
         if (patient.picFileName != null) {
             CommonUtils.loadImg(patient.picFileName, holder.mHeadImg, R.drawable.ic_patient_head);
         }
+
+        LogUtils.i("state: "+patient.state+" name:"+patient.name);
         return convertView;
     }
 
@@ -75,7 +80,7 @@ public class FreeConsultAdapter extends CommAdapter<FreePatient> {
 
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
-        cal.add(Calendar.HOUR_OF_DAY,48);
+        cal.add(Calendar.DATE,2);
         return format.format(cal.getTime());
     }
 

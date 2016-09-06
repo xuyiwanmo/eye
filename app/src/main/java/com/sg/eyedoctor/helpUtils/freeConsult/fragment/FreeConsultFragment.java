@@ -1,6 +1,7 @@
 package com.sg.eyedoctor.helpUtils.freeConsult.fragment;
 
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -18,6 +19,7 @@ import com.sg.eyedoctor.common.fragment.BaseFragment;
 import com.sg.eyedoctor.common.manager.BaseManager;
 import com.sg.eyedoctor.common.response.BaseArrayResp;
 import com.sg.eyedoctor.common.utils.CommonUtils;
+import com.sg.eyedoctor.common.utils.LogUtils;
 import com.sg.eyedoctor.common.utils.NetCallback;
 import com.sg.eyedoctor.common.utils.UiUtils;
 import com.sg.eyedoctor.helpUtils.freeConsult.adapter.FreeConsultAdapter;
@@ -27,10 +29,14 @@ import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.ViewInject;
 
 import java.lang.reflect.Type;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 
@@ -63,7 +69,11 @@ public class FreeConsultFragment extends BaseFragment {
                 }.getType();
                 BaseArrayResp<FreePatient> res = new Gson().fromJson(result, objectType);
                 mPatients = res.value;
+
                 Collections.sort(mPatients, new FreeConsultSort());
+                for (FreePatient patient : mPatients) {
+                    LogUtils.i("日期:" + patient.modifyDate);
+                }
                 if (mPatients != null) {
                     mConsultAdapter.setData(mPatients);
                 }
@@ -87,7 +97,7 @@ public class FreeConsultFragment extends BaseFragment {
 
                 if (mType == 1) {
                     showToast("修改订单状态成功!");
-                    if (!CommonUtils.isLogin()){
+                    if (!CommonUtils.isLogin()) {
                         showToast(R.string.operation_not_open);
                         return;
                     }
@@ -121,6 +131,7 @@ public class FreeConsultFragment extends BaseFragment {
         }
     };
 
+    @SuppressLint("ValidFragment")
     public FreeConsultFragment(int fragmentType) {
         mType = fragmentType;
     }
@@ -149,7 +160,7 @@ public class FreeConsultFragment extends BaseFragment {
         super.onViewCreated(view, savedInstanceState);
 
         mPatients = new ArrayList<>();
-        mConsultAdapter = new FreeConsultAdapter(getActivity(),mPatients,0);
+        mConsultAdapter = new FreeConsultAdapter(getActivity(), mPatients, 0,mType);
         mConsultNewList.setAdapter(mConsultAdapter);
         UiUtils.setEmptyText(getActivity(), mConsultNewList, getString(R.string.empty));
     }
@@ -168,13 +179,13 @@ public class FreeConsultFragment extends BaseFragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //**************点击对应的联系人   跳转到  聊天界面
-                if (!CommonUtils.isLogin()){
+                if (!CommonUtils.isLogin()) {
                     showToast(R.string.operation_not_open);
                     return;
                 }
                 mPatient = mPatients.get(position);
-                if (mPatient.newMessage!=0) {
-                    BaseManager.setQuestionMessageIsRead(mPatient.questionId, mPatient.patientIM, "d"+mPatient.doctorId, mReadCallback);
+                if (mPatient.newMessage != 0) {
+                    BaseManager.setQuestionMessageIsRead(mPatient.questionId, mPatient.patientIM, "d" + mPatient.doctorId, mReadCallback);
                 }
                 if (mType == 1) {
                     //修改订单状态
@@ -227,7 +238,7 @@ public class FreeConsultFragment extends BaseFragment {
     public void onResume() {
         super.onResume();
         if (getUserVisibleHint()) {
-           queryData();
+            queryData();
         }
     }
 
@@ -235,11 +246,28 @@ public class FreeConsultFragment extends BaseFragment {
 
         @Override
         public int compare(Object time1, Object time2) {
-            long flag =((FreePatient) time1).modifyDate.compareTo(((FreePatient) time2).modifyDate);
-            if (flag > 0) {
-                return -1;
+//            long flag =((FreePatient) time1).modifyDate.compareTo(((FreePatient) time2).modifyDate);
+//            if (flag > 0) {
+//                return -1;
+//            } else {
+//                return 0;
+//            }
+            boolean flag = false;
+            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.CHINA);
+            try {
+                Date d1 = format.parse(((FreePatient) time1).modifyDate);
+                Date d2 = format.parse(((FreePatient) time2).modifyDate);
+                if (d1.getTime() < d2.getTime()) {
+                    flag = true;
+                }
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+
+            if (flag) {
+                return 1;
             } else {
-                return 0;
+                return -1;
             }
         }
     }
