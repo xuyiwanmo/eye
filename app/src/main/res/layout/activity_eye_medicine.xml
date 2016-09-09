@@ -1,22 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:fitsSystemWindows="true"
-              xmlns:app="http://schemas.android.com/apk/res-auto"
               android:orientation="vertical">
 
     <com.sg.eyedoctor.common.view.MyActionbar
-        app:rightBtn_visible="false"
-        app:actionbar_title="@string/eye_medicine"
         android:id="@+id/actionbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        app:actionbar_title="@string/eye_medicine"
+        app:rightBtn_visible="false"/>
 
-    <com.sg.eyedoctor.common.view.SearchLayout
-        android:id="@+id/search_sl"
+    <LinearLayout
+        android:id="@+id/search_ll"
+        android:layout_marginBottom="10dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_crm_search"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/search_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:drawableLeft="@drawable/ic_search"
+                android:drawablePadding="9dp"
+                android:gravity="center"
+                android:hint="@string/search_keyword"
+                android:textColor="@color/text_body_weak"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
 
     <LinearLayout
         android:id="@+id/search_et_ll"
@@ -55,21 +82,21 @@
     </LinearLayout>
 
     <ListView
-        android:divider="@color/trans"
-        android:layout_marginTop="10dp"
         android:id="@+id/type_lv"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:divider="@color/trans"/>
 
     <TextView
 
-        android:textColor="@color/green"
-        android:textSize="@dimen/text_18"
-        android:visibility="gone"
         android:id="@+id/empty_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/empty"/>
+        android:text="@string/empty"
+        android:textColor="@color/green"
+        android:textSize="@dimen/text_18"
+        android:visibility="gone"/>
 
 
 </LinearLayout>

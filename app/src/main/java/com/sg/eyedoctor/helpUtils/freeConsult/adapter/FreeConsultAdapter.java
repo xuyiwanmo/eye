@@ -54,7 +54,7 @@ public class FreeConsultAdapter extends CommAdapter<FreePatient> {
 
         holder.mAgeTv.setText(patient.age + "岁");
         if(type==3){
-            holder.mTimeTv.setText(add48Hours(patient.modifyDate));
+            holder.mTimeTv.setText(patient.modifyDate);
         }else{
             holder.mTimeTv.setText(patient.modifyDate);
         }

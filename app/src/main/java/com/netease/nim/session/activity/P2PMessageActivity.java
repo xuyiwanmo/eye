@@ -5,12 +5,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.view.View;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.netease.nim.DemoCache;
 import com.netease.nim.cache.FriendDataCache;
 import com.netease.nim.common.ui.popupmenu.NIMPopupMenu;
 import com.netease.nim.common.ui.popupmenu.PopupMenuItem;
@@ -38,6 +41,7 @@ import com.sg.eyedoctor.common.utils.NetCallback;
 import com.sg.eyedoctor.common.view.MyActionbar;
 import com.sg.eyedoctor.contact.activity.DoctorDetailActivity;
 import com.sg.eyedoctor.contact.bean.FriendList;
+import com.sg.eyedoctor.helpUtils.freeConsult.activity.FreeConsultDetailActivity;
 import com.sg.eyedoctor.helpUtils.freeConsult.bean.FreePatient;
 import com.sg.eyedoctor.helpUtils.freeConsult.bean.HosDept;
 
@@ -146,6 +150,7 @@ public class P2PMessageActivity extends BaseMessageActivity {
         // 单聊特例话数据，包括个人信息，
         registerObservers(true);
 
+
         mActionbar.setTitle(customization.showName);
 
         if (customization.buttons != null && customization.buttons.size() != 0) {
@@ -182,6 +187,39 @@ public class P2PMessageActivity extends BaseMessageActivity {
                     }
                 });
             }
+            RelativeLayout rl=(RelativeLayout)findViewById(R.id.head_rl);
+            rl.setVisibility(View.VISIBLE);
+
+            TextView name= (TextView) findViewById(R.id.name_tv);
+            TextView sex= (TextView) findViewById(R.id.sex);
+            TextView age= (TextView) findViewById(R.id.age);
+            TextView ill= (TextView) findViewById(R.id.ill);
+            TextView method= (TextView) findViewById(R.id.method);
+            RelativeLayout head= (RelativeLayout) findViewById(R.id.head_rl);
+            name.setText(customization.showName);
+            ill.setText("问题详情: "+customization.showIll);
+            if(customization.showSex.equals("1")||customization.showSex.equals("男")){
+                sex.setText("男");
+            }else{
+                sex.setText("女");
+            }
+            if(customization.isVideo==1){
+                method.setText(R.string.consult_with_video);
+            }else{
+                method.setText(R.string.consult_with_text);
+            }
+
+            age.setText(customization.showAge+"岁");
+            head.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    FreePatient patient=new FreePatient(customization.showName,customization.showSex,customization.showAge,customization.showIll,customization.picList);
+                    Intent intent=new Intent(DemoCache.getContext(), FreeConsultDetailActivity.class);
+                    intent.putExtra(ConstantValues.KEY_DATA,patient);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    DemoCache.getContext().startActivity(intent);
+                }
+            });
         } else if (customization.type == ConstantValues.P2P_REPORT) {
             mActionbar.setRightTv(R.string.patient_report_note, new View.OnClickListener() {
                 @Override

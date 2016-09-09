@@ -1,6 +1,5 @@
 package com.netease.nim.session.module.list;
 
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Build;
@@ -9,11 +8,8 @@ import android.text.TextUtils;
 import android.util.Pair;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.netease.nim.DemoCache;
 import com.netease.nim.NimUIKit;
 import com.netease.nim.UserPreferences;
 import com.netease.nim.common.adapter.TAdapterDelegate;
@@ -54,10 +50,7 @@ import com.netease.nimlib.sdk.msg.constant.SessionTypeEnum;
 import com.netease.nimlib.sdk.msg.model.AttachmentProgress;
 import com.netease.nimlib.sdk.msg.model.IMMessage;
 import com.netease.nimlib.sdk.msg.model.QueryDirectionEnum;
-import com.sg.eyedoctor.ConstantValues;
 import com.sg.eyedoctor.R;
-import com.sg.eyedoctor.helpUtils.freeConsult.activity.FreeConsultDetailActivity;
-import com.sg.eyedoctor.helpUtils.freeConsult.bean.FreePatient;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -119,7 +112,9 @@ public class MessageListPanel implements TAdapterDelegate {
     }
 
     public void onResume() {
-        setEarPhoneMode(UserPreferences.isEarPhoneModeEnable());
+        //setEarPhoneMode(UserPreferences.isEarPhoneModeEnable());
+        //设置为扬声器
+        setEarPhoneMode(false);
     }
 
     public void onPause() {
@@ -173,40 +168,40 @@ public class MessageListPanel implements TAdapterDelegate {
         messageListView = (MessageListView) rootView.findViewById(R.id.messageListView);
         messageListView.requestDisallowInterceptTouchEvent(true);
 
-        if(customization.type==8){
-            View view=View.inflate(DemoCache.getContext(),R.layout.head_free_consult,null);
-            TextView name= (TextView) view.findViewById(R.id.name_tv);
-            TextView sex= (TextView) view.findViewById(R.id.sex);
-            TextView age= (TextView) view.findViewById(R.id.age);
-            TextView ill= (TextView) view.findViewById(R.id.ill);
-            TextView method= (TextView) view.findViewById(R.id.method);
-            RelativeLayout head= (RelativeLayout) view.findViewById(R.id.head_rl);
-            name.setText(customization.showName);
-            ill.setText("问题详情: "+customization.showIll);
-            if(customization.showSex.equals("1")||customization.showSex.equals("男")){
-                sex.setText("男");
-            }else{
-                sex.setText("女");
-            }
-            if(customization.isVideo==1){
-                method.setText(R.string.consult_with_video);
-            }else{
-                method.setText(R.string.consult_with_text);
-            }
-
-            age.setText(customization.showAge);
-            head.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    FreePatient patient=new FreePatient(customization.showName,customization.showSex,customization.showAge,customization.showIll,customization.picList);
-                    Intent intent=new Intent(DemoCache.getContext(), FreeConsultDetailActivity.class);
-                    intent.putExtra(ConstantValues.KEY_DATA,patient);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    DemoCache.getContext().startActivity(intent);
-                }
-            });
-            messageListView.addHeaderView(view);
-        }
+//        if(customization.type==8){
+//            View view=View.inflate(DemoCache.getContext(),R.layout.head_free_consult,null);
+//            TextView name= (TextView) view.findViewById(R.id.name_tv);
+//            TextView sex= (TextView) view.findViewById(R.id.sex);
+//            TextView age= (TextView) view.findViewById(R.id.age);
+//            TextView ill= (TextView) view.findViewById(R.id.ill);
+//            TextView method= (TextView) view.findViewById(R.id.method);
+//            RelativeLayout head= (RelativeLayout) view.findViewById(R.id.head_rl);
+//            name.setText(customization.showName);
+//            ill.setText("问题详情: "+customization.showIll);
+//            if(customization.showSex.equals("1")||customization.showSex.equals("男")){
+//                sex.setText("男");
+//            }else{
+//                sex.setText("女");
+//            }
+//            if(customization.isVideo==1){
+//                method.setText(R.string.consult_with_video);
+//            }else{
+//                method.setText(R.string.consult_with_text);
+//            }
+//
+//            age.setText(customization.showAge);
+//            head.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    FreePatient patient=new FreePatient(customization.showName,customization.showSex,customization.showAge,customization.showIll,customization.picList);
+//                    Intent intent=new Intent(DemoCache.getContext(), FreeConsultDetailActivity.class);
+//                    intent.putExtra(ConstantValues.KEY_DATA,patient);
+//                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//                    DemoCache.getContext().startActivity(intent);
+//                }
+//            });
+//            messageListView.addHeaderView(view);
+//        }
 
         if (recordOnly && !remote) {
             messageListView.setMode(AutoRefreshListView.Mode.BOTH);
@@ -666,7 +661,7 @@ public class MessageListPanel implements TAdapterDelegate {
         @Override
         public boolean onViewHolderLongClick(View clickView, View viewHolderView, IMMessage item) {
             if (container.proxy.isLongClickEnabled()) {
-                showLongClickAction(item);
+              //  showLongClickAction(item);
             }
             return true;
         }

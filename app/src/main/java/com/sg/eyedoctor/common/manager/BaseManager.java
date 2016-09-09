@@ -1486,6 +1486,12 @@ public class BaseManager {
         params.addBodyParameter("source", "1");
         HttpClient.get(params, callback);
     }
+    //药品搜索
+    public static void searchEyeDrugList(String name,NetCallback callback) {
+        RequestParams params = new RequestParams(ConstantValues.HOST + "/Doctor/SearchEyeDrugList");
+        params.addBodyParameter("name", name);
+        HttpClient.get(params, callback);
+    }
 
     //获取电子病历-1
     public static void getNowPubliceEvent(String pageNumber, String pageSize, NetCallback callback) {

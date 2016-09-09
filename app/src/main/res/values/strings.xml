@@ -894,7 +894,7 @@
     <string name="hospital_patient_list">住院病人列表</string>
     <string name="new_add">新增</string>
     <string name="error_load">服务器异常,请稍后加载</string>
-    <string name="reset_password">重置密码</string>
+    <string name="reset_password">修改密码</string>
     <string name="new_password">新密码</string>
     <string name="please_enter_new_password">请输入新密码</string>
     <string name="password_comfirm">密码确认</string>

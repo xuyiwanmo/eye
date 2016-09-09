@@ -4,11 +4,13 @@ import android.content.Intent;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.sg.eyedoctor.ConstantValues;
 import com.sg.eyedoctor.R;
 import com.sg.eyedoctor.commUtils.toolbox.adapter.EyeMedicineTypeAdapter;
 import com.sg.eyedoctor.commUtils.toolbox.bean.EyeMedicineType;
@@ -16,9 +18,7 @@ import com.sg.eyedoctor.common.activity.BaseActivity;
 import com.sg.eyedoctor.common.manager.BaseManager;
 import com.sg.eyedoctor.common.response.BaseArrayResp;
 import com.sg.eyedoctor.common.utils.CommonUtils;
-import com.sg.eyedoctor.ConstantValues;
 import com.sg.eyedoctor.common.utils.NetCallback;
-import com.sg.eyedoctor.common.view.SearchLayout;
 
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.ViewInject;
@@ -27,11 +27,11 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 @ContentView(R.layout.activity_eye_medicine)
-public class EyeMedicineTypeActivity extends BaseActivity implements SearchLayout.SearchCallback {
+public class EyeMedicineTypeActivity extends BaseActivity {
     @ViewInject(R.id.search_tv)
     private TextView mSearchTv;
-    @ViewInject(R.id.search_sl)
-    private SearchLayout mSearchSl;
+    @ViewInject(R.id.search_ll)
+    private LinearLayout mSearchSl;
     @ViewInject(R.id.type_lv)
     private ListView mTypeLv;
     @ViewInject(R.id.empty_tv)
@@ -39,16 +39,17 @@ public class EyeMedicineTypeActivity extends BaseActivity implements SearchLayou
     private EyeMedicineTypeAdapter mTypeAdapter;
 
     private ArrayList<EyeMedicineType> mEyeMedicineTypes = new ArrayList<>();
-    private ArrayList<EyeMedicineType> filterDateList=new ArrayList<>();
+    private ArrayList<EyeMedicineType> filterDateList = new ArrayList<>();
     private NetCallback mCallback = new NetCallback(this) {
         @Override
         protected void requestOK(String result) {
             if (CommonUtils.isResultOK(result)) {
                 closeDialog();
-                Type objectType = new TypeToken<BaseArrayResp<EyeMedicineType>>(){}.getType();
-                BaseArrayResp<EyeMedicineType> res=new Gson().fromJson(result, objectType);
-                mEyeMedicineTypes=res.value;
-                filterDateList=res.value;
+                Type objectType = new TypeToken<BaseArrayResp<EyeMedicineType>>() {
+                }.getType();
+                BaseArrayResp<EyeMedicineType> res = new Gson().fromJson(result, objectType);
+                mEyeMedicineTypes = res.value;
+                filterDateList = res.value;
                 mTypeAdapter.setData(filterDateList);
             }
         }
@@ -63,7 +64,7 @@ public class EyeMedicineTypeActivity extends BaseActivity implements SearchLayou
     protected void initView() {
         mTypeAdapter = new EyeMedicineTypeAdapter(this, mEyeMedicineTypes, R.layout.item_eye_check_data);
         mTypeLv.setAdapter(mTypeAdapter);
-        mSearchSl.setCallback(this);
+
         showdialog();
         BaseManager.getEyeDrugChannel(mCallback);
 
@@ -80,6 +81,15 @@ public class EyeMedicineTypeActivity extends BaseActivity implements SearchLayou
             }
         });
 
+        mSearchSl.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(mContext, SearchMedicineActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
     }
 
     @Override
@@ -92,7 +102,7 @@ public class EyeMedicineTypeActivity extends BaseActivity implements SearchLayou
      * 根据输入框中的值来过滤数据并更新ListView
      */
     private void filterData(String filterStr) {
-        filterDateList= new ArrayList<>();
+        filterDateList = new ArrayList<>();
 
         if (TextUtils.isEmpty(filterStr)) {
             filterDateList = mEyeMedicineTypes;
@@ -114,14 +124,4 @@ public class EyeMedicineTypeActivity extends BaseActivity implements SearchLayou
         }
     }
 
-
-    @Override
-    public void fillData(String s) {
-        filterData(s);
-    }
-
-    @Override
-    public void cancel() {
-
-    }
 }

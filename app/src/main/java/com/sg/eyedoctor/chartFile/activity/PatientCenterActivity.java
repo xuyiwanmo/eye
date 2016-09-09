@@ -87,9 +87,11 @@ public class PatientCenterActivity extends BaseActivity {
                 if (isFocus == 1) {
                     isFocus = 0;
                     mActionbar.getRightBtnImg().setSelected(false);
+                    showToast("取消关注成功");
                 } else {
                     isFocus = 1;
                     mActionbar.getRightBtnImg().setSelected(true);
+                    showToast("关注成功");
                 }
             }else{
                 showToast(R.string.get_data_error);

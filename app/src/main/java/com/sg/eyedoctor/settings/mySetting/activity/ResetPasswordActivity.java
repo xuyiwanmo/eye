@@ -50,7 +50,7 @@ public class ResetPasswordActivity extends BaseActivity {
                         return false;
                     }
                 });
-            }else{
+            } else {
                 DialogManager.showConfimDlg(mContext, R.string.password_update_fail, new DlgClick() {
                     @Override
                     public boolean click() {
@@ -60,12 +60,14 @@ public class ResetPasswordActivity extends BaseActivity {
                 });
             }
         }
+
         @Override
         protected void timeOut() {
             onTimeOut();
         }
 
     };
+
     @Override
     protected void initView() {
 
@@ -83,29 +85,40 @@ public class ResetPasswordActivity extends BaseActivity {
 
     @Event(R.id.ensure_tv)
     private void next(View view) {
-        mOldPassword=mOldPasswordTv.getEditText();
-        if(mOldPassword==null||mOldPassword.equals("")){
+        mOldPassword = mOldPasswordTv.getEditText();
+        if (mOldPassword == null || mOldPassword.equals("")) {
             showToast("请输入原密码");
             return;
         }
-        mFirstPassword=mNewPasswordTv.getEditText();
-        if(mFirstPassword==null||mFirstPassword.equals("")){
+        mFirstPassword = mNewPasswordTv.getEditText();
+        if (mFirstPassword == null || mFirstPassword.equals("")) {
             showToast("请输入新密码");
             return;
         }
 
-        mSecondPassword=mAgainPasswordTv.getEditText();
-        if(mSecondPassword==null||mSecondPassword.equals("")){
-            showToast("请输入新密码");
+        mSecondPassword = mAgainPasswordTv.getEditText();
+        if (mSecondPassword == null || mSecondPassword.equals("")) {
+            showToast("请再次输入新密码");
             return;
         }
 
-        if (mFirstPassword.equals(mSecondPassword)){
-            BaseManager.passwordReset(mFirstPassword,mOldPassword,mCallback);
-
-        }else{
-            showToast("新密码不一致,请重新输入");
+        String rightpassword = BaseManager.getDoctor().password;
+        if (!rightpassword.equals(mOldPassword)) {
+            showToast("原密码有误，请重新输入");
+            return;
         }
+
+        if (!mFirstPassword.equals(mSecondPassword)) {
+            showToast("新密码前后输入不一致，请重新输入");
+            return;
+        }
+
+        if (mFirstPassword.length() < 6) {
+            showToast("新密码不小于六位数");
+        }else {
+            BaseManager.passwordReset(mFirstPassword, mOldPassword, mCallback);
+        }
+
     }
 
 }
