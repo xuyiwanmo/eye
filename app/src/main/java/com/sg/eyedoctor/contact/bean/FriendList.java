@@ -58,6 +58,7 @@ public class FriendList extends ContactLetter implements Parcelable {
     public String licenseHospital;
     public String licenseDept;
     public String licenseTitle;
+    public String newMessage;
     public boolean isChecked;
 
     public FriendList(String friendId, String picFileName, String userName) {
@@ -95,7 +96,8 @@ public class FriendList extends ContactLetter implements Parcelable {
         dest.writeString(this.licenseHospital);
         dest.writeString(this.licenseDept);
         dest.writeString(this.licenseTitle);
-        dest.writeByte(isChecked ? (byte) 1 : (byte) 0);
+        dest.writeString(this.newMessage);
+        dest.writeByte(this.isChecked ? (byte) 1 : (byte) 0);
     }
 
     protected FriendList(Parcel in) {
@@ -118,6 +120,7 @@ public class FriendList extends ContactLetter implements Parcelable {
         this.licenseHospital = in.readString();
         this.licenseDept = in.readString();
         this.licenseTitle = in.readString();
+        this.newMessage = in.readString();
         this.isChecked = in.readByte() != 0;
     }
 

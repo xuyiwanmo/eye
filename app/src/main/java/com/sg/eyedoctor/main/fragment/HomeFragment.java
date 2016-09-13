@@ -2,7 +2,7 @@ package com.sg.eyedoctor.main.fragment;
 
 
 import android.content.Intent;
-import android.os.Bundle;
+import android.os.Handler;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.AdapterView;
@@ -15,6 +15,14 @@ import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.netease.nimlib.sdk.NIMClient;
+import com.netease.nimlib.sdk.Observer;
+import com.netease.nimlib.sdk.RequestCallbackWrapper;
+import com.netease.nimlib.sdk.ResponseCode;
+import com.netease.nimlib.sdk.msg.MsgService;
+import com.netease.nimlib.sdk.msg.MsgServiceObserve;
+import com.netease.nimlib.sdk.msg.constant.SessionTypeEnum;
+import com.netease.nimlib.sdk.msg.model.RecentContact;
 import com.sg.eyedoctor.ConstantValues;
 import com.sg.eyedoctor.R;
 import com.sg.eyedoctor.commUtils.academic.activity.AcademicActivity;
@@ -29,8 +37,10 @@ import com.sg.eyedoctor.common.fragment.BaseFragment;
 import com.sg.eyedoctor.common.impl.DlgClick;
 import com.sg.eyedoctor.common.manager.BaseManager;
 import com.sg.eyedoctor.common.manager.DialogManager;
+import com.sg.eyedoctor.common.response.BaseArrayResp;
 import com.sg.eyedoctor.common.response.BaseResp;
 import com.sg.eyedoctor.common.utils.CommonUtils;
+import com.sg.eyedoctor.common.utils.LogUtils;
 import com.sg.eyedoctor.common.utils.NetCallback;
 import com.sg.eyedoctor.common.view.RoundImageView;
 import com.sg.eyedoctor.common.view.banner.CircleFlowIndicator;
@@ -53,6 +63,8 @@ import com.sg.eyedoctor.helpUtils.stopDiagnoseNotice.activity.StopDiagnoseNotice
 import com.sg.eyedoctor.main.activity.CertificationActivity;
 import com.sg.eyedoctor.main.adapter.HomeBannerAdapter;
 import com.sg.eyedoctor.main.adapter.HomeGridAdapter;
+import com.sg.eyedoctor.main.bean.TeamRead;
+import com.sg.eyedoctor.main.bean.UnreadCount;
 import com.sg.eyedoctor.settings.myOnlineManager.activity.SetAddConsultActivity;
 import com.sg.eyedoctor.settings.myOnlineManager.activity.SetPhoneConsultActivity;
 import com.sg.eyedoctor.settings.myOnlineManager.activity.SetTextConsultActivity;
@@ -65,6 +77,7 @@ import org.xutils.view.annotation.ViewInject;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 首页
@@ -136,20 +149,25 @@ public class HomeFragment extends BaseFragment {
     private boolean mIsOpen;
     private ServiceRecord mServiceRecord;
     private ConsultBean mConsultBean;
-    private boolean mIsAuth=false;
+    private boolean mIsAuth = false;
+
+    Observer<List<RecentContact>> messageObserver;
+    ArrayList<TeamRead> teamReads=new ArrayList<>();
+    List<RecentContact> mMessages = new ArrayList<>();
 
     private NetCallback mReadCountCallback = new NetCallback(getActivity()) {
         @Override
         protected void requestOK(String result) {
-         //   closeDialog();
+            //   closeDialog();
             if (CommonUtils.isResultOK(result)) {
-                Type objectType = new TypeToken<BaseResp<Integer>>(){}.getType();
-                BaseResp<Integer> res=new Gson().fromJson(result, objectType);
-                int count=res.value;
-                if(count==0){
+                Type objectType = new TypeToken<BaseResp<Integer>>() {
+                }.getType();
+                BaseResp<Integer> res = new Gson().fromJson(result, objectType);
+                int count = res.value;
+                if (count == 0) {
                     mReadCountTv.setVisibility(View.GONE);
-                }else{
-                    mReadCountTv.setText(count+"");
+                } else {
+                    mReadCountTv.setText(count + "");
                     mReadCountTv.setVisibility(View.VISIBLE);
                 }
 
@@ -157,6 +175,7 @@ public class HomeFragment extends BaseFragment {
                 BaseManager.getChatCount(mTextCountCallback);
             }
         }
+
         @Override
         protected void timeOut() {
             onTimeOut();
@@ -167,22 +186,54 @@ public class HomeFragment extends BaseFragment {
         protected void requestOK(String result) {
             closeDialog();
             if (CommonUtils.isResultOK(result)) {
-                Type objectType = new TypeToken<BaseResp<Integer>>(){}.getType();
-                BaseResp<Integer> res=new Gson().fromJson(result, objectType);
-                int count=res.value;
-                if(count==0){
-                    mTextCountTv.setVisibility(View.GONE);
-                }else{
-                    mTextCountTv.setText(count+"");
-                    mTextCountTv.setVisibility(View.VISIBLE);
-                }
+                Type objectType = new TypeToken<BaseArrayResp<UnreadCount>>() {
+                }.getType();
+                BaseArrayResp<UnreadCount> res = new Gson().fromJson(result, objectType);
+
+                initUnread(res.value);
+//                int count=res.value;
+//                if(count==0){
+//                    mTextCountTv.setVisibility(View.GONE);
+//                }else{
+//                    mTextCountTv.setText(count+"");
+//                    mTextCountTv.setVisibility(View.VISIBLE);
+//                }
+
             }
         }
+
         @Override
         protected void timeOut() {
             onTimeOut();
         }
     };
+
+    private void initUnread(ArrayList<UnreadCount> value) {
+        for (UnreadCount readBean : value) {
+            switch (readBean.source) {
+                case "1"://图
+                    if (readBean.count == 0) {
+                        mTextCountTv.setVisibility(View.GONE);
+                    } else {
+                        mTextCountTv.setText(readBean.count + "");
+                        mTextCountTv.setVisibility(View.VISIBLE);
+                    }
+                    break;
+                case "2"://免
+                    ConstantValues.HOME_HELP_TOOLS_LIST.get(7).count = readBean.count;
+                    break;
+
+                case "4"://患者报道
+                    ConstantValues.HOME_COMMON_TOOLS_LIST.get(3).count = readBean.count;
+                    break;
+                case "5"://医生通讯录
+                    ConstantValues.HOME_HELP_TOOLS_LIST.get(5).count = readBean.count;
+                    break;
+            }
+        }
+        mCommonUtilsAdapter.setData(ConstantValues.HOME_COMMON_TOOLS_LIST);
+        mHelpUtilsAdapter.setData(ConstantValues.HOME_HELP_TOOLS_LIST);
+    }
 
 
     private NetCallback mCallback = new NetCallback(getActivity()) {
@@ -204,36 +255,68 @@ public class HomeFragment extends BaseFragment {
                 }
             }
         }
+
         @Override
         protected void timeOut() {
             onTimeOut();
         }
     };
 
-    @Override
-    public void onViewCreated(View view, Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
 
+    @Override
+    protected void initView() {
         initBanner();
         initGrid();
-        initListener();
-        initView();
+        initBaseView();
+        initBaseListener();
+        new Handler().postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+
+                // 查询最近联系人列表数据
+                NIMClient.getService(MsgService.class).queryRecentContacts().setCallback(new RequestCallbackWrapper<List<RecentContact>>() {
+
+                    @Override
+                    public void onResult(int code, List<RecentContact> recents, Throwable exception) {
+                        if (code != ResponseCode.RES_SUCCESS || recents == null) {
+                            return;
+                        }
+                        mMessages = recents;
+                        getTeamCount();
+                    }
+                });
+            }
+        }, 250);
+        messageObserver = new Observer<List<RecentContact>>() {
+            @Override
+            public void onEvent(List<RecentContact> messages) {
+                mMessages = messages;
+                getTeamCount();
+            }
+        };
+        registerService(true);
+    }
+
+    @Override
+    protected void initListener() {
+
     }
 
     @Override
     public void onResume() {
         super.onResume();
         //已认证
-        String state=mDoctor.Authenticated;
+        String state = mDoctor.Authenticated;
         mAuthTv.setText(state);
-        if(mDoctor.state==2){
+        if (mDoctor.state == 2) {
             mVimg.setSelected(true);
             mAuthTv.setSelected(true);
-            mIsAuth=true;
-        }else{
+            mIsAuth = true;
+        } else {
             mVimg.setSelected(false);
             mAuthTv.setSelected(false);
-            mIsAuth=false;
+            mIsAuth = false;
         }
         mIsOpen = mDoctor.videoIsOpen.equals("True");
 
@@ -249,14 +332,14 @@ public class HomeFragment extends BaseFragment {
         Intent intent = new Intent(getActivity(), OpenViedoActivity.class);
         switch (view.getId()) {
             case R.id.ll_text_consult:
-                if(!mIsAuth){
+                if (!mIsAuth) {
                     startAuthActivity(R.string.text_consult);
                     break;
                 }
-                boolean isOpenText=mDoctor.textIsOpen.equals("True");
+                boolean isOpenText = mDoctor.textIsOpen.equals("True");
 
                 if (!isOpenText) {//未开通  跳转到开通提示界面
-                    mConsultBean =new ConsultBean(R.drawable.home_text_consult,R.string.text_consult, SetTextConsultActivity.class);
+                    mConsultBean = new ConsultBean(R.drawable.home_text_consult, R.string.text_consult, SetTextConsultActivity.class);
                     intent.putExtra(ConstantValues.KEY_DATA, mConsultBean);
                     startActivity(intent);
                     break;
@@ -265,13 +348,13 @@ public class HomeFragment extends BaseFragment {
                 startActivity(new Intent(getActivity(), TextConsultActivity.class));
                 break;
             case R.id.ll_phone_consult:
-                if(!mIsAuth){
+                if (!mIsAuth) {
                     startAuthActivity(R.string.phone_consult);
                     break;
                 }
-                boolean isOpenPhone=mDoctor.phoneIsOpen.equals("True");
+                boolean isOpenPhone = mDoctor.phoneIsOpen.equals("True");
                 if (!isOpenPhone) {//未开通  跳转到开通提示界面
-                    mConsultBean =new ConsultBean(R.drawable.home_phone_consult,R.string.phone_consult, SetPhoneConsultActivity.class);
+                    mConsultBean = new ConsultBean(R.drawable.home_phone_consult, R.string.phone_consult, SetPhoneConsultActivity.class);
                     intent.putExtra(ConstantValues.KEY_DATA, mConsultBean);
                     startActivity(intent);
                     break;
@@ -279,13 +362,13 @@ public class HomeFragment extends BaseFragment {
                 startActivity(new Intent(getActivity(), PhoneConsultActivity.class));
                 break;
             case R.id.ll_video_consult:
-                if(!mIsAuth){
+                if (!mIsAuth) {
                     startAuthActivity(R.string.video_consult);
                     break;
                 }
-                boolean isOpenVideo=mDoctor.videoIsOpen.equals("True");
+                boolean isOpenVideo = mDoctor.videoIsOpen.equals("True");
                 if (!isOpenVideo) {//未开通  跳转到开通提示界面
-                    mConsultBean =new ConsultBean(R.drawable.home_video_consult,R.string.video_consult, SetVideoConsultActivity.class);
+                    mConsultBean = new ConsultBean(R.drawable.home_video_consult, R.string.video_consult, SetVideoConsultActivity.class);
                     intent.putExtra(ConstantValues.KEY_DATA, mConsultBean);
                     startActivity(intent);
                     break;
@@ -300,15 +383,16 @@ public class HomeFragment extends BaseFragment {
     }
 
     public void startAuthActivity(String title) {
-        Intent intent=new Intent(getActivity(), CertificationActivity.class);
-        intent.putExtra(ConstantValues.KEY_TITLE,title);
+        Intent intent = new Intent(getActivity(), CertificationActivity.class);
+        intent.putExtra(ConstantValues.KEY_TITLE, title);
         startActivity(intent);
     }
+
     public void startAuthActivity(int titleId) {
         startAuthActivity(getActivity().getResources().getString(titleId));
     }
 
-    public void initView() {
+    public void initBaseView() {
 
         if (mDoctor.userName != null) {
             mNameTv.setText(mDoctor.userName);
@@ -323,48 +407,51 @@ public class HomeFragment extends BaseFragment {
         queryReadCount();
     }
 
-    protected void initListener() {
+    protected void initBaseListener() {
         mCommonUtilsGrid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if (position == COMMON_UTIL_ADD_PATIENT) {
                     startActivity(new Intent(getActivity(), AddPatientActivity.class));
                 } else if (position == COMMON_UTIL_RECORD) {
-                    if(!mIsAuth){
+                    if (!mIsAuth) {
                         startAuthActivity(R.string.out_patient_record);
                         return;
                     }
                     startActivity(new Intent(getActivity(), OutPatientRecordActivity.class));
                 } else if (position == COMMON_UTIL_ADD_MANAGER) {
-                    if(!mIsAuth){
+                    if (!mIsAuth) {
                         startAuthActivity(R.string.add_manager);
                         return;
                     }
                     Intent intent;
-                    boolean isOpenVideo=mDoctor.addIsOpen.equals("True");
+                    boolean isOpenVideo = mDoctor.addIsOpen.equals("True");
                     if (!isOpenVideo) {//未开通  跳转到开通提示界面
-                        mConsultBean =new ConsultBean(R.drawable.ic_online_add,R.string.add_manager, SetAddConsultActivity.class);
-                        intent=new Intent(getActivity(),OpenViedoActivity.class);
+                        mConsultBean = new ConsultBean(R.drawable.ic_online_add, R.string.add_manager, SetAddConsultActivity.class);
+                        intent = new Intent(getActivity(), OpenViedoActivity.class);
                         intent.putExtra(ConstantValues.KEY_DATA, mConsultBean);
-                    }else{
-                        intent =new Intent(getActivity(), PlusManagerActivity.class);
+                    } else {
+                        intent = new Intent(getActivity(), PlusManagerActivity.class);
                     }
                     startActivity(intent);
                 } else if (position == COMMON_UTIL_PATIENT_REPORT) {
-                    if(!mIsAuth){
+                    if (!mIsAuth) {
                         startAuthActivity(R.string.patient_report);
                         return;
                     }
                     startActivity(new Intent(getActivity(), PatientReportActivity.class));
                 } else if (position == COMMON_UTIL_CASE_DISCUSS) {
-                    if(!mIsAuth){
+                    if (!mIsAuth) {
                         startAuthActivity(R.string.case_discuss);
                         return;
                     }
-                    startActivity(new Intent(getActivity(), CaseDiscussActivity.class));
+
+                    Intent intent=new Intent(getActivity(), CaseDiscussActivity.class);
+                    intent.putParcelableArrayListExtra(ConstantValues.EXTRA_DATA,teamReads);
+                    startActivity(intent);
 
                 } else if (position == COMMON_UTIL_INTERNET) {
-                    if(!mIsAuth){
+                    if (!mIsAuth) {
                         startAuthActivity(R.string.internet_consult);
                         return;
                     }
@@ -440,12 +527,12 @@ public class HomeFragment extends BaseFragment {
     }
 
     private void initBanner() {
-        ArrayList<Integer> mImgArray =new ArrayList<>();
+        ArrayList<Integer> mImgArray = new ArrayList<>();
         mImgArray.add(R.drawable.ad1);
         mImgArray.add(R.drawable.ad2);
         mImgArray.add(R.drawable.ad3);
         mImgArray.add(R.drawable.ad4);
-        mViewFlow.setAdapter(new HomeBannerAdapter(getActivity(),mImgArray).setInfiniteLoop(true));
+        mViewFlow.setAdapter(new HomeBannerAdapter(getActivity(), mImgArray).setInfiniteLoop(true));
         mViewFlow.setmSideBuffer(mImgArray.size()); // 实际图片张数，
         mViewFlow.setFlowIndicator(mFlowIndicator);
         mViewFlow.setTimeSpan(4500);
@@ -473,10 +560,34 @@ public class HomeFragment extends BaseFragment {
         });
     }
 
-    private void queryReadCount(){
+    private void queryReadCount() {
         showLoginDlg();
         BaseManager.getMessageCount(mReadCountCallback);
     }
 
+    private void getTeamCount() {
+        int unreadNum = 0;
+        for (RecentContact r : mMessages) {
+            if (r.getSessionType() == SessionTypeEnum.Team) {
+                unreadNum += r.getUnreadCount();
+                teamReads.add(new TeamRead(r.getContactId(),r.getUnreadCount()));
+            }
+        }
 
+        LogUtils.i("readcount:"+unreadNum);
+        ConstantValues.HOME_COMMON_TOOLS_LIST.get(4).count = unreadNum;
+        mCommonUtilsAdapter.setData(ConstantValues.HOME_COMMON_TOOLS_LIST);
+    }
+
+    private void registerService(boolean b) {
+        //注册/注销观察者
+        NIMClient.getService(MsgServiceObserve.class)
+                .observeRecentContact(messageObserver, b);
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        registerService(false);
+    }
 }

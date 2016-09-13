@@ -46,7 +46,8 @@ public class AlreadyReportAdapter extends CommAdapter<PDValidate> {
             String time=patientReport.latestDate;
             setTextView(holder.mRecentTimeTv,time.replaceAll("/","-"));
         }
-
+        holder.mCountTv.setText(patientReport.newMessage);
+        holder.mCountTv.setVisibility(!patientReport.newMessage.equals("0")?View.VISIBLE:View.INVISIBLE);
         return convertView;
     }
 
@@ -67,6 +68,8 @@ public class AlreadyReportAdapter extends CommAdapter<PDValidate> {
         TextView mAcceptTv;
         @ViewInject(R.id.already_tv)
         TextView mAlreadyTv;
+        @ViewInject(R.id.read_count_tv)
+        TextView mCountTv;
     }
 
 }

@@ -64,7 +64,8 @@ public class ConsultPatientAdapter extends CommAdapter<Patient> {
         if (patient.picFileName != null) {
             CommonUtils.loadImg(patient.picFileName, holder.mHeadImg, R.drawable.ic_patient_head);
         }
-
+        holder.mCountTv.setText(patient.newMessage);
+        holder.mCountTv.setVisibility(!patient.newMessage.equals("0")?View.VISIBLE:View.INVISIBLE);
         return convertView;
     }
 

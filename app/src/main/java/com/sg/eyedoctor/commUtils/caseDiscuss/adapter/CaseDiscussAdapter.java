@@ -8,7 +8,9 @@ import android.widget.TextView;
 import com.sg.eyedoctor.R;
 import com.sg.eyedoctor.commUtils.caseDiscuss.bean.CaseDiscuss;
 import com.sg.eyedoctor.common.adapter.CommAdapter;
+import com.sg.eyedoctor.common.utils.LogUtils;
 import com.sg.eyedoctor.common.view.RoundImageView;
+import com.sg.eyedoctor.main.bean.TeamRead;
 
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
@@ -21,9 +23,10 @@ import java.util.ArrayList;
  */
 
 public class CaseDiscussAdapter extends CommAdapter<CaseDiscuss> {
-
-    public CaseDiscussAdapter(Context context, ArrayList<CaseDiscuss> list, int layoutId) {
+    ArrayList<TeamRead> reads;
+    public CaseDiscussAdapter(Context context, ArrayList<CaseDiscuss> list, int layoutId,ArrayList<TeamRead> reads) {
         super(context, list, layoutId);
+        this.reads=reads;
     }
 
     @Override
@@ -45,6 +48,17 @@ public class CaseDiscussAdapter extends CommAdapter<CaseDiscuss> {
             setTextView(holder.mSexTv,caseDiscuss.sex.equals("0")?"女":"男");
         }
         setTextView(holder.mIllnessTv,"症状描述:"+caseDiscuss.illness);
+        holder.mReadTv.setVisibility(View.INVISIBLE);
+        for (TeamRead read : reads) {
+            if(caseDiscuss.teamId.equals(read.teamId)){
+                LogUtils.i("success get count"+read.readCount+caseDiscuss.patientName+read.teamId);
+                int count=read.readCount>99?99:read.readCount;
+                holder.mReadTv.setText(read.readCount+"");
+                holder.mReadTv.setVisibility(count>0?View.VISIBLE:View.INVISIBLE);
+            }else{
+                holder.mReadTv.setVisibility(View.INVISIBLE);
+            }
+        }
 
         return convertView;
 
@@ -65,6 +79,7 @@ public class CaseDiscussAdapter extends CommAdapter<CaseDiscuss> {
         TextView mTimeTv;
         @ViewInject(R.id.illness_tv)
         TextView mIllnessTv;
-
+        @ViewInject(R.id.read_count_tv)
+        TextView mReadTv;
     }
 }

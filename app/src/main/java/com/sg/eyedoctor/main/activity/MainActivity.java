@@ -65,8 +65,10 @@ public class MainActivity extends BaseActivity {
         } else {
             mIsAuth = false;
         }
+
         switch (mIndex) {
             case 0:
+
                 onClickBottom(mHomeLl);
                 break;
             case 1:
@@ -106,7 +108,7 @@ public class MainActivity extends BaseActivity {
                     transaction.add(R.id.fl_fragment, mHomeFragment);
                 } else {
                     transaction.show(mHomeFragment);
-                    mHomeFragment.initView();
+                    mHomeFragment.initBaseView();
                 }
                 break;
             case R.id.ll_bottom_chart_file:

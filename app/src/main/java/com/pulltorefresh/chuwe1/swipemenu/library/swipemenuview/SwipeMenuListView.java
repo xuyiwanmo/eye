@@ -219,6 +219,7 @@ public class SwipeMenuListView extends ListView {
 		this.mOnSwipeListener = onSwipeListener;
 	}
 
+
 	public static interface OnMenuItemClickListener {
 		void onMenuItemClick(int position, SwipeMenu menu, int index);
 	}

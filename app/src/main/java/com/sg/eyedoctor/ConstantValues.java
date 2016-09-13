@@ -83,27 +83,27 @@ public class ConstantValues {
 
 
     static {
-        HOME_QUERY_GRID_LIST.add(new ImgDescription(R.drawable.home_text_consult, "图文咨询"));
-        HOME_QUERY_GRID_LIST.add(new ImgDescription(R.drawable.home_phone_consult, "电话咨询"));
-        HOME_QUERY_GRID_LIST.add(new ImgDescription(R.drawable.home_video_consult, "视频咨询"));
+        HOME_QUERY_GRID_LIST.add(new ImgDescription(R.drawable.home_text_consult, "图文咨询",0));
+        HOME_QUERY_GRID_LIST.add(new ImgDescription(R.drawable.home_phone_consult, "电话咨询",0));
+        HOME_QUERY_GRID_LIST.add(new ImgDescription(R.drawable.home_video_consult, "视频咨询",0));
 
-        HOME_COMMON_TOOLS_LIST.add(new ImgDescription(R.drawable.home_add_patient, "新增患者"));
-        HOME_COMMON_TOOLS_LIST.add(new ImgDescription(R.drawable.home_outpatient, "门诊记录"));
-        HOME_COMMON_TOOLS_LIST.add(new ImgDescription(R.drawable.home_plus, "加号管理"));
-        HOME_COMMON_TOOLS_LIST.add(new ImgDescription(R.drawable.home_patient_register, "患者报到"));
-        HOME_COMMON_TOOLS_LIST.add(new ImgDescription(R.drawable.home_case_discuss, "病历讨论"));
-        HOME_COMMON_TOOLS_LIST.add(new ImgDescription(R.drawable.home_net, "互联网会诊"));
-        HOME_COMMON_TOOLS_LIST.add(new ImgDescription(R.drawable.home_front_academic, "学术前沿"));
-        HOME_COMMON_TOOLS_LIST.add(new ImgDescription(R.drawable.home_tool_box, "工具箱"));
+        HOME_COMMON_TOOLS_LIST.add(new ImgDescription(R.drawable.home_add_patient, "新增患者",0));
+        HOME_COMMON_TOOLS_LIST.add(new ImgDescription(R.drawable.home_outpatient, "门诊记录",0));
+        HOME_COMMON_TOOLS_LIST.add(new ImgDescription(R.drawable.home_plus, "加号管理",0));
+        HOME_COMMON_TOOLS_LIST.add(new ImgDescription(R.drawable.home_patient_register, "患者报到",0));
+        HOME_COMMON_TOOLS_LIST.add(new ImgDescription(R.drawable.home_case_discuss, "病历讨论",0));
+        HOME_COMMON_TOOLS_LIST.add(new ImgDescription(R.drawable.home_net, "互联网会诊",0));
+        HOME_COMMON_TOOLS_LIST.add(new ImgDescription(R.drawable.home_front_academic, "学术前沿",0));
+        HOME_COMMON_TOOLS_LIST.add(new ImgDescription(R.drawable.home_tool_box, "工具箱",0));
 
-        HOME_HELP_TOOLS_LIST.add(new ImgDescription(R.drawable.home_crowd_send, "群发通知"));
-        HOME_HELP_TOOLS_LIST.add(new ImgDescription(R.drawable.home_stop, "停诊通知"));
-        HOME_HELP_TOOLS_LIST.add(new ImgDescription(R.drawable.home_elec_case, "电子病历"));
-        HOME_HELP_TOOLS_LIST.add(new ImgDescription(R.drawable.home_doctor_charged, "医嘱"));
-        HOME_HELP_TOOLS_LIST.add(new ImgDescription(R.drawable.home_volunteer, "义诊发布"));
-        HOME_HELP_TOOLS_LIST.add(new ImgDescription(R.drawable.home_assister, "医生助理"));
-        HOME_HELP_TOOLS_LIST.add(new ImgDescription(R.drawable.home_communicate, "通讯录"));
-        HOME_HELP_TOOLS_LIST.add(new ImgDescription(R.drawable.ic_free_consult, "免费咨询"));
+        HOME_HELP_TOOLS_LIST.add(new ImgDescription(R.drawable.home_crowd_send, "群发通知",0));
+        HOME_HELP_TOOLS_LIST.add(new ImgDescription(R.drawable.home_stop, "停诊通知",0));
+        HOME_HELP_TOOLS_LIST.add(new ImgDescription(R.drawable.home_elec_case, "电子病历",0));
+        HOME_HELP_TOOLS_LIST.add(new ImgDescription(R.drawable.home_doctor_charged, "医嘱",0));
+        HOME_HELP_TOOLS_LIST.add(new ImgDescription(R.drawable.home_volunteer, "义诊发布",0));
+        HOME_HELP_TOOLS_LIST.add(new ImgDescription(R.drawable.home_assister, "医生助理",0));
+        HOME_HELP_TOOLS_LIST.add(new ImgDescription(R.drawable.home_communicate, "通讯录",0));
+        HOME_HELP_TOOLS_LIST.add(new ImgDescription(R.drawable.ic_free_consult, "免费咨询",0));
     }
 
     /**

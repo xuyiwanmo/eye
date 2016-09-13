@@ -24,5 +24,6 @@ public class CaseDiscuss {
     public String createDate;
     public String latestDate;
     public String teamId;
+    public String newMessage;
 
 }

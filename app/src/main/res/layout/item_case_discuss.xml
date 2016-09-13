@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/white">
 
     <com.sg.eyedoctor.common.view.RoundImageView
@@ -53,7 +54,7 @@
         android:layout_centerVertical="true"
         android:id="@+id/arraw_img"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_marginRight="12dp"
         android:src="@drawable/ic_arraw_gray"/>
@@ -65,7 +66,7 @@
         android:layout_alignBottom="@id/name_tv"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="4dp"
-        android:layout_toLeftOf="@id/arraw_img"
+        android:layout_toLeftOf="@+id/read_count_tv"
         android:text="18:25:30"
         android:textColor="@color/black"
         android:textSize="@dimen/text_12"/>
@@ -78,10 +79,23 @@
         android:layout_alignLeft="@id/name_tv"
         android:layout_below="@id/name_tv"
         android:layout_marginTop="8dp"
-        android:layout_toLeftOf="@id/arraw_img"
+        android:layout_toLeftOf="@+id/read_count_tv"
         android:lineSpacingExtra="4dp"
         android:text="症状描述:症状描述症状描述症状描述症状描述症状症状描述症状描述"/>
-
+    <TextView
+        android:layout_marginRight="8dp"
+        android:layout_alignBottom="@id/time_tv"
+        android:layout_alignParentRight="true"
+        android:id="@+id/read_count_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/dot_pink"
+        android:gravity="center"
+        android:minHeight="15dp"
+        android:minWidth="15dp"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_8"
+        tools:text="1"/>
     <View
         android:layout_marginTop="10dp"
         android:layout_below="@id/illness_tv"

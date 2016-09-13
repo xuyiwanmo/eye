@@ -143,18 +143,21 @@ public class DiagnosticShowActivity extends BaseActivity {
     }
 
     private void showActionbarEdit() {
-        mActionbar.setRightTv(R.string.edit, new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        if (!mCounsultEnd) {
+            mActionbar.setRightTv(R.string.edit, new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
 
-                Intent intent = new Intent(mContext, DiagnosticEditActivity.class);
-                intent.putExtra(ConstantValues.KEY_PATIENT, mPatient);
-                intent.putExtra(ConstantValues.KEY_CONSULT_DETAIL, mConsultDetail);
-                intent.putExtra(ConstantValues.KEY_IS_TEXT_CONSULT, isTextConsult);
-                startActivity(intent);
-                AppManager.getAppManager().finishActivity();
-            }
-        });
+                    Intent intent = new Intent(mContext, DiagnosticEditActivity.class);
+                    intent.putExtra(ConstantValues.KEY_PATIENT, mPatient);
+                    intent.putExtra(ConstantValues.KEY_CONSULT_DETAIL, mConsultDetail);
+                    intent.putExtra(ConstantValues.KEY_IS_TEXT_CONSULT, isTextConsult);
+                    startActivity(intent);
+                    AppManager.getAppManager().finishActivity();
+                }
+            });
+        }
+
     }
 
     @Override

@@ -1081,7 +1081,7 @@ public class BaseManager {
     }
 
     /**
-     * 修改消息为已读状态-4（图文咨询）
+     * 修改消息为已读状态-4
      */
     public static void setQuestionMessageIsRead(String orderId, String patientIM, String doctorIM, NetCallback callback) {
         RequestParams params = new RequestParams(ConstantValues.HOST + "/Share/SetMessageIsRead");
@@ -1483,7 +1483,7 @@ public class BaseManager {
         RequestParams params = new RequestParams(ConstantValues.HOST + "/Share/GetChatCount");
         params.addHeader("VerifyCode", getDoctor().verifyCode);
         params.addBodyParameter("doctorIM", "d"+getDoctor().loginid);
-        params.addBodyParameter("source", "1");
+        params.addBodyParameter("source", "");
         HttpClient.get(params, callback);
     }
     //药品搜索

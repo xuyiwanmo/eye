@@ -23,6 +23,7 @@ public class PDValidate implements Parcelable{
     public String treatmentDate;
     public String diagnosisResult;
     public String latestDate;
+    public String newMessage;
     public boolean isChecked=false;
     /**
      * userId : 10003
@@ -65,6 +66,7 @@ public class PDValidate implements Parcelable{
         dest.writeString(this.treatmentDate);
         dest.writeString(this.diagnosisResult);
         dest.writeString(this.latestDate);
+        dest.writeString(this.newMessage);
         dest.writeByte(this.isChecked ? (byte) 1 : (byte) 0);
         dest.writeString(this.userId);
         dest.writeString(this.friendId);
@@ -88,6 +90,7 @@ public class PDValidate implements Parcelable{
         this.treatmentDate = in.readString();
         this.diagnosisResult = in.readString();
         this.latestDate = in.readString();
+        this.newMessage = in.readString();
         this.isChecked = in.readByte() != 0;
         this.userId = in.readString();
         this.friendId = in.readString();

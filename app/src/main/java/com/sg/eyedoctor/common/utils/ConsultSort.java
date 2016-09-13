@@ -11,7 +11,7 @@ public class ConsultSort implements Comparator {
 
     @Override
     public int compare(Object time1, Object time2) {
-        long flag =((Patient) time1).createDate.compareTo(((Patient) time2).createDate);
+        long flag =((Patient) time1).latestDate.compareTo(((Patient) time2).latestDate);
         if (flag > 0) {
             return -1;
         } else {

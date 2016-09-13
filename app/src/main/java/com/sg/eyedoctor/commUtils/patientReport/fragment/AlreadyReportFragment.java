@@ -41,6 +41,24 @@ public class AlreadyReportFragment extends BaseFragment {
     private AlreadyReportAdapter mPatientReportAdapter;
     private ArrayList<PDValidate> mReports;
 
+    private NetCallback mReadCallback = new NetCallback(getActivity()) {
+        @Override
+        protected void requestOK(String result) {
+
+            if (CommonUtils.isResultOK(result)) {
+
+            } else {
+                showToast(R.string.query_empty);
+            }
+        }
+
+        @Override
+        protected void timeOut() {
+            onTimeOut();
+        }
+    };
+
+
     private NetCallback mNetCallback = new NetCallback(getActivity()) {
         @Override
         protected void requestOK(String result) {
@@ -85,6 +103,9 @@ public class AlreadyReportFragment extends BaseFragment {
 //                if (pdValidate.newMessage!=0) {
 //                    BaseManager.setQuestionMessageIsRead(mPatient.questionId, mPatient.patientIM, "d"+mPatient.doctorId, mReadCallback);
 //                }
+                if (!pdValidate.newMessage.equals("0")) {
+                    BaseManager.setQuestionMessageIsRead(pdValidate.id, pdValidate.patientIM, "d"+BaseManager.getDoctor().id, mReadCallback);
+                }
                 P2PMessageActivity.start(getActivity(), pdValidate.patientIM, SessionHelper.getReportCustomization(pdValidate), pdValidate);
             }
         });

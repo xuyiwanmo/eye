@@ -425,6 +425,5 @@ public class P2PMessageActivity extends BaseMessageActivity {
                 }
             });
         }
-
     }
 }

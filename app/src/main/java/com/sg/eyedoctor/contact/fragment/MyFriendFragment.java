@@ -109,6 +109,22 @@ public class MyFriendFragment extends BaseFragment implements SectionIndexer {
         }
     };
 
+    private NetCallback mReadCallback = new NetCallback(getActivity()) {
+        @Override
+        protected void requestOK(String result) {
+            if (CommonUtils.isResultOK(result)) {
+
+            } else {
+                showToast(R.string.query_empty);
+            }
+        }
+
+        @Override
+        protected void timeOut() {
+            onTimeOut();
+        }
+    };
+
     public MyFriendFragment() {
     }
 
@@ -173,8 +189,12 @@ public class MyFriendFragment extends BaseFragment implements SectionIndexer {
                     showToast(R.string.operation_not_open);
                     return;
                 }
+
                 FriendList friend = mFriends.get(position);
                 friend.loginid = friend.loginId;
+                if (!friend.newMessage.equals("0")) {
+                    BaseManager.setQuestionMessageIsRead(friend.id, "d" + friend.loginId, "d"+BaseManager.getDoctor().id, mReadCallback);
+                }
                 P2PMessageActivity.start(getActivity(), "d" + friend.loginId, SessionHelper.getDoctorP2pCustomization(friend), friend);
             }
         });

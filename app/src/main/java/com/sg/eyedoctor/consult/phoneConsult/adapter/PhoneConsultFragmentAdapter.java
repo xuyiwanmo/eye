@@ -14,7 +14,11 @@ import com.sg.eyedoctor.consult.textConsult.bean.Patient;
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 
 /**
@@ -88,7 +92,7 @@ public class PhoneConsultFragmentAdapter extends CommAdapter<Patient> {
             }
         });
 
-        if (doctor.state == 1) {
+        if (doctor.state == 1) {//待通话
             holder.mDiagnoseTv.setVisibility(View.INVISIBLE);
             holder.mDailTv.setVisibility(View.VISIBLE);
             holder.mAppointTimeNameTv.setText(R.string.appointment_time);
@@ -101,17 +105,20 @@ public class PhoneConsultFragmentAdapter extends CommAdapter<Patient> {
             }else{
                 holder.mOutTimeTv.setVisibility(View.INVISIBLE);
             }
-        } else {
+        } else {//已完成
             holder.mOutTimeTv.setVisibility(View.INVISIBLE);
             holder.mDiagnoseTv.setVisibility(View.VISIBLE);
             holder.mDailTv.setVisibility(View.INVISIBLE);
             holder.mAppointTimeNameTv.setText(R.string.complete_time);
-            holder.mTimeTv.setText(doctor.dealTime);
+
 
             if (doctor.state == 6) {//未拨通  退款状态
                 holder.mDiagnoseTv.setVisibility(View.GONE);
                 holder.mDailNotTv.setVisibility(View.VISIBLE);
+                holder.mTimeTv.setText(add2Hours(doctor.dealTime));
             }else{
+
+                holder.mTimeTv.setText(doctor.modifyDate);
                 holder.mDailNotTv.setVisibility(View.INVISIBLE);
             }
         }
@@ -122,7 +129,22 @@ public class PhoneConsultFragmentAdapter extends CommAdapter<Patient> {
 
         return convertView;
     }
+    private String add2Hours(String modifyDate) {
+        //1986-06-06
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Date date = new Date();
 
+        try {
+            date = format.parse(modifyDate);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        cal.add(Calendar.HOUR_OF_DAY,2);
+        return format.format(cal.getTime());
+    }
 
     static class ViewHolder {
         @ViewInject(R.id.head_img)

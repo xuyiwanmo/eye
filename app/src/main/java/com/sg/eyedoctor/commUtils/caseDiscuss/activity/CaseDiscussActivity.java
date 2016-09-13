@@ -16,6 +16,7 @@ import com.pulltorefresh.chuwe1.swipemenu.library.SwipeMenuCreator;
 import com.pulltorefresh.chuwe1.swipemenu.library.SwipeMenuItem;
 import com.pulltorefresh.chuwe1.swipemenu.library.swipemenuview.SwipeMenuListView;
 import com.pulltorefresh.handmark.pulltorefresh.library.PullToRefreshBase;
+import com.sg.eyedoctor.ConstantValues;
 import com.sg.eyedoctor.R;
 import com.sg.eyedoctor.commUtils.caseDiscuss.adapter.CaseDiscussAdapter;
 import com.sg.eyedoctor.commUtils.caseDiscuss.bean.CaseDiscuss;
@@ -31,6 +32,7 @@ import com.sg.eyedoctor.common.utils.PullState;
 import com.sg.eyedoctor.common.utils.UiUtils;
 import com.sg.eyedoctor.common.view.MyActionbar;
 import com.sg.eyedoctor.common.view.SearchLayout;
+import com.sg.eyedoctor.main.bean.TeamRead;
 
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.ViewInject;
@@ -63,6 +65,21 @@ public class CaseDiscussActivity extends BaseActivity {
     private ArrayList<CaseDiscuss> mCaseDiscusses = new ArrayList<>();
     private CaseDiscussAdapter mDiscussAdapter;
     private PullState mPullState = PullState.NORMAL;//normal   1下拉  2上拉
+    private ArrayList<TeamRead> teamReads=new ArrayList<>();
+    private NetCallback mReadCallback = new NetCallback(mContext) {
+        @Override
+        protected void requestOK(String result) {
+            if (CommonUtils.isResultOK(result)) {
+            } else {
+                showToast(R.string.query_empty);
+            }
+        }
+
+        @Override
+        protected void timeOut() {
+            onTimeOut();
+        }
+    };
 
     private NetCallback mCallback = new NetCallback(this) {
         @Override
@@ -135,6 +152,7 @@ public class CaseDiscussActivity extends BaseActivity {
 
     @Override
     protected void initView() {
+        teamReads=getIntent().getParcelableArrayListExtra(ConstantValues.EXTRA_DATA);
         mActionbar.setTitle(R.string.case_discussing);
         mActionbar.setRightBtnImg(R.drawable.ic_add_case, new View.OnClickListener() {
             @Override
@@ -144,7 +162,8 @@ public class CaseDiscussActivity extends BaseActivity {
             }
         });
     //    mCaseLv = mSwipeMenuListView.getRefreshableView();
-        mDiscussAdapter = new CaseDiscussAdapter(this, mCaseDiscusses, 0);
+        LogUtils.i("team Size'"+teamReads.size());
+        mDiscussAdapter = new CaseDiscussAdapter(this, mCaseDiscusses, 0,teamReads);
         mCaseLv.setAdapter(mDiscussAdapter);
         initSwipeMenu();
 
@@ -201,6 +220,9 @@ public class CaseDiscussActivity extends BaseActivity {
                 if (!CommonUtils.isLogin()){
                     showToast(R.string.operation_not_open);
                     return;
+                }
+                if (!discuss.newMessage.equals("0")) {
+                //    BaseManager.setQuestionMessageIsRead(discuss.questionId, discuss.patientIM, "d" + discuss.doctorId, mReadCallback);
                 }
                 TeamMessageActivity.start(mContext, discuss.teamId,discuss.patientName,SessionHelper.getTeamCustomization(discuss.disId), null);
 //                Intent intent = new Intent(mContext, CaseChatActivity.class);
@@ -266,7 +288,9 @@ public class CaseDiscussActivity extends BaseActivity {
         mSearchSl.setEditClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(mContext,SearchDiscussCaseActivity.class));
+                Intent intent=new Intent(mContext,SearchDiscussCaseActivity.class);
+                intent.putExtra(ConstantValues.EXTRA_DATA,teamReads);
+                startActivity(intent);
             }
         });
 

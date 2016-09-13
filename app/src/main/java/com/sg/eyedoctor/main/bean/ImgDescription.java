@@ -13,9 +13,11 @@ public class ImgDescription {
      * 文字说明
      */
     public String mDescription;
+    public int count;
 
-    public ImgDescription(int mDrawableId, String mDescription) {
+    public ImgDescription(int mDrawableId, String mDescription,int count) {
         this.mDrawableId = mDrawableId;
         this.mDescription = mDescription;
+        this.count=count;
     }
 }

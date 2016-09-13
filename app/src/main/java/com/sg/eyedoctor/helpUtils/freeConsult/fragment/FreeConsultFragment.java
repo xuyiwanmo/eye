@@ -119,7 +119,6 @@ public class FreeConsultFragment extends BaseFragment {
         protected void requestOK(String result) {
 
             if (CommonUtils.isResultOK(result)) {
-
             } else {
                 showToast(R.string.query_empty);
             }

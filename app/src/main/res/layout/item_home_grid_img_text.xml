@@ -1,29 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:paddingTop="15dp"
-    android:paddingBottom="6dp"
-    android:background="@color/white"
-    android:layout_height="84dp"
-    android:orientation="vertical"
-    android:gravity="center_horizontal"
-   >
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="84dp"
+              android:background="@color/white"
+              android:gravity="center_horizontal"
+              android:paddingBottom="6dp"
+              android:paddingTop="15dp"
+    >
 
     <ImageView
-        android:src="@drawable/ic_launcher"
-        android:layout_centerHorizontal="true"
         android:id="@+id/img"
         android:layout_width="25dp"
-        android:layout_height="25dp" />
+        android:layout_height="25dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/ic_launcher"/>
 
     <TextView
-        android:text="显示文字"
-        android:textSize="@dimen/text_14"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/img"
-        android:layout_marginTop="15dp"
         android:id="@+id/text"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_below="@id/img"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:text="显示文字"
+        android:textSize="@dimen/text_14"/>
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/text_unread_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/img"
+        android:background="@drawable/dot_pink"
+        android:gravity="center"
+        android:minHeight="12dp"
+        android:minWidth="12dp"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_8"
+        tools:text="23"/>
+
+</RelativeLayout>

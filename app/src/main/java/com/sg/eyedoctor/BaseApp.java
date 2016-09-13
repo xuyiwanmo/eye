@@ -24,6 +24,7 @@ import com.netease.nim.session.extension.CustomAttachParser;
 import com.netease.nimlib.sdk.NIMClient;
 import com.netease.nimlib.sdk.Observer;
 import com.netease.nimlib.sdk.SDKOptions;
+import com.netease.nimlib.sdk.StatusBarNotificationConfig;
 import com.netease.nimlib.sdk.auth.LoginInfo;
 import com.netease.nimlib.sdk.avchat.AVChatManager;
 import com.netease.nimlib.sdk.avchat.model.AVChatData;
@@ -35,7 +36,9 @@ import com.netease.nimlib.sdk.msg.model.CustomNotification;
 import com.netease.nimlib.sdk.uinfo.UserInfoProvider;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
+import com.sg.eyedoctor.common.utils.CrashHander;
 import com.sg.eyedoctor.common.utils.LogUtils;
+import com.sg.eyedoctor.main.activity.MainActivity;
 import com.umeng.analytics.MobclickAgent;
 import com.umeng.socialize.PlatformConfig;
 
@@ -102,17 +105,21 @@ public class BaseApp extends Application {
         PlatformConfig.setWeixin("wx516bad16f20270ba", "dbd2aff592856d43623b95624a5f7cc5");
         MobclickAgent.setDebugMode(true);
 
+        //crash处理
+        CrashHander crashHandler = CrashHander.getInstance();
+        crashHandler.init(getApplicationContext());
+
     }
 
     // 如果返回值为 null，则全部使用默认参数。
     private SDKOptions options() {
         SDKOptions options = new SDKOptions();
 
-//        // 如果将新消息通知提醒托管给 SDK 完成，需要添加以下配置。否则无需设置。
-//        StatusBarNotificationConfig config = new StatusBarNotificationConfig();
-//        config.notificationEntrance = WelcomeActivity.class; // 点击通知栏跳转到该Activity
-//        config.notificationSmallIconId = R.drawable.ic_stat_notify_msg;
-//        options.statusBarNotificationConfig = config;
+        // 如果将新消息通知提醒托管给 SDK 完成，需要添加以下配置。否则无需设置。
+        StatusBarNotificationConfig config = new StatusBarNotificationConfig();
+        config.notificationEntrance = MainActivity.class; // 点击通知栏跳转到该Activity
+        config.notificationSmallIconId = R.mipmap.ic_launcher;
+        options.statusBarNotificationConfig = config;
 
         // 配置保存图片，文件，log 等数据的目录
         // 如果 options 中没有设置这个值，SDK 会使用下面代码示例中的位置作为 SDK 的数据目录。

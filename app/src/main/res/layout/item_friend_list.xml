@@ -49,7 +49,6 @@
             android:text="姓名"
             android:textColor="@color/text_body_strong"/>
         <TextView
-
             android:id="@+id/doctor_title_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -61,7 +60,22 @@
             android:paddingTop="10dip"
             tools:text="职称"
             android:textColor="@color/text_body_strong"/>
-
+        <TextView
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="50dp"
+            android:id="@+id/read_count_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/text_img"
+            android:background="@drawable/dot_pink"
+            android:gravity="center"
+            android:minHeight="15dp"
+            android:minWidth="15dp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_8"
+            android:visibility="visible"
+            tools:text="1"/>
 
 
         <TextView

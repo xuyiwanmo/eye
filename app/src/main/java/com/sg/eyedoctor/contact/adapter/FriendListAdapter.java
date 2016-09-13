@@ -61,7 +61,8 @@ public class FriendListAdapter extends CommAdapter<FriendList> implements Sectio
         setTextView(viewHolder.mDeptTv,friendList.licenseDept);
 
         CommonUtils.loadImg(friendList.picFileName, viewHolder.mHeadImg);
-
+        viewHolder.mReadTv.setText(friendList.newMessage+"");
+        viewHolder.mReadTv.setVisibility(!friendList.newMessage.equals("0")?View.VISIBLE:View.INVISIBLE);
         return convertView;
     }
 
@@ -141,7 +142,8 @@ public class FriendListAdapter extends CommAdapter<FriendList> implements Sectio
         TextView mDeptTv;
         @ViewInject(R.id.hospital_tv)
         TextView mHospitalTv;
-
+        @ViewInject(R.id.read_count_tv)
+        TextView mReadTv;
     }
 
     public void setShowLetter(boolean b){

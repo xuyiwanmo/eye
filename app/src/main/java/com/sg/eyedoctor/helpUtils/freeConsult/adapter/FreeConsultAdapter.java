@@ -8,7 +8,6 @@ import android.widget.TextView;
 import com.sg.eyedoctor.R;
 import com.sg.eyedoctor.common.adapter.CommAdapter;
 import com.sg.eyedoctor.common.utils.CommonUtils;
-import com.sg.eyedoctor.common.utils.LogUtils;
 import com.sg.eyedoctor.helpUtils.freeConsult.bean.FreePatient;
 
 import org.xutils.view.annotation.ViewInject;
@@ -63,7 +62,8 @@ public class FreeConsultAdapter extends CommAdapter<FreePatient> {
             CommonUtils.loadImg(patient.picFileName, holder.mHeadImg, R.drawable.ic_patient_head);
         }
 
-        LogUtils.i("state: "+patient.state+" name:"+patient.name);
+        holder.mCountTv.setText(patient.newMessage+"");
+        holder.mCountTv.setVisibility(patient.newMessage!=0?View.VISIBLE:View.INVISIBLE);
         return convertView;
     }
 
@@ -97,6 +97,8 @@ public class FreeConsultAdapter extends CommAdapter<FreePatient> {
         TextView mTimeTv;
         @ViewInject(R.id.tv_consult_patient_illness)
         TextView mIllnessTv;
+        @ViewInject(R.id.img_arraw)
+        TextView mCountTv;
     }
 
 

@@ -61,10 +61,21 @@ public class HomeGridAdapter extends BaseAdapter{
         }else{
             viewHolder.mImg.setVisibility(View.INVISIBLE);
             viewHolder.mText.setVisibility(View.INVISIBLE);
+        }
 
+        if(imgDescription.count==0){
+            viewHolder.mCountText.setVisibility(View.GONE);
+        }else{
+            viewHolder.mCountText.setVisibility(View.VISIBLE);
+            viewHolder.mCountText.setText(imgDescription.count>99?99+"":imgDescription.count+"");
         }
 
         return convertView;
+    }
+
+    public void setData(ArrayList<ImgDescription> list) {
+        this.mImgDescriptions=list;
+        notifyDataSetChanged();
     }
 
     static class ViewHolder{
@@ -72,5 +83,7 @@ public class HomeGridAdapter extends BaseAdapter{
         ImageView mImg;
         @ViewInject(R.id.text)
         TextView mText;
+        @ViewInject(R.id.text_unread_tv)
+        TextView mCountText;
     }
 }

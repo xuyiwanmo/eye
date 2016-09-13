@@ -8,6 +8,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.netease.nim.session.SessionHelper;
 import com.netease.nim.session.activity.TeamMessageActivity;
+import com.sg.eyedoctor.ConstantValues;
 import com.sg.eyedoctor.R;
 import com.sg.eyedoctor.commUtils.caseDiscuss.adapter.CaseDiscussAdapter;
 import com.sg.eyedoctor.commUtils.caseDiscuss.bean.CaseDiscuss;
@@ -19,6 +20,7 @@ import com.sg.eyedoctor.common.utils.NetCallback;
 import com.sg.eyedoctor.common.utils.UiUtils;
 import com.sg.eyedoctor.common.view.MyActionbar;
 import com.sg.eyedoctor.common.view.SearchLayout;
+import com.sg.eyedoctor.main.bean.TeamRead;
 
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.ViewInject;
@@ -44,7 +46,7 @@ public class SearchDiscussCaseActivity extends BaseActivity implements SearchLay
     private int mCurrPage = 1;
     private ArrayList<CaseDiscuss> mCaseDiscusses = new ArrayList<>();
     private CaseDiscussAdapter mDiscussAdapter;
-
+    private ArrayList<TeamRead> teamReads=new ArrayList<>();
     private NetCallback mCallback = new NetCallback(this) {
         @Override
         protected void requestOK(String result) {
@@ -86,8 +88,8 @@ public class SearchDiscussCaseActivity extends BaseActivity implements SearchLay
 
     @Override
     protected void initView() {
-
-        mDiscussAdapter = new CaseDiscussAdapter(this, mCaseDiscusses, 0);
+        teamReads=getIntent().getParcelableArrayListExtra(ConstantValues.EXTRA_DATA);
+        mDiscussAdapter = new CaseDiscussAdapter(this, mCaseDiscusses, 0,teamReads);
         mSearchLv.setAdapter(mDiscussAdapter);
         mEmptyTv= UiUtils.setEmptyText(mContext,mSearchLv,"无记录");
         mSearchSl.setCallback(this,mEmptyTv);
