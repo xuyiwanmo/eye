@@ -193,7 +193,7 @@ public class MyFriendFragment extends BaseFragment implements SectionIndexer {
                 FriendList friend = mFriends.get(position);
                 friend.loginid = friend.loginId;
                 if (!friend.newMessage.equals("0")) {
-                    BaseManager.setQuestionMessageIsRead(friend.id, "d" + friend.loginId, "d"+BaseManager.getDoctor().id, mReadCallback);
+                    BaseManager.setQuestionMessageIsRead("0", "d" + friend.loginId, "d"+BaseManager.getDoctor().id, mReadCallback);
                 }
                 P2PMessageActivity.start(getActivity(), "d" + friend.loginId, SessionHelper.getDoctorP2pCustomization(friend), friend);
             }
@@ -303,7 +303,6 @@ public class MyFriendFragment extends BaseFragment implements SectionIndexer {
     public void setUserVisibleHint(boolean isVisibleToUser) {
         //判断该Fragment是否已经正在前台显示  通过这两个判断，就可以知道什么时候去加载数据了
         if (isVisibleToUser && isVisible()) {
-
             queryData(); //加载数据的方法
         }
         super.setUserVisibleHint(isVisibleToUser);

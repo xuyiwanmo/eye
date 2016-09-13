@@ -1,39 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="center_vertical"
-    xmlns:tools="http://schemas.android.com/tools"
     >
 
     <TextView
         android:id="@+id/catalog"
-        android:paddingLeft="5dp"
-        android:gravity="center_vertical"
         android:layout_width="match_parent"
         android:layout_height="26dp"
         android:background="@color/gray_bg"
-        android:textSize="@dimen/text_12"
-        android:textColor="#454545"/>
+        android:gravity="center_vertical"
+        android:paddingLeft="5dp"
+        android:textColor="#454545"
+        android:textSize="@dimen/text_12"/>
 
     <RelativeLayout
-        android:background="@color/white"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/catalog"
+        android:background="@color/white"
         >
 
         <com.sg.eyedoctor.common.view.RoundImageView
-            android:src="@drawable/doctor_head"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="8dp"
-            android:textColor="@color/white"
-            android:textSize="@dimen/text_18"
-            android:gravity="center"
             android:id="@+id/head_img"
             android:layout_width="50dp"
-            android:layout_height="50dp"/>
+            android:layout_height="50dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:src="@drawable/doctor_head"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_18"/>
+
+        <TextView
+            android:id="@+id/read_count_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="-10dp"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@id/head_img"
+            android:background="@drawable/dot_pink"
+            android:gravity="center"
+            android:minHeight="15dp"
+            android:minWidth="15dp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_8"
+            android:visibility="visible"
+            tools:text="1"/>
 
         <TextView
 
@@ -41,13 +57,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_marginLeft="10dip"
+            android:layout_marginLeft="16dp"
             android:layout_toRightOf="@id/head_img"
             android:gravity="center_vertical"
             android:paddingBottom="10dip"
             android:paddingTop="10dip"
             android:text="姓名"
             android:textColor="@color/text_body_strong"/>
+
         <TextView
             android:id="@+id/doctor_title_tv"
             android:layout_width="wrap_content"
@@ -58,24 +75,8 @@
             android:gravity="center_vertical"
             android:paddingBottom="10dip"
             android:paddingTop="10dip"
-            tools:text="职称"
-            android:textColor="@color/text_body_strong"/>
-        <TextView
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="50dp"
-            android:id="@+id/read_count_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/text_img"
-            android:background="@drawable/dot_pink"
-            android:gravity="center"
-            android:minHeight="15dp"
-            android:minWidth="15dp"
-            android:textColor="@color/white"
-            android:textSize="@dimen/text_8"
-            android:visibility="visible"
-            tools:text="1"/>
+            android:textColor="@color/text_body_strong"
+            tools:text="职称"/>
 
 
         <TextView
@@ -84,12 +85,12 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/name_tv"
             android:layout_gravity="center_vertical"
-            android:layout_marginLeft="10dip"
+            android:layout_marginLeft="16dp"
             android:layout_toRightOf="@id/head_img"
             android:gravity="center_vertical"
             android:paddingBottom="10dip"
-            tools:text="部门"
-            android:textColor="@color/text_body_strong"/>
+            android:textColor="@color/text_body_strong"
+            tools:text="部门"/>
 
         <TextView
             android:id="@+id/hospital_tv"
@@ -97,7 +98,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/dept_tv"
             android:layout_gravity="center_vertical"
-            android:layout_marginLeft="10dip"
+            android:layout_marginLeft="16dp"
             android:layout_toRightOf="@id/head_img"
             android:gravity="center_vertical"
             android:paddingBottom="10dip"
@@ -106,9 +107,9 @@
 
 
         <View
+            style="@style/style_line"
             android:layout_alignParentBottom="true"
-            android:layout_marginLeft="68dp"
-            style="@style/style_line"/>
+            android:layout_marginLeft="68dp"/>
 
     </RelativeLayout>
 

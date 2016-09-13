@@ -111,7 +111,13 @@ public class AlreadyReportFragment extends BaseFragment {
         });
 
     }
-
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (getUserVisibleHint()) {
+            queryData();
+        }
+    }
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);

@@ -227,7 +227,7 @@ public class HomeFragment extends BaseFragment {
                     ConstantValues.HOME_COMMON_TOOLS_LIST.get(3).count = readBean.count;
                     break;
                 case "5"://医生通讯录
-                    ConstantValues.HOME_HELP_TOOLS_LIST.get(5).count = readBean.count;
+                    ConstantValues.HOME_HELP_TOOLS_LIST.get(6).count = readBean.count;
                     break;
             }
         }
