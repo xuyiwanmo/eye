@@ -5,17 +5,17 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.netease.nimlib.sdk.msg.model.RecentContact;
 import com.sg.eyedoctor.R;
 import com.sg.eyedoctor.commUtils.caseDiscuss.bean.CaseDiscuss;
 import com.sg.eyedoctor.common.adapter.CommAdapter;
-import com.sg.eyedoctor.common.utils.LogUtils;
 import com.sg.eyedoctor.common.view.RoundImageView;
-import com.sg.eyedoctor.main.bean.TeamRead;
 
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -23,10 +23,10 @@ import java.util.ArrayList;
  */
 
 public class CaseDiscussAdapter extends CommAdapter<CaseDiscuss> {
-    ArrayList<TeamRead> reads;
-    public CaseDiscussAdapter(Context context, ArrayList<CaseDiscuss> list, int layoutId,ArrayList<TeamRead> reads) {
+    List<RecentContact> mMessages;
+    public CaseDiscussAdapter(Context context, ArrayList<CaseDiscuss> list, int layoutId,List<RecentContact> mMessages) {
         super(context, list, layoutId);
-        this.reads=reads;
+        this.mMessages=mMessages;
     }
 
     @Override
@@ -49,19 +49,26 @@ public class CaseDiscussAdapter extends CommAdapter<CaseDiscuss> {
         }
         setTextView(holder.mIllnessTv,"症状描述:"+caseDiscuss.illness);
         holder.mReadTv.setVisibility(View.INVISIBLE);
-        for (TeamRead read : reads) {
-            if(caseDiscuss.teamId.equals(read.teamId)){
-                LogUtils.i("success get count"+read.readCount+caseDiscuss.patientName+read.teamId);
-                int count=read.readCount>99?99:read.readCount;
-                holder.mReadTv.setText(read.readCount+"");
+
+        for (RecentContact read : mMessages) {
+            if(caseDiscuss.teamId.equals(read.getContactId())){
+
+                int count=read.getUnreadCount()>99?99:read.getUnreadCount();
+                holder.mReadTv.setText(read.getUnreadCount()+"");
                 holder.mReadTv.setVisibility(count>0?View.VISIBLE:View.INVISIBLE);
-            }else{
-                holder.mReadTv.setVisibility(View.INVISIBLE);
             }
+//            else{
+//                holder.mReadTv.setVisibility(View.INVISIBLE);
+//            }
         }
 
         return convertView;
 
+    }
+
+    public void setUnreadCount(List<RecentContact> messages) {
+        this.mMessages=messages;
+        notifyDataSetChanged();
     }
 
     static class ViewHolder {

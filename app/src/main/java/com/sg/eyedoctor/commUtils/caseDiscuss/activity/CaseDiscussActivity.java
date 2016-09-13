@@ -1,6 +1,7 @@
 package com.sg.eyedoctor.commUtils.caseDiscuss.activity;
 
 import android.content.Intent;
+import android.os.Handler;
 import android.view.View;
 import android.widget.AdapterView;
 
@@ -9,7 +10,13 @@ import com.google.gson.reflect.TypeToken;
 import com.netease.nim.session.SessionHelper;
 import com.netease.nim.session.activity.TeamMessageActivity;
 import com.netease.nimlib.sdk.NIMClient;
+import com.netease.nimlib.sdk.Observer;
 import com.netease.nimlib.sdk.RequestCallback;
+import com.netease.nimlib.sdk.RequestCallbackWrapper;
+import com.netease.nimlib.sdk.ResponseCode;
+import com.netease.nimlib.sdk.msg.MsgService;
+import com.netease.nimlib.sdk.msg.MsgServiceObserve;
+import com.netease.nimlib.sdk.msg.model.RecentContact;
 import com.netease.nimlib.sdk.team.TeamService;
 import com.pulltorefresh.chuwe1.swipemenu.library.SwipeMenu;
 import com.pulltorefresh.chuwe1.swipemenu.library.SwipeMenuCreator;
@@ -44,6 +51,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
+import java.util.List;
 
 /**
  * 病历讨论
@@ -65,7 +73,9 @@ public class CaseDiscussActivity extends BaseActivity {
     private ArrayList<CaseDiscuss> mCaseDiscusses = new ArrayList<>();
     private CaseDiscussAdapter mDiscussAdapter;
     private PullState mPullState = PullState.NORMAL;//normal   1下拉  2上拉
-    private ArrayList<TeamRead> teamReads=new ArrayList<>();
+    Observer<List<RecentContact>> messageObserver;
+    ArrayList<TeamRead> teamReads=new ArrayList<>();
+    List<RecentContact> mMessages = new ArrayList<>();
     private NetCallback mReadCallback = new NetCallback(mContext) {
         @Override
         protected void requestOK(String result) {
@@ -163,11 +173,39 @@ public class CaseDiscussActivity extends BaseActivity {
         });
     //    mCaseLv = mSwipeMenuListView.getRefreshableView();
         LogUtils.i("team Size'"+teamReads.size());
-        mDiscussAdapter = new CaseDiscussAdapter(this, mCaseDiscusses, 0,teamReads);
+        mDiscussAdapter = new CaseDiscussAdapter(this, mCaseDiscusses, 0,mMessages);
         mCaseLv.setAdapter(mDiscussAdapter);
         initSwipeMenu();
 
         UiUtils.setEmptyText(mContext, mCaseLv, getString(R.string.empty));
+
+        new Handler().postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+
+                // 查询最近联系人列表数据
+                NIMClient.getService(MsgService.class).queryRecentContacts().setCallback(new RequestCallbackWrapper<List<RecentContact>>() {
+
+                    @Override
+                    public void onResult(int code, List<RecentContact> recents, Throwable exception) {
+                        if (code != ResponseCode.RES_SUCCESS || recents == null) {
+                            return;
+                        }
+                        mMessages = recents;
+                        mDiscussAdapter.setUnreadCount(mMessages);
+;                    }
+                });
+            }
+        }, 250);
+        messageObserver = new Observer<List<RecentContact>>() {
+            @Override
+            public void onEvent(List<RecentContact> messages) {
+                mMessages = messages;
+                mDiscussAdapter.setUnreadCount(mMessages);
+            }
+        };
+        registerService(true);
     }
 
     @Override
@@ -364,6 +402,19 @@ public class CaseDiscussActivity extends BaseActivity {
                 return 1;
             }
         }
+    }
+
+
+    private void registerService(boolean b) {
+        //注册/注销观察者
+        NIMClient.getService(MsgServiceObserve.class)
+                .observeRecentContact(messageObserver, b);
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        registerService(false);
     }
 
 

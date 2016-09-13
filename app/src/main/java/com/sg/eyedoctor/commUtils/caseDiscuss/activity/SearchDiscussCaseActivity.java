@@ -8,6 +8,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.netease.nim.session.SessionHelper;
 import com.netease.nim.session.activity.TeamMessageActivity;
+import com.netease.nimlib.sdk.msg.model.RecentContact;
 import com.sg.eyedoctor.ConstantValues;
 import com.sg.eyedoctor.R;
 import com.sg.eyedoctor.commUtils.caseDiscuss.adapter.CaseDiscussAdapter;
@@ -89,7 +90,7 @@ public class SearchDiscussCaseActivity extends BaseActivity implements SearchLay
     @Override
     protected void initView() {
         teamReads=getIntent().getParcelableArrayListExtra(ConstantValues.EXTRA_DATA);
-        mDiscussAdapter = new CaseDiscussAdapter(this, mCaseDiscusses, 0,teamReads);
+        mDiscussAdapter = new CaseDiscussAdapter(this, mCaseDiscusses, 0,new ArrayList<RecentContact>());
         mSearchLv.setAdapter(mDiscussAdapter);
         mEmptyTv= UiUtils.setEmptyText(mContext,mSearchLv,"无记录");
         mSearchSl.setCallback(this,mEmptyTv);

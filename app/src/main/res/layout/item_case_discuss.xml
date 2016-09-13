@@ -49,15 +49,20 @@
         android:textColor="@color/black"
         android:textSize="@dimen/text_12"/>
 
-
-    <ImageView
-        android:layout_centerVertical="true"
-        android:id="@+id/arraw_img"
+    <TextView
+        android:layout_marginRight="8dp"
+        android:layout_alignBottom="@id/name_tv"
+        android:layout_alignParentRight="true"
+        android:id="@+id/read_count_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="12dp"
-        android:src="@drawable/ic_arraw_gray"/>
+        android:background="@drawable/dot_pink"
+        android:gravity="center"
+        android:minHeight="15dp"
+        android:minWidth="15dp"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_8"
+        android:text="1"/>
 
     <TextView
         android:id="@+id/time_tv"
@@ -82,20 +87,7 @@
         android:layout_toLeftOf="@+id/read_count_tv"
         android:lineSpacingExtra="4dp"
         android:text="症状描述:症状描述症状描述症状描述症状描述症状症状描述症状描述"/>
-    <TextView
-        android:layout_marginRight="8dp"
-        android:layout_alignBottom="@id/time_tv"
-        android:layout_alignParentRight="true"
-        android:id="@+id/read_count_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/dot_pink"
-        android:gravity="center"
-        android:minHeight="15dp"
-        android:minWidth="15dp"
-        android:textColor="@color/white"
-        android:textSize="@dimen/text_8"
-        tools:text="1"/>
+
     <View
         android:layout_marginTop="10dp"
         android:layout_below="@id/illness_tv"
