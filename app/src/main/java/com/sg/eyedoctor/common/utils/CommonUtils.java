@@ -1048,4 +1048,21 @@ public class CommonUtils {
         DecimalFormat df = new DecimalFormat("0.00");
         return df.format(d);
     }
+
+    public static String add2Hours(String modifyDate) {
+        //1986-06-06
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Date date = new Date();
+
+        try {
+            date = format.parse(modifyDate);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        cal.add(Calendar.HOUR_OF_DAY,2);
+        return format.format(cal.getTime());
+    }
 }

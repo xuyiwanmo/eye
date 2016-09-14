@@ -18,7 +18,6 @@ import com.sg.eyedoctor.common.fragment.BaseFragment;
 import com.sg.eyedoctor.common.manager.BaseManager;
 import com.sg.eyedoctor.common.response.BaseArrayResp;
 import com.sg.eyedoctor.common.utils.CommonUtils;
-import com.sg.eyedoctor.common.utils.ConsultSort;
 import com.sg.eyedoctor.common.utils.NetCallback;
 import com.sg.eyedoctor.common.utils.NetworkUtil;
 import com.sg.eyedoctor.common.utils.UiUtils;
@@ -32,8 +31,13 @@ import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.ViewInject;
 
 import java.lang.reflect.Type;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
+import java.util.Date;
+import java.util.Locale;
 
 
 /**
@@ -69,7 +73,7 @@ public class VideoConsultFragment extends BaseFragment implements VideoConsultAd
                 BaseArrayResp<Patient> res = new Gson().fromJson(result, objectType);
 
                 mPatients = res.value;
-                Collections.sort(mPatients, new ConsultSort());
+                Collections.sort(mPatients, new VideoConsultSort());
                 if (mPatients != null) {
                     mConsultAdapter.setData(mPatients);
                 } else {
@@ -201,6 +205,45 @@ public class VideoConsultFragment extends BaseFragment implements VideoConsultAd
             startActivity(intent);
         }
 
+    }
+
+    class VideoConsultSort implements Comparator {
+
+        public String getTime(Object p) {
+            Patient patient=(Patient)p;
+            if (patient.state == 1) {
+                return patient.createDate;
+            } else {
+                return patient.modifyDate;
+            }
+        }
+
+        @Override
+        public int compare(Object time1, Object time2) {
+            boolean flag = false;
+            //2016/9/12 16:09:45
+            String t1=getTime(time1);
+            String t2=getTime(time2);
+            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.CHINA);
+            if (t1== null || t2 == null) {
+                return 1;
+            }
+            try {
+                Date d1 = format.parse(t1);
+                Date d2 = format.parse(t2);
+                if (d1.getTime() < d2.getTime()) {
+                    flag = true;
+                }
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+
+            if (flag) {
+                return 1;
+            } else {
+                return -1;
+            }
+        }
     }
 
 

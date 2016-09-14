@@ -15,7 +15,6 @@ import com.sg.eyedoctor.common.fragment.BaseFragment;
 import com.sg.eyedoctor.common.manager.BaseManager;
 import com.sg.eyedoctor.common.response.BaseArrayResp;
 import com.sg.eyedoctor.common.utils.CommonUtils;
-import com.sg.eyedoctor.common.utils.ConsultSort;
 import com.sg.eyedoctor.common.utils.NetCallback;
 import com.sg.eyedoctor.common.utils.UiUtils;
 import com.sg.eyedoctor.consult.textConsult.bean.Patient;
@@ -25,9 +24,14 @@ import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.ViewInject;
 
 import java.lang.reflect.Type;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 
@@ -54,7 +58,7 @@ public class VideoAddFragment extends BaseFragment implements VideoAddAdapter.Ad
                 }.getType();
                 BaseArrayResp<Patient> res = new Gson().fromJson(result, objectType);
                 mRecords = res.value;
-                Collections.sort(mRecords, new ConsultSort());
+                Collections.sort(mRecords, new VideoAddConsultSort());
                 mConsultAdapter.setData(mRecords);
             }
         }
@@ -136,5 +140,33 @@ public class VideoAddFragment extends BaseFragment implements VideoAddAdapter.Ad
         Patient record=mRecords.get(position);
         showLoginDlg();
         BaseManager.serviceXtrRecordModify(record.id,type,mCallback);
+    }
+
+    class VideoAddConsultSort implements Comparator {
+
+        @Override
+        public int compare(Object time1, Object time2) {
+            boolean flag = false;
+            //2016/9/12 16:09:45
+            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.CHINA);
+            if(((Patient) time1).createDate==null||((Patient) time2).createDate==null){
+                return 0;
+            }
+            try {
+                Date d1 = format.parse(((Patient) time1).createDate);
+                Date d2 = format.parse(((Patient) time2).createDate);
+                if (d1.getTime() < d2.getTime()) {
+                    flag = true;
+                }
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+
+            if (flag) {
+                return 1;
+            } else {
+                return -1;
+            }
+        }
     }
 }

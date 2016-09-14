@@ -14,7 +14,6 @@ import com.sg.eyedoctor.common.fragment.BaseFragment;
 import com.sg.eyedoctor.common.manager.BaseManager;
 import com.sg.eyedoctor.common.response.BaseArrayResp;
 import com.sg.eyedoctor.common.utils.CommonUtils;
-import com.sg.eyedoctor.common.utils.ConsultSort;
 import com.sg.eyedoctor.common.utils.NetCallback;
 import com.sg.eyedoctor.common.utils.UiUtils;
 import com.sg.eyedoctor.consult.advice.activity.ConsultDetailActivity;
@@ -27,8 +26,13 @@ import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.ViewInject;
 
 import java.lang.reflect.Type;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
+import java.util.Date;
+import java.util.Locale;
 
 /**
 
@@ -55,7 +59,7 @@ public class PhoneConsultFragment extends BaseFragment implements PhoneConsultFr
                 Type objectType = new TypeToken<BaseArrayResp<Patient>>(){}.getType();
                 BaseArrayResp<Patient> res=new Gson().fromJson(result, objectType);
                 ArrayList<Patient> mPatients = res.value;
-                Collections.sort(mPatients, new ConsultSort());
+                Collections.sort(mPatients, new PhoneConsultSort());
                 if (mPatients != null) {
                     setData(mPatients);
                 } else {
@@ -217,4 +221,53 @@ public class PhoneConsultFragment extends BaseFragment implements PhoneConsultFr
             queryData();
         }
     }
+
+    class PhoneConsultSort implements Comparator {
+        private String getTime(Patient patient1){
+            String t1="";
+            if (patient1.state == 1) {//待通话
+                t1=patient1.dealTime;
+            } else {//已完成
+
+                if (patient1.state == 6) {//未拨通  退款状态
+                    t1=CommonUtils.add2Hours(patient1.dealTime);
+                }else{
+                    t1=patient1.modifyDate;
+                }
+            }
+            return t1;
+        }
+        @Override
+        public int compare(Object time1, Object time2) {
+            boolean flag = false;
+            Patient patient1=(Patient) time1;
+            Patient patient2=(Patient) time2;
+            String t1=getTime(patient1);
+            String t2=getTime(patient2);
+
+            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.CHINA);
+            if(t1==null||t2==null){
+                return -1;
+            }
+            try {
+                Date d1 = format.parse(t1);
+                Date d2 = format.parse(t2);
+                if (d1.getTime() < d2.getTime()) {
+                    flag = true;
+                }
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+
+            if (flag) {
+                return 1;
+            } else {
+                return -1;
+            }
+        }
+    }
+
+
+
+
 }
