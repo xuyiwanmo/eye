@@ -770,7 +770,7 @@
     <string name="patient_empty">没有患者</string>
     <string name="news_detail">详情</string>
     <string name="end_yet">已经是最后一条</string>
-    <string name="case_discuss">病例讨论</string>
+    <string name="case_discuss">病历讨论</string>
     <string name="add_new_doctor">添加新成员</string>
     <string name="name">姓名</string>
     <string name="illness_check">疾病诊断</string>
@@ -1013,7 +1013,7 @@
     <string name="not_see_hos">对不起，您尚未完成验证，暂时无法查看您所在医院的通讯录。</string>
     <string name="add_new_case">新增病历</string>
     <string name="already_send">已发送</string>
-    <string name="certification_now">您尚未完成认证,请认证后再使用该功能</string>
+    <string name="certification_now">您尚未完成认证，请认证后再使用该功能</string>
     <string name="electric_record">电子病历</string>
     <string name="doctor_ask">医嘱</string>
     <string name="internet_consult">互联网会诊</string>

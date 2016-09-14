@@ -124,10 +124,7 @@ public class MainActivity extends BaseActivity {
                 }
                 break;
             case R.id.ll_bottom_circle:
-                if (!mIsAuth) {
-                    startAuthActivity(R.string.eye_circle);
-                    break;
-                }
+
                 mIndex = 2;
                 mTeamLl.setSelected(true);
                 if (null == mTeamworkFragment) {

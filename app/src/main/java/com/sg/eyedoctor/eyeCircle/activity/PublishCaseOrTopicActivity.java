@@ -73,6 +73,8 @@ public class PublishCaseOrTopicActivity extends BaseActivity {
     private String detail;
     private String type;
     private ArrayList<PicBean> mPicBeans=new ArrayList<>();
+
+    private boolean mIsAuth = false;
     //上传图片
     private NetCallback mPicCallback = new NetCallback(mContext) {
         @Override
@@ -211,4 +213,6 @@ public class PublishCaseOrTopicActivity extends BaseActivity {
         }
         startActivityForResult(intent, ConstantValues.REQUEST_IMAGE);
     }
+
+
 }

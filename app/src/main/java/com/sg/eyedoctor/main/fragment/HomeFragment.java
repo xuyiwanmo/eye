@@ -512,6 +512,10 @@ public class HomeFragment extends BaseFragment {
                         startActivity(new Intent(getActivity(), ContactActivity.class));
                         break;
                     case HELP_UTIL_FREE_CONSULT:
+                        if (!mIsAuth) {
+                            startAuthActivity(R.string.free_consult);
+                            break;
+                        }
                         startActivity(new Intent(getActivity(), FreeConsultActivity.class));
                         break;
                 }

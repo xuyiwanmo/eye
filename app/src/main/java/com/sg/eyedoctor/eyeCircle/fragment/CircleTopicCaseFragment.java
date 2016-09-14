@@ -147,6 +147,10 @@ public class CircleTopicCaseFragment extends BaseFragment {
 
     @Event(R.id.publish_ll)
     private void publish(View view) {
+        if (!mIsAuth) {
+            startAuthActivity(R.string.eye_circle);
+            return;
+        }
         Intent intent = new Intent(getActivity(), PublishCaseOrTopicActivity.class);
         intent.putExtra("type", mType);
         startActivity(intent);
@@ -218,6 +222,8 @@ public class CircleTopicCaseFragment extends BaseFragment {
             mPullState = PullState.NORMAL;
             queryData();
         }
+
+        mIsAuth = (mDoctor.state == 2?true:false);
     }
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {
