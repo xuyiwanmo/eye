@@ -11,6 +11,7 @@ import android.view.WindowManager;
 import com.sg.eyedoctor.R;
 import com.sg.eyedoctor.common.utils.AppManager;
 import com.sg.eyedoctor.common.view.SystemBarTintManager;
+import com.umeng.message.PushAgent;
 
 import org.xutils.x;
 
@@ -29,6 +30,9 @@ public abstract class SimpleActivity extends FragmentActivity {
         SystemBarTintManager tintManager = new SystemBarTintManager(this);
         tintManager.setStatusBarTintEnabled(true);
         tintManager.setStatusBarTintResource(R.color.actionbar_color);
+
+        //umPush
+        PushAgent.getInstance(this).onAppStart();
     }
 
     @TargetApi(19)

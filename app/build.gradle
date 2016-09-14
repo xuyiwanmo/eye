@@ -53,20 +53,6 @@ dependencies {
     compile 'com.android.support:support-v4:22.0.0'
     compile 'com.android.support:appcompat-v7:22.0.0'
     compile files('src/main/libs/nim-sdk-2.1.2.jar')
+    compile project(':PushSDK')
 }
 
-//获取时间戳
-def getDate() {
-    def date = new Date()
-    def formattedDate = date.format('MMdd')
-    return formattedDate
-}
-
-//从androidManifest.xml中获取版本号
-def getVersionNameFromManifest() {
-    def Properties versionProps = new Properties()
-    versionProps.load(new FileInputStream(versionPropsFile))
-    code = versionProps['VERSION_CODE'].toInteger()
-    // def manifestParser = new com.android.builder.core.DefaultManifestParser()
-    return code
-}

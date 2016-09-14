@@ -583,6 +583,11 @@
         <meta-data
             android:name="UMENG_CHANNEL"
             android:value="${UMENG_CHANNEL_VALUE}"/>
+
+        <meta-data
+            android:name="UMENG_MESSAGE_SECRET"
+            android:value="82984831c87110b21a35586690530ace"/>
+
         <!-- 友盟的activity  end -->
 
         <activity android:name=".chartFile.activity.AttentionPatientActivity">

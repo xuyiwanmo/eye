@@ -40,6 +40,8 @@ import com.sg.eyedoctor.common.utils.CrashHander;
 import com.sg.eyedoctor.common.utils.LogUtils;
 import com.sg.eyedoctor.main.activity.MainActivity;
 import com.umeng.analytics.MobclickAgent;
+import com.umeng.message.IUmengRegisterCallback;
+import com.umeng.message.PushAgent;
 import com.umeng.socialize.PlatformConfig;
 
 import org.xutils.DbManager;
@@ -55,7 +57,7 @@ public class BaseApp extends Application {
     private static BaseApp sInstance = null;
     private DbManager.DaoConfig daoConfig = new DbManager.DaoConfig()
             .setDbName("doctor.db")
-                    // 不设置dbDir时, 默认存储在app的私有目录.
+            // 不设置dbDir时, 默认存储在app的私有目录.
             .setDbVersion(4)
             .setDbOpenListener(new DbManager.DbOpenListener() {
                 @Override
@@ -108,6 +110,9 @@ public class BaseApp extends Application {
         //crash处理
         CrashHander crashHandler = CrashHander.getInstance();
         crashHandler.init(getApplicationContext());
+
+        //umPush
+        umPush();
 
     }
 
@@ -291,6 +296,23 @@ public class BaseApp extends Application {
         }, register);
     }
 
+    private void umPush() {
+        PushAgent mPushAgent = PushAgent.getInstance(this);
+        //注册推送服务，每次调用register方法都会回调该接口
+        mPushAgent.register(new IUmengRegisterCallback() {
+
+            @Override
+            public void onSuccess(String deviceToken) {
+                //注册成功会返回device token
+                LogUtils.i("deviceToken  "+deviceToken);
+            }
+
+            @Override
+            public void onFailure(String s, String s1) {
+
+            }
+        });
+    }
 
 }
 
