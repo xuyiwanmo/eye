@@ -773,6 +773,19 @@ public class CommonUtils {
                 .build();
         ImageLoader.getInstance().displayImage(CommonUtils.formatUrl(url), imageView, mConfig);
     }
+    public static void loadImgformat(String url, ImageView imageView) {
+        DisplayImageOptions mConfig = new DisplayImageOptions.Builder()
+                .showImageForEmptyUri(R.drawable.ic_loading)
+                .showImageOnFail(R.drawable.ic_loading)
+                .showImageOnLoading(R.drawable.ic_loading)
+                .cacheInMemory(true)// 在内存中会缓存该图片
+                .cacheOnDisk(true)// 在硬盘中会缓存该图片
+                .considerExifParams(true)// 会识别图片的方向信息
+                .resetViewBeforeLoading(true)// 重设图片
+                .build();
+        String url1 = url.replaceAll("\\\\", "/");
+        ImageLoader.getInstance().displayImage(url1, imageView);
+    }
 
     public static void loadImg(String url, ImageView imageView, int defImgId) {
         DisplayImageOptions mConfig = new DisplayImageOptions.Builder()

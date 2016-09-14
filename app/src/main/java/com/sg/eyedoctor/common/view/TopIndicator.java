@@ -39,6 +39,7 @@ public class TopIndicator extends LinearLayout {
 	private int mUnderLineFromX = 0;
 	private int mTextSize=18;
 	Context mContext;
+	private int height=48;
 
 	public TopIndicator(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
@@ -107,7 +108,7 @@ public class TopIndicator extends LinearLayout {
 
 			line.setBackgroundColor(context.getResources().getColor(R.color.text_body_weak));
 			LinearLayout.LayoutParams p = new LinearLayout.LayoutParams(
-					1, CommonUtils.dp2px(context,48));
+					1, CommonUtils.dp2px(context,height));
 			p.setMargins(0,CommonUtils.dp2px(context,4),0,CommonUtils.dp2px(context,4));
 			line.setLayoutParams(p);
 			topLayout.addView(line,p);
@@ -188,6 +189,12 @@ public class TopIndicator extends LinearLayout {
 	public void setLabels(CharSequence[] lables,int textSize){
 		this.mLabels=lables;
 		this.mTextSize=textSize;
+		init(mContext);
+	}
+	public void setLabels(CharSequence[] lables,int textSize,int height){
+		this.mLabels=lables;
+		this.mTextSize=textSize;
+		this.height=height;
 		init(mContext);
 	}
 

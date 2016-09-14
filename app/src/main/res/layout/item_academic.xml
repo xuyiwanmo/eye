@@ -16,6 +16,7 @@
         android:src="@drawable/ad1"/>
 
     <TextView
+        android:maxLines="2"
         android:id="@+id/actionbar_title_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -23,7 +24,7 @@
         android:layout_marginRight="10dp"
         android:layout_marginTop="4dp"
         android:layout_toRightOf="@id/news_img"
-        android:lineSpacingExtra="8dp"
+        android:lineSpacingExtra="2dp"
         android:text="[头条]热烈庆祝厦门华夏眼科集团"
         android:textSize="@dimen/text_16"/>
 

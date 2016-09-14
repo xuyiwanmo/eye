@@ -128,14 +128,6 @@ public class ConstantValues {
     public static final int CHART_REQUEST_IMAGE = 3;
 
     /**
-     * 学术前沿
-     */
-    public static final int ACAD_TYPE_ARTICLE = 0; //科普
-    public static final int ACAD_TYPE_INFORMATION = 1;//眼科资讯
-    public static final int ACAD_TYPE_MEETING = 2;//学术会议
-    public static final int ACAD_TYPE_NEWS = 3;//业界新闻
-
-    /**
      * 拍照
      */
     public static final int CODE_GALLERY_REQUEST = 0xa0;

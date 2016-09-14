@@ -86,9 +86,9 @@ public class MyStoreActivity extends BaseActivity {
 
                 if (item.sourceType == ConstantValues.STORE_ACADEMIC) {//学术前沿
                     Academic academic = new Academic();
-                    academic.id = item.sourceID;
-                    academic.title = item.title;
-                    academic.webUrl = item.webUrl;
+                    academic.newsId = item.sourceID;
+                    academic.newsTitle = item.title;
+                    academic.url = item.webUrl;
                     Intent intent = new Intent(mContext, AcademicWebActivity.class);
                     intent.putExtra(ConstantValues.KEY_URL, academic);
                     startActivity(intent);

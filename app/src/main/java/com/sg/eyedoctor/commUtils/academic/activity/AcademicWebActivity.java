@@ -104,11 +104,11 @@ public class AcademicWebActivity extends BaseActivity {
     @Override
     protected void initView() {
         mAcademic = (Academic) getIntent().getSerializableExtra(ConstantValues.KEY_URL);
-        title=mAcademic.title;
+        title=mAcademic.newsTitle;
         WebSettings webSettings = mAcademicWv.getSettings();
         webSettings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);
         webSettings.setJavaScriptEnabled(true);
-        mAcademicWv.loadUrl(mAcademic.webUrl);
+        mAcademicWv.loadUrl(mAcademic.url);
         mActionbar.setSecondbtnVisible(View.VISIBLE);
         mActionbar.setTitle(R.string.news_detail);
 
@@ -130,7 +130,7 @@ public class AcademicWebActivity extends BaseActivity {
                     public void onCancel(SHARE_MEDIA share_media) {
                         showToast(share_media + "分享取消");
                     }
-                },title,"眼科通学术前沿",mAcademic.webUrl);
+                },title,"眼科通学术前沿",mAcademic.url);
             }
         });
         mActionbar.setSecondBtnImg(R.drawable.selector_chart_store, new View.OnClickListener() {
@@ -139,9 +139,9 @@ public class AcademicWebActivity extends BaseActivity {
                 String picture = "";
                 showdialog();
                 if (mIsCollect) {//收藏->取消
-                    BaseManager.collectionCancel(mAcademic.id + "", mCancelCallback);
+                    BaseManager.collectionCancel(mAcademic.newsId + "", mCancelCallback);
                 } else {//未收藏->收藏
-                    BaseManager.collectionAdd(mAcademic.id, mDoctor.id, "1", mAcademic.title, picture, mAcademic.webUrl, mStoreCallback);
+                    BaseManager.collectionAdd(mAcademic.newsId, mDoctor.id, "1", mAcademic.newsTitle, picture, mAcademic.url, mStoreCallback);
                 }
             }
         });
@@ -159,6 +159,6 @@ public class AcademicWebActivity extends BaseActivity {
     protected void onResume() {
         super.onResume();
         showdialog();
-        BaseManager.isCollection(mAcademic.id, mJudgeStoreCallback);
+        BaseManager.isCollection(mAcademic.newsId, mJudgeStoreCallback);
     }
 }

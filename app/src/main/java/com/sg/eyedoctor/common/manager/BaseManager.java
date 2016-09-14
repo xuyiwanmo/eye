@@ -12,6 +12,7 @@ import com.sg.eyedoctor.chartFile.request.NewMedicalRecordAddParams;
 import com.sg.eyedoctor.chartFile.request.PatientByGroupParams;
 import com.sg.eyedoctor.chartFile.request.PatientGroupMoveParams;
 import com.sg.eyedoctor.chartFile.request.PatientParams;
+import com.sg.eyedoctor.commUtils.academic.request.NewsParams;
 import com.sg.eyedoctor.commUtils.caseDiscuss.bean.MemberBean;
 import com.sg.eyedoctor.commUtils.caseDiscuss.request.AddDiscussMemberParams;
 import com.sg.eyedoctor.commUtils.caseDiscuss.request.DiscussAddParams;
@@ -261,12 +262,8 @@ public class BaseManager {
 
     //获取学术前沿列表-1
     public static void getEyeFrontiersList(String page, String rows, String type, NetCallback callback) {
-        RequestParams params = new RequestParams(ConstantValues.HOST + "/Doctor/GetEyeFrontiersList");
-        params.addHeader(VERIFYCODE, getVerifyCode());
-        params.addBodyParameter("page", page);
-        params.addBodyParameter("rows", rows);
-        params.addBodyParameter("type", type);
-        HttpClient.get(params, callback);
+        NewsParams params=new NewsParams(page,rows,"1",type,"","");
+        HttpClient.post(params, callback);
     }
 
     //讨论中的病历

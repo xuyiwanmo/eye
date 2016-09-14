@@ -26,6 +26,7 @@
         <item>已报到</item>
     </string-array>
     <string-array name="academic_array">
+
         <item>科普文章</item>
         <item>眼科资讯</item>
         <item>学术会议</item>

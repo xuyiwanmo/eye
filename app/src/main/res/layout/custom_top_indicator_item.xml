@@ -5,13 +5,15 @@
     android:orientation="vertical" >
 
     <CheckedTextView
+
+        android:text="您好"
         android:id="@+id/item_name"
         android:layout_width="wrap_content"
         android:layout_height="fill_parent"
         android:layout_gravity="center"
         android:paddingTop="13dip"
         android:paddingBottom="13dp"
-        android:gravity="center_vertical"
+        android:gravity="center"
         android:textSize="18sp" />
 
 </LinearLayout>

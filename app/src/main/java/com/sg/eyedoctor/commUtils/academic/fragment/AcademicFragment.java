@@ -11,15 +11,15 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.pulltorefresh.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.pulltorefresh.handmark.pulltorefresh.library.PullToRefreshListView;
+import com.sg.eyedoctor.ConstantValues;
 import com.sg.eyedoctor.R;
 import com.sg.eyedoctor.commUtils.academic.activity.AcademicWebActivity;
 import com.sg.eyedoctor.commUtils.academic.adapter.AcademicAdapter;
 import com.sg.eyedoctor.commUtils.academic.bean.Academic;
 import com.sg.eyedoctor.common.fragment.BaseFragment;
 import com.sg.eyedoctor.common.manager.BaseManager;
-import com.sg.eyedoctor.common.response.BaseArrayResp;
+import com.sg.eyedoctor.common.response.BaseRowsResp;
 import com.sg.eyedoctor.common.utils.CommonUtils;
-import com.sg.eyedoctor.ConstantValues;
 import com.sg.eyedoctor.common.utils.NetCallback;
 import com.sg.eyedoctor.common.utils.PullState;
 import com.sg.eyedoctor.common.utils.UiUtils;
@@ -51,26 +51,26 @@ public class AcademicFragment extends BaseFragment {
             closeDialog();
             if (CommonUtils.isResultOK(result)) {
 
-                Type objectType = new TypeToken<BaseArrayResp<Academic>>() {
+                Type objectType = new TypeToken<BaseRowsResp<Academic>>() {
                 }.getType();
-                BaseArrayResp<Academic> res = new Gson().fromJson(result, objectType);
+                BaseRowsResp<Academic> res = new Gson().fromJson(result, objectType);
 
                 switch (mPullState) {
                     case NORMAL:
                         closeDialog();
-                        mAcademics = res.value;
+                        mAcademics = res.value.rows;
                         mAcademicAdapter.setData(mAcademics);
                         break;
                     case TOP_REFRESH:
-                        mAcademics = res.value;
+                        mAcademics = res.value.rows;
                         mAcademicAdapter.setData(mAcademics);
                         refreshComplete(mRefreshListView);
                         break;
                     case END_REFRESH:
-                        mAcademics.addAll(res.value);
+                        mAcademics.addAll(res.value.rows);
                         mAcademicAdapter.setData(mAcademics);
                         refreshComplete(mRefreshListView);
-                        if (res.value.size()<ROWS){
+                        if (res.value.rows.size()<ROWS){
                             showToast(R.string.end_yet);
                         }
                         break;

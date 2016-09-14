@@ -8,6 +8,7 @@ import android.widget.TextView;
 import com.sg.eyedoctor.R;
 import com.sg.eyedoctor.commUtils.academic.bean.Academic;
 import com.sg.eyedoctor.common.adapter.CommAdapter;
+import com.sg.eyedoctor.common.utils.CommonUtils;
 
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
@@ -38,9 +39,10 @@ public class AcademicAdapter extends CommAdapter<Academic> {
             convertView.setTag(holder);
         }
 
+        CommonUtils.loadImgformat(doctor.picFileName,holder.mHeadImg);
         holder.mHeadImg.setImageResource(R.drawable.ad1);
-        setTextView(holder.mTimeTv,doctor.createDate);
-        setTextView(holder.mTitleTv,doctor.title);
+        setTextView(holder.mTimeTv,doctor.newsTime);
+        setTextView(holder.mTitleTv,doctor.newsTitle);
 
         return convertView;
     }
