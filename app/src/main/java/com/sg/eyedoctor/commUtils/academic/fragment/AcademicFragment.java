@@ -120,14 +120,14 @@ public class AcademicFragment extends BaseFragment {
             public void onPullDownToRefresh(PullToRefreshBase<ListView> refreshView) {
                 mCurrPage = 1;
                 mPullState = PullState.TOP_REFRESH;
-                BaseManager.getEyeFrontiersList(mCurrPage + "", ROWS + "", (mType + 1) + "", mCallback);
+                BaseManager.getEyeFrontiersList(mCurrPage + "", ROWS + "", mType + "", mCallback);
             }
 
             @Override
             public void onPullUpToRefresh(PullToRefreshBase<ListView> refreshView) {
                 mCurrPage++;
                 mPullState = PullState.END_REFRESH;
-                BaseManager.getEyeFrontiersList(mCurrPage + "", ROWS + "", (mType + 1) + "", mCallback);
+                BaseManager.getEyeFrontiersList(mCurrPage + "", ROWS + "", mType + "", mCallback);
             }
         });
         mAcademicLv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -156,7 +156,7 @@ public class AcademicFragment extends BaseFragment {
 
     public  void queryData(){
         showLoginDlg();
-        BaseManager.getEyeFrontiersList(mCurrPage + "", ROWS + "", (mType + 1) + "", mCallback);
+        BaseManager.getEyeFrontiersList(mCurrPage + "", ROWS + "", mType+ "", mCallback);
     }
 
     @Override
