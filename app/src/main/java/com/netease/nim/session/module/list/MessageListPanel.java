@@ -50,7 +50,11 @@ import com.netease.nimlib.sdk.msg.constant.SessionTypeEnum;
 import com.netease.nimlib.sdk.msg.model.AttachmentProgress;
 import com.netease.nimlib.sdk.msg.model.IMMessage;
 import com.netease.nimlib.sdk.msg.model.QueryDirectionEnum;
+import com.sg.eyedoctor.ConstantValues;
 import com.sg.eyedoctor.R;
+import com.sg.eyedoctor.common.manager.BaseManager;
+import com.sg.eyedoctor.common.utils.LogUtils;
+import com.sg.eyedoctor.common.utils.NetCallback;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -93,6 +97,8 @@ public class MessageListPanel implements TAdapterDelegate {
 
     //zhang 自定义界面
     public SessionCustomization customization;
+    private boolean isFirstInput;
+    private NetCallback messageCallback;
 
     public MessageListPanel(Container container, View rootView, SessionCustomization customization) {
         this(container, rootView, null, false, false, customization);
@@ -109,6 +115,10 @@ public class MessageListPanel implements TAdapterDelegate {
         this.remote = remote;
         this.customization = customization;
         init(anchor);
+    }
+
+    public void setMessageCallback(NetCallback messageCallback) {
+        this.messageCallback = messageCallback;
     }
 
     public void onResume() {
@@ -159,7 +169,7 @@ public class MessageListPanel implements TAdapterDelegate {
         items = new ArrayList<>();
 
         filtItems();
-        adapter = new MsgAdapter(container.activity, items, this,customization);
+        adapter = new MsgAdapter(container.activity, items, this, customization);
 
         adapter.setEventListener(new MsgItemEventListener());
 
@@ -167,41 +177,6 @@ public class MessageListPanel implements TAdapterDelegate {
 
         messageListView = (MessageListView) rootView.findViewById(R.id.messageListView);
         messageListView.requestDisallowInterceptTouchEvent(true);
-
-//        if(customization.type==8){
-//            View view=View.inflate(DemoCache.getContext(),R.layout.head_free_consult,null);
-//            TextView name= (TextView) view.findViewById(R.id.name_tv);
-//            TextView sex= (TextView) view.findViewById(R.id.sex);
-//            TextView age= (TextView) view.findViewById(R.id.age);
-//            TextView ill= (TextView) view.findViewById(R.id.ill);
-//            TextView method= (TextView) view.findViewById(R.id.method);
-//            RelativeLayout head= (RelativeLayout) view.findViewById(R.id.head_rl);
-//            name.setText(customization.showName);
-//            ill.setText("问题详情: "+customization.showIll);
-//            if(customization.showSex.equals("1")||customization.showSex.equals("男")){
-//                sex.setText("男");
-//            }else{
-//                sex.setText("女");
-//            }
-//            if(customization.isVideo==1){
-//                method.setText(R.string.consult_with_video);
-//            }else{
-//                method.setText(R.string.consult_with_text);
-//            }
-//
-//            age.setText(customization.showAge);
-//            head.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    FreePatient patient=new FreePatient(customization.showName,customization.showSex,customization.showAge,customization.showIll,customization.picList);
-//                    Intent intent=new Intent(DemoCache.getContext(), FreeConsultDetailActivity.class);
-//                    intent.putExtra(ConstantValues.KEY_DATA,patient);
-//                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//                    DemoCache.getContext().startActivity(intent);
-//                }
-//            });
-//            messageListView.addHeaderView(view);
-//        }
 
         if (recordOnly && !remote) {
             messageListView.setMode(AutoRefreshListView.Mode.BOTH);
@@ -288,8 +263,6 @@ public class MessageListPanel implements TAdapterDelegate {
     // 发送消息后，更新本地消息列表
     public void onMsgSend(IMMessage message) {
 
-     //   message.setRemoteExtension(customization.map);
-
         items.add(message);
         List<IMMessage> addedListItems = new ArrayList<>(1);
 
@@ -299,6 +272,22 @@ public class MessageListPanel implements TAdapterDelegate {
         adapter.updateShowTimeItem(addedListItems, false, true);
         adapter.notifyDataSetChanged();
         ListViewUtil.scrollToBottom(messageListView);
+
+        if(isFirstInput){
+
+            String sendType="1";
+            if(customization.type== ConstantValues.P2P_TEXT_NEW){
+                sendType="1";
+            }else if(customization.type== ConstantValues.P2P_FREE){
+                sendType="2";
+            } else if(customization.type== ConstantValues.P2P_REPORT){
+                sendType="4";
+            }
+
+            LogUtils.i("text input sendmessage"+sendType+" "+customization.tel);
+            BaseManager.sendMessage(customization.tel,sendType,messageCallback);
+            isFirstInput=false;
+        }
     }
 
     /**
@@ -500,12 +489,12 @@ public class MessageListPanel implements TAdapterDelegate {
             @Override
             public void onResult(int code, List<IMMessage> messages, Throwable exception) {
                 //zhang 去掉欢迎进入本群
-                if (container.sessionType == SessionTypeEnum.Team&&messages!=null&&messages.size()!=0) {
+                if (container.sessionType == SessionTypeEnum.Team && messages != null && messages.size() != 0) {
 
                     Iterator<IMMessage> iterator = Collections.synchronizedList(messages).iterator();
-                    while(iterator.hasNext()){
+                    while (iterator.hasNext()) {
                         IMMessage item = iterator.next();
-                        if (item.getContent() != null && (item.getContent().equals("欢迎进入本群")||item.getContent().equals("欢迎进入讨论组")) ){
+                        if (item.getContent() != null && (item.getContent().equals("欢迎进入本群") || item.getContent().equals("欢迎进入讨论组"))) {
                             iterator.remove();
                         }
                     }
@@ -612,6 +601,19 @@ public class MessageListPanel implements TAdapterDelegate {
             messageListView.onRefreshComplete(count, LOAD_MESSAGE_COUNT, true);
 
             firstLoad = false;
+
+            isFirstInput = true;
+            for (IMMessage message : messages) {
+                if (message.getDirect() == MsgDirectionEnum.Out) {
+                    isFirstInput = false;
+                    LogUtils.i("listPanel" + isFirstInput);
+                    return;
+                }
+            }
+//            if(mFirstInput!=null){
+//                mFirstInput.sendMessage(isFirstInput);
+//            }
+
         }
 
         /**
@@ -661,7 +663,7 @@ public class MessageListPanel implements TAdapterDelegate {
         @Override
         public boolean onViewHolderLongClick(View clickView, View viewHolderView, IMMessage item) {
             if (container.proxy.isLongClickEnabled()) {
-              //  showLongClickAction(item);
+                //  showLongClickAction(item);
             }
             return true;
         }
@@ -1023,15 +1025,9 @@ public class MessageListPanel implements TAdapterDelegate {
         if (customization == null || customization.map == null) {
             return;
         }
+    }
 
-//        int size=items.size();
-//        for (int i = 0; i < items.size(); i++) {
-//            IMMessage item = items.get(i);
-//            if (item.getRemoteExtension() == null || !item.getRemoteExtension().get("order").equals(customization.map.get("order"))) {
-//                items.remove(i);
-//                size--;
-//                i--;
-//            }
-//        }
+    public interface IsFirstInput {
+        void sendMessage(boolean b);
     }
 }

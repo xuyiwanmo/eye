@@ -59,6 +59,7 @@ public class SessionCustomization implements Serializable {
     public Object mObject;//存放数据
     public ArrayList<Picture> picList;
     public int isVideo;
+    public String tel;
 
     /**
      * 如果OptionsButton的点击响应中需要startActivityForResult，可在此函数中处理结果。

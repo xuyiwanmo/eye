@@ -152,6 +152,7 @@ public class SessionHelper {
         p2pCustomization.map = map;
         p2pCustomization.showName = patient.patientName;
         p2pCustomization.type = type;
+        p2pCustomization.tel = patient.patientIM.replace("p","");
         return p2pCustomization;
     }
 
@@ -197,6 +198,8 @@ public class SessionHelper {
         freeP2pCustomization.picList = patient.picList;
         freeP2pCustomization.isVideo = patient.isVideo;
         freeP2pCustomization.type = ConstantValues.P2P_FREE;//转诊
+        freeP2pCustomization.tel = patient.patientIM.replace("p","");
+        LogUtils.i("free tel"+freeP2pCustomization.tel );
         return freeP2pCustomization;
     }
 
@@ -256,6 +259,8 @@ public class SessionHelper {
         reportCustomization.map = map;
         reportCustomization.showName = patient.name;
         reportCustomization.type = ConstantValues.P2P_REPORT;
+        reportCustomization.tel = patient.patientIM.replace("p","");
+        LogUtils.i("report tel"+reportCustomization.tel );
         return reportCustomization;
     }
 

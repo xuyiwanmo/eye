@@ -24,6 +24,8 @@ import com.netease.nimlib.sdk.msg.constant.SessionTypeEnum;
 import com.netease.nimlib.sdk.msg.model.IMMessage;
 import com.netease.nimlib.sdk.msg.model.MessageReceipt;
 import com.sg.eyedoctor.R;
+import com.sg.eyedoctor.common.utils.CommonUtils;
+import com.sg.eyedoctor.common.utils.LogUtils;
 import com.sg.eyedoctor.common.utils.NetCallback;
 
 import java.util.ArrayList;
@@ -58,7 +60,21 @@ public class MessageFragment extends TFragment implements ModuleProxy {
         mCallback=callback;
     }
     public MessageFragment() {    }
+    private NetCallback mMessageCallback = new NetCallback(getActivity()) {
+        @Override
+        protected void requestOK(String result) {
 
+            if (CommonUtils.isResultOK(result)) {
+                LogUtils.i("sendmessage  ok");
+            } else{
+                LogUtils.i("sendmessage  fail'");
+            }
+        }
+        @Override
+        protected void timeOut() {
+            LogUtils.i("sendmessage  fail'");
+        }
+    };
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
@@ -124,11 +140,11 @@ public class MessageFragment extends TFragment implements ModuleProxy {
         Container container = new Container(getActivity(), sessionId, sessionType, this);
 
         if (messageListPanel == null) {
-
             messageListPanel = new MessageListPanel(container, rootView, false, true,customization);//从远端下载
-            //messageListPanel.setCustomization(customization);
+            messageListPanel.setMessageCallback(mMessageCallback);
         } else {
             messageListPanel.reload(container, null,customization);
+            messageListPanel.setMessageCallback(mMessageCallback);
         }
 
         if (inputPanel == null) {
@@ -247,4 +263,5 @@ public class MessageFragment extends TFragment implements ModuleProxy {
     public void receiveReceipt() {
         messageListPanel.receiveReceipt();
     }
+
 }

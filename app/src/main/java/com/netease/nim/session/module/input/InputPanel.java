@@ -108,6 +108,8 @@ public class InputPanel implements IEmoticonSelectedListener, IAudioRecordCallba
 
     private NetCallback mCallback;
 
+    private boolean mIsFirstInput=false;
+
     public void setShowComplete(boolean showComplete){
 
         Log.i("zhang", "showcom" + showComplete);
@@ -795,5 +797,9 @@ public class InputPanel implements IEmoticonSelectedListener, IAudioRecordCallba
                 action.onActivityResult(requestCode & 0xff, resultCode, data);
             }
         }
+    }
+
+    public void setFirstInput(boolean b){
+        this.mIsFirstInput=b;
     }
 }

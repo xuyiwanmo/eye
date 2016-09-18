@@ -25,6 +25,7 @@ import com.sg.eyedoctor.commUtils.plusManager.request.XtrAppointmentListParams;
 import com.sg.eyedoctor.commUtils.plusManager.request.XtrAppointmentUpdateParams;
 import com.sg.eyedoctor.common.bean.Doctor;
 import com.sg.eyedoctor.common.bean.PicBean;
+import com.sg.eyedoctor.common.request.SendMessageParams;
 import com.sg.eyedoctor.common.utils.HttpClient;
 import com.sg.eyedoctor.common.utils.LogUtils;
 import com.sg.eyedoctor.common.utils.NetCallback;
@@ -1534,6 +1535,16 @@ public class BaseManager {
         params.name = name;
         HttpClient.post(params, callback);
 
+    }
+
+    //发送短信
+    public static void sendMessage(String tel,String type,NetCallback callback) {
+        SendMessageParams params=new SendMessageParams();
+        params.addHeader("VerifyCode", getDoctor().verifyCode);
+        params.doctorName=getDoctor().userName;
+        params.type=type;
+        params.tel=tel;
+        HttpClient.post(params, callback);
     }
 
     //***********************************************医生用户  end***********************************

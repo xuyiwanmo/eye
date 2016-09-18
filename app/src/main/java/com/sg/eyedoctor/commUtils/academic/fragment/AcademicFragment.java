@@ -11,7 +11,6 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.pulltorefresh.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.pulltorefresh.handmark.pulltorefresh.library.PullToRefreshListView;
-import com.sg.eyedoctor.ConstantValues;
 import com.sg.eyedoctor.R;
 import com.sg.eyedoctor.commUtils.academic.activity.AcademicWebActivity;
 import com.sg.eyedoctor.commUtils.academic.adapter.AcademicAdapter;
@@ -134,7 +133,14 @@ public class AcademicFragment extends BaseFragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(getActivity(), AcademicWebActivity.class);
-                intent.putExtra(ConstantValues.KEY_URL, mAcademics.get(position - 1));
+
+                Academic academic=mAcademics.get(position - 1);
+                intent.putExtra("url",academic.url);
+                intent.putExtra("id",academic.newsId);
+                intent.putExtra("title",academic.newsTitle);
+                intent.putExtra("type",academic.newsType);
+                intent.putExtra("push",false);
+
                 startActivity(intent);
             }
         });
