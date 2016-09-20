@@ -10,6 +10,7 @@ import android.widget.AbsListView;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.LinearLayout;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -92,6 +93,41 @@ public class UiUtils {
         emptyView.setTextColor(context.getResources().getColor(R.color.text_body_weak));
         emptyView.setVisibility(View.GONE);
         return  emptyView;
+    }
+
+    /**
+     * 通过listveiw的child view获取整个高度
+     * @param gridView
+     * @param paddingTop
+     * @param paddingBottom
+     */
+    public static void setViewHeightBasedOnChildren(GridView gridView, int paddingTop, int paddingBottom) {
+        // 获取listview的adapter
+        ListAdapter listAdapter = gridView.getAdapter();
+        if (listAdapter == null) {
+            return;
+        }
+        // 固定列宽，有多少列
+        int col = gridView.getNumColumns();
+        int totalHeight = 0;
+        // i每次加4，相当于listAdapter.getCount()小于等于4时 循环一次，计算一次item的高度，
+        // listAdapter.getCount()小于等于8时计算两次高度相加
+        for (int i = 0; i < listAdapter.getCount(); i += col) {
+            // 获取listview的每一个item
+            View listItem = listAdapter.getView(i, null, null);
+            listItem.measure(0, 0);
+            // 获取item的高度和
+            totalHeight += listItem.getMeasuredHeight();
+        }
+
+        // 获取listview的布局参数
+        ViewGroup.LayoutParams params = gridView.getLayoutParams();
+        // 设置高度
+        params.height = totalHeight + CommonUtils.dp2px(gridView.getContext(), paddingTop + paddingBottom);
+        // 设置margin
+        //   ((ViewGroup.MarginLayoutParams) params).setMargins(10, 10, 10, 10);
+        // 设置参数
+        gridView.setLayoutParams(params);
     }
 
 

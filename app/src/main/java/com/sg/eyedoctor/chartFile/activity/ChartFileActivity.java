@@ -27,14 +27,14 @@ import org.xutils.view.annotation.ViewInject;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 
+/**
+ * 病历夹-导入病历的时候调用
+ */
 @ContentView(R.layout.activity_chart_file)
 public class ChartFileActivity extends BaseActivity implements MedicalRecordExpandAdapter.GroupClick{
 
-
-
     @ViewInject(R.id.patient_smelv)
     private SwipeMenuExpandableListView mExpandableListView;
-
     @ViewInject(R.id.actionbar)
     private MyActionbar mActionbar;
 

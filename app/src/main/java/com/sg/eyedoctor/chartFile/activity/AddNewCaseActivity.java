@@ -22,6 +22,7 @@ import com.sg.eyedoctor.common.response.BaseArrayResp;
 import com.sg.eyedoctor.common.utils.AppManager;
 import com.sg.eyedoctor.common.utils.CommonUtils;
 import com.sg.eyedoctor.common.utils.NetCallback;
+import com.sg.eyedoctor.common.utils.UiUtils;
 import com.sg.eyedoctor.common.view.MyActionbar;
 import com.sg.eyedoctor.consult.advice.adapter.DiagnosticDrugAdapter;
 import com.sg.eyedoctor.consult.advice.bean.AdviceDrug;
@@ -56,30 +57,14 @@ public class AddNewCaseActivity extends BaseActivity implements DiagnosticDrugAd
     private EditText mCheckEt;
     @ViewInject(R.id.image_gv)
     private GridView mImageGv;
-//    @ViewInject(R.id.check_add_img)
-//    private ImageView mCheckAddImg;
-//    @ViewInject(R.id.check_lv)
-//    private NoScrollListView mCheckLv;
-//    @ViewInject(R.id.drug_add_img)
-//    private ImageView mDrugAddImg;
-//    @ViewInject(R.id.drug_lv)
-//    private NoScrollListView mDrugLv;
     private AdviceDrug mDrug;
     private PatientByGroup mPatient;
     private ArrayList<String> mSelectPath=new ArrayList<>();
     private AddImageGridAdapter mGridAdapter;
-//    private ArrayList<AdviceCheck> mChecks = new ArrayList<>();
-//    private ArrayList<AdviceDrug> mDrugs = new ArrayList<>();
-//    private ArrayList<AdviceDrug> mTempDrugs = new ArrayList<>();
-//    private DiagnosticCheckAdapter mCheckAdapter;
-//    private DiagnosticDrugAdapter mDrugAdapter;
-
-//    private ArrayList<DrugBean> drugBeans = new ArrayList<>();
-//    private ArrayList<CheckBean> checkBeans = new ArrayList<>();
     private ArrayList<PicBean> mPicBeans = new ArrayList<>();
 
-    //上传图片
-    private NetCallback mCallback = new NetCallback(mContext) {
+    //上传图片回调
+    private NetCallback mPicCallback = new NetCallback(mContext) {
         @Override
         protected void requestOK(String result) {
             if (CommonUtils.isResultOK(result)) {
@@ -97,6 +82,8 @@ public class AddNewCaseActivity extends BaseActivity implements DiagnosticDrugAd
             onTimeOut();
         }
     };
+
+    //发布回调
     private NetCallback mDataCallback = new NetCallback(mContext) {
         @Override
         protected void requestOK(String result) {
@@ -122,13 +109,6 @@ public class AddNewCaseActivity extends BaseActivity implements DiagnosticDrugAd
 
         mGridAdapter = new AddImageGridAdapter(this, mSelectPath, 4);
         mImageGv.setAdapter(mGridAdapter);
-
-//        mCheckAdapter = new DiagnosticCheckAdapter(this, mChecks, 0);
-//        mCheckLv.setAdapter(mCheckAdapter);
-//
-//        mDrugAdapter = new DiagnosticDrugAdapter(this, mDrugs, 0, this);
-//        mDrugLv.setAdapter(mDrugAdapter);
-
     }
 
     @Override
@@ -151,27 +131,6 @@ public class AddNewCaseActivity extends BaseActivity implements DiagnosticDrugAd
                 }
             }
         });
-
-//        mCheckLv.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-//            @Override
-//            public boolean onItemLongClick(AdapterView<?> parent, View view, final int position, long id) {
-//                DialogManager.showConfimCancelDlg(mContext, R.string.delete_confirm, new DlgClick() {
-//                    @Override
-//                    public boolean click() {
-//                        mChecks.remove(position);
-//                        mCheckAdapter.setData(mChecks);
-//                        UiUtils.setHeight(mContext, mCheckAdapter, mCheckLv);
-//                        return false;
-//                    }
-//                }, new DlgClick() {
-//                    @Override
-//                    public boolean click() {
-//                        return false;
-//                    }
-//                });
-//                return false;
-//            }
-//        });
     }
 
     @Override
@@ -196,83 +155,23 @@ public class AddNewCaseActivity extends BaseActivity implements DiagnosticDrugAd
         startActivityForResult(intent, ConstantValues.CHART_REQUEST_IMAGE);
     }
 
-//    @Event(R.id.check_add_img)
-//    private void addCheckImg(View view) {
-//        startActivityForResult(new Intent(this, CheckAdviceActivity.class), ConstantValues.CHART_REQUEST_CHECK);
-//    }
-
-//    @Event(R.id.drug_add_img)
-//    private void addDrugImg(View view) {
-//        startActivityForResult(new Intent(this, DrugAdviceActivity.class), ConstantValues.CHART_REQUEST_DRUG);
-//    }
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-//        if (requestCode == ConstantValues.CHART_REQUEST_DRUG && resultCode == RESULT_OK) {
-//            mTempDrugs = data.getParcelableArrayListExtra(ConstantValues.KEY_DATA);
-//            for (AdviceDrug grug : mDrugs) {
-//                for (int i = 0; i < mTempDrugs.size(); i++) {
-//                    AdviceDrug tempGrug = mTempDrugs.get(i);
-//                    if (tempGrug.id.equals(grug.id)) {
-//                        grug.count = grug.count + tempGrug.count;
-//                        mTempDrugs.remove(i);
-//                        continue;
-//                    }
-//                }
-//            }
-//            mDrugs.addAll(mTempDrugs);
-//            mDrugAdapter.setData(mDrugs);
-//        }
-//        if (requestCode == ConstantValues.CHART_REQUEST_CHECK && resultCode == RESULT_OK) {
-//            AdviceCheck check = data.getParcelableExtra(ConstantValues.KEY_DATA);
-//            for (int i = 0; i < mChecks.size(); i++) {
-//                AdviceCheck adviceCheck = mChecks.get(i);
-//                if (adviceCheck.id.equals(check.id)) {
-//                    mChecks.remove(i);
-//                }
-//            }
-//            mChecks.add(check);
-//            mCheckAdapter.setData(mChecks);
-//            UiUtils.setHeight(this, mCheckAdapter, mCheckLv);
-//        }
-
         if (requestCode == ConstantValues.CHART_REQUEST_IMAGE && resultCode == RESULT_OK) {
             mSelectPath = data.getStringArrayListExtra(MultiImageSelectorActivity.EXTRA_RESULT);
             mGridAdapter.setData(mSelectPath);
-            setViewHeightBasedOnChildren(mImageGv, 16, 16);
+            UiUtils.setViewHeightBasedOnChildren(mImageGv, 16, 16);
         }
     }
 
     @Override
     public void increase(int postion) {
-//        AdviceDrug grug = mDrugs.get(postion);
-//        grug.count++;
-//        mDrugAdapter.setData(mDrugs);
     }
 
     @Override
     public void decrease(final int postion) {
-//        mDrug = mDrugs.get(postion);
-//        if (mDrug.count - 1 == 0) {
-//            DialogManager.showConfimCancelDlg(mContext, R.string.delete_when_decrease_to_zero, new DlgClick() {
-//                @Override
-//                public boolean click() {
-//                    mDrugs.remove(postion);
-//                    mDrugAdapter.setData(mDrugs);
-//                    return false;
-//                }
-//            }, new DlgClick() {
-//                @Override
-//                public boolean click() {
-//                    return false;
-//                }
-//            });
-//        } else {
-//            mDrug.count--;
-//            mDrugAdapter.setData(mDrugs);
-//        }
     }
 
     @Override
@@ -290,15 +189,9 @@ public class AddNewCaseActivity extends BaseActivity implements DiagnosticDrugAd
             showToast("症状描述不能为空!");
             return;
         }
-//        for (AdviceDrug drug : mDrugs) {
-//            drugBeans.add(new DrugBean(drug.id, drug.name, drug.unit, drug.count + ""));
-//        }
-//        for (AdviceCheck check : mChecks) {
-//            checkBeans.add(new CheckBean(check.name, check.id));
-//        }
         showdialog();
         if (mSelectPath.size() != 0) {
-            BaseManager.pictureUpload(mSelectPath, mCallback);//上传图片
+            BaseManager.pictureUpload(mSelectPath, mPicCallback);//上传图片
         } else {
             BaseManager.newMedicalRecordAdd(mPatient.id, getText(mIllnessEt), getText(mContentEt), getText(mDrugEt), getText(mCheckEt), new ArrayList<PicBean>(), mDataCallback);
         }

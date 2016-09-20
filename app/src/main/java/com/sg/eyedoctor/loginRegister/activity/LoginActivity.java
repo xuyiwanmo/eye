@@ -264,32 +264,6 @@ public class LoginActivity extends BaseActivity {
     @Event(R.id.tv_forget_password)
     private void forgetPassword(View view) {
         startActivity(new Intent(LoginActivity.this, ForgetPasswordActivity.class));
-
-//        AlertDialog.Builder builder = new AlertDialog.Builder(mContext, R.style.MyDialogStyle);
-//        final AlertDialog dialog = builder.create();
-//        dialog.show();
-//        Window window = dialog.getWindow();
-//        window.getDecorView().setPadding(0, 0, 0, 0);
-//        //获得window窗口的属性
-//        android.view.WindowManager.LayoutParams lp = window.getAttributes();
-//        //设置dialog在屏幕底部
-//        window.setGravity(Gravity.BOTTOM);
-//        //设置窗口宽度为充满全屏
-//        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
-//        //设置窗口高度为包裹内容
-//        lp.height = WindowManager.LayoutParams.MATCH_PARENT;
-//        //将设置好的属性set回去
-//        window.setAttributes(lp);
-//        final PasswordView view1 = new PasswordView(mContext, "&&&&");
-//        view1.setOnFinishInput(new OnPasswordInputFinish() {
-//            @Override
-//            public void inputFinish() {
-//
-//                showToast("输入错误" + view1.getStrPassword());
-//                view1.clear();
-//            }
-//        });
-//        dialog.setContentView(view1);
     }
 
     @Event(R.id.tv_register_now)

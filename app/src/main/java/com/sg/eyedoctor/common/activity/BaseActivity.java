@@ -1,6 +1,5 @@
 package com.sg.eyedoctor.common.activity;
 
-import android.annotation.TargetApi;
 import android.app.AlertDialog;
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -12,8 +11,6 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.GridView;
 import android.widget.ListAdapter;
 import android.widget.TextView;
@@ -51,18 +48,40 @@ import com.sg.eyedoctor.loginRegister.helper.LogoutHelper;
 import com.sg.eyedoctor.main.activity.CertificationActivity;
 import com.umeng.analytics.MobclickAgent;
 
+/**
+ * Activity基类
+ */
 public abstract class BaseActivity extends SimpleActivity {
-    private ProgressDialog mProgressDialog;
-    public AlertDialog mLogoutDialog;
 
+    /**
+     *弹出对话框
+     */
+    private ProgressDialog mProgressDialog;
+    /**
+     * notification的id
+     */
+    private int mNotifyId = 1;
+    /**
+     * 当列表为空,显示的Text
+     */
+    protected TextView mEmptyTv;
+    /**
+     * 账号被踢dialog
+     */
+    public AlertDialog mLogoutDialog;
+    /**
+     * imageLoader参数配置
+     */
     public DisplayImageOptions mImageOptions;
+    /**
+     * 数据库获取的医生
+     */
     public static Doctor mDoctor;
+    /**
+     * 是否认证
+     */
     public boolean mIsAuth = false;
     public View dlgView;
-    private int mNotifyId = 1;
-
-    protected TextView mEmptyTv;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,21 +101,6 @@ public abstract class BaseActivity extends SimpleActivity {
         initListener();
     }
 
-
-    @TargetApi(19)
-    private void setTranslucentStatus(boolean on) {
-        Window win = getWindow();
-        WindowManager.LayoutParams winParams = win.getAttributes();
-        final int bits = WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS;
-        if (on) {
-            winParams.flags |= bits;
-        } else {
-            winParams.flags &= ~bits;
-        }
-        win.setAttributes(winParams);
-
-    }
-
     /**
      * 等待对话框
      */
@@ -113,6 +117,9 @@ public abstract class BaseActivity extends SimpleActivity {
         mProgressDialog.show();
     }
 
+    /**
+     * 关闭对话框
+     */
     public void closeDialog() {
         if (null != mProgressDialog && mProgressDialog.isShowing()) {
             mProgressDialog.dismiss();
@@ -161,7 +168,12 @@ public abstract class BaseActivity extends SimpleActivity {
             tv.setText(str);
         }
     }
-
+    public int getcolor(int id) {
+        return getResources().getColor(id);
+    }
+    /**
+     * 网络连接超时统一处理
+     */
     public void onTimeOut() {
         closeDialog();
         showToast(R.string.verticode_time_out);
@@ -170,38 +182,9 @@ public abstract class BaseActivity extends SimpleActivity {
         LoginActivity.start(this);
     }
 
-    public int getcolor(int id) {
-        return getResources().getColor(id);
-    }
 
-    public void setViewHeightBasedOnChildren(GridView gridView, int paddingTop, int paddingBottom) {
-        // 获取listview的adapter
-        ListAdapter listAdapter = gridView.getAdapter();
-        if (listAdapter == null) {
-            return;
-        }
-        // 固定列宽，有多少列
-        int col = gridView.getNumColumns();
-        int totalHeight = 0;
-        // i每次加4，相当于listAdapter.getCount()小于等于4时 循环一次，计算一次item的高度，
-        // listAdapter.getCount()小于等于8时计算两次高度相加
-        for (int i = 0; i < listAdapter.getCount(); i += col) {
-            // 获取listview的每一个item
-            View listItem = listAdapter.getView(i, null, null);
-            listItem.measure(0, 0);
-            // 获取item的高度和
-            totalHeight += listItem.getMeasuredHeight();
-        }
 
-        // 获取listview的布局参数
-        ViewGroup.LayoutParams params = gridView.getLayoutParams();
-        // 设置高度
-        params.height = totalHeight + CommonUtils.dp2px(this, paddingTop + paddingBottom);
-        // 设置margin
-        //   ((ViewGroup.MarginLayoutParams) params).setMargins(10, 10, 10, 10);
-        // 设置参数
-        gridView.setLayoutParams(params);
-    }
+
 
 
     @Override
@@ -240,7 +223,6 @@ public abstract class BaseActivity extends SimpleActivity {
         super.onPause();
         MobclickAgent.onResume(this);
         registerObserver(false);
-
     }
 
     public void logout() {

@@ -26,6 +26,7 @@ import com.sg.eyedoctor.common.utils.AppManager;
 import com.sg.eyedoctor.common.utils.CommonUtils;
 import com.sg.eyedoctor.common.utils.LogUtils;
 import com.sg.eyedoctor.common.utils.NetCallback;
+import com.sg.eyedoctor.common.utils.UiUtils;
 import com.sg.eyedoctor.common.view.MyActionbar;
 import com.sg.eyedoctor.lookPicture.activity.LookBigPicActivity;
 
@@ -370,7 +371,7 @@ public class InternetAddCaseActivity extends BaseActivity {
 
     private void notifyPicAdapter() {
         mRecAdapter.setData(mAllPics);
-        setViewHeightBasedOnChildren(mAddPhotoGv, 16, 16);
+        UiUtils.setViewHeightBasedOnChildren(mAddPhotoGv, 16, 16);
         mRecAdapter.notifyDataSetChanged();
     }
 }

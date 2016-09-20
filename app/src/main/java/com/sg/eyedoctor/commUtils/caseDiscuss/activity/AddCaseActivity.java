@@ -42,6 +42,7 @@ import com.sg.eyedoctor.common.utils.AppManager;
 import com.sg.eyedoctor.common.utils.CommonUtils;
 import com.sg.eyedoctor.common.utils.LogUtils;
 import com.sg.eyedoctor.common.utils.NetCallback;
+import com.sg.eyedoctor.common.utils.UiUtils;
 import com.sg.eyedoctor.common.view.MyActionbar;
 import com.sg.eyedoctor.contact.activity.FriendListActivity;
 import com.sg.eyedoctor.contact.bean.FriendList;
@@ -58,6 +59,8 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+
+import static com.sg.eyedoctor.common.utils.UiUtils.setViewHeightBasedOnChildren;
 
 /**
  * 添加患者病例
@@ -321,7 +324,7 @@ public class AddCaseActivity extends BaseActivity {
             if (resultCode == RESULT_OK) {
                 mHeads = data.getParcelableArrayListExtra(FriendListActivity.EXTRA_DATA);
                 mRoundAdapter.setData(mHeads);
-                setViewHeightBasedOnChildren(mAddHeadGv, 14, 14);
+                UiUtils.setViewHeightBasedOnChildren(mAddHeadGv, 14, 14);
                 mRoundAdapter.notifyDataSetChanged();
 
                 if (mHeads.size() != 0) {

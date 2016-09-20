@@ -186,7 +186,11 @@ public class AcademicWebActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        showdialog();
-        BaseManager.isCollection(mAcademic.newsId, mJudgeStoreCallback);
+
+        if(mAcademic.newsId!=null){
+            showdialog();
+            BaseManager.isCollection(mAcademic.newsId, mJudgeStoreCallback);
+        }
+
     }
 }

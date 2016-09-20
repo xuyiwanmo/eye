@@ -1,8 +1,6 @@
 package com.sg.eyedoctor;
 
 import android.app.Application;
-import android.content.Context;
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
@@ -38,26 +36,20 @@ import com.netease.nimlib.sdk.msg.model.CustomNotification;
 import com.netease.nimlib.sdk.uinfo.UserInfoProvider;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
-import com.sg.eyedoctor.commUtils.academic.activity.AcademicWebActivity;
-import com.sg.eyedoctor.commUtils.academic.bean.Academic;
 import com.sg.eyedoctor.common.utils.CrashHander;
 import com.sg.eyedoctor.common.utils.LogUtils;
 import com.sg.eyedoctor.main.activity.MainActivity;
 import com.umeng.analytics.MobclickAgent;
 import com.umeng.message.IUmengRegisterCallback;
 import com.umeng.message.PushAgent;
-import com.umeng.message.UmengNotificationClickHandler;
-import com.umeng.message.entity.UMessage;
 import com.umeng.socialize.PlatformConfig;
 
 import org.xutils.DbManager;
 import org.xutils.x;
 
-//import com.netease.nim.session.NimDemoLocationProvider;
-
 
 /**
- * Created by zhanghua on 2015/12/30.
+ * 初始化云信,ImageLoader,讯飞语音,友盟,xutils
  */
 public class BaseApp extends Application {
     private static BaseApp sInstance = null;
@@ -199,11 +191,7 @@ public class BaseApp extends Application {
 
         // 会话窗口的定制初始化。
         SessionHelper.init();
-
         enableAVChat();
-
-//        // 通讯录列表定制初始化
-//        ContactHelper.init();
         NIMClient.getService(MsgService.class).registerCustomAttachmentParser(new CustomAttachParser());
     }
 
@@ -304,33 +292,6 @@ public class BaseApp extends Application {
 
     private void umPush() {
         PushAgent mPushAgent = PushAgent.getInstance(this);
-
-        UmengNotificationClickHandler notificationClickHandler = new UmengNotificationClickHandler() {
-            @Override
-            public void dealWithCustomAction(Context context, UMessage msg) {
-                LogUtils.i("推送"+msg.extra);
-                Academic academic = new Academic();
-                academic.newsId = msg.extra.get("id");
-                academic.newsTitle = msg.extra.get("title");
-                academic.url = msg.extra.get("url");
-                academic.newsType = msg.extra.get("type");
-
-
-                //另有一个值type
-                Intent intent = new Intent(getApplicationContext(), AcademicWebActivity.class);
-             //   intent.putExtra(ConstantValues.KEY_URL, academic);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                intent.putExtra("url",academic.url);
-                intent.putExtra("id",academic.newsId);
-                intent.putExtra("title",academic.newsTitle);
-                intent.putExtra("type",academic.newsType);
-                startActivity(intent);
-            }
-        };
-        //使用自定义的NotificationHandler，来结合友盟统计处理消息通知
-        //参考http://bbs.umeng.com/thread-11112-1-1.html
-        //CustomNotificationHandler notificationClickHandler = new CustomNotificationHandler();
-     //  mPushAgent.setNotificationClickHandler(notificationClickHandler);
         //注册推送服务，每次调用register方法都会回调该接口
         mPushAgent.register(new IUmengRegisterCallback() {
 

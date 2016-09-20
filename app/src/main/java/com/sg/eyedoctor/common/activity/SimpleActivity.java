@@ -22,7 +22,19 @@ public abstract class SimpleActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         AppManager.getAppManager().addActivity(this);
         mContext=this;
+        //xutils初始化
         x.view().inject(this);
+
+        setStatusColor();
+
+        //友盟推送
+        PushAgent.getInstance(this).onAppStart();
+    }
+
+    /**
+     * 设置状态栏颜色
+     */
+    private void setStatusColor() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             setTranslucentStatus(true);
         }
@@ -30,11 +42,12 @@ public abstract class SimpleActivity extends FragmentActivity {
         SystemBarTintManager tintManager = new SystemBarTintManager(this);
         tintManager.setStatusBarTintEnabled(true);
         tintManager.setStatusBarTintResource(R.color.actionbar_color);
-
-        //umPush
-        PushAgent.getInstance(this).onAppStart();
     }
 
+    /**
+     * 设置状态栏一体化
+     * @param on
+     */
     @TargetApi(19)
     private void setTranslucentStatus(boolean on) {
         Window win = getWindow();
@@ -46,13 +59,19 @@ public abstract class SimpleActivity extends FragmentActivity {
             winParams.flags &= ~bits;
         }
         win.setAttributes(winParams);
-
     }
 
+    /**
+     * 初始化界面
+     */
     protected abstract void initView();
-
+    /**
+     * 初始化监听事件
+     */
     protected abstract void initListener();
-
+    /**
+     * 初始化自定义Actionbar
+     */
     protected abstract void initActionbar();
 
     @Override

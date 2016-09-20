@@ -23,7 +23,6 @@ import org.xutils.view.annotation.ViewInject;
 
 @ContentView(R.layout.activity_main)
 public class MainActivity extends BaseActivity {
-
     @ViewInject(R.id.ll_bottom_home)
     private LinearLayout mHomeLl;
     @ViewInject(R.id.ll_bottom_chart_file)
@@ -81,13 +80,6 @@ public class MainActivity extends BaseActivity {
                 onClickBottom(mMyLl);
                 break;
         }
-
-//        StatusCode status = NIMClient.getStatus();
-//
-//        if(status.wontAutoLogin()){
-//            showKilloutDlg(mContext);
-//        }
-
     }
 
     @Event({R.id.ll_bottom_home, R.id.ll_bottom_chart_file, R.id.ll_bottom_my, R.id.ll_bottom_circle})

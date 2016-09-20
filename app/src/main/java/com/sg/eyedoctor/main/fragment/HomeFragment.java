@@ -191,14 +191,6 @@ public class HomeFragment extends BaseFragment {
                 BaseArrayResp<UnreadCount> res = new Gson().fromJson(result, objectType);
 
                 initUnread(res.value);
-//                int count=res.value;
-//                if(count==0){
-//                    mTextCountTv.setVisibility(View.GONE);
-//                }else{
-//                    mTextCountTv.setText(count+"");
-//                    mTextCountTv.setVisibility(View.VISIBLE);
-//                }
-
             }
         }
 
@@ -379,7 +371,6 @@ public class HomeFragment extends BaseFragment {
 
                 break;
         }
-
     }
 
     public void startAuthActivity(String title) {

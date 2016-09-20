@@ -25,6 +25,7 @@ import com.sg.eyedoctor.common.response.BaseArrayResp;
 import com.sg.eyedoctor.common.utils.AppManager;
 import com.sg.eyedoctor.common.utils.CommonUtils;
 import com.sg.eyedoctor.common.utils.NetCallback;
+import com.sg.eyedoctor.common.utils.UiUtils;
 import com.sg.eyedoctor.eyeCircle.fragment.CircleTopicCaseFragment;
 import com.sg.eyedoctor.lookPicture.activity.LookBigPicActivity;
 
@@ -170,7 +171,7 @@ public class PublishCaseOrTopicActivity extends BaseActivity {
             if (resultCode == RESULT_OK) {
                 mSelectPath = data.getStringArrayListExtra(MultiImageSelectorActivity.EXTRA_RESULT);
                 mGridAdapter.setData(mSelectPath);
-                setViewHeightBasedOnChildren(mImageGv, 16, 16);
+                UiUtils.setViewHeightBasedOnChildren(mImageGv, 16, 16);
             }
         }
     }
