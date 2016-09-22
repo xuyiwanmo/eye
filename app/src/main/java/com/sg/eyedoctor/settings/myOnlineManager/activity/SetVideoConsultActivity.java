@@ -104,7 +104,7 @@ public class SetVideoConsultActivity extends BaseActivity {
             closeDialog();
             if (CommonUtils.isResultOK(result)) {
 
-                showToast(R.string.operation_ok);
+                showToast(R.string.open_ok);
                 mDoctor.videoIsOpen="True";
                 mDoctor.videoPrice = mPriceTv.getText().toString();
                 //提交了保存
@@ -215,9 +215,6 @@ public class SetVideoConsultActivity extends BaseActivity {
         mFridayLv.setAdapter(mFridayAdapter);
         mSaturdayLv.setAdapter(mSaturdayAdapter);
         mSundayLv.setAdapter(mSundayAdapter);
-
-        //zhang
-
         mIsOpen = mDoctor.videoIsOpen.equals("True");
         mPrice = mDoctor.videoPrice;
 
@@ -230,8 +227,6 @@ public class SetVideoConsultActivity extends BaseActivity {
             mPriceSv.setVisibility(View.GONE);
             mActionbar.setRightTvVisible(View.INVISIBLE);
         }
-
-
     }
 
     @Override
@@ -246,7 +241,7 @@ public class SetVideoConsultActivity extends BaseActivity {
 
     @Override
     protected void initActionbar() {
-        mActionbar.setRightTv(R.string.confirm, new View.OnClickListener() {
+        mActionbar.setRightTv(R.string.determine, new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -266,6 +261,15 @@ public class SetVideoConsultActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
+
+        if (mIsOpen) {
+            mPriceSv.setVisibility(View.VISIBLE);
+            mPriceTv.setText(mPrice);
+            mActionbar.setRightTvVisible(View.VISIBLE);
+        } else {
+            mPriceSv.setVisibility(View.GONE);
+            mActionbar.setRightTvVisible(View.INVISIBLE);
+        }
         showdialog();
         BaseManager.getVasAnnoucement(mQueryCallback);
     }
@@ -310,6 +314,9 @@ public class SetVideoConsultActivity extends BaseActivity {
         }
     }
 
+    /**
+     *启动对应的activity
+     */
     private void activityStart(ArrayList<VideoTime> timeSets) {
         Intent intent = new Intent(mContext, VideoTimeSettingActivity.class);
         intent.putExtra(ConstantValues.KEY_DAY, mDay);
@@ -317,6 +324,9 @@ public class SetVideoConsultActivity extends BaseActivity {
         startActivity(intent);
     }
 
+    /**
+     * 初始化时间
+     */
     private void initWeek() {
         mMondayTimes.clear();
         mTuesdayTimes.clear();
@@ -359,6 +369,9 @@ public class SetVideoConsultActivity extends BaseActivity {
         mTuesdayAdapter.setData(mTuesdayTimes);
     }
 
+    /**
+     * 开启或关闭 UI修改
+     */
     private void viewChange() {
 
         if (mIsOpen) {

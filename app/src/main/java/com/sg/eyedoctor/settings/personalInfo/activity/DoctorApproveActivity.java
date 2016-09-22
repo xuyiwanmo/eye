@@ -122,17 +122,14 @@ public class DoctorApproveActivity extends BaseActivity {
         protected void requestOK(String result) {
             closeDialog();
             if (CommonUtils.isResultOK(result)) {
-
                 showToast(R.string.approving_ok);
                 mDoctor.Authenticated = "认证中";
                 mDoctor.state = 1;
-
                 try {
                     x.db().saveOrUpdate(mDoctor);
                 } catch (DbException e) {
                     e.printStackTrace();
                 }
-
             } else {
                 showToast(R.string.post_fail);
             }
@@ -213,12 +210,10 @@ public class DoctorApproveActivity extends BaseActivity {
         if (mDoctor.idCard != null) {
             mIdcardTv.setText(mDoctor.idCard);
         }
-
         mUploadFile = new File(DoctorInfoActivity.SDCARD, DoctorInfoActivity.PATH + mDoctor.loginid + "/");
         if (!mUploadFile.exists()) {
             mUploadFile.mkdirs();
         }
-
         if (mIsAuth) {
             mPostTv.setVisibility(View.GONE);
         }
@@ -245,14 +240,12 @@ public class DoctorApproveActivity extends BaseActivity {
                 } else {
                     showToast(R.string.no_sdcard);
                 }
-
                 break;
 
             case CODE_RESULT_REQUEST:
                 if (intent != null) {
                     setImageToHeadView(intent);
                 }
-
                 break;
         }
 
@@ -319,7 +312,6 @@ public class DoctorApproveActivity extends BaseActivity {
 
     @Event(R.id.rl_my_update_approve)
     private void showPhotoDialog(View view) {
-
         final String[] items = getResources().getStringArray(
                 R.array.takephoto);
         new AlertDialog.Builder(DoctorApproveActivity.this)

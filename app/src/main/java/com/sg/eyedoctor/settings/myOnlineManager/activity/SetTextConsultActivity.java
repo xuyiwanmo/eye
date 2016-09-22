@@ -42,7 +42,7 @@ public class SetTextConsultActivity extends BaseActivity {
 
             closeDialog();
             if (CommonUtils.isResultOK(result)) {
-                showToast(R.string.post_ok);
+                showToast(R.string.open_ok);
                 LogUtils.i(mDoctor.textIsOpen);
                 mDoctor.textPrice=mPriceTv.getText().toString();
                 try {
@@ -98,7 +98,7 @@ public class SetTextConsultActivity extends BaseActivity {
 
     @Override
     protected void initActionbar() {
-        mActionbar.setRightTv(R.string.confirm, new View.OnClickListener() {
+        mActionbar.setRightTv(R.string.determine, new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String price = mPriceTv.getText().toString();
@@ -114,7 +114,9 @@ public class SetTextConsultActivity extends BaseActivity {
         });
     }
 
-
+    /**
+     * 开启或关闭 UI修改
+     */
     private void viewChange() {
 
         if (mIsOpen) {

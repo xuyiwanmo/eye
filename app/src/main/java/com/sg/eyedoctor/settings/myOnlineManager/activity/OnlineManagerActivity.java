@@ -70,7 +70,9 @@ public class OnlineManagerActivity extends BaseActivity {
         setPriceView(mDoctor.addIsOpen, mDoctor.addPrice, mAddOml);
     }
 
-
+    /**
+     * 判断服务是否开启
+     */
     private void setPriceView(String isOpen,String price, OnlineManagerLayout oml) {
         if(isOpen.equals("True")){//开通
             oml.setPriceTv(price+"元/次");

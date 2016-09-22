@@ -34,6 +34,7 @@ public class ConstantValues {
     public static final String KEY_DAY = "day";
     public static final String KEY_SOURCE = "source";
     public static final String KEY_ORDER = "order";
+    public static final String KEY_PUSH = "push";
 
     public static final String EXTRA_DATA = "EXTRA_DATA";
     public static final String EXTRA_HEAD = "EXTRA_HEAD";

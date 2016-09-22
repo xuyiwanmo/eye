@@ -8,7 +8,7 @@
     android:background="@color/gray_bg"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:fitsSystemWindows="true"
-    tools:context=".doctorAdvice.HospitalPatientListActivity">
+    >
 
 
     <com.sg.eyedoctor.common.view.MyActionbar

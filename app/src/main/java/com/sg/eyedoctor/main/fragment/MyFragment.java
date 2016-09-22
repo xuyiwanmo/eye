@@ -19,6 +19,7 @@ import com.sg.eyedoctor.main.bean.Earnings;
 import com.sg.eyedoctor.settings.myAccount.activity.AccountManageActivity;
 import com.sg.eyedoctor.settings.myOnlineManager.activity.OnlineManagerActivity;
 import com.sg.eyedoctor.settings.mySetting.activity.SettingActivity;
+import com.sg.eyedoctor.settings.mySetting.activity.ShareAppActivity;
 import com.sg.eyedoctor.settings.myStateMessage.activity.StateMessageActivity;
 import com.sg.eyedoctor.settings.myStore.activity.MyStoreActivity;
 import com.sg.eyedoctor.settings.myWallet.activity.MyWalletActivity;
@@ -53,6 +54,8 @@ public class MyFragment extends BaseFragment {
     private RelativeLayout mWalletRl;
     @ViewInject(R.id.my_store_rl)
     private RelativeLayout mStoreRl;
+    @ViewInject(R.id.rl_my_share_app)
+    private RelativeLayout mShareAppRl;
 
     private Earnings mEarnings;
 
@@ -126,6 +129,10 @@ public class MyFragment extends BaseFragment {
     @Event(R.id.my_store_rl)
     private void clickStore(View view) {
         startActivity(new Intent(getActivity(), MyStoreActivity.class));
+    }
+    @Event(R.id.rl_my_share_app)
+    private void shareApp(View view) {
+        startActivity(new Intent(getActivity(), ShareAppActivity.class));
     }
     @Event(R.id.rl_my_service_manager)
     private void clickService(View view) {

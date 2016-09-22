@@ -17,43 +17,25 @@ import org.xutils.view.annotation.ViewInject;
 @ContentView(R.layout.activity_account_manage)
 public class AccountManageActivity extends BaseActivity {
 
-    @ViewInject(R.id.actionbar)
+    @ViewInject(R.id.account_ma)
     private MyActionbar mActionbar;
-    @ViewInject(R.id.bank_card_mtv)
-    private MenuTextView mBankCardMtv;
+
     @ViewInject(R.id.alipay_mtv)
     private MenuTextView mAlipayMtv;
-    @ViewInject(R.id.withdrawal_mtv)
-    private MenuTextView mWithdrawalMtv;
 
     @Override
     protected void initView() {
-        mBankCardMtv.setShowTv(R.string.my_bank_card);
         mAlipayMtv.setShowTv(R.string.my_alipay);
-        mWithdrawalMtv.setShowTv(R.string.withdrawal_password);
     }
 
     @Override
     protected void initListener() {
-        mBankCardMtv.setClick(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
         mAlipayMtv.setClick(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(mContext, MyAlipayActivity.class));
             }
         });
-        mWithdrawalMtv.setClick(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-
     }
 
     @Override

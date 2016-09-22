@@ -27,6 +27,9 @@ import org.xutils.view.annotation.ViewInject;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 
+/**
+ * 住院患者列表
+ */
 @ContentView(R.layout.activity_hospital_patient_list)
 public class HospitalPatientListActivity extends BaseActivity {
     public static final int ROWS = 10;

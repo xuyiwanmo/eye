@@ -229,12 +229,31 @@
                 <View style="@style/style_bottom_line"/>
 
             </RelativeLayout>
+            <!--分享-->
+            <RelativeLayout
+                android:id="@+id/rl_my_share_app"
+                style="@style/style_rl_my_setting"
+                android:layout_marginTop="10dp">
 
+                <ImageView
+                    android:id="@+id/img_my_share_app"
+                    style="@style/style_img_my_setting"
+                    android:src="@drawable/ic_share_app"/>
+
+                <TextView
+                    style="@style/style_tv_my_setting"
+                    android:layout_toRightOf="@id/img_my_share_app"
+                    android:text="@string/my_share_app"/>
+
+                <ImageView style="@style/style_img_right_my_setting"/>
+
+                <View style="@style/style_bottom_line"/>
+
+            </RelativeLayout>
             <!--设置-->
             <RelativeLayout
                 android:id="@+id/rl_my_setting"
-                style="@style/style_rl_my_setting"
-                android:layout_marginTop="10dp">
+                style="@style/style_rl_my_setting">
 
                 <ImageView
                     android:id="@+id/img_my_setting"

@@ -629,6 +629,8 @@
     <string name="exit_app">退出应用</string>
     <string name="whether_exit_app">是否退出应用?</string>
     <string name="confirm">确认</string>
+    <string name="determine">确定</string>
+    <string name="open_ok">开通成功</string>
     <string name="cancel">取消</string>
     <string name="no_sdcard">没有sdcard</string>
     <string name="new_patient">新患者</string>
@@ -923,7 +925,7 @@
     <string name="more">更多</string>
     <string name="enter_right_price">价格为空，请重新设置</string>
     <string name="store_ok">收藏成功</string>
-    <string name="colse_ok">关闭服务成功</string>
+    <string name="colse_ok">关闭成功</string>
     <string name="save_advice_to_local">保存到本地</string>
     <string name="save_advice_to_server">提交到服务器</string>
     <string name="error_type">您选择的门诊类型和长期医嘱不符合,请重新选择长期医嘱!</string>
@@ -958,9 +960,9 @@
     <string name="remove_store_ok">取消收藏成功</string>
     <string name="topic_detail">话题详情</string>
     <string name="add_consult_desc">1.医生通过文字/图片/语音3种形式解答患者在线咨询问题。\n2.该价格为预约加号的费用，不包括就诊费用。</string>
-    <string name="phone_consult_desc">1.医生通过电话形式解答患者电话咨询的问题。\n2.患者购买服务后，客服介入负责联系双方空闲时段。到达约定时段系统自动拨通双方电话进行电话咨询。\n3.每次通话时长为15分钟，到时系统将自动终止本次通话。</string>
-    <string name="video_consult_desc">1.医生通过视频形式面对面解答患者咨询问题。\n2.每次服务，患者最多可以视频咨询15分钟。</string>
-    <string name="text_consult_desc">1.医生通过文字/图片/语音3种形式解答患者在线咨询问题。\n2.本服务不计时，若在双方最后一条回复的48小时后无人再应答，自动结束对话，双方无法再次对话。</string>
+    <string name="phone_consult_desc">1.医生通过电话形式解答患者电话咨询的问题。\n2.患者购买服务后，到达预约时间系统将自动拨通双方电话进行电话咨询，医生亦可提前发起通话。\n3.每次通话时长为15分钟，到时系统将自动终止本次通话。</string>
+    <string name="video_consult_desc">1.医生通过视频形式面对面解答患者咨询问题。\n2.视频由医生发起，每次视频时长为15分钟，到时系统将自动终止本次视频。 </string>
+    <string name="text_consult_desc">1.医生通过文字/图片/语音3种形式解答患者在线咨询问题。\n2.本服务不计时，由患者发起结束或医生发起结束患者确认，结束后双方无法再次对话。\n3.若患者提问后，一周内医生都未回复，则该订单失效，自动结束对话，后台退款给患者。</string>
 
 
     <!-- 云信  video start -->
@@ -1069,5 +1071,10 @@
     <string name="date_error">日期有误，请重新输入</string>
     <string name="consult_with_text">患者希望以图文的方式咨询</string>
     <string name="consult_with_video">患者希望以视频的方式咨询</string>
+    <string name="my_share_app">分享APP</string>
+    <string name="share_app_content">眼科通这么棒,分享给你好友吧!</string>
+    <string name="share">分享</string>
+    <string name="eye_doctor_download">眼科通下载</string>
+    <string name="eye_doctor_introduce">眼科通 一站式、安全、便捷、实惠、7 x 12小时在线、贴心、优质、经济...</string>
     <!--通用  end-->
 </resources>

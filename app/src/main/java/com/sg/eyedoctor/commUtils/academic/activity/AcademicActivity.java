@@ -32,10 +32,6 @@ public class AcademicActivity extends BaseActivity implements TopIndicator.OnTop
     private AcademicFragment mFragment2;
     private AcademicFragment mFragment3;
     private AcademicFragment mFragment4;
-    private AcademicFragment mFragment5;
-    private AcademicFragment mFragment6;
-    private AcademicFragment mFragment7;
-    private AcademicFragment mFragment8;
 
 
     @Override
@@ -45,12 +41,10 @@ public class AcademicActivity extends BaseActivity implements TopIndicator.OnTop
         mFragment3 =AcademicFragment.newInstance(7);
         mFragment4 =AcademicFragment.newInstance(8);
 
-
         mFragments.add(mFragment1);
         mFragments.add(mFragment2);
         mFragments.add(mFragment3);
         mFragments.add(mFragment4);
-
 
         mPagerAdapter = new TabPagerAdapter(getSupportFragmentManager(),mAcademicVp,mFragments,this);
         mIndicator.setLabels(getResources().getStringArray(R.array.academic_array), 14,48);

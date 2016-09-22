@@ -32,7 +32,6 @@ import com.sg.eyedoctor.common.utils.NetCallback;
 import com.sg.eyedoctor.consult.textConsult.request.ShareCheckParams;
 import com.sg.eyedoctor.consult.textConsult.request.ShareDrugParams;
 import com.sg.eyedoctor.consult.textConsult.request.VasDutyRosterSetParams;
-import com.sg.eyedoctor.consult.textConsult.request.VasPriceSetParams;
 import com.sg.eyedoctor.consult.videoConsult.request.ServiceRecordAddParams;
 import com.sg.eyedoctor.contact.bean.FriendList;
 import com.sg.eyedoctor.contact.request.AddFriendParams;
@@ -48,7 +47,6 @@ import com.sg.eyedoctor.helpUtils.doctorAdvice.request.GetAdviceParams;
 import com.sg.eyedoctor.helpUtils.doctorAdvice.request.GetAdvicePatientParams;
 import com.sg.eyedoctor.helpUtils.electronicRecords.request.CaseDownloadParams;
 import com.sg.eyedoctor.helpUtils.electronicRecords.request.NowPubliceEventParams;
-import com.sg.eyedoctor.helpUtils.electronicRecords.request.PubliceContentParams;
 import com.sg.eyedoctor.helpUtils.electronicRecords.request.PubliceListParams;
 import com.sg.eyedoctor.helpUtils.freeClinic.bean.PostClinicList;
 import com.sg.eyedoctor.helpUtils.freeClinic.request.FreeClinicAddParams;
@@ -62,6 +60,7 @@ import com.sg.eyedoctor.settings.myAccount.request.PayAccountAddParams;
 import com.sg.eyedoctor.settings.myOnlineManager.bean.PostVideoTime;
 import com.sg.eyedoctor.settings.myOnlineManager.request.VasServiceSetParams;
 import com.sg.eyedoctor.settings.myOnlineManager.request.VideoPostParams;
+import com.sg.eyedoctor.settings.mySetting.request.ShareAppParams;
 import com.sg.eyedoctor.settings.myStateMessage.request.StateMessageParams;
 import com.sg.eyedoctor.settings.personalInfo.activity.DoctorInfoActivity;
 import com.sg.eyedoctor.settings.personalInfo.request.DoctorApproveParams;
@@ -102,11 +101,9 @@ public class BaseManager {
     }
 
     protected static String toUtf(String str) {
-
         String strUTF8 = "";
         try {
             strUTF8 = java.net.URLEncoder.encode(str);
-            //    strUTF8 = URLDecoder.decode(str, "UTF-8");
             System.out.println(strUTF8);
         } catch (Exception e) {
             e.printStackTrace();
@@ -115,7 +112,9 @@ public class BaseManager {
         return strUTF8;
     }
 
-    //医生新增加号设置
+    /**
+     * 医生新增加号设置
+     */
     public static void xtrAppointmentAdd(int orderby, String beginSpan, String endSpan, String xtrAccount, String xtrHospital, String hosId, String xtrType, String xtrPrice, String remark, NetCallback netCallback) {
         XtrAppointmentAddParams params = new XtrAppointmentAddParams(getDoctor().id, orderby, beginSpan, endSpan, xtrAccount, xtrHospital, hosId, xtrType, xtrPrice, remark);
         LogUtils.i("xtrType " + xtrType);
@@ -123,14 +122,18 @@ public class BaseManager {
         HttpClient.post(params, netCallback);
     }
 
-    //医生修改加号设置
+    /**
+     *医生修改加号设置
+     */
     public static void xtrAppointmentUpdate(String id, String beginSpan, String endSpan, String xtrAccount, String xtrHospital, String hosId, String xtrType, String xtrPrice, String remark, NetCallback callback) {
         XtrAppointmentUpdateParams params = new XtrAppointmentUpdateParams(id, beginSpan, endSpan, xtrAccount, xtrHospital, hosId, xtrType, xtrPrice, remark);
         params.addHeader(VERIFYCODE, getVerifyCode());
         HttpClient.post(params, callback);
     }
 
-    //医生删除加号设置
+    /**
+     *医生删除加号设置
+     */
     public static void xtrAppointmentRemove(String id, NetCallback callback) {
         RequestParams params = new RequestParams(ConstantValues.HOST + "/Share/XtrAppointmentRemove");
         params.addHeader(VERIFYCODE, getVerifyCode());
@@ -139,7 +142,9 @@ public class BaseManager {
 
     }
 
-    //医生获取加号设置列表
+    /**
+     * 医生获取加号设置列表
+     */
     public static void getXtrAppointment(NetCallback callback) {
         RequestParams params = new RequestParams(ConstantValues.HOST + "/Share/GetXtrAppointment");
         params.addHeader(VERIFYCODE, getVerifyCode());
@@ -148,7 +153,9 @@ public class BaseManager {
 
     }
 
-    //医生医生修改加号预约信息(已就诊| 延时就诊)
+    /**
+     *医生医生修改加号预约信息(已就诊| 延时就诊)
+     */
     public static void xtrAppointmentListUpdate(String id, int visState, NetCallback callback) {
         RequestParams params = new RequestParams(ConstantValues.HOST + "/Share/XtrAppointmentListUpdate");
         params.addHeader(VERIFYCODE, getVerifyCode());
@@ -158,14 +165,18 @@ public class BaseManager {
 
     }
 
-    //医生获取患者加号预约信息列表(取最近7天数据)
+    /**
+     * 医生获取患者加号预约信息列表(取最近7天数据)
+     */
     public static void getXtrAppointmentList(String page, String rows, NetCallback callback) {
         XtrAppointmentListParams params = new XtrAppointmentListParams(getDoctor().id, page, rows);
         params.addHeader(VERIFYCODE, getVerifyCode());
         HttpClient.post(params, callback);
     }
 
-    //患者申请好友验证
+    /**
+     *    患者申请好友验证
+     */
     public static void pdFriendAdd(String doctorId, String patientId, NetCallback callback) {
         RequestParams params = new RequestParams(ConstantValues.HOST + "/Share/PDFriendAdd");
         params.addHeader(VERIFYCODE, getVerifyCode());
@@ -174,7 +185,9 @@ public class BaseManager {
         HttpClient.get(params, callback);
     }
 
-    //医生通过好友申请
+    /**
+     *     医生通过好友申请
+     */
     public static void pdFriendUpdate(String patientId, String validateId, NetCallback callback) {
         RequestParams params = new RequestParams(ConstantValues.HOST + "/Share/PDFriendUpdate");
         params.addHeader(VERIFYCODE, getVerifyCode());
@@ -184,16 +197,9 @@ public class BaseManager {
         HttpClient.get(params, callback);
     }
 
-    //医生获取患者加号预约信息列表(取最近7天数据)
-    public static void pdFriendRemove(String doctorId, String patientId, NetCallback callback) {
-        RequestParams params = new RequestParams(ConstantValues.HOST + "/Share/PDFriendRemove");
-        params.addHeader(VERIFYCODE, getVerifyCode());
-        params.addBodyParameter("doctorId", doctorId);
-        params.addBodyParameter("patientId", patientId);
-        HttpClient.get(params, callback);
-    }
-
-    //获取验证记录列表
+    /**
+     *获取验证记录列表
+     */
     public static void getPDValidateList(String visState, String patientName, NetCallback callback) {
         RequestParams params = new RequestParams(ConstantValues.HOST + "/Share/GetPDValidateList");
         params.addHeader(VERIFYCODE, getVerifyCode());
@@ -203,7 +209,9 @@ public class BaseManager {
         HttpClient.get(params, callback);
     }
 
-    //医生获取患者好友列表
+    /**
+     * 医生获取患者好友列表
+     */
     public static void getPDFriendList(String patientName, NetCallback callback) {
         RequestParams params = new RequestParams(ConstantValues.HOST + "/Share/GetPDFriendList");
         params.addHeader(VERIFYCODE, getVerifyCode());
@@ -212,34 +220,36 @@ public class BaseManager {
         HttpClient.get(params, callback);
     }
 
-    public static void getToolsEnglish(NetCallback callback) {
-        RequestParams params = new RequestParams("http://123.57.220.217:8080/tools/english");
-        HttpClient.post(params, callback);
-    }
-
-
-    //获取眼科检查列表-1
+    /**
+     *获取眼科检查列表-1
+     */
     public static void getEyeCheckList(NetCallback callback) {
         RequestParams params = new RequestParams(ConstantValues.HOST + "/Doctor/GetEyeCheckList");
         params.addHeader(VERIFYCODE, getVerifyCode());
         HttpClient.get(params, callback);
     }
 
-    //获取眼科常用英文-2
+    /**
+     *获取眼科常用英文-2
+     */
     public static void getEyeWordList(NetCallback callback) {
         RequestParams params = new RequestParams(ConstantValues.HOST + "/Doctor/GetEyeWordList");
         params.addHeader(VERIFYCODE, getVerifyCode());
         HttpClient.get(params, callback);
     }
 
-    //获取眼科常用值-3
+    /**
+     *获取眼科常用值-3
+     */
     public static void getEyeNVAList(NetCallback callback) {
         RequestParams params = new RequestParams(ConstantValues.HOST + "/Doctor/GetEyeNVAList");
         params.addHeader(VERIFYCODE, getVerifyCode());
         HttpClient.get(params, callback);
     }
 
-    //获取眼科常用药品-4-1
+    /**
+     *获取眼科常用药品-4-1
+     */
     public static void getEyeDrugList(String channelId, NetCallback callback) {
         RequestParams params = new RequestParams(ConstantValues.HOST + "/Doctor/GetEyeDrugList");
         params.addHeader(VERIFYCODE, getVerifyCode());
@@ -247,27 +257,35 @@ public class BaseManager {
         HttpClient.get(params, callback);
     }
 
-    //获取眼科常用药品分类-4
+    /**
+     * 获取眼科常用药品分类-4
+     */
     public static void getEyeDrugChannel(NetCallback callback) {
         RequestParams params = new RequestParams(ConstantValues.HOST + "/Doctor/GetEyeDrugChannel");
         params.addHeader(VERIFYCODE, getVerifyCode());
         HttpClient.get(params, callback);
     }
 
-    //获取人工晶体-5
+    /**
+     * 获取人工晶体-5
+     */
     public static void getCrystalParamList(NetCallback callback) {
         RequestParams params = new RequestParams(ConstantValues.HOST + "/Doctor/GetCrystalParamList");
         params.addHeader(VERIFYCODE, getVerifyCode());
         HttpClient.get(params, callback);
     }
 
-    //获取学术前沿列表-1
+    /**
+     * 获取学术前沿列表-1
+     */
     public static void getEyeFrontiersList(String page, String rows, String type, NetCallback callback) {
         NewsParams params=new NewsParams(page,rows,"1",type,"","");
         HttpClient.post(params, callback);
     }
 
-    //讨论中的病历
+    /**
+     * 讨论中的病历
+     */
     public static void discussionListFind(String page, String rows, String patientName, NetCallback callback) {
         RequestParams params = new RequestParams(ConstantValues.HOST + "/Doctor/DiscussionListFind");
         params.addHeader(VERIFYCODE, getVerifyCode());
@@ -278,7 +296,9 @@ public class BaseManager {
         HttpClient.get(params, callback);
     }
 
-    //发布病例讨论
+    /**
+     *发布病例讨论
+     */
     public static void discussionAdd(ArrayList<PicBean> picList, String patientName, String sex, String age, String illness, String diagnosisResult,
                                      ArrayList<MemberBean> memberIdList, String teamId, NetCallback callback) {
         DiscussAddParams params = new DiscussAddParams();
@@ -297,7 +317,9 @@ public class BaseManager {
         HttpClient.post(params, callback);
     }
 
-
+    /**
+     *病历讨论_删除成员
+     */
     public static void discussionMemberDelete(String disId, NetCallback callback) {
         RequestParams params = new RequestParams(ConstantValues.HOST + "/Doctor/DiscussionMemberDelete");
         params.addHeader(VERIFYCODE, getVerifyCode());
@@ -306,6 +328,9 @@ public class BaseManager {
         HttpClient.get(params, callback);
     }
 
+    /**
+     *病历讨论_添加成员
+     */
     public static void discussionMemberAdd(String disId, ArrayList<FriendList> friendLists, NetCallback callback) {
         AddDiscussMemberParams params = new AddDiscussMemberParams();
         params.disId = disId;
@@ -321,9 +346,10 @@ public class BaseManager {
         HttpClient.post(params, callback);
     }
 
-    //新增互联网会诊
+    /**
+     *新增互联网会诊
+     */
     public static void netConsultationAdd(ArrayList<PicBean> picList, String title, String detail, String patientName, String sex, String age, String illness, String illDetail, NetCallback callback) {
-
         NetConsultationAddParams params = new NetConsultationAddParams();
         params.addHeader(VERIFYCODE, getVerifyCode());
         params.patientName = patientName;
@@ -339,24 +365,27 @@ public class BaseManager {
         HttpClient.post(params, callback);
     }
 
-
+    /**
+     *互联网会诊_列表查询_所有
+     */
     public static void netConsultationListFind(int page, int rows, String doctorId, String title, NetCallback callback) {
         RequestParams params = new RequestParams(ConstantValues.HOST + "/Doctor/NetConsultationListFind");
         params.addHeader(VERIFYCODE, getVerifyCode());
         params.addBodyParameter("page", page + "");
         params.addBodyParameter("rows", rows + "");
-
         params.addBodyParameter("doctorId", doctorId);
         params.addBodyParameter("title", title);
         HttpClient.get(params, callback);
     }
 
+    /**
+     *互联网会诊_列表查询_我参与的
+     */
     public static void netConsultationJoinListFind(int page, int rows, String doctorId, String title, NetCallback callback) {
         RequestParams params = new RequestParams(ConstantValues.HOST + "/Doctor/NetConsultationJoinListFind");
         params.addHeader(VERIFYCODE, getVerifyCode());
         params.addBodyParameter("page", page + "");
         params.addBodyParameter("rows", rows + "");
-
         params.addBodyParameter("doctorId", doctorId);
         params.addBodyParameter("title", title);
         HttpClient.get(params, callback);
@@ -366,21 +395,17 @@ public class BaseManager {
      * 查看话题详情
      */
     public static void netConsultationDetailFind(String topicId, NetCallback callback) {
-
         RequestParams params = new RequestParams(ConstantValues.HOST + "/Doctor/NetConsultationDetailFind");
         params.addHeader("verifyCode", getVerifyCode());
         params.addBodyParameter("id", topicId);
         params.addBodyParameter("doctorId", getDoctor().id);
-
         HttpClient.get(params, callback);
-
     }
 
     /**
      * 添加评论接口
      */
     public static void internetCommentAdd(String consultId, String commentType, String comment, String reviewerId, NetCallback callback) {
-
         InternetCommentAddParams params = new InternetCommentAddParams(consultId, getDoctor().id, commentType, comment, reviewerId);
         LogUtils.i(params.toString());
         params.addHeader("verifyCode", getVerifyCode());
@@ -394,7 +419,6 @@ public class BaseManager {
         StopNoticeParams params = new StopNoticeParams(getDoctor().id, getDoctor().userName, stopReason, startDate, endDate, startSpan, endSpan, stopTypeList);
         params.addHeader("verifyCode", getVerifyCode());
         HttpClient.post(params, callback);
-
     }
 
     /**
@@ -427,16 +451,6 @@ public class BaseManager {
     }
 
     /**
-     * 取消收藏文章
-     */
-    public static void collectionRemove(String id, NetCallback callback) {
-        RequestParams params = new RequestParams(ConstantValues.HOST + "/Share/CollectionRemove");
-        params.addHeader("verifyCode", getVerifyCode());
-        params.addBodyParameter("id", id);
-        HttpClient.get(params, callback);
-    }
-
-    /**
      * 获取收藏列表
      */
     public static void getCollectionList(NetCallback callback) {
@@ -445,8 +459,6 @@ public class BaseManager {
         params.addBodyParameter("userId", getDoctor().id);
         HttpClient.get(params, callback);
     }
-
-    //我的钱包
 
     /**
      * 我的钱包
@@ -467,80 +479,6 @@ public class BaseManager {
         params.addHeader("verifyCode", getVerifyCode());
         params.addBodyParameter("doctorId", getDoctor().id);
         params.addBodyParameter("orderType", orderType);
-        HttpClient.get(params, callback);
-    }
-
-    //图文咨询
-
-    /**
-     * 服务价格设置
-     */
-    public static void vasPriceSet(String doctorId, String price, String type, NetCallback callback) {
-        VasPriceSetParams params = new VasPriceSetParams(doctorId, price, type);
-        params.addHeader("verifyCode", getVerifyCode());
-        HttpClient.post(params, callback);
-    }
-
-    /**
-     * 获取服务价格
-     */
-    public static void getVasPriceByType(String type, NetCallback callback) {
-        RequestParams params = new RequestParams(ConstantValues.HOST + "/Share/GetVasPriceByType");
-        params.addHeader("verifyCode", getVerifyCode());
-        params.addBodyParameter("doctorId", getDoctor().id);
-        params.addBodyParameter("type", type);
-        HttpClient.get(params, callback);
-    }
-
-    /**
-     * 提交图文咨询购买订单（无图片）
-     * 提交图文咨询购买订单（有图片）
-     */
-    public static void textOrderSubmitNoPic(String patientId, String orderAmount, String description, String payType, String orderType, ArrayList<String> filePath, NetCallback callback) {
-
-        RequestParams params;
-
-        if (filePath.size() != 0) {
-            params = new RequestParams(ConstantValues.HOST + "/Share/TextOrderSubmit");
-            params.setMultipart(true);
-            int i = 0;
-            for (String s : filePath) {
-                params.addBodyParameter("uploadFile" + i, new File(s));
-                i++;
-            }
-        } else {
-            params = new RequestParams(ConstantValues.HOST + "/Share/TextOrderSubmitNoPic");
-        }
-
-        params.addHeader(VERIFYCODE, getVerifyCode());
-        params.addHeader("doctorId", toUtf(getDoctor().id));
-        params.addHeader("patientId", toUtf(patientId));
-        params.addHeader("orderAmount", toUtf(orderAmount));
-        params.addHeader("description", toUtf(description));
-        params.addHeader("payType", toUtf(payType));
-        params.addHeader("orderType", toUtf(orderType));
-
-        HttpClient.post(params, callback);
-    }
-
-    /**
-     * 取消支付订单
-     */
-    public static void textOrderCancel(String orderId, NetCallback callback) {
-        RequestParams params = new RequestParams(ConstantValues.HOST + "/Share/TextOrderCancel");
-        params.addHeader("verifyCode", getVerifyCode());
-        params.addBodyParameter("orderId", orderId);
-        HttpClient.get(params, callback);
-    }
-
-    /**
-     * 患者完成支付
-     */
-    public static void textOrderCompleted(String orderId, String payAccount, NetCallback callback) {
-        RequestParams params = new RequestParams(ConstantValues.HOST + "/Share/TextOrderCompleted");
-        params.addHeader("verifyCode", getVerifyCode());
-        params.addBodyParameter("orderId", orderId);
-        params.addBodyParameter("payAccount", payAccount);
         HttpClient.get(params, callback);
     }
 
@@ -589,8 +527,6 @@ public class BaseManager {
      * 发表诊断建议
      */
     public static void diagnosisAdviceAdd(String orderId, String doctorId, String patientId, String result, String advice, String drug, String check, NetCallback callback) {
-//        String drug = new Gson().toJson(drugList);
-//        String check = new Gson().toJson(checkList);
         DiagnosisAdviceAddParams params = new DiagnosisAdviceAddParams(orderId, doctorId, patientId, result, advice, drug, check);
         params.addHeader("verifyCode", getVerifyCode());
         HttpClient.post(params, callback);
@@ -606,13 +542,14 @@ public class BaseManager {
         HttpClient.get(params, callback);
     }
 
-
+    /**
+     * 设置电话咨询排班时间
+     */
     public static void vasDutyRosterSet(int day, ArrayList<String> times, NetCallback callback) {
         VasDutyRosterSetParams params = new VasDutyRosterSetParams(getDoctor().id, day + "", new Gson().toJson(times));
         LogUtils.i(new Gson().toJson(times));
         params.addHeader("verifyCode", getVerifyCode());
         HttpClient.post(params, callback);
-
     }
 
     /**
@@ -633,16 +570,15 @@ public class BaseManager {
         params.addHeader("verifyCode", getVerifyCode());
         params.addBodyParameter("orderId", orderId);
         params.addBodyParameter("accId", accId);
-        //    params.addBodyParameter("caller", "18859230844");
         params.addBodyParameter("caller", caller);
-//        params.addBodyParameter("callee", "15959376806");
-//        params.addBodyParameter("caller", "13666011972");
         params.addBodyParameter("callee", callee);
         HttpClient.get(params, callback);
     }
 
+    /**
+     * 获取住院列表病人
+     */
     public static void getAdvicePatient(String page, String rows, NetCallback callback) {
-
         GetAdvicePatientParams params = new GetAdvicePatientParams();
         params.addHeader("verifyCode", getVerifyCode());
         params.page = page;
@@ -650,8 +586,10 @@ public class BaseManager {
         HttpClient.post(params, callback);
     }
 
+    /**
+     *获取检查项目
+     */
     public static void getAdviceCheck(String page, String rows, String fuzzyName, NetCallback callback) {
-
         GetAdviceCheckParams params = new GetAdviceCheckParams();
         params.addHeader("verifyCode", getVerifyCode());
         params.page = page;
@@ -660,8 +598,10 @@ public class BaseManager {
         HttpClient.post(params, callback);
     }
 
+    /**
+     * 获取药品
+     */
     public static void getAdviceDrug(String page, String rows, String fuzzyName, NetCallback callback) {
-
         GetAdviceDrugParams params = new GetAdviceDrugParams();
         params.addHeader("verifyCode", getVerifyCode());
         params.page = page;
@@ -670,31 +610,25 @@ public class BaseManager {
         HttpClient.post(params, callback);
     }
 
+    /**
+     *获取建议
+     */
     public static void getAdvice(String page, String rows, String zyh, NetCallback callback) {
         GetAdviceParams params = new GetAdviceParams();
-
         params.page = page;
         params.rows = rows;
         params.hisHospitalized = zyh;
-        //   params.hisHospitalized="53216";
-        params.addHeader("verifyCode", getVerifyCode());
-        HttpClient.post(params, callback);
-    }
-
-    public static void serviceRecordAdd(String count, String isFree, NetCallback callback) {
-        ServiceRecordAddParams params = new ServiceRecordAddParams(getDoctor().id, count, isFree);
         params.addHeader("verifyCode", getVerifyCode());
         HttpClient.post(params, callback);
     }
 
     /**
-     * 医生获取关注的患者列表
+     *获取免费咨询时间排班
      */
-    public static void getServiceRemind(NetCallback callback) {
-        RequestParams params = new RequestParams(ConstantValues.HOST + "/Share/GetServiceRemind");
+    public static void serviceRecordAdd(String count, String isFree, NetCallback callback) {
+        ServiceRecordAddParams params = new ServiceRecordAddParams(getDoctor().id, count, isFree);
         params.addHeader("verifyCode", getVerifyCode());
-        params.addBodyParameter("doctorId", getDoctor().id);
-        HttpClient.get(params, callback);
+        HttpClient.post(params, callback);
     }
 
     /**
@@ -707,7 +641,9 @@ public class BaseManager {
         HttpClient.get(params, callback);
     }
 
-    //加号搜索
+    /**
+     * 加号搜索
+     */
     public static void getServiceXtrRecordList(String xtrId, String patientName, NetCallback callback) {
         RequestParams params = new RequestParams(ConstantValues.HOST + "/Share/GetServiceXtrRecordList");
         params.addHeader("verifyCode", getVerifyCode());
@@ -718,6 +654,9 @@ public class BaseManager {
         HttpClient.get(params, callback);
     }
 
+    /**
+     *加号修改
+     */
     public static void serviceXtrRecordModify(String xtrId, int type, NetCallback callback) {
         RequestParams params = new RequestParams(ConstantValues.HOST + "/Share/ServiceXtrRecordModify");
         params.addHeader("verifyCode", getVerifyCode());
@@ -801,7 +740,6 @@ public class BaseManager {
      */
     public static void getLastestVersion(NetCallback callback) {
         RequestParams params = new RequestParams(ConstantValues.HOST + "/Share/GetLastestVersion");
-        //    params.addHeader("verifyCode", getVerifyCode());
         params.addBodyParameter("type", "1");
         HttpClient.get(params, callback);
     }
@@ -888,7 +826,6 @@ public class BaseManager {
         HttpClient.get(params, callback);
     }
 
-
     /**
      * 删除分组
      */
@@ -924,7 +861,6 @@ public class BaseManager {
     public static void getHosAddressBook(String deptid, NetCallback callback) {
         DeptDoctorParams params = new DeptDoctorParams(deptid);
         params.addHeader("verifyCode", getVerifyCode());
-
         HttpClient.post(params, callback);
     }
 
@@ -1150,8 +1086,6 @@ public class BaseManager {
         HttpClient.get(params, callback);
     }
 
-    //*****************************************评论  start********************************************
-
     /**
      * 发布话题
      */
@@ -1166,7 +1100,9 @@ public class BaseManager {
         HttpClient.post(params, callback);
     }
 
-    //删除眼科圈自己的文章
+    /**
+     *删除眼科圈自己的文章
+     */
     public static void topicDelete(String topicId, NetCallback callback) {
         RequestParams params = new RequestParams(ConstantValues.HOST + "/Circle/TopicDelete");
         params.addHeader("VerifyCode", getDoctor().verifyCode);
@@ -1174,7 +1110,9 @@ public class BaseManager {
         HttpClient.get(params, callback);
     }
 
-    //查询所有话题
+    /**
+     * 查询所有话题
+     */
     public static void topicListFind(int page, int rows, int type, NetCallback callback) {
         RequestParams params = new RequestParams(ConstantValues.HOST + "/Circle/TopicListFind");
         params.addHeader("VerifyCode", getVerifyCode());
@@ -1185,7 +1123,9 @@ public class BaseManager {
         HttpClient.get(params, callback);
     }
 
-    //删除互联网会诊
+    /**
+     *删除互联网会诊
+     */
     public static void netConsultationDelete(String consulId, NetCallback callback) {
         RequestParams params = new RequestParams(ConstantValues.HOST + "/Doctor/NetConsultationDelete");
         params.addHeader("VerifyCode", getVerifyCode());
@@ -1197,7 +1137,6 @@ public class BaseManager {
      * 查看话题详情
      */
     public static void topicDetailFind(String topicId, NetCallback callback) {
-
         RequestParams params = new RequestParams(ConstantValues.HOST + "/Circle/TopicDetailFind");
         params.addHeader("verifyCode", getVerifyCode());
         params.addBodyParameter("topicId", topicId);
@@ -1214,11 +1153,9 @@ public class BaseManager {
         HttpClient.post(params, callback);
     }
 
-    //*****************************************评论  end********************************************
-
-
-    //*****************************************通讯录  start****************************************
-    //查看好友验证列表
+    /**
+     * 查看好友验证列表
+     */
     public static void circleFriendInfo(int rows, int page, NetCallback callback) {
         RequestParams params = new RequestParams(ConstantValues.HOST + "/Circle/CircleFriendInfo");
         params.addHeader("VerifyCode", getDoctor().verifyCode);
@@ -1228,20 +1165,14 @@ public class BaseManager {
         HttpClient.get(params, callback);
     }
 
-    //查看好友列表接口
+    /**
+     *查看好友列表接口
+     */
     public static void circleFriendListFind(String doctorName, NetCallback callback) {
         RequestParams params = new RequestParams(ConstantValues.HOST + "/Circle/CircleFriendListFind");
         params.addHeader("VerifyCode", getDoctor().verifyCode);
         params.addBodyParameter("doctorId", getDoctor().id);
         params.addBodyParameter("doctorName", doctorName);
-        HttpClient.get(params, callback);
-    }
-
-    //查看发送好友列表接口
-    public static void circleApplyInfo(NetCallback callback) {
-        RequestParams params = new RequestParams(ConstantValues.HOST + "/Circle/CircleApplyInfo");
-        params.addHeader("VerifyCode", getDoctor().verifyCode);
-        params.addBodyParameter("doctorId", getDoctor().id);
         HttpClient.get(params, callback);
     }
 
@@ -1264,44 +1195,34 @@ public class BaseManager {
     }
 
     /**
-     * 删除好友接口
-     */
-    public static void circleFriendDelete(String friendId, String doctorId, NetCallback callback) {
-        RequestParams params = new RequestParams(ConstantValues.HOST + "/Circle/CircleFriendDelete");
-        params.addHeader("verifyCode", getDoctor().verifyCode);
-        params.addBodyParameter("friendId", friendId);
-        params.addBodyParameter("doctorId", doctorId);
-        HttpClient.post(params, callback);
-
-    }
-
-    /**
      * 通过手机或名字查找联系人
      */
     public static void circleFriendFind(String value, NetCallback callback) {
         RequestParams params = new RequestParams(ConstantValues.HOST + "/Circle/CircleFriendFind");
         params.addHeader("verifyCode", getDoctor().verifyCode);
         params.addBodyParameter("value", value);
-
         HttpClient.get(params, callback);
-
     }
 
-    //***********************************************通讯录   end***********************************
-    //***********************************************患者   start***********************************
-    //新增患者
+    /**
+     *新增患者
+     */
     public static void addPatient(PatientParams params, NetCallback callback) {
         params.addHeader(VERIFYCODE, getVerifyCode());
         HttpClient.post(params, callback);
     }
 
-    //查询所有的预约信息
+    /**
+     *查询所有的预约信息
+     */
     public static void queryAppointPatient(AppointPatientParams params, NetCallback callback) {
         params.addHeader(VERIFYCODE, getVerifyCode());
         HttpClient.post(params, callback);
     }
 
-    //获取所有患者
+    /**
+     *获取所有患者
+     */
     public static void queryAllPatient(String patientName, NetCallback callback) {
         RequestParams params = new RequestParams(ConstantValues.HOST + "/Doctor/GetPatientByDoc");
         params.addHeader(VERIFYCODE, getVerifyCode());
@@ -1310,7 +1231,9 @@ public class BaseManager {
 
     }
 
-    //查询医药详情
+    /**
+     *查询医药详情
+     */
     public static void queryDetail(String outpatientCard, NetCallback callback) {
         MedicialDetailParams params = new MedicialDetailParams();
         params.OutpatientCard = outpatientCard;
@@ -1319,8 +1242,10 @@ public class BaseManager {
     }
 
 
-    // 获取订单列表(医生端患者会话列表)
-    // 患者姓名(搜索功能使用，支持模糊搜索,搜索时可不用传state参数进行全局搜索)
+    /**
+     * 获取订单列表(医生端患者会话列表)
+     * 患者姓名(搜索功能使用，支持模糊搜索,搜索时可不用传state参数进行全局搜索)
+     */
     public static void queryConsult(String state, String orderType, String patientName, NetCallback callback) {
         RequestParams params = new RequestParams(ConstantValues.HOST + "/Share/GetTextOrderList");
         params.addHeader(VERIFYCODE, getVerifyCode());
@@ -1331,7 +1256,9 @@ public class BaseManager {
         HttpClient.get(params, callback);
     }
 
-    //病历夹->删除患者
+    /**
+     *病历夹->删除患者
+     */
     public static void deletePatient(String id, NetCallback callback) {
         DeletePatientParams params = new DeletePatientParams();
         params.id = id;
@@ -1339,35 +1266,44 @@ public class BaseManager {
         HttpClient.post(params, callback);
     }
 
-    // 移动患者到其他分组
+    /**
+     * 移动患者到其他分组
+      */
     public static void patientGroupMove(String patientId, String groupId, NetCallback callback) {
-
         PatientGroupMoveParams params = new PatientGroupMoveParams(patientId, groupId);
         params.addHeader(VERIFYCODE, getVerifyCode());
         HttpClient.get(params, callback);
     }
 
-    //更新患者信息
+    /**
+     *   更新患者信息
+     */
     public static void updatePatient(PatientParams params, NetCallback callback) {
         params.addHeader(VERIFYCODE, getVerifyCode());
         HttpClient.post(params, callback);
     }
 
-    //添加分组
+    /**
+     *添加分组
+     */
     public static void addGroup(String groupName, NetCallback callback) {
         AddGroupParams params = new AddGroupParams(groupName);
         params.addHeader(VERIFYCODE, getVerifyCode());
         HttpClient.post(params, callback);
     }
 
-    //  获取医生所属患者分组
+    /**
+     *获取医生所属患者分组
+      */
     public static void getGroupByDoc(NetCallback callback) {
         RequestParams params = new RequestParams(ConstantValues.HOST + "/Doctor/GetGroupByDoc");
         params.addHeader(VERIFYCODE, getVerifyCode());
         HttpClient.post(params, callback);
     }
 
-    //查询患者详情
+    /**
+     * 查询患者详情
+     */
     public static void getPatientByGroup(String groupId, NetCallback itemCallback) {
         PatientByGroupParams params = new PatientByGroupParams();
         params.addHeader(VERIFYCODE, getVerifyCode());
@@ -1376,17 +1312,19 @@ public class BaseManager {
         HttpClient.get(params, itemCallback);
     }
 
-    //病历讨论->病历详情
+    /**
+     *  病历讨论->病历详情
+     */
     public static void discussionDetailFind(String disId, NetCallback callback) {
         RequestParams params = new RequestParams(ConstantValues.HOST + "/Doctor/DiscussionDetailFind");
         params.addHeader(VERIFYCODE, getVerifyCode());
         params.addBodyParameter("disId", disId);
         HttpClient.get(params, callback);
     }
-    //***********************************************患者   end*************************************
 
-    //***********************************************医生用户  start*********************************
-    //注册
+    /**
+     *  注册
+     */
     public static void register(String account, String password, NetCallback callback) {
         RegisterParams params = new RegisterParams();
         params.Loginid = account;
@@ -1394,7 +1332,9 @@ public class BaseManager {
         HttpClient.post(params, callback);
     }
 
-    //登录
+    /**
+     *  登录
+     */
     public static void login(String name, String password, NetCallback callback) {
         LoginParams params = new LoginParams();
         params.loginId = name;
@@ -1402,14 +1342,18 @@ public class BaseManager {
         HttpClient.post(params, callback);
     }
 
-    //更新信息
+    /**
+     * 更新信息
+     */
     public static void updateInfo(DoctorUpdateParams params, NetCallback callback) {
         params.loginid = getDoctor().loginid;
         params.addHeader("VerifyCode", getDoctor().verifyCode);
         HttpClient.post(params, callback);
     }
 
-    //上传认证
+    /**
+     *上传认证
+     */
     public static void postApprove(NetCallback callback) {
         DoctorApproveParams params = new DoctorApproveParams();
         params.addHeader("VerifyCode", getDoctor().verifyCode);
@@ -1423,7 +1367,9 @@ public class BaseManager {
         HttpClient.post(params, callback);
     }
 
-    //上传头像
+    /**
+     *    上传头像
+     */
     public static void postHead(NetCallback callback) {
         String filePath = DoctorInfoActivity.SDCARD + DoctorInfoActivity.PATH + getDoctor().loginid + "/" + DoctorInfoActivity.HEAD_JPG;
         RequestParams params = new RequestParams(ConstantValues.HOST + "/Doctor/SetDoctorHead");
@@ -1433,20 +1379,26 @@ public class BaseManager {
         HttpClient.post(params, callback);
     }
 
-    //查询认证
+    /**
+     *查询认证
+     */
     public static void queryApprove(NetCallback callback) {
         RequestParams params = new RequestParams(ConstantValues.HOST + "/Doctor/GetLicenseInfo");
         params.addHeader("VerifyCode", getDoctor().verifyCode);
         HttpClient.get(params, callback);
     }
 
-    //获取验证码
+    /**获取验证码
+     *
+     */
     public static void getAuth(String phone, NetCallback callback) {
         GetAuthParams params = new GetAuthParams(phone);
         HttpClient.post(params, callback);
     }
 
-    //忘记密码
+    /**
+     *忘记密码
+     */
     public static void resetPassword(String loginid, String password, NetCallback callback) {
         ResetPasswordParams params = new ResetPasswordParams();
         params.loginid = loginid;
@@ -1454,7 +1406,9 @@ public class BaseManager {
         HttpClient.post(params, callback);
     }
 
-    //获取停诊通知记录
+    /**
+     * 获取停诊通知记录
+     */
     public static void getStopNotice(NetCallback callback) {
         RequestParams params = new RequestParams(ConstantValues.HOST + "/Share/GetStopNotice");
         params.addHeader("VerifyCode", getDoctor().verifyCode);
@@ -1462,7 +1416,9 @@ public class BaseManager {
         HttpClient.get(params, callback);
     }
 
-    //修改已读
+    /**
+     *修改已读
+     */
     public static void messageRead(String messageId, NetCallback callback) {
         RequestParams params = new RequestParams(ConstantValues.HOST + "/Share/MessageRead");
         params.addHeader("VerifyCode", getDoctor().verifyCode);
@@ -1470,13 +1426,18 @@ public class BaseManager {
         HttpClient.get(params, callback);
     }
 
-    //获取站内消息未读数
+    /**
+     * 获取站内消息未读数
+     */
     public static void getMessageCount(NetCallback callback) {
         RequestParams params = new RequestParams(ConstantValues.HOST + "/Share/GetMessageCountByDoc");
         params.addHeader("VerifyCode", getDoctor().verifyCode);
         HttpClient.post(params, callback);
     }
-    //获取图文咨询消息未读数
+
+    /**
+     *  获取图文咨询消息未读数
+     */
     public static void getChatCount(NetCallback callback) {
         RequestParams params = new RequestParams(ConstantValues.HOST + "/Share/GetChatCount");
         params.addHeader("VerifyCode", getDoctor().verifyCode);
@@ -1484,25 +1445,30 @@ public class BaseManager {
         params.addBodyParameter("source", "");
         HttpClient.get(params, callback);
     }
-    //药品搜索
+
+    /**
+     *药品搜索
+     */
     public static void searchEyeDrugList(String name,NetCallback callback) {
         RequestParams params = new RequestParams(ConstantValues.HOST + "/Doctor/SearchEyeDrugList");
         params.addBodyParameter("name", name);
         HttpClient.get(params, callback);
     }
 
-    //获取电子病历-1
+    /**
+     *  获取电子病历-1
+     */
     public static void getNowPubliceEvent(String pageNumber, String pageSize, NetCallback callback) {
         NowPubliceEventParams params = new NowPubliceEventParams();
         params.addHeader("VerifyCode", getDoctor().verifyCode);
         params.pageNumber = pageNumber;
         params.pageSize = pageSize;
-        //  params.doctorId=getDoctor().id;
-
         HttpClient.post(params, callback);
     }
 
-    //查询住院病人电子病历列表-2
+    /**
+     * 查询住院病人电子病历列表-2
+     */
     public static void getPubliceList(String pageNumber, String pageSize,String eventNo, NetCallback callback) {
         PubliceListParams params = new PubliceListParams();
         params.addHeader("VerifyCode", getDoctor().verifyCode);
@@ -1512,21 +1478,10 @@ public class BaseManager {
         HttpClient.post(params, callback);
     }
 
-    //获取文件-3
-    public static void getPubliceContent(String patientId, String emrId, String name, String eventNo, NetCallback callback) {
-        PubliceContentParams params = new PubliceContentParams();
-        params.addHeader("VerifyCode", getDoctor().verifyCode);
-        params.patientId = patientId;
-        params.emrId = emrId;
-        params.eventNo = eventNo;
-        params.name = name;
-
-        HttpClient.post(params, callback);
-    }
-
-    //文件下载
+    /**
+     *文件下载
+     */
     public static void caseLoad(String eventNo, String emrId, String patientId, String name, NetCallback callback) {
-
         CaseDownloadParams params = new CaseDownloadParams();
         params.addHeader("VerifyCode", getDoctor().verifyCode);
         params.emrId = emrId;
@@ -1534,10 +1489,11 @@ public class BaseManager {
         params.patientId = patientId;
         params.name = name;
         HttpClient.post(params, callback);
-
     }
 
-    //发送短信
+    /**
+     * 发送短信
+     */
     public static void sendMessage(String tel,String type,NetCallback callback) {
         SendMessageParams params=new SendMessageParams();
         params.addHeader("VerifyCode", getDoctor().verifyCode);
@@ -1547,7 +1503,13 @@ public class BaseManager {
         HttpClient.post(params, callback);
     }
 
-    //***********************************************医生用户  end***********************************
-
+    /**
+     * 分享app
+     */
+    public static void shareApp(NetCallback callback){
+        ShareAppParams params=new ShareAppParams();
+        params.addHeader("VerifyCode", getDoctor().verifyCode);
+        HttpClient.post(params, callback);
+    }
 
 }

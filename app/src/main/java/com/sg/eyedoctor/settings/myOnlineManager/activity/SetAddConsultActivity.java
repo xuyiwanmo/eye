@@ -52,7 +52,6 @@ public class SetAddConsultActivity extends BaseActivity {
     private XtrAppointment mCurrentAppoint;
     private int mClickPosition = 0;
     private int mCurrent = 0;
-
     private boolean mIsOpen = false;
     private String mPrice;
 
@@ -61,7 +60,7 @@ public class SetAddConsultActivity extends BaseActivity {
         protected void requestOK(String result) {
             closeDialog();
             if (CommonUtils.isResultOK(result)) {
-                showToast(R.string.post_ok);
+                showToast(R.string.open_ok);
                 mDoctor.addPrice=mPriceTv.getText().toString();
                 try {
                     x.db().saveOrUpdate(mDoctor);
@@ -83,7 +82,6 @@ public class SetAddConsultActivity extends BaseActivity {
             closeDialog();
             if (CommonUtils.isResultOK(result)) {
                 showToast(R.string.colse_ok);
-
             }
         }
 
@@ -183,7 +181,7 @@ public class SetAddConsultActivity extends BaseActivity {
 
     @Override
     protected void initActionbar() {
-        mActionbar.setRightTv(R.string.confirm, new View.OnClickListener() {
+        mActionbar.setRightTv(R.string.determine, new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String price = mPriceTv.getText().toString();
@@ -287,7 +285,6 @@ public class SetAddConsultActivity extends BaseActivity {
 
 
     private void viewChange() {
-
         if (mIsOpen) {
             mPriceSv.setVisibility(View.VISIBLE);
             mPriceTv.setText(mPrice);
@@ -308,8 +305,5 @@ public class SetAddConsultActivity extends BaseActivity {
             showdialog();
             BaseManager.vasServiceClose(mDoctor.addId, mCloseCallback);
         }
-
     }
-
-
 }

@@ -31,6 +31,9 @@ import org.xutils.x;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 
+/**
+ * 设置电话咨询
+ */
 @ContentView(R.layout.activity_set_phone_consult)
 public class SetPhoneConsultActivity extends BaseActivity {
     @ViewInject(R.id.open_dv)
@@ -41,7 +44,6 @@ public class SetPhoneConsultActivity extends BaseActivity {
     private ScrollView mPriceSv;
     @ViewInject(R.id.actionbar)
     private MyActionbar mActionbar;
-
     @ViewInject(R.id.monday_gv)
     private NoScroolGridView mMondayGv;
     @ViewInject(R.id.tuesday_gv)
@@ -94,7 +96,6 @@ public class SetPhoneConsultActivity extends BaseActivity {
                 }.getType();
                 BaseArrayResp<PhoneConsultTime> res = new Gson().fromJson(result, objectType);
                 sortWeek(res.value);
-
             }
         }
 
@@ -110,14 +111,13 @@ public class SetPhoneConsultActivity extends BaseActivity {
             closeDialog();
             if (CommonUtils.isResultOK(result)) {
 
-                showToast(R.string.phone_consult_open_ok);
+                showToast(R.string.open_ok);
                 mDoctor.phonePrice=mPriceTv.getText().toString();
                 try {
                     x.db().saveOrUpdate(mDoctor);
                 } catch (DbException e) {
                     e.printStackTrace();
                 }
-
             }
         }
 
@@ -140,13 +140,12 @@ public class SetPhoneConsultActivity extends BaseActivity {
         protected void timeOut() {
             onTimeOut();
         }
-
     };
 
 
     @Override
     protected void initActionbar() {
-        mActionbar.setRightTv(R.string.confirm, new View.OnClickListener() {
+        mActionbar.setRightTv(R.string.determine, new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String price = mPriceTv.getText().toString();
@@ -160,91 +159,6 @@ public class SetPhoneConsultActivity extends BaseActivity {
                 }
             }
         });
-    }
-
-    private void viewChange() {
-
-        if (mIsOpen) {
-            mPriceSv.setVisibility(View.VISIBLE);
-            mPriceTv.setText(mPrice);
-            mActionbar.setRightTvVisible(View.VISIBLE);
-            mDoctor.phoneIsOpen="True";
-            showdialog();
-            BaseManager.getVasDutyRoster(mCallback);
-
-        } else {
-            mPriceSv.setVisibility(View.GONE);
-            mActionbar.setRightTvVisible(View.INVISIBLE);
-            mDoctor.phoneIsOpen="False";
-            try {
-                x.db().saveOrUpdate(mDoctor);
-            } catch (DbException e) {
-                e.printStackTrace();
-            }
-            showdialog();
-            BaseManager.vasServiceClose(mDoctor.phoneId,mCloseCallback);
-        }
-    }
-
-    private void sortWeek(ArrayList<PhoneConsultTime> value) {
-        mMondayTimes.clear();
-        mTuesdayTimes.clear();
-        mWednesdayTimes.clear();
-        mThursdayTimes.clear();
-        mFridayTimes.clear();
-        mSaturdayTimes.clear();
-        mSundayTimes.clear();
-
-        mMondaySets.clear();
-        mTuesdaySets.clear();
-        mWednesdaySets.clear();
-        mThursdaySets.clear();
-        mFridaySets.clear();
-        mSaturdaySets.clear();
-        mSundaySets.clear();
-        for (PhoneConsultTime phoneConsultTime : value) {
-            phoneConsultTime.isFirst = true;
-            phoneConsultTime.count = 1;
-            switch (phoneConsultTime.week) {
-                case ConstantValues.MONDAY:
-                    mMondayTimes.add(phoneConsultTime);
-                    break;
-                case ConstantValues.TUESDAY:
-                    mTuesdayTimes.add(phoneConsultTime);
-                    break;
-                case ConstantValues.WEDNESDAY:
-                    mWednesdayTimes.add(phoneConsultTime);
-                    break;
-                case ConstantValues.THURSDAY:
-                    mThursdayTimes.add(phoneConsultTime);
-                    break;
-                case ConstantValues.FRIDAY:
-                    mFridayTimes.add(phoneConsultTime);
-                    break;
-                case ConstantValues.SATURDAY:
-                    mSaturdayTimes.add(phoneConsultTime);
-                    break;
-                case ConstantValues.SUNDAY:
-                    mSundayTimes.add(phoneConsultTime);
-                    break;
-            }
-        }
-
-        addTimes(mMondayTimes, mMondaySets);
-        addTimes(mTuesdayTimes, mTuesdaySets);
-        addTimes(mWednesdayTimes, mWednesdaySets);
-        addTimes(mThursdayTimes, mThursdaySets);
-        addTimes(mFridayTimes, mFridaySets);
-        addTimes(mSaturdayTimes, mSaturdaySets);
-        addTimes(mSundayTimes, mSundaySets);
-
-        mMondayAdapter.setData(mMondayTimes);
-        mTuesdayAdapter.setData(mTuesdayTimes);
-        mWednesdayAdapter.setData(mWednesdayTimes);
-        mThursdayAdapter.setData(mThursdayTimes);
-        mFridayAdapter.setData(mFridayTimes);
-        mSaturdayAdapter.setData(mSaturdayTimes);
-        mSundayAdapter.setData(mSundayTimes);
     }
 
     @Override
@@ -331,16 +245,6 @@ public class SetPhoneConsultActivity extends BaseActivity {
                 activityStart(mSundayTimes, mSundaySets, position);
             }
         });
-
-    }
-
-    private void activityStart(ArrayList<PhoneConsultTime> times, ArrayList<TimeSet> timeSets, int position) {
-        if (times.get(position).type == 1) {
-            Intent intent = new Intent(mContext, PhoneConsultTimeActivity.class);
-            intent.putExtra(ConstantValues.KEY_DAY, mDay);
-            intent.putParcelableArrayListExtra(ConstantValues.KEY_DATA, timeSets);
-            startActivity(intent);
-        }
     }
 
     @Override
@@ -398,6 +302,107 @@ public class SetPhoneConsultActivity extends BaseActivity {
             for (int i = 0; i < j; i++) {
                 times.add(new PhoneConsultTime(2));
             }
+        }
+    }
+
+    /**
+     *  开启关闭界面修改
+     */
+    private void viewChange() {
+        if (mIsOpen) {
+            mPriceSv.setVisibility(View.VISIBLE);
+            mPriceTv.setText(mPrice);
+            mActionbar.setRightTvVisible(View.VISIBLE);
+            mDoctor.phoneIsOpen="True";
+            showdialog();
+            BaseManager.getVasDutyRoster(mCallback);
+
+        } else {
+            mPriceSv.setVisibility(View.GONE);
+            mActionbar.setRightTvVisible(View.INVISIBLE);
+            mDoctor.phoneIsOpen="False";
+            try {
+                x.db().saveOrUpdate(mDoctor);
+            } catch (DbException e) {
+                e.printStackTrace();
+            }
+            showdialog();
+            BaseManager.vasServiceClose(mDoctor.phoneId,mCloseCallback);
+        }
+    }
+    /**
+     * 将就诊时间排序
+     */
+    private void sortWeek(ArrayList<PhoneConsultTime> value) {
+        mMondayTimes.clear();
+        mTuesdayTimes.clear();
+        mWednesdayTimes.clear();
+        mThursdayTimes.clear();
+        mFridayTimes.clear();
+        mSaturdayTimes.clear();
+        mSundayTimes.clear();
+
+        mMondaySets.clear();
+        mTuesdaySets.clear();
+        mWednesdaySets.clear();
+        mThursdaySets.clear();
+        mFridaySets.clear();
+        mSaturdaySets.clear();
+        mSundaySets.clear();
+        for (PhoneConsultTime phoneConsultTime : value) {
+            phoneConsultTime.isFirst = true;
+            phoneConsultTime.count = 1;
+            switch (phoneConsultTime.week) {
+                case ConstantValues.MONDAY:
+                    mMondayTimes.add(phoneConsultTime);
+                    break;
+                case ConstantValues.TUESDAY:
+                    mTuesdayTimes.add(phoneConsultTime);
+                    break;
+                case ConstantValues.WEDNESDAY:
+                    mWednesdayTimes.add(phoneConsultTime);
+                    break;
+                case ConstantValues.THURSDAY:
+                    mThursdayTimes.add(phoneConsultTime);
+                    break;
+                case ConstantValues.FRIDAY:
+                    mFridayTimes.add(phoneConsultTime);
+                    break;
+                case ConstantValues.SATURDAY:
+                    mSaturdayTimes.add(phoneConsultTime);
+                    break;
+                case ConstantValues.SUNDAY:
+                    mSundayTimes.add(phoneConsultTime);
+                    break;
+            }
+        }
+
+        addTimes(mMondayTimes, mMondaySets);
+        addTimes(mTuesdayTimes, mTuesdaySets);
+        addTimes(mWednesdayTimes, mWednesdaySets);
+        addTimes(mThursdayTimes, mThursdaySets);
+        addTimes(mFridayTimes, mFridaySets);
+        addTimes(mSaturdayTimes, mSaturdaySets);
+        addTimes(mSundayTimes, mSundaySets);
+
+        mMondayAdapter.setData(mMondayTimes);
+        mTuesdayAdapter.setData(mTuesdayTimes);
+        mWednesdayAdapter.setData(mWednesdayTimes);
+        mThursdayAdapter.setData(mThursdayTimes);
+        mFridayAdapter.setData(mFridayTimes);
+        mSaturdayAdapter.setData(mSaturdayTimes);
+        mSundayAdapter.setData(mSundayTimes);
+    }
+
+    /**
+     *启动对应的activity
+     */
+    private void activityStart(ArrayList<PhoneConsultTime> times, ArrayList<TimeSet> timeSets, int position) {
+        if (times.get(position).type == 1) {
+            Intent intent = new Intent(mContext, PhoneConsultTimeActivity.class);
+            intent.putExtra(ConstantValues.KEY_DAY, mDay);
+            intent.putParcelableArrayListExtra(ConstantValues.KEY_DATA, timeSets);
+            startActivity(intent);
         }
     }
 

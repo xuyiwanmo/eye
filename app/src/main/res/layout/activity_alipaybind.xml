@@ -6,8 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    android:orientation="vertical"
-    tools:context=".mySetting.AlipayBindActivity">
+    android:orientation="vertical">
 
     <com.sg.eyedoctor.common.view.MyActionbar
         android:layout_width="match_parent"
@@ -39,7 +38,7 @@
             android:textSize="@dimen/text_16"/>
 
         <EditText
-            android:id="@+id/name_et"
+            android:id="@+id/bind_name_et"
             android:textColor="@color/text_body_strong"
             android:textColorHint="@color/text_body_weak"
             android:textSize="@dimen/text_16"
@@ -70,7 +69,7 @@
             android:textSize="@dimen/text_16"/>
 
         <EditText
-            android:id="@+id/alipay_account_et"
+            android:id="@+id/bind_alipay_account_et"
             android:textColor="@color/text_body_strong"
             android:textColorHint="@color/text_body_weak"
             android:textSize="@dimen/text_16"

@@ -30,6 +30,9 @@ import org.xutils.view.annotation.ViewInject;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 
+/**
+ * 互联网会诊
+ */
 @ContentView(R.layout.fragment_internet_consult)
 public class InternetConsultationFragment extends BaseFragment {
     public static final String TYPE = "TYPE";

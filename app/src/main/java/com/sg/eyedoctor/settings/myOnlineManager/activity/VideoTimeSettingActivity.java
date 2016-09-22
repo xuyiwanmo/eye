@@ -53,7 +53,7 @@ public class VideoTimeSettingActivity extends BaseActivity implements VideoTimeS
         protected void requestOK(String result) {
             closeDialog();
             if (CommonUtils.isResultOK(result)) {
-                showToast(R.string.post_ok);
+                showToast(R.string.open_ok);
                 AppManager.getAppManager().finishActivity();
             }
         }
@@ -121,7 +121,7 @@ public class VideoTimeSettingActivity extends BaseActivity implements VideoTimeS
 
     @Override
     protected void initActionbar() {
-        mActionbar.setRightTv(R.string.confirm, new View.OnClickListener() {
+        mActionbar.setRightTv(R.string.determine, new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (!checkData()) {//时间冲突
@@ -178,6 +178,9 @@ public class VideoTimeSettingActivity extends BaseActivity implements VideoTimeS
         mAdapter.setData(mVideoTimes);
     }
 
+    /**
+     * 检查时间是否满足要求
+     */
     private boolean checkData() {
         for (VideoTime videoTime : mVideoTimes) {
             if (videoTime.endTime.compareTo(videoTime.startTime)<=0){
@@ -199,12 +202,13 @@ public class VideoTimeSettingActivity extends BaseActivity implements VideoTimeS
         return true;
     }
 
+    /**
+     * 初始化时间
+     */
     private void initList() {
         for (VideoTime videoTime : mVideoTimes) {
             videoTime.startTime= videoTime.serviceTime.substring(0, 5);
             videoTime.endTime= videoTime.serviceTime.substring(6, 11);
         }
     }
-
-
 }

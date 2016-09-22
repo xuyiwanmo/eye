@@ -1,9 +1,6 @@
 package com.sg.eyedoctor.lookPicture.activity;
 
-import android.animation.Animator;
-import android.animation.ValueAnimator;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.view.ViewTreeObserver;
@@ -15,10 +12,8 @@ import com.sg.eyedoctor.R;
 import com.sg.eyedoctor.common.activity.BaseActivity;
 import com.sg.eyedoctor.common.bean.PicLocalBean;
 import com.sg.eyedoctor.common.utils.CommonUtils;
-import com.sg.eyedoctor.common.utils.LogUtils;
 import com.sg.eyedoctor.common.view.MyActionbar;
 import com.sg.eyedoctor.common.view.photoview.HackyViewPager;
-import com.sg.eyedoctor.common.view.photoview.PhotoView;
 import com.sg.eyedoctor.lookPicture.adapter.ImageScaleAdapter;
 
 import org.xutils.view.annotation.ContentView;
@@ -28,7 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by mabeijianxi on 2016/1/5.
+ * 浏览大图
  */
 @ContentView(R.layout.activity_look_big_pic)
 public class LookBigPicActivity extends BaseActivity implements ViewTreeObserver.OnPreDrawListener
@@ -37,12 +32,11 @@ public class LookBigPicActivity extends BaseActivity implements ViewTreeObserver
     public static String PICDATALIST = "PICDATALIST";
     public static String CURRENTITEM = "CURRENTITEM";
     public static String EDIT = "edit";
-    private ImageScaleAdapter imageScaleAdapter;
+
     @ViewInject(R.id.viewpager)
     private HackyViewPager viewPager;
     @ViewInject(R.id.ll_dots)
     private LinearLayout ll_dots;
-
     @ViewInject(R.id.ll_root)
     private LinearLayout ll_root;
     @ViewInject(R.id.actionbar)
@@ -53,13 +47,10 @@ public class LookBigPicActivity extends BaseActivity implements ViewTreeObserver
     private ArrayList<PicLocalBean> picDataList;
     private ArrayList<String> deletePath = new ArrayList<>();
     private List<View> dotList = new ArrayList<>();
-
+    private ImageScaleAdapter imageScaleAdapter;
     private int currentItem;
     public int mPositon;
-    private int height;
-    private int width;
     private boolean edit;
-
 
     @Override
     protected void initView() {
@@ -117,7 +108,6 @@ public class LookBigPicActivity extends BaseActivity implements ViewTreeObserver
         Intent data = new Intent();
         data.putStringArrayListExtra(ConstantValues.KEY_DELETE, deletePath);
         setResult(RESULT_OK, data);
-        LogUtils.i("deletePath  " + deletePath.size());
         finish();
     }
 
@@ -143,46 +133,7 @@ public class LookBigPicActivity extends BaseActivity implements ViewTreeObserver
      */
     @Override
     public boolean onPreDraw() {
-//        viewPager.getViewTreeObserver().removeOnPreDrawListener(this);
-//        final View view = imageScaleAdapter.getPrimaryItem();
-//        final PhotoView imageView = (PhotoView) ((ViewGroup) view).getChildAt(0);
-
-        //    computeImageWidthAndHeight(imageView);
         return true;
-    }
-
-    /**
-     * 进场动画过程监听
-     *
-     * @param valueAnimator
-     */
-    private void addIntoListener(ValueAnimator valueAnimator) {
-        valueAnimator.addListener(new Animator.AnimatorListener() {
-            @Override
-            public void onAnimationStart(Animator animation) {
-                ll_root.setBackgroundColor(0x0);
-                mActionbar.setTitleVisible(View.INVISIBLE);
-                //  rl_title.setVisibility(View.INVISIBLE);
-                ll_bottom_all.setVisibility(View.INVISIBLE);
-            }
-
-            @Override
-            public void onAnimationEnd(Animator animation) {
-                mActionbar.setTitleVisible(View.VISIBLE);
-                // rl_title.setVisibility(View.VISIBLE);
-                ll_bottom_all.setVisibility(View.VISIBLE);
-            }
-
-            @Override
-            public void onAnimationCancel(Animator animation) {
-
-            }
-
-            @Override
-            public void onAnimationRepeat(Animator animation) {
-
-            }
-        });
     }
 
     /**
@@ -241,63 +192,6 @@ public class LookBigPicActivity extends BaseActivity implements ViewTreeObserver
             dotList.add(view);
         }
     }
-
-    /**
-     * 计算图片的宽高
-     *
-     * @param imageView
-     */
-    private void computeImageWidthAndHeight(PhotoView imageView) {
-
-//      获取真实大小
-        Drawable drawable = imageView.getDrawable();
-        int intrinsicHeight = drawable.getIntrinsicHeight();
-        int intrinsicWidth = drawable.getIntrinsicWidth();
-//        计算出与屏幕的比例，用于比较以宽的比例为准还是高的比例为准，因为很多时候不是高度没充满，就是宽度没充满
-        float h = CommonUtils.getScreenSizeHeight(this) * 1.0f / intrinsicHeight;
-        float w = CommonUtils.getScreenSizeWidth(this) * 1.0f / intrinsicWidth;
-        if (h > w) {
-            h = w;
-        } else {
-            w = h;
-        }
-//      得出当宽高至少有一个充满的时候图片对应的宽高
-        height = (int) (intrinsicHeight * h);
-        width = (int) (intrinsicWidth * w);
-    }
-
-    /**
-     * 退场动画过程监听
-     *
-     * @param valueAnimator
-     */
-    private void addOutListener(ValueAnimator valueAnimator) {
-        valueAnimator.addListener(new Animator.AnimatorListener() {
-            @Override
-            public void onAnimationStart(Animator animation) {
-                ll_root.setBackgroundColor(0x0);
-                mActionbar.setTitleVisible(View.INVISIBLE);
-                //rl_title.setVisibility(View.INVISIBLE);
-                ll_bottom_all.setVisibility(View.INVISIBLE);
-            }
-
-            @Override
-            public void onAnimationEnd(Animator animation) {
-                finish();
-            }
-
-            @Override
-            public void onAnimationCancel(Animator animation) {
-
-            }
-
-            @Override
-            public void onAnimationRepeat(Animator animation) {
-
-            }
-        });
-    }
-
     @Override
     public void isDown() {
 

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_share_app"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="com.sg.eyedoctor.settings.mySetting.activity.ShareAppActivity"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.sg.eyedoctor.common.view.MyActionbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:rightBtn_visible="false"
+        app:actionbar_title="@string/my_share_app"/>
+
+    <TextView
+        android:textColor="@color/text_body_strong"
+        android:padding="10dp"
+        android:textSize="@dimen/text_16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/share_app_content"/>
+
+    <ImageView
+        android:layout_marginTop="40dp"
+        android:id="@+id/share_url_img"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="120dp"
+        android:layout_height="120dp"/>
+
+    <TextView
+        android:id="@+id/share_number_tv"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center_horizontal"
+        android:textSize="@dimen/text_16"
+        android:textColor="@color/text_body_strong"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="邀请码: 123456"/>
+
+    <TextView
+        android:layout_below="@id/line3"
+        android:id="@+id/share_url_tv"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/bg_blue_text_white"
+        android:gravity="center"
+        android:text="@string/share"
+        android:textColor="@color/white"
+        android:textSize="18sp" />
+
+</LinearLayout>

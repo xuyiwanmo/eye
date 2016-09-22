@@ -6,17 +6,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".mySetting.MonthIncomeDetailActivity"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <com.sg.eyedoctor.common.view.MyActionbar
-        android:id="@+id/actionbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
 
-    <com.sg.eyedoctor.common.view.MenuTextView
-        app:menu_text="@string/my_bank_card"
-        android:visibility="gone"
-        android:id="@+id/bank_card_mtv"
+    <com.sg.eyedoctor.common.view.MyActionbar
+        android:id="@+id/account_ma"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
@@ -26,10 +19,4 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
-    <com.sg.eyedoctor.common.view.MenuTextView
-        app:menu_text="@string/withdrawal_password"
-        android:visibility="gone"
-        android:id="@+id/withdrawal_mtv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
 </LinearLayout>

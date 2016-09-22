@@ -21,9 +21,9 @@ import org.xutils.view.annotation.ViewInject;
  */
 @ContentView(R.layout.activity_alipaybind)
 public class AlipayBindActivity extends BaseActivity {
-    @ViewInject(R.id.name_et)
+    @ViewInject(R.id.bind_name_et)
     private EditText mNameEt;
-    @ViewInject(R.id.alipay_account_et)
+    @ViewInject(R.id.bind_alipay_account_et)
     private EditText mAlipayAccountEt;
     @ViewInject(R.id.bind_tv)
     private TextView mBindTv;

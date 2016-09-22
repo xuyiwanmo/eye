@@ -6,8 +6,8 @@ import android.webkit.WebView;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.sg.eyedoctor.ConstantValues;
 import com.sg.eyedoctor.R;
-import com.sg.eyedoctor.commUtils.academic.bean.Academic;
 import com.sg.eyedoctor.common.activity.BaseActivity;
 import com.sg.eyedoctor.common.manager.BaseManager;
 import com.sg.eyedoctor.common.response.BaseResp;
@@ -34,9 +34,15 @@ public class AcademicWebActivity extends BaseActivity {
     private MyActionbar mActionbar;
     @ViewInject(R.id.academic_wv)
     private WebView mAcademicWv;
-    private Academic mAcademic;
+
     private boolean mIsCollect = false;
-    private String title;
+    private String mTitle;
+    private String mType;
+    private String mId;
+    private String mUrl;
+    /**
+     * 是否是友盟推送进入
+     */
     private boolean mIsPush=true;
     private NetCallback mStoreCallback = new NetCallback(this) {
         @Override
@@ -101,32 +107,22 @@ public class AcademicWebActivity extends BaseActivity {
             onTimeOut();
         }
     };
-    private String type;
-    private String id;
-    private String url;
+
 
 
     @Override
     protected void initView() {
-        //  mAcademic = (Academic) getIntent().getSerializableExtra(ConstantValues.KEY_URL);
-        //   if(mAcademic==null){
-        mAcademic=new Academic();
-        url = getIntent().getStringExtra("url");
-        id = getIntent().getStringExtra("id");
-        title = getIntent().getStringExtra("title");
-        type = getIntent().getStringExtra("type");
-        mIsPush=getIntent().getBooleanExtra("push",true);
 
-        mAcademic.newsTitle = title;
-        mAcademic.url = url;
-        mAcademic.newsId = id;
-        mAcademic.newsType = type == null ? "1" : type;
-        //  }
-        title = mAcademic.newsTitle;
+        mUrl = getIntent().getStringExtra(ConstantValues.KEY_URL);
+        mId = getIntent().getStringExtra(ConstantValues.KEY_ID);
+        mTitle = getIntent().getStringExtra(ConstantValues.KEY_TITLE);
+        mType = getIntent().getStringExtra(ConstantValues.KEY_TYPE);
+        mIsPush=getIntent().getBooleanExtra(ConstantValues.KEY_PUSH,true);
+
         WebSettings webSettings = mAcademicWv.getSettings();
         webSettings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);
         webSettings.setJavaScriptEnabled(true);
-        mAcademicWv.loadUrl(mAcademic.url);
+        mAcademicWv.loadUrl(mUrl);
         mActionbar.setSecondbtnVisible(View.VISIBLE);
         mActionbar.setTitle(R.string.news_detail);
 
@@ -148,7 +144,7 @@ public class AcademicWebActivity extends BaseActivity {
                     public void onCancel(SHARE_MEDIA share_media) {
                         showToast(share_media + "分享取消");
                     }
-                }, title, "眼科通学术前沿", mAcademic.url);
+                }, mTitle, "眼科通学术前沿", mUrl);
             }
         });
         mActionbar.setSecondBtnImg(R.drawable.selector_chart_store, new View.OnClickListener() {
@@ -157,9 +153,9 @@ public class AcademicWebActivity extends BaseActivity {
                 String picture = "";
                 showdialog();
                 if (mIsCollect) {//收藏->取消
-                    BaseManager.collectionCancel(mAcademic.newsId + "", mCancelCallback);
+                    BaseManager.collectionCancel(mId + "", mCancelCallback);
                 } else {//未收藏->收藏
-                    BaseManager.collectionAdd(mAcademic.newsId, mDoctor.id, "1", mAcademic.newsTitle, picture, mAcademic.url, mStoreCallback);
+                    BaseManager.collectionAdd(mId, mDoctor.id, "1", mTitle, picture, mUrl, mStoreCallback);
                 }
             }
         });
@@ -187,9 +183,9 @@ public class AcademicWebActivity extends BaseActivity {
     protected void onResume() {
         super.onResume();
 
-        if(mAcademic.newsId!=null){
+        if(mId!=null){
             showdialog();
-            BaseManager.isCollection(mAcademic.newsId, mJudgeStoreCallback);
+            BaseManager.isCollection(mId, mJudgeStoreCallback);
         }
 
     }

@@ -91,10 +91,10 @@ public class MyStoreActivity extends BaseActivity {
                     academic.url = item.webUrl;
 
                     Intent intent = new Intent(mContext, AcademicWebActivity.class);
-                    intent.putExtra("url",academic.url);
-                    intent.putExtra("id",academic.newsId);
-                    intent.putExtra("title",academic.newsTitle);
-                    intent.putExtra("push",false);
+                    intent.putExtra(ConstantValues.KEY_URL,academic.url);
+                    intent.putExtra(ConstantValues.KEY_ID,academic.newsId);
+                    intent.putExtra(ConstantValues.KEY_TITLE,academic.newsTitle);
+                    intent.putExtra(ConstantValues.KEY_PUSH,false);
                     startActivity(intent);
                 } else if(item.sourceType == ConstantValues.STORE_INTERNET){
                     InternetConsult consult = new InternetConsult();

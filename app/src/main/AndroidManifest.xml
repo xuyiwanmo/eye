@@ -60,8 +60,7 @@
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
         <activity
             android:name=".loginRegister.activity.LoginActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".loginRegister.activity.RegisterActivity"
             android:screenOrientation="portrait"/>
@@ -101,22 +100,18 @@
             android:screenOrientation="portrait"/>
         <activity
             android:name=".eyeCircle.activity.PublishCaseOrTopicActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".contact.activity.DoctorDetailActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".contact.activity.NewFriendActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".eyeCircle.activity.CaseDetailActivity"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustUnspecified|stateHidden">
-        </activity>
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"/>
         <activity
             android:name="com.nereo.multi_image_selector.MultiImageSelectorActivity"
             android:screenOrientation="portrait"/>
@@ -125,42 +120,33 @@
             android:screenOrientation="portrait"/>
         <activity
             android:name=".contact.activity.FriendListActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".contact.activity.AddFriendActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".commUtils.plusManager.activity.PlusManagerActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".commUtils.plusManager.activity.PlusSettingActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".commUtils.plusManager.activity.EditPlusInfoActivity"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustUnspecified|stateHidden">
-        </activity>
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"/>
         <activity
             android:name=".commUtils.patientReport.activity.PatientReportActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".commUtils.caseDiscuss.activity.CaseDiscussActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".commUtils.internetConsult.activity.InternetConsultationActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".commUtils.toolbox.activity.ToolBoxActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".commUtils.toolbox.activity.EyeCheckActivity"
             android:screenOrientation="portrait"/>
@@ -187,49 +173,39 @@
             android:screenOrientation="portrait"/>
         <activity
             android:name=".commUtils.academic.activity.AcademicActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".commUtils.caseDiscuss.activity.AddCaseActivity"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustUnspecified|stateHidden">
-        </activity>
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"/>
         <activity
             android:name=".commUtils.academic.activity.AcademicWebActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".commUtils.caseDiscuss.activity.LookPatientCaseActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".commUtils.caseDiscuss.activity.AllMemberActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".commUtils.caseDiscuss.activity.ChooseContactActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".commUtils.internetConsult.activity.InternetAddCaseActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".commUtils.internetConsult.activity.InternetConsultDetailActivity"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustResize">
-        </activity>
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
         <activity
             android:name=".commUtils.internetConsult.activity.EditCommentActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustResize">
-        </activity>
+            android:windowSoftInputMode="adjustResize"/>
         <activity
             android:name=".helpUtils.stopDiagnoseNotice.activity.StopDiagnoseNoticeActivity"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".consult.advice.activity.DrugAdviceActivity"
             android:screenOrientation="portrait"
@@ -243,12 +219,304 @@
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity
+            android:name=".settings.myStateMessage.activity.StateMessageActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".helpUtils.massNotice.activity.MassNoticeActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity
+            android:name=".helpUtils.massNotice.activity.MassChooseContactActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".helpUtils.doctorAsist.activity.DoctorAssistActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".helpUtils.doctorAsist.activity.LeaveWordActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".contact.activity.ContactActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".settings.mySetting.activity.SettingActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".settings.myWallet.activity.MonthIncomeDetailActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".settings.myAccount.activity.AccountManageActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".settings.myWallet.activity.MyWalletActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".settings.myAccount.activity.WithdrawalActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".settings.myAccount.activity.AlipayBindActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".settings.myWallet.activity.WantWithdrawalActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".settings.myAccount.activity.MyAlipayActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".settings.myWallet.activity.IncomeDetailActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".settings.myStore.activity.MyStoreActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".settings.myAccount.activity.AlipayPasswordActvity"
+            android:screenOrientation="portrait"
+            android:theme="@style/MyDialogStyle"/>
+        <activity
+            android:name=".consult.advice.activity.DiagnosticEditActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity
+            android:name=".consult.advice.activity.DiagnosticShowActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity
+            android:name=".consult.advice.activity.ConsultDetailActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity
+            android:name=".consult.advice.activity.ConsultPatientDetailActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity
+            android:name=".consult.videoConsult.activity.VideoConsultActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".consult.phoneConsult.activity.PhoneConsultActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".consult.phoneConsult.activity.PhoneConsultSettingActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".consult.phoneConsult.activity.PhoneConsultTimeActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".helpUtils.doctorAdvice.activity.HospitalPatientListActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".helpUtils.doctorAdvice.activity.HospitalPatientDetailActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".helpUtils.doctorAdvice.activity.AddDoctorAdviceActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".helpUtils.electronicRecords.activity.ElectricRecordActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".helpUtils.doctorAdvice.activity.LongAdviceDrugActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".helpUtils.doctorAdvice.activity.LongAdviceCheckActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".settings.mySetting.activity.ResetPasswordActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".settings.mySetting.activity.VersionUpdateActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".settings.mySetting.activity.AboutUsActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".settings.myOnlineManager.activity.OnlineManagerActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".chartFile.activity.NewCaseShowActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".consult.videoConsult.activity.VideoSettingActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity
+            android:name=".consult.openConsult.activity.OpenViedoActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity
+            android:name=".settings.myOnlineManager.activity.SetTextConsultActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity
+            android:name=".settings.myOnlineManager.activity.SetVideoConsultActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity
+            android:name=".settings.myOnlineManager.activity.SetPhoneConsultActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity
+            android:name=".settings.myOnlineManager.activity.SetAddConsultActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity
+            android:name=".helpUtils.freeClinic.activity.FreeClinicActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".helpUtils.freeConsult.activity.FreeConsultDetailActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".helpUtils.freeClinic.activity.FreeClinicPublishActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".helpUtils.freeClinic.activity.FreeVideoActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.netease.nim.session.activity.MessageHistoryActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.netease.nim.session.activity.TeamMessageActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize"/>
+        <activity
+            android:name=".settings.myOnlineManager.activity.VideoTimeSettingActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.netease.nim.common.media.picker.activity.PickImageActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.netease.nim.common.media.picker.activity.PreviewImageFromCameraActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.netease.nim.common.media.picker.activity.PreviewImageFromLocalActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.netease.nim.common.media.picker.activity.PickerAlbumPreviewActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.netease.nim.common.media.picker.activity.PickerAlbumActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.netease.nim.session.activity.WatchMessagePictureActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".chartFile.activity.AttentionPatientActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".commUtils.patientReport.activity.ReportNoteActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".helpUtils.freeConsult.activity.FreeConsultActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".chartFile.activity.ChartFileActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".consult.textConsult.activity.SearchTextActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity
+            android:name=".chartFile.activity.SearchChartFileActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity
+            android:name=".commUtils.caseDiscuss.activity.SearchDiscussCaseActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity
+            android:name=".consult.phoneConsult.activity.SearchPhoneActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity
+            android:name=".consult.videoConsult.activity.SearchVideoActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity
+            android:name=".commUtils.internetConsult.activity.SearchInternetConsultActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity
+            android:name=".commUtils.patientReport.activity.SearchPatientReportActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity
+            android:name=".chartFile.activity.AddNewCaseActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".contact.activity.SearchFriendActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".helpUtils.massNotice.activity.AlreadySendNoticeActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".settings.myStateMessage.activity.MessageDetailActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".main.activity.CertificationActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".loginRegister.activity.ForgetPasswordActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".helpUtils.stopDiagnoseNotice.activity.AlreadyStopDiagnoseActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".loginRegister.activity.GuideActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".loginRegister.activity.FirstActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
 
-        <!-- *********************网易云信    start**************************************** -->
-        <!--
-             APP key, 可以在这里设置，也可以在 SDKOptions 中提供。
-            如果 SDKOptions 中提供了，取 SDKOptions 中的值。
-        -->
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".helpUtils.electronicRecords.activity.ElecPatientDetailActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".commUtils.toolbox.activity.SearchMedicineActivity"
+            android:screenOrientation="portrait"/>
+
+        <!-- ************************************ 友盟  start********************************************* -->
+        <activity
+            android:name="com.umeng.socialize.editorpage.ShareActivity"
+            android:excludeFromRecents="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.UMDefault"/>
+        <activity
+            android:name="com.tencent.tauth.AuthActivity"
+            android:launchMode="singleTask"
+            android:noHistory="true"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+
+                <data android:scheme="tencent1105421058"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.tencent.connect.common.AssistActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="577c5b6fe0f55a0e4700301d"/>
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="${UMENG_CHANNEL_VALUE}"/>
+        <meta-data
+            android:name="UMENG_MESSAGE_SECRET"
+            android:value="82984831c87110b21a35586690530ace"/>
+        <!-- ************************************ 友盟   end******************************************* -->
+
+
+        <!-- ***********************************网易云信    start**************************************** -->
         <meta-data
             android:name="com.netease.nim.appKey"
             android:value="38d14c2a5f20cd1a9c681a32a738fe00"/>
@@ -322,336 +590,9 @@
             </intent-filter>
         </receiver>
 
-        <!-- *********************网易云信    end**************************************** -->
-        <activity
-            android:name=".settings.myStateMessage.activity.StateMessageActivity"
-            android:screenOrientation="portrait">
-        </activity>
-        <activity
-            android:name=".helpUtils.massNotice.activity.MassNoticeActivity"
-            android:configChanges="orientation|keyboardHidden"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustResize">
-        </activity>
-        <activity
-            android:name=".helpUtils.massNotice.activity.MassChooseContactActivity"
-            android:screenOrientation="portrait">
-        </activity>
-        <activity
-            android:name=".helpUtils.doctorAsist.activity.DoctorAssistActivity"
-            android:screenOrientation="portrait">
-        </activity>
-        <activity
-            android:name=".helpUtils.doctorAsist.activity.LeaveWordActivity"
-            android:screenOrientation="portrait">
-        </activity>
-        <activity
-            android:name=".contact.activity.ContactActivity"
-            android:screenOrientation="portrait">
-        </activity>
-        <activity
-            android:name=".settings.mySetting.activity.SettingActivity"
-            android:screenOrientation="portrait">
-        </activity>
-        <activity
-            android:name=".settings.myWallet.activity.MonthIncomeDetailActivity"
-            android:screenOrientation="portrait">
-        </activity>
-        <activity
-            android:name=".settings.myAccount.activity.AccountManageActivity"
-            android:screenOrientation="portrait">
-        </activity>
-        <activity
-            android:name=".settings.myWallet.activity.MyWalletActivity"
-            android:screenOrientation="portrait">
-        </activity>
-        <activity
-            android:name=".settings.myAccount.activity.WithdrawalActivity"
-            android:screenOrientation="portrait">
-        </activity>
-        <activity
-            android:name=".settings.myAccount.activity.AlipayBindActivity"
-            android:screenOrientation="portrait">
-        </activity>
-        <activity
-            android:name=".settings.myWallet.activity.WantWithdrawalActivity"
-            android:screenOrientation="portrait">
-        </activity>
-        <activity
-            android:name=".settings.myAccount.activity.MyAlipayActivity"
-            android:screenOrientation="portrait">
-        </activity>
-        <activity
-            android:name=".settings.myWallet.activity.IncomeDetailActivity"
-            android:screenOrientation="portrait">
-        </activity>
-        <activity
-            android:name=".settings.myStore.activity.MyStoreActivity"
-            android:screenOrientation="portrait">
-        </activity>
-        <activity
-            android:name=".settings.myAccount.activity.AlipayPasswordActvity"
-            android:screenOrientation="portrait"
-            android:theme="@style/MyDialogStyle">
-        </activity>
-        <activity
-            android:name=".consult.advice.activity.DiagnosticEditActivity"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustResize">
-        </activity>
-        <activity
-            android:name=".consult.advice.activity.DiagnosticShowActivity"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustResize">
-        </activity>
-        <activity
-            android:name=".consult.advice.activity.ConsultDetailActivity"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustResize">
-        </activity>
-        <activity
-            android:name=".consult.advice.activity.ConsultPatientDetailActivity"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustResize">
-        </activity>
-        <activity
-            android:name=".consult.videoConsult.activity.VideoConsultActivity"
-            android:screenOrientation="portrait">
-        </activity>
-        <activity
-            android:name=".consult.phoneConsult.activity.PhoneConsultActivity"
-            android:screenOrientation="portrait">
-        </activity>
-        <activity
-            android:name=".consult.phoneConsult.activity.PhoneConsultSettingActivity"
-            android:screenOrientation="portrait">
-        </activity>
-        <activity
-            android:name=".consult.phoneConsult.activity.PhoneConsultTimeActivity"
-            android:screenOrientation="portrait">
-        </activity>
-        <activity
-            android:name=".helpUtils.doctorAdvice.activity.HospitalPatientListActivity"
-            android:screenOrientation="portrait">
-        </activity>
-        <activity
-            android:name=".helpUtils.doctorAdvice.activity.HospitalPatientDetailActivity"
-            android:screenOrientation="portrait">
-        </activity>
-        <activity
-            android:name=".helpUtils.doctorAdvice.activity.AddDoctorAdviceActivity"
-            android:screenOrientation="portrait">
-        </activity>
-        <activity
-            android:name=".helpUtils.electronicRecords.activity.ElectricRecordActivity"
-            android:screenOrientation="portrait">
-        </activity>
-        <activity
-            android:name=".helpUtils.doctorAdvice.activity.LongAdviceDrugActivity"
-            android:screenOrientation="portrait">
-        </activity>
-        <activity
-            android:name=".helpUtils.doctorAdvice.activity.LongAdviceCheckActivity"
-            android:screenOrientation="portrait">
-        </activity>
-        <activity
-            android:name=".settings.mySetting.activity.ResetPasswordActivity"
-            android:screenOrientation="portrait">
-        </activity>
-        <activity
-            android:name=".settings.mySetting.activity.VersionUpdateActivity"
-            android:screenOrientation="portrait">
-        </activity>
-        <activity
-            android:name=".settings.mySetting.activity.AboutUsActivity"
-            android:screenOrientation="portrait">
-        </activity>
-        <activity
-            android:name=".settings.myOnlineManager.activity.OnlineManagerActivity"
-            android:screenOrientation="portrait">
-        </activity>
-        <activity
-            android:name=".chartFile.activity.NewCaseShowActivity"
-            android:screenOrientation="portrait">
-        </activity>
-        <activity
-            android:name=".consult.videoConsult.activity.VideoSettingActivity"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustResize">
-        </activity>
-        <activity
-            android:name=".consult.openConsult.activity.OpenViedoActivity"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustResize">
-        </activity>
-        <activity
-            android:name=".settings.myOnlineManager.activity.SetTextConsultActivity"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustResize">
-        </activity>
-        <activity
-            android:name=".settings.myOnlineManager.activity.SetVideoConsultActivity"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustResize">
-        </activity>
-        <activity
-            android:name=".settings.myOnlineManager.activity.SetPhoneConsultActivity"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustResize">
-        </activity>
-        <activity
-            android:name=".settings.myOnlineManager.activity.SetAddConsultActivity"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustResize">
-        </activity>
-        <activity
-            android:name=".helpUtils.freeClinic.activity.FreeClinicActivity"
-            android:screenOrientation="portrait">
-        </activity>
-        <activity
-            android:name=".helpUtils.freeConsult.activity.FreeConsultDetailActivity"
-            android:screenOrientation="portrait">
-        </activity>
-        <activity
-            android:name=".helpUtils.freeClinic.activity.FreeClinicPublishActivity"
-            android:screenOrientation="portrait">
-        </activity>
-        <activity
-            android:name=".helpUtils.freeClinic.activity.FreeVideoActivity"
-            android:screenOrientation="portrait"/>
-        <activity
-            android:name="com.netease.nim.session.activity.MessageHistoryActivity"
-            android:screenOrientation="portrait"/>
-        <activity
-            android:name="com.netease.nim.session.activity.TeamMessageActivity"
-            android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden|adjustResize">
-        </activity>
-        <activity
-            android:name=".settings.myOnlineManager.activity.VideoTimeSettingActivity"
-            android:screenOrientation="portrait">
-        </activity>
-        <activity
-            android:name="com.netease.nim.common.media.picker.activity.PickImageActivity"
-            android:screenOrientation="portrait"/>
-        <activity
-            android:name="com.netease.nim.common.media.picker.activity.PreviewImageFromCameraActivity"
-            android:screenOrientation="portrait"/>
-        <activity
-            android:name="com.netease.nim.common.media.picker.activity.PreviewImageFromLocalActivity"
-            android:screenOrientation="portrait"/>
-        <activity
-            android:name="com.netease.nim.common.media.picker.activity.PickerAlbumPreviewActivity"
-            android:screenOrientation="portrait"/>
-        <activity
-            android:name="com.netease.nim.common.media.picker.activity.PickerAlbumActivity"
-            android:screenOrientation="portrait"/>
-        <activity
-            android:name="com.netease.nim.session.activity.WatchMessagePictureActivity"
-            android:screenOrientation="portrait"/>
+        <!-- *************************************网易云信    end******************************************** -->
 
-        <!-- 友盟的activity  start -->
-        <activity
-            android:name="com.umeng.socialize.editorpage.ShareActivity"
-            android:excludeFromRecents="true"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.UMDefault"/>
-        <activity
-            android:name="com.tencent.tauth.AuthActivity"
-            android:launchMode="singleTask"
-            android:noHistory="true"
-            android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW"/>
-
-                <category android:name="android.intent.category.DEFAULT"/>
-                <category android:name="android.intent.category.BROWSABLE"/>
-
-                <data android:scheme="tencent1105421058"/>
-            </intent-filter>
-        </activity>
-        <activity
-            android:name="com.tencent.connect.common.AssistActivity"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
-
-        <!-- 友盟事件集成 -->
-        <meta-data
-            android:name="UMENG_APPKEY"
-            android:value="577c5b6fe0f55a0e4700301d"/>
-        <meta-data
-            android:name="UMENG_CHANNEL"
-            android:value="${UMENG_CHANNEL_VALUE}"/>
-
-        <meta-data
-            android:name="UMENG_MESSAGE_SECRET"
-            android:value="82984831c87110b21a35586690530ace"/>
-
-        <!-- 友盟的activity  end -->
-
-        <activity android:name=".chartFile.activity.AttentionPatientActivity">
-        </activity>
-        <activity android:name=".commUtils.patientReport.activity.ReportNoteActivity">
-        </activity>
-        <activity android:name=".helpUtils.freeConsult.activity.FreeConsultActivity">
-        </activity>
-        <activity android:name=".chartFile.activity.ChartFileActivity">
-        </activity>
-        <activity
-            android:name=".consult.textConsult.activity.SearchTextActivity"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
-        <activity
-            android:name=".chartFile.activity.SearchChartFileActivity"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
-        <activity
-            android:name=".commUtils.caseDiscuss.activity.SearchDiscussCaseActivity"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
-        <activity
-            android:name=".consult.phoneConsult.activity.SearchPhoneActivity"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
-        <activity
-            android:name=".consult.videoConsult.activity.SearchVideoActivity"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
-        <activity
-            android:name=".commUtils.internetConsult.activity.SearchInternetConsultActivity"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
-        <activity
-            android:name=".commUtils.patientReport.activity.SearchPatientReportActivity"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
-        <activity android:name=".chartFile.activity.AddNewCaseActivity">
-        </activity>
-        <activity android:name=".contact.activity.SearchFriendActivity">
-        </activity>
-        <activity android:name=".helpUtils.massNotice.activity.AlreadySendNoticeActivity">
-        </activity>
-        <activity android:name=".settings.myStateMessage.activity.MessageDetailActivity">
-        </activity>
-        <activity android:name=".main.activity.CertificationActivity">
-        </activity>
-        <activity android:name=".loginRegister.activity.ForgetPasswordActivity">
-        </activity>
-        <activity android:name=".helpUtils.stopDiagnoseNotice.activity.AlreadyStopDiagnoseActivity">
-        </activity>
-        <activity android:name=".loginRegister.activity.GuideActivity">
-        </activity>
-        <activity android:name=".loginRegister.activity.FirstActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
-        </activity>
-        <activity android:name=".helpUtils.electronicRecords.activity.ElecPatientDetailActivity">
-        </activity>
-        <activity android:name=".commUtils.toolbox.activity.SearchMedicineActivity">
+        <activity android:name=".settings.mySetting.activity.ShareAppActivity">
         </activity>
     </application>
 
