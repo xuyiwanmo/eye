@@ -1,5 +1,6 @@
 package com.sg.eyedoctor.commUtils.academic.activity;
 
+import android.os.Build;
 import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -188,5 +189,12 @@ public class AcademicWebActivity extends BaseActivity {
             BaseManager.isCollection(mId, mJudgeStoreCallback);
         }
 
+    }
+
+    protected void onPause() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+            mAcademicWv.onPause(); // 暂停网页中正在播放的视频
+        }
+        super.onPause();
     }
 }

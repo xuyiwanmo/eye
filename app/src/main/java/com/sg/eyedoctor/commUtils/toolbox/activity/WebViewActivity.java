@@ -1,11 +1,12 @@
 package com.sg.eyedoctor.commUtils.toolbox.activity;
 
+import android.os.Build;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 
+import com.sg.eyedoctor.ConstantValues;
 import com.sg.eyedoctor.R;
 import com.sg.eyedoctor.common.activity.BaseActivity;
-import com.sg.eyedoctor.ConstantValues;
 import com.sg.eyedoctor.common.view.MyActionbar;
 
 import org.xutils.view.annotation.ContentView;
@@ -46,6 +47,14 @@ public class WebViewActivity extends BaseActivity {
     @Override
     protected void initActionbar() {
         mActionbar.setTitle(mTitle);
+    }
+
+
+    protected void onPause() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+            mWebView.onPause(); // 暂停网页中正在播放的视频
+        }
+        super.onPause();
     }
 
 }
